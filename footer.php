@@ -82,21 +82,6 @@
 	<!-- END WRAPPER -->
 
 	
-	<!-- Libs -->
-	<script src="<?php echo get_stylesheet_directory_uri(); ?>/js/common.js"></script>
-	<script src="<?php echo get_stylesheet_directory_uri(); ?>/js/jquery.prettyPhoto.js"></script>
-    <script src="<?php echo get_stylesheet_directory_uri(); ?>/js/owl.carousel.min.js"></script>
-	<script src="<?php echo get_stylesheet_directory_uri(); ?>/js/chosen.jquery.min.js"></script>
-	<script src="http://maps.google.com/maps/api/js?sensor=false" type="text/javascript"></script>
-	<script src="<?php echo get_stylesheet_directory_uri(); ?>/js/infobox.min.js"></script>
-	
-	<!-- Template Scripts -->
-	<script src="<?php echo get_stylesheet_directory_uri(); ?>/js/variables.js"></script>
-	<script src="<?php echo get_stylesheet_directory_uri(); ?>/js/scripts.js"></script>
-	
-	<!-- Agencies list -->
-	<script src="js/agencies.js"></script>
-	
 	<script type="text/javascript">
 		(function($){
 			"use strict";
