@@ -46,7 +46,104 @@ endif; // cozy_setup
 add_action( 'after_setup_theme', 'cozy_setup' );
 
 // Register Custom Navigation Walker
-require_once('inc/wp_bootstrap_navwalker.php');
+//require_once('inc/wp_bootstrap_navwalker.php');
+
+    class wp_bootstrap_navwalker extends Walker_Nav_Menu
+    {
+        /* Start of the <ul>
+         *
+         * Note on $depth: Counterintuitively, $depth here means the "depth right before we start this menu".
+         *                 So basically add one to what you'd expect it to be
+         */
+        function start_lvl(&$output, $depth)
+        {
+            $tabs = str_repeat("\t", $depth);
+            // If we are about to start the first submenu, we need to give it a dropdown-menu class
+            if ($depth == 0 || $depth == 1) { //really, level-1 or level-2, because $depth is misleading here (see note above)
+                $output .= "\n{$tabs}<ul class=\"dropdown-menu\">\n";
+            } else {
+                $output .= "\n{$tabs}<ul>\n";
+            }
+            return;
+        }
+        /* End of the <ul>
+         *
+         * Note on $depth: Counterintuitively, $depth here means the "depth right before we start this menu".
+         *                 So basically add one to what you'd expect it to be
+         */
+        function end_lvl(&$output, $depth)
+        {
+            if ($depth == 0) { // This is actually the end of the level-1 submenu ($depth is misleading here too!)
+                // we don't have anything special for Bootstrap, so we'll just leave an HTML comment for now
+                $output .= '<!--.dropdown-->';
+            }
+            $tabs = str_repeat("\t", $depth);
+            $output .= "\n{$tabs}</ul>\n";
+            return;
+        }
+        /* Output the <li> and the containing <a>
+         * Note: $depth is "correct" at this level
+         */
+        function start_el(&$output, $item, $depth, $args)
+        {
+            global $wp_query;
+            $indent = ( $depth ) ? str_repeat( "\t", $depth ) : '';
+            $class_names = $value = '';
+            $classes = empty( $item->classes ) ? array() : (array) $item->classes;
+            /* If this item has a dropdown menu, add the 'dropdown' class for Bootstrap */
+            if ($item->hasChildren) {
+                $classes[] = 'dropdown';
+                // level-1 menus also need the 'dropdown-submenu' class
+                if($depth == 1) {
+                    $classes[] = 'dropdown-submenu';
+                }
+            }
+            /* This is the stock Wordpress code that builds the <li> with all of its attributes */
+            $class_names = join( ' ', apply_filters( 'nav_menu_css_class', array_filter( $classes ), $item ) );
+            $class_names = ' class="' . esc_attr( $class_names ) . '"';
+            $output .= $indent . '<li id="menu-item-'. $item->ID . '"' . $value . $class_names .'>';
+            $attributes  = ! empty( $item->attr_title ) ? ' title="'  . esc_attr( $item->attr_title ) .'"' : '';
+            $attributes .= ! empty( $item->target )  ? ' target="' . esc_attr( $item->target     ) .'"' : '';
+            $attributes .= ! empty( $item->xfn )        ? ' rel="'  . esc_attr( $item->xfn      ) .'"' : '';
+            $attributes .= ! empty( $item->url )        ? ' href="'   . esc_attr( $item->url        ) .'"' : '';
+            $item_output = $args->before;
+            /* If this item has a dropdown menu, make clicking on this link toggle it */
+            if ($item->hasChildren && $depth == 0) {
+                $item_output .= '<a'. $attributes .' class="dropdown-toggle" data-toggle="dropdown">';
+            } else {
+                $item_output .= '<a'. $attributes .'>';
+            }
+            $item_output .= $args->link_before . apply_filters( 'the_title', $item->title, $item->ID ) . $args->link_after;
+            /* Output the actual caret for the user to click on to toggle the menu */
+            if ($item->hasChildren && $depth == 0) {
+                $item_output .= '<b class="caret"></b></a>';
+            } else {
+                $item_output .= '</a>';
+            }
+            $item_output .= $args->after;
+            $output .= apply_filters( 'walker_nav_menu_start_el', $item_output, $item, $depth, $args );
+            return;
+        }
+        /* Close the <li>
+         * Note: the <a> is already closed
+         * Note 2: $depth is "correct" at this level
+         */
+        function end_el (&$output, $item, $depth, $args)
+        {
+            $output .= '</li>';
+            return;
+        }
+        /* Add a 'hasChildren' property to the item
+         * Code from: http://wordpress.org/support/topic/how-do-i-know-if-a-menu-item-has-children-or-is-a-leaf#post-3139633
+         */
+        function display_element ($element, &$children_elements, $max_depth, $depth = 0, $args, &$output)
+        {
+            // check whether this item has children, and set $item->hasChildren accordingly
+            $element->hasChildren = isset($children_elements[$element->ID]) && !empty($children_elements[$element->ID]);
+            // continue with normal behavior
+            return parent::display_element($element, $children_elements, $max_depth, $depth, $args, $output);
+        }
+    }
 
 /**
  * Register widget area.
@@ -76,7 +173,7 @@ function cozy_scripts() {
     wp_enqueue_style( 'cozy-main-style', get_template_directory_uri() . '/css/style.css' );
     wp_enqueue_style( 'cozy-google-font', 'http://fonts.googleapis.com/css?family=Raleway:300,500,900%7COpen+Sans:400,700,400italic' );
 
-    wp_enqueue_script( 'cozy-modernizr', get_template_directory_uri() . '/js/modernizr-2.8.1.min', array(), '', true );
+    wp_enqueue_script( 'cozy-modernizr', get_template_directory_uri() . '/js/modernizr-2.8.1.min.js', array(), '', true );
     wp_enqueue_script( 'cozy-common', get_template_directory_uri() . '/js/common.js', array(), '', true );
     wp_enqueue_script( 'cozy-prettyphoto', get_template_directory_uri() . '/js/jquery.prettyPhoto.js', array(), '', true );
     wp_enqueue_script( 'cozy-owl-carousel', get_template_directory_uri() . '/js/owl.carousel.min.js', array(), '', true );
@@ -179,19 +276,19 @@ function wt_cozy_cmb()
         )
     );
 
-    // Team Meta box
+    // Agent Meta box
     
         $meta_boxes[] = array(
-        'id' => 'team',
-        'title' => __('team Details (Latest team will be displayed on top)',"wt_cozy"),
-        'pages' => array('team'), // post type
+        'id' => 'agent',
+        'title' => __('agent Details (Latest agent will be displayed on top)',"wt_cozy"),
+        'pages' => array('agent'), // post type
         'context' => 'normal',
         'priority' => 'high',
         'show_names' => true, // Show field names on the left
         'fields' => array(
             array(
-                'name' => __('Team member Image ',"wt_cozy"),
-                'id' => $prefix . 'team_img',
+                'name' => __('Agent member Image ',"wt_cozy"),
+                'id' => $prefix . 'agent_img',
                 'type' => 'file'
             ),
             
@@ -199,31 +296,31 @@ function wt_cozy_cmb()
             
             array(
                 'name' => __('Description',"wt_cozy"),
-                'id' => $prefix . 'team_description',
+                'id' => $prefix . 'agent_description',
                 'type' => 'wysiwyg',
 
             ),
             array(
                 'name' => __('Facebook Link',"wt_cozy"),
-                'id' => $prefix . 'team_facebook_link',
+                'id' => $prefix . 'agent_facebook_link',
                 'type' => 'text',
 
             ),
             array(
                 'name' => __('Twitter Link',"wt_cozy"),
-                'id' => $prefix . 'team_twitter_link',
+                'id' => $prefix . 'agent_twitter_link',
                 'type' => 'text',
 
             ),
             array(
                 'name' => __('Linkedin Link',"wt_cozy"),
-                'id' => $prefix . 'team_linkedin_link',
+                'id' => $prefix . 'agent_linkedin_link',
                 'type' => 'text',
 
             ),
             array(
                 'name' => __('Dribbble Link',"wt_cozy"),
-                'id' => $prefix . 'team_dribbble_link',
+                'id' => $prefix . 'agent_dribbble_link',
                 'type' => 'text',
 
             ),
@@ -355,23 +452,23 @@ function wt_cozy_fields()
 
     // Team section
     $labels1 = array(
-        'name' => _x('team', 'Post Type General Name', 'wt_cozy'),
-        'singular_name' => _x('team', 'Post Type Singular Name', 'wt_cozy'),
-        'menu_name' => __('Team', 'wt_cozy'),
-        'parent_item_colon' => __('Parent team:', 'wt_cozy'),
-        'all_items' => __('All team', 'wt_cozy'),
-        'view_item' => __('View team', 'wt_cozy'),
-        'add_new_item' => __('Add New team', 'wt_cozy'),
-        'add_new' => __('New team member', 'wt_cozy'),
-        'edit_item' => __('Edit team', 'wt_cozy'),
-        'update_item' => __('Update team', 'wt_cozy'),
-        'search_items' => __('Search team', 'wt_cozy'),
-        'not_found' => __('No team found', 'wt_cozy'),
-        'not_found_in_trash' => __('No team found in Trash', 'wt_cozy'),
+        'name' => _x('agent', 'Post Type General Name', 'wt_cozy'),
+        'singular_name' => _x('agent', 'Post Type Singular Name', 'wt_cozy'),
+        'menu_name' => __('Agent', 'wt_cozy'),
+        'parent_item_colon' => __('Parent agent:', 'wt_cozy'),
+        'all_items' => __('All agent', 'wt_cozy'),
+        'view_item' => __('View agent', 'wt_cozy'),
+        'add_new_item' => __('Add New agent', 'wt_cozy'),
+        'add_new' => __('New agent member', 'wt_cozy'),
+        'edit_item' => __('Edit agent', 'wt_cozy'),
+        'update_item' => __('Update agent', 'wt_cozy'),
+        'search_items' => __('Search agent', 'wt_cozy'),
+        'not_found' => __('No agent found', 'wt_cozy'),
+        'not_found_in_trash' => __('No agent found in Trash', 'wt_cozy'),
     );
     $args1 = array(
-        'label' => __('team', 'wt_cozy'),
-        'description' => __('team', 'wt_cozy'),
+        'label' => __('agent', 'wt_cozy'),
+        'description' => __('agent', 'wt_cozy'),
         'labels' => $labels1,
         'supports' => array('title'),
         'hierarchical' => false,
@@ -381,14 +478,14 @@ function wt_cozy_fields()
         'show_in_nav_menus' => true,
         'show_in_admin_bar' => true,
         'menu_position' => 5,
-        'menu_icon' => get_template_directory_uri() . '/images/menu-icon/team.png',
+        'menu_icon' => get_template_directory_uri() . '/images/menu-icon/agent.png',
         'can_export' => true,
         'has_archive' => true,
         'exclude_from_search' => false,
         'publicly_queryable' => true,
         'capability_type' => 'page',
     );
-    register_post_type('team', $args1);
+    register_post_type('agent', $args1);
 
 
     // Portfolio Custom Field

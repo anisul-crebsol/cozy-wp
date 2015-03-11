@@ -12,37 +12,37 @@
 	<?php endif; // End header image check. ?>
 
  *
- * @package switch
+ * @package cozy
  */
 
 /**
  * Set up the WordPress core custom header feature.
  *
- * @uses switch_header_style()
- * @uses switch_admin_header_style()
- * @uses switch_admin_header_image()
+ * @uses cozy_header_style()
+ * @uses cozy_admin_header_style()
+ * @uses cozy_admin_header_image()
  */
-function switch_custom_header_setup() {
-	add_theme_support( 'custom-header', apply_filters( 'switch_custom_header_args', array(
+function cozy_custom_header_setup() {
+	add_theme_support( 'custom-header', apply_filters( 'cozy_custom_header_args', array(
 		'default-image'          => '',
 		'default-text-color'     => '000000',
 		'width'                  => 1000,
 		'height'                 => 250,
 		'flex-height'            => true,
-		'wp-head-callback'       => 'switch_header_style',
-		'admin-head-callback'    => 'switch_admin_header_style',
-		'admin-preview-callback' => 'switch_admin_header_image',
+		'wp-head-callback'       => 'cozy_header_style',
+		'admin-head-callback'    => 'cozy_admin_header_style',
+		'admin-preview-callback' => 'cozy_admin_header_image',
 	) ) );
 }
-add_action( 'after_setup_theme', 'switch_custom_header_setup' );
+add_action( 'after_setup_theme', 'cozy_custom_header_setup' );
 
-if ( ! function_exists( 'switch_header_style' ) ) :
+if ( ! function_exists( 'cozy_header_style' ) ) :
 /**
  * Styles the header image and text displayed on the blog
  *
- * @see switch_custom_header_setup().
+ * @see cozy_custom_header_setup().
  */
-function switch_header_style() {
+function cozy_header_style() {
 	$header_text_color = get_header_textcolor();
 
 	// If no custom options for text are set, let's bail
@@ -75,15 +75,15 @@ function switch_header_style() {
 	</style>
 	<?php
 }
-endif; // switch_header_style
+endif; // cozy_header_style
 
-if ( ! function_exists( 'switch_admin_header_style' ) ) :
+if ( ! function_exists( 'cozy_admin_header_style' ) ) :
 /**
  * Styles the header image displayed on the Appearance > Header admin panel.
  *
- * @see switch_custom_header_setup().
+ * @see cozy_custom_header_setup().
  */
-function switch_admin_header_style() {
+function cozy_admin_header_style() {
 ?>
 	<style type="text/css">
 		.appearance_page_custom-header #headimg {
@@ -103,15 +103,15 @@ function switch_admin_header_style() {
 	</style>
 <?php
 }
-endif; // switch_admin_header_style
+endif; // cozy_admin_header_style
 
-if ( ! function_exists( 'switch_admin_header_image' ) ) :
+if ( ! function_exists( 'cozy_admin_header_image' ) ) :
 /**
  * Custom header image markup displayed on the Appearance > Header admin panel.
  *
- * @see switch_custom_header_setup().
+ * @see cozy_custom_header_setup().
  */
-function switch_admin_header_image() {
+function cozy_admin_header_image() {
 	$style = sprintf( ' style="color:#%s;"', get_header_textcolor() );
 ?>
 	<div id="headimg">
@@ -123,4 +123,4 @@ function switch_admin_header_image() {
 	</div>
 <?php
 }
-endif; // switch_admin_header_image
+endif; // cozy_admin_header_image

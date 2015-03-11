@@ -39,12 +39,12 @@ global $wt_cozy;
 				<div class="container">
 					<div class="row">
 						<div class="col-sm-12">
-							<a href="index.html" class="nav-logo"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/logo.png" alt="Cozy Logo" /></a>
+							<a href="index.html" class="nav-logo"><img src="<?php echo $wt_cozy['cozy_logo']['url']?>" alt="Cozy Logo" /></a>
 							
 							<!-- BEGIN SEARCH -->
 							<div id="sb-search" class="sb-search">
-								<form>
-									<input class="sb-search-input" placeholder="Search..." type="text" value="" name="search" id="search">
+								<form method="get" action="<?php echo home_url('/'); ?>">
+									<input class="sb-search-input" placeholder="Search..." type="text" value="" name="s" id="search">
 									<input class="sb-search-submit" type="submit" value="">
 									<i class="fa fa-search sb-icon-search"></i>
 								</form>
@@ -52,7 +52,7 @@ global $wt_cozy;
 							<!-- END SEARCH -->
 							
 							<!-- BEGIN MAIN MENU -->
-							<nav class="navbar">
+ 							<!--<nav class="navbar">
 								<button id="nav-mobile-btn"><i class="fa fa-bars"></i></button>
 								
 								<ul class="nav navbar-nav">
@@ -119,7 +119,21 @@ global $wt_cozy;
 									<li><a href="contacts.html">Contacts</a></li>
 								</ul>
 								
-							</nav>
+							</nav> -->
+							        <?php
+							            wp_nav_menu( array(
+							                'menu'              => 'primary',
+							                'theme_location'    => 'primary',
+							                'depth'             => 2,
+							                'container'         => 'nav',
+							                'container_class'   => 'navbar',
+							                'container_id'      => '',
+							                'menu_class'        => 'nav navbar-nav',
+							                'fallback_cb'       => 'wp_bootstrap_navwalker::fallback',
+							                'walker'            => new wp_bootstrap_navwalker()
+							                )
+							            );
+							        ?>
 							<!-- END MAIN MENU -->
 							
 						</div>

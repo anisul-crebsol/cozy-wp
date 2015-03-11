@@ -1,8 +1,8 @@
 <?php
 /**
- * switch Theme Customizer
+ * Cozy Theme Customizer
  *
- * @package switch
+ * @package cozy
  */
 
 /**
@@ -10,17 +10,17 @@
  *
  * @param WP_Customize_Manager $wp_customize Theme Customizer object.
  */
-function switch_customize_register( $wp_customize ) {
+function cozy_customize_register( $wp_customize ) {
 	$wp_customize->get_setting( 'blogname' )->transport         = 'postMessage';
 	$wp_customize->get_setting( 'blogdescription' )->transport  = 'postMessage';
 	$wp_customize->get_setting( 'header_textcolor' )->transport = 'postMessage';
 }
-add_action( 'customize_register', 'switch_customize_register' );
+add_action( 'customize_register', 'cozy_customize_register' );
 
 /**
  * Binds JS handlers to make Theme Customizer preview reload changes asynchronously.
  */
-function switch_customize_preview_js() {
-	wp_enqueue_script( 'switch_customizer', get_template_directory_uri() . '/js/customizer.js', array( 'customize-preview' ), '20130508', true );
+function cozy_customize_preview_js() {
+	wp_enqueue_script( 'cozy_customizer', get_template_directory_uri() . '/js/customizer.js', array( 'customize-preview' ), '20130508', true );
 }
-add_action( 'customize_preview_init', 'switch_customize_preview_js' );
+add_action( 'customize_preview_init', 'cozy_customize_preview_js' );

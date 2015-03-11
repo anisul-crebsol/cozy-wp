@@ -571,10 +571,10 @@
 
 
 
-                // Team Section
+                // Agents Section
 
                 $this->sections[] = array(
-                    'title'  => __( 'Team', 'redux-framework-demo' ),
+                    'title'  => __( 'Agent', 'redux-framework-demo' ),
                     'desc'   => __( '', 'redux-framework-demo' ),
                     'icon'   => 'el-icon-user',
                     // 'submenu' => false, // Setting submenu to false on a given section will hide it from the WordPress sidebar menu!
@@ -582,36 +582,36 @@
 
 
                         array(
-                            'id' => 'section_team_info',
+                            'id' => 'section_agent_info',
                             'type' => 'info',
-                            'title' => __('Create a new Team Member from <a href="' . site_url() . '/wp-admin/post-new.php?post_type=team">here</a> ', 'redux-framework-demo'),
+                            'title' => __('Create a new Agent Member from <a href="' . site_url() . '/wp-admin/post-new.php?post_type=agent">here</a> ', 'redux-framework-demo'),
                             'style' => 'warning'
                         ),
 
 
 
                         array(
-                            'id' => 'section_team_display',
+                            'id' => 'section_agent_display',
                             'type' => 'cozy',
                             'title' => __('Display Section', 'redux-framework-demo'),
                             'default' => "1",
                         ),
                         
                         array(
-                            'id' => 'section_team_display_menu',
+                            'id' => 'section_agent_display_menu',
                             'type' => 'text',
                             'title' => __('Display In Menubar', 'redux-framework-demo'),
-                            'default' => "Our Team",
+                            'default' => "Our Agent",
                         ),
 
                         array(
-                            'id' => "section_team_title",
+                            'id' => "section_agent_title",
                             'type' => 'text',
                             'title' => __('Section Title', 'redux-framework-demo'),
-                            'default' => "Our Team",
+                            'default' => "Our Agent",
                         ),
                         array(
-                            'id' => "section_team_subtitle",
+                            'id' => "section_agent_subtitle",
                             'type' => 'textarea',
                             'title' => __('Section Subtitle', 'redux-framework-demo'),
                             'default' => "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci facilis nemo quae, alias, aspernatur placeat.",
@@ -620,7 +620,7 @@
 
 
                       array(
-                            'id' => 'section_team_number',
+                            'id' => 'section_agent_number',
                             'type' => 'text',
                             'title' => __('How many posts to display?', 'redux-framework-demo'),
                             'default' =>3 ,
@@ -675,7 +675,7 @@
                         ),
 
                       array(
-                            'id' => 'section_team_field',
+                            'id' => 'section_agent_field',
                             'type' => 'text',
                             'title' => __('How many posts to display?', 'redux-framework-demo'),
                             'default' => "12",
