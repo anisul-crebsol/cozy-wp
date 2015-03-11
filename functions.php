@@ -45,6 +45,9 @@ function cozy_setup() {
 endif; // cozy_setup
 add_action( 'after_setup_theme', 'cozy_setup' );
 
+// Register Custom Navigation Walker
+require_once('inc/wp_bootstrap_navwalker.php');
+
 /**
  * Register widget area.
  *

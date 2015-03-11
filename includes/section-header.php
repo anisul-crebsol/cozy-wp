@@ -1,16 +1,22 @@
+<?php
+/**
+ * @package cozy
+ */
+global $wt_cozy;
+?>
 		<header id="header">
 			<div id="top-bar">
 				<div class="container">
 					<div class="row">
 						<div class="col-sm-12">
 							<ul id="top-info">
-								<li>Phone: 800-123-4567</li>
-								<li>Email: <a href="mailto:hello@yourcompany.com">hello@yourcompany.com</a></li>
+								<li>Phone: <?php echo $wt_cozy['section_contact_phone']?></li>
+								<li>Email: <a href="mailto:<?php echo $wt_cozy['section_contact_email']?>"><?php echo $wt_cozy['section_contact_email']?></a></li>                              
 							</ul>
 							
 							<ul id="top-buttons">
-								<li><a href="#"><i class="fa fa-sign-in"></i> Login</a></li>
-								<li><a href="#"><i class="fa fa-pencil-square-o"></i> Register</a></li>
+								<li><a href="<?php echo wp_login_url( get_permalink() ); ?>"><i class="fa fa-sign-in"></i> Login</a></li>
+								<li><a href="<?php echo wp_registration_url(); ?>"><i class="fa fa-pencil-square-o"></i> Register</a></li>
 								<li class="divider"></li>
 								<li>
 									<div class="language-switcher">

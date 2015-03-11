@@ -724,14 +724,14 @@
                             'id' => "section_contact_email",
                             'type' => 'text',
                             'title' => __('Contact Email', 'redux-framework-demo'),
-                            'default' => "mail@support.com",
+                            'default' => "Email: mail@support.com",
                         ),
 
                         array(
                             'id' => "section_contact_phone",
                             'type' => 'text',
                             'title' => __('Contact Number', 'redux-framework-demo'),
-                            'default' => "+88 01712 951 ***",
+                            'default' => "Phone: +88 01712 951 ***",
                         ),
 
                         array(
