@@ -1,16 +1,11 @@
-<?php
-/**
- * @package cozy
- */
-global $wt_cozy;
-?>
+<?php global $wt_cozy; ?>
 		<header id="header">
 			<div id="top-bar">
 				<div class="container">
 					<div class="row">
 						<div class="col-sm-12">
 							<ul id="top-info">
-								<li>Phone: <?php echo $wt_cozy['section_contact_phone']?></li>
+								<li><?php echo $wt_cozy['section_contact_phone']?></li>
 								<li>Email: <a href="mailto:<?php echo $wt_cozy['section_contact_email']?>"><?php echo $wt_cozy['section_contact_email']?></a></li>                              
 							</ul>
 							
@@ -39,7 +34,7 @@ global $wt_cozy;
 				<div class="container">
 					<div class="row">
 						<div class="col-sm-12">
-							<a href="index.html" class="nav-logo"><img src="<?php echo $wt_cozy['cozy_logo']['url']?>" alt="Cozy Logo" /></a>
+							<a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="nav-logo"><img src="<?php echo $wt_cozy['cozy_logo']['url']?>" alt="Cozy Logo" /></a>
 							
 							<!-- BEGIN SEARCH -->
 							<div id="sb-search" class="sb-search">

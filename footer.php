@@ -1,28 +1,34 @@
+<?php global $wt_cozy; ?>
 		<!-- BEGIN FOOTER -->
 		<footer id="footer">
 			<div id="footer-top" class="container">
 				<div class="row">
 					<div class="block col-sm-3">
-						<a href="index.html"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/logo.png" alt="Cozy Logo" /></a>
+						<a href="<?php echo esc_url( home_url( '/' ) ); ?>"><img src="<?php echo $wt_cozy['cozy_logo']['url']?>" alt="Cozy Logo" /></a>
 						<br><br>
-						<p>Cozy is a simple clean and modern HTML template designed for Real Estate business. This template has a lot of useful features and it's highly customizable so you can turn it into your own awesome website.</p>
+						<p><?php echo $wt_cozy['cozy_description']?></p>
 					</div>
 					<div class="block col-sm-3">
-						<h3>Contact Info</h3>
+						<h3><?php echo $wt_cozy['section_contact_title']?></h3>
 						<ul class="footer-contacts">
 							<li><i class="fa fa-map-marker"></i> 24th Street, New York, USA</li>
-							<li><i class="fa fa-phone"></i> 00351 123 456 789</li>
-							<li><i class="fa fa-envelope"></i> <a href="mailto:email@yourbusiness.com">email@yourbusiness.com</a></li>
+							<li><i class="fa fa-phone"></i> <?php echo $wt_cozy['section_contact_phone']?></li>
+							<li><i class="fa fa-envelope"></i><a href="mailto:<?php echo $wt_cozy['section_contact_email']?>"><?php echo $wt_cozy['section_contact_email']?></a></li>
 						</ul>
 					</div>
 					<div class="block col-sm-3">
 						<h3>Helpful Links</h3>
-						<ul class="footer-links">
-							<li><a href="properties-list.html">All Properties Available</a></li>
-							<li><a href="agent-listing.html">Look for an Agent</a></li>
-							<li><a href="agency-listing.html">Look for an Agency</a></li>
-							<li><a href="pricing-tables.html">See our Pricing Tables</a></li>
-						</ul>
+				        <?php
+				            wp_nav_menu( array(
+				                'menu'              => 'secondery',
+				                'theme_location'    => 'secondery',
+				                'depth'             => 0,
+				                'menu_class'        => 'footer-links',
+				                'fallback_cb'       => 'wp_bootstrap_navwalker::fallback',
+				                'walker'            => new wp_bootstrap_navwalker()
+				                )
+				            );
+				        ?>
 					</div>
 					<div class="block col-sm-3">
 						<h3>Latest Listings</h3>
@@ -56,16 +62,16 @@
 				<div class="container">
 					<div class="row">
 						<div class="col-sm-12">
-							&copy; 2014 Cozy - Real Estate template. All rights reserved. Developed by <a href="http://www.wiselythemes.com" target="_blank">WiselyThemes</a>
+							<?php echo $wt_cozy['footer_copyright']?>
 							
 							<!-- BEGIN SOCIAL NETWORKS -->
 							<ul class="social-networks">
-								<li><a href="#"><i class="fa fa-facebook"></i></a></li>
-								<li><a href="#"><i class="fa fa-twitter"></i></a></li>
-								<li><a href="#"><i class="fa fa-google"></i></a></li>
-								<li><a href="#"><i class="fa fa-pinterest"></i></a></li>
-								<li><a href="#"><i class="fa fa-youtube"></i></a></li>
-								<li><a href="#"><i class="fa fa-rss"></i></a></li>
+								<li><a href="<?php echo $wt_cozy['footer_facebook_link']?>"><i class="fa fa-facebook"></i></a></li>
+								<li><a href="<?php echo $wt_cozy['footer_twitter_link']?>"><i class="fa fa-twitter"></i></a></li>
+								<li><a href="<?php echo $wt_cozy['footer_googleplus_link']?>"><i class="fa fa-google"></i></a></li>
+								<li><a href="<?php echo $wt_cozy['footer_pinterest_link']?>"><i class="fa fa-pinterest"></i></a></li>
+								<li><a href="<?php echo $wt_cozy['footer_youtube_link']?>"><i class="fa fa-youtube"></i></a></li>
+								<li><a href="<?php echo $wt_cozy['footer_feed_link']?>"><i class="fa fa-rss"></i></a></li>
 							</ul>
 							<!-- END SOCIAL NETWORKS -->
 						

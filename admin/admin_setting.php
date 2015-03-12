@@ -211,475 +211,13 @@
                             'default'  => array( 'url' => get_stylesheet_directory_uri().'/images/logo/logo.png'),
                         ),
 
-                        
-                    ),
-                );
-
-    
-                // ACTUAL DECLARATION OF SECTIONS
-                $this->sections[] = array(
-                    'title'  => __( 'Slider Option', 'redux-framework-demo' ),
-                    'desc'   => __( '', 'redux-framework-demo' ),
-                    'icon'   => 'el-icon-cogs',
-                    // 'submenu' => false, // Setting submenu to false on a given section will hide it from the WordPress sidebar menu!
-                    'fields' => array(
-
                         array(
-                            'id'       => 'slider1_heading',
-                            'type'     => 'text',
-                            'validate' => '',
-                            'title'    => __( 'Heading', 'redux-framework-demo' ),
-                            'desc'     => __( '' ),
-                            'default'  => 'Lorem ipsum dolor sit amet.',
-                        ),
-
-                        array(
-                            'id'       => 'slider1_description',
-                            'type'     => 'textarea',
-                            'validate' => '',
-                            'title'    => __( 'Description', 'redux-framework-demo' ),
-                            'desc'     => __( '' ),
-                            'default'  => 'Our first step is targeted towards understanding Lorem ipsum dolor sit amet, consectetur.',
-                        ),
-                        
-                        array(
-                            'id'       => 'slider1_bg',
-                            'type'     => 'media',
-                            'url'      => true,
-                            'title'    => __( 'background', 'redux-framework-demo' ),
-                            'compiler' => 'true',
-                            'desc'     => __( 'Please upload .....', 'redux-framework-demo' ),
-                            'default'  => array( 'url' => get_stylesheet_directory_uri().'/images/slider-1.jpg'),
-                        ),
-
-                        array(
-                            'id'       => 'slider1_button_text',
-                            'type'     => 'text',
-                            'validate' => '',
-                            'title'    => __( 'Button Text', 'redux-framework-demo' ),
-                            'desc'     => __( '' ),
-                            'default'  => 'Get Started',
-                        ),
-
-                        array(
-                            'id'       => 'slider1_button_link',
-                            'type'     => 'text',
-                            'validate' => '',
-                            'title'    => __( 'Button Hiperlink', 'redux-framework-demo' ),
-                            'desc'     => __( '' ),
-                            'default'  => 'http://www.wiselythemes.com',
-                        ),
-
-                    
-
-                    //slider 2
-
-                   
-
-                        array(
-                            'id'       => 'slider2_heading',
-                            'type'     => 'text',
-                            'validate' => '',
-                            'title'    => __( 'Heading', 'redux-framework-demo' ),
-                            'desc'     => __( '' ),
-                            'default'  => 'Lorem ipsum dolor sit amet.',
-                        ),
-
-                        array(
-                            'id'       => 'slider2_description',
-                            'type'     => 'textarea',
-                            'validate' => '',
-                            'title'    => __( 'Description', 'redux-framework-demo' ),
-                            'desc'     => __( '' ),
-                            'default'  => 'Our first step is targeted towards understanding Lorem ipsum dolor sit amet, consectetur.',
-                        ),
-                        
-                        array(
-                            'id'       => 'slider2_bg',
-                            'type'     => 'media',
-                            'url'      => true,
-                            'title'    => __( 'background', 'redux-framework-demo' ),
-                            'compiler' => 'true',
-                            'desc'     => __( 'Please upload .....', 'redux-framework-demo' ),
-                            'default'  => array( 'url' => get_template_directory_uri() .'/images/slider-2.jpg'),
-                        ),
-
-                        array(
-                            'id'       => 'slider2_button_text',
-                            'type'     => 'text',
-                            'validate' => '',
-                            'title'    => __( 'Button Text', 'redux-framework-demo' ),
-                            'desc'     => __( '' ),
-                            'default'  => 'Get Started',
-                        ),
-
-                        array(
-                            'id'       => 'slider2_button_link',
-                            'type'     => 'text',
-                            'validate' => '',
-                            'title'    => __( 'Button Hiperlink', 'redux-framework-demo' ),
-                            'desc'     => __( '' ),
-                            'default'  => 'http://www.wiselythemes.com',
-                        ),
-
-
-                        //Slider 3 
-
-                        array(
-                            'id'       => 'slider3_heading',
-                            'type'     => 'text',
-                            'validate' => '',
-                            'title'    => __( 'Heading', 'redux-framework-demo' ),
-                            'desc'     => __( '' ),
-                            'default'  => 'Lorem ipsum dolor sit amet.',
-                        ),
-
-                        array(
-                            'id'       => 'slider3_description',
-                            'type'     => 'textarea',
-                            'validate' => '',
-                            'title'    => __( 'Description', 'redux-framework-demo' ),
-                            'desc'     => __( '' ),
-                            'default'  => 'Our first step is targeted towards understanding Lorem ipsum dolor sit amet, consectetur.',
-                        ),
-                        
-                        array(
-                            'id'       => 'slider3_bg',
-                            'type'     => 'media',
-                            'url'      => true,
-                            'title'    => __( 'background', 'redux-framework-demo' ),
-                            'compiler' => 'true',
-                            'desc'     => __( 'Please upload .....', 'redux-framework-demo' ),
-                            'default'  => array( 'url' => get_stylesheet_directory_uri().'/images/slider-3.jpg'),
-                        ),
-
-                        array(
-                            'id'       => 'slider3_button_text',
-                            'type'     => 'text',
-                            'validate' => '',
-                            'title'    => __( 'Button Text', 'redux-framework-demo' ),
-                            'desc'     => __( '' ),
-                            'default'  => 'Get Started',
-                        ),
-
-                        array(
-                            'id'       => 'slider3_button_link',
-                            'type'     => 'text',
-                            'validate' => '',
-                            'title'    => __( 'Button Hiperlink', 'redux-framework-demo' ),
-                            'desc'     => __( '' ),
-                            'default'  => 'http://www.wiselythemes.com',
-                        ),
-                        
-
-                        
-                        
-                    ),
-                );
-
-
-
-
-            
-
-            //Feature Section
-                
-
-                $this->sections[] = array(
-                'icon'   => 'el-icon-eye-open',
-                'title'  => __( 'Feature', 'redux-framework-demo' ),
-                'fields' => array(
-                       
-                       array(
-                            'id' => 'section_feature_info',
-                            'type' => 'info',
-                            'title' => __('Create a new feature from <a href="' . site_url() . '/wp-admin/post-new.php?post_type=feature">here</a> ', 'redux-framework-demo'),
-                            'style' => 'warning'
-                        ),
-
-                       
-
-                        array(
-                            'id' => 'section_feature_display',
-                            'type' => 'cozy',
-                            'title' => __('Display Section', 'redux-framework-demo'),
-                            'default' => "Our Front End Feature",
-                        ),
-
-                        array(
-                            'id' => 'section_feature_menu_text',
-                            'type' => 'text',
-                            'title' => __('Section Title in Menubar', 'redux-framework-demo'),
-                            'default' => "Feature",
-                        ),
-                        array(
-                            'id' => "section_feature_title",
-                            'type' => 'text',
-                            'title' => __('Section Title', 'redux-framework-demo'),
-                            'default' => "Our Front End Feature",
-                        ),
-                        array(
-                            'id' => "section_feature_subtitle",
+                            'id' => "cozy_description",
                             'type' => 'textarea',
-                            'title' => __('Section Subtitle', 'redux-framework-demo'),
-                            'default' => "Our first step is targeted towards understanding. We must understand what your needs are in order to offer you an appropriate and effective solution.",
-                        ),
-                        array(
-                            'id' => 'section_feature_number',
-                            'type' => 'text',
-                            'title' => __('How many posts to display?', 'redux-framework-demo'),
-                            'default' => "6",
+                            'title' => __('Description', 'redux-framework-demo'),
+                            'default' => "Cozy is a simple clean and modern WordPress Theme designed for Real Estate business. This theme has a lot of useful features and it's highly customizable so you can turn it into your own awesome website.",
                         ),
 
-
-
-                       
-                      
-                    )
-                );
-
-
-
-            
-
-
-            // About Us Section 
-
-
-            $this->sections[] = array(
-                'icon'   => 'el-icon-website',
-                'title'  => __( 'About', 'redux-framework-demo' ),
-                'fields' => array(
-                       
-                       array(
-                            'id' => 'section_about_us_display',
-                            'type' => 'cozy',
-                            'title' => __('Display Section', 'redux-framework-demo'),
-                            'default' => "1",
-                        ),
-                       array(
-                            'id'       => 'section_about_us_featured_img',
-                            'type'     => 'media',
-                            'url'      => true,
-                            'title'    => __( 'About Us Image', 'redux-framework-demo' ),
-                            'compiler' => 'true',
-                            'desc'     => __( 'Please upload .....', 'redux-framework-demo' ),
-                            'default'  => array( 'url' => get_stylesheet_directory_uri().'/images/slider-3.jpg'),
-                        ),
-                        
-                        
-
-                        array(
-                            'id' => 'section_about_us_menu_text',
-                            'type' => 'text',
-                            'title' => __('Section Title in Menubar', 'redux-framework-demo'),
-                            'default' => "About Us",
-                        ),
-                        array(
-                            'id' => "section_about_us_title",
-                            'type' => 'text',
-                            'title' => __('Section Title', 'redux-framework-demo'),
-                            'default' => "About Us",
-                        ),
-
-
-                        array(
-                            'id' => "section_about_us_subtitle",
-                            'type' => 'textarea',
-                            'title' => __('Section Subtitle', 'redux-framework-demo'),
-                            'default' => "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci facilis nemo quae, alias, aspernatur placeat.",
-                        ),
-                         array(
-                            'id' => "section_about_us_descriptio",
-                            'type' => 'textarea',
-                            'title' => __('About Description', 'redux-framework-demo'),
-                            'default' => "<h2>Little more about us</h2>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum, obcaecati, veritatis, voluptatem perferendis ipsum optio mollitia culpa excepturi necessitatibus eveniet ad asperiores inventore aliquid. Velit.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum, obcaecati, veritatis, voluptatem perferendis ipsum optio mollitia culpa excepturi necessitatibus eveniet ad asperiores inventore aliquid. Velit.</p>
-                                        <p>
-                                         Velit.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum, obcaecati, veritatis, voluptatem perferendis ipsum optio mollitia culpa excepturi necessitatibus eveniet ad asperiores inventore aliquid. Velit.</p>",
-                        ),
-                        array(
-                            'id'       => 'section_about_us_background',
-                            'type'     => 'media',
-                            'url'      => true,
-                            'title'    => __( 'background', 'redux-framework-demo' ),
-                            'compiler' => 'true',
-                            'desc'     => __( 'Please upload .....', 'redux-framework-demo' ),
-                            'default'  => array( 'url' => get_stylesheet_directory_uri().'/images/about-bg.jpg'),
-                        ),
-                        
-                    ),
-                );
-
-
-
-
-
-            // Testimonial Section
-
-            
-
-                $this->sections[] = array(
-                    'title'  => __( 'Testimonial', 'redux-framework-demo' ),
-                    'desc'   => __( '', 'redux-framework-demo' ),
-                    'icon'   => 'el-icon-tasks',
-                    // 'submenu' => false, // Setting submenu to false on a given section will hide it from the WordPress sidebar menu!
-                    'fields' => array(
-
-
-
-                        array(
-                            'id' => 'section_testimonial_info',
-                            'type' => 'info',
-                            'title' => __('Create a new Testimonial from <a href="' . site_url() . '/wp-admin/post-new.php?post_type=testimonial">here</a> ', 'redux-framework-demo'),
-                            'style' => 'warning'
-                        ),
-
-
-
-                        array(
-                            'id' => 'section_testimonial_display',
-                            'type' => 'cozy',
-                            'title' => __('Display Section', 'redux-framework-demo'),
-                            'default' => "1",
-                        ),
-                        
-
-
-                        
-                      array(
-                            'id'       => 'section_testimonial_title',
-                            'type'     => 'text',
-                            'validate' => '',
-                            'title'    => __( 'Section heading', 'redux-framework-demo'),
-                            'desc'     => __( '' ),
-                            'default'  => 'What Our Beloved Clients Says About Us',
-                        ),
-
-                      array(
-                            'id' => 'section_testimonial_number',
-                            'type' => 'text',
-                            'title' => __('How many posts to display?', 'redux-framework-demo'),
-                            'default' => "3",
-                        ),
-
-                    ),
-                );
-
-
-
-
-
-
-                // Agents Section
-
-                $this->sections[] = array(
-                    'title'  => __( 'Agent', 'redux-framework-demo' ),
-                    'desc'   => __( '', 'redux-framework-demo' ),
-                    'icon'   => 'el-icon-user',
-                    // 'submenu' => false, // Setting submenu to false on a given section will hide it from the WordPress sidebar menu!
-                    'fields' => array(
-
-
-                        array(
-                            'id' => 'section_agent_info',
-                            'type' => 'info',
-                            'title' => __('Create a new Agent Member from <a href="' . site_url() . '/wp-admin/post-new.php?post_type=agent">here</a> ', 'redux-framework-demo'),
-                            'style' => 'warning'
-                        ),
-
-
-
-                        array(
-                            'id' => 'section_agent_display',
-                            'type' => 'cozy',
-                            'title' => __('Display Section', 'redux-framework-demo'),
-                            'default' => "1",
-                        ),
-                        
-                        array(
-                            'id' => 'section_agent_display_menu',
-                            'type' => 'text',
-                            'title' => __('Display In Menubar', 'redux-framework-demo'),
-                            'default' => "Our Agent",
-                        ),
-
-                        array(
-                            'id' => "section_agent_title",
-                            'type' => 'text',
-                            'title' => __('Section Title', 'redux-framework-demo'),
-                            'default' => "Our Agent",
-                        ),
-                        array(
-                            'id' => "section_agent_subtitle",
-                            'type' => 'textarea',
-                            'title' => __('Section Subtitle', 'redux-framework-demo'),
-                            'default' => "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci facilis nemo quae, alias, aspernatur placeat.",
-                        ),
-
-
-
-                      array(
-                            'id' => 'section_agent_number',
-                            'type' => 'text',
-                            'title' => __('How many posts to display?', 'redux-framework-demo'),
-                            'default' =>3 ,
-                        ),
-
-                    ),
-                );
-
-
-
-            
-            // Portfolio Section
-
-                $this->sections[] = array(
-                    'title'  => __( 'Porftolio', 'redux-framework-demo' ),
-                    'desc'   => __( '', 'redux-framework-demo' ),
-                    'icon'   => 'el-icon-fork',
-                    'fields' => array(
-
-                        array(
-                            'id' => 'section_portfolio_info',
-                            'type' => 'info',
-                            'title' => __('Create a new Portfolio from <a href="' . site_url() . '/wp-admin/post-new.php?post_type=portfolio">here</a> ', 'redux-framework-demo'),
-                            'style' => 'warning'
-                        ),
-
-                        array(
-                            'id' => 'section_portfolio_display',
-                            'type' => 'cozy',
-                            'title' => __('Display Section', 'redux-framework-demo'),
-                            'default' => "1",
-                        ),
-                        
-                        array(
-                            'id' => 'section_portfolio_display_menu',
-                            'type' => 'text',
-                            'title' => __('Display In Menubar', 'redux-framework-demo'),
-                            'default' => "Portfolio",
-                        ),
-
-                        array(
-                            'id' => "section_portfolio_title",
-                            'type' => 'text',
-                            'title' => __('Section Title', 'redux-framework-demo'),
-                            'default' => "Our portfolio",
-                        ),
-                        array(
-                            'id' => "section_portfolio_subtitle",
-                            'type' => 'textarea',
-                            'title' => __('Section Subtitle', 'redux-framework-demo'),
-                            'default' => "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci facilis nemo quae, alias, aspernatur placeat.",
-                        ),
-
-                      array(
-                            'id' => 'section_agent_field',
-                            'type' => 'text',
-                            'title' => __('How many posts to display?', 'redux-framework-demo'),
-                            'default' => "12",
-                        ), 
                         
                     ),
                 );
@@ -694,44 +232,31 @@
                     // 'submenu' => false, // Setting submenu to false on a given section will hide it from the WordPress sidebar menu!
                     'fields' => array(
                         array(
-                            'id' => 'section_contact_display',
-                            'type' => 'cozy',
-                            'title' => __('Display Section', 'redux-framework-demo'),
-                            'default' => "1",
-                        ),
-                        
-                        array(
-                            'id' => 'section_contact_display_menu',
-                            'type' => 'text',
-                            'title' => __('Display In Menubar', 'redux-framework-demo'),
-                            'default' => "Contact",
-                        ),
-
-                        array(
                             'id' => "section_contact_title",
                             'type' => 'text',
                             'title' => __('Section Title', 'redux-framework-demo'),
-                            'default' => "Get In Touch",
+                            'default' => "Contact Info",
                         ),
+
                         array(
                             'id' => "section_contact_address",
                             'type' => 'text',
                             'title' => __('Address', 'redux-framework-demo'),
-                            'default' => "211,Winslow Bainbridge,Australia",
+                            'default' => "24th Street, New York, USA",
                         ),
 
                         array(
                             'id' => "section_contact_email",
                             'type' => 'text',
                             'title' => __('Contact Email', 'redux-framework-demo'),
-                            'default' => "Email: mail@support.com",
+                            'default' => "hello@yourcompany.com",
                         ),
 
                         array(
                             'id' => "section_contact_phone",
                             'type' => 'text',
                             'title' => __('Contact Number', 'redux-framework-demo'),
-                            'default' => "Phone: +88 01712 951 ***",
+                            'default' => "Phone: 800-123-4567",
                         ),
 
                         array(
@@ -741,20 +266,68 @@
                             'default' => "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3323.5555106206834!2d-7.637222461654696!3d33.59088826069678!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x87da5314adb2dd65!2sRICHBOND!5e0!3m2!1sen!2s!4v1397056520314",
                         ),
 
+                    ),
+                );
+
+
+                // Our Partners Section
+
+                $this->sections[] = array(
+                    'title'  => __( 'Our Partners', 'redux-framework-demo' ),
+                    'desc'   => __( '', 'redux-framework-demo' ),
+                    'icon'   => 'el-icon-cogs',
+                    // 'submenu' => false, // Setting submenu to false on a given section will hide it from the WordPress sidebar menu!
+                    'fields' => array(
                         array(
-                            'id' => "section_contact_form",
-                            'type' => 'editor',
-                            'title' => __('Contact Form Area', 'redux-framework-demo'),
-                            'default' => "",
+                            'id' => "section_partners_title",
+                            'type' => 'text',
+                            'title' => __('Section Title', 'redux-framework-demo'),
+                            'default' => "Our Partners",
+                        ),
+
+                        array(
+                            'id'       => 'cozy_partner1',
+                            'type'     => 'media',
+                            'url'      => true,
+                            'title'    => __( 'Parner 01', 'redux-framework-demo' ),
+                            'compiler' => 'true',
+                            'desc'     => __( 'Please upload .....', 'redux-framework-demo' ),
+                            'default'  => array( 'url' => 'http://placehold.it/194x45'),
+                        ),
+
+                        array(
+                            'id'       => 'cozy_partner2',
+                            'type'     => 'media',
+                            'url'      => true,
+                            'title'    => __( 'Parner 02', 'redux-framework-demo' ),
+                            'compiler' => 'true',
+                            'desc'     => __( 'Please upload .....', 'redux-framework-demo' ),
+                            'default'  => array( 'url' => 'http://placehold.it/194x45'),
+                        ),
+
+                        array(
+                            'id'       => 'cozy_partner3',
+                            'type'     => 'media',
+                            'url'      => true,
+                            'title'    => __( 'Parner 03', 'redux-framework-demo' ),
+                            'compiler' => 'true',
+                            'desc'     => __( 'Please upload .....', 'redux-framework-demo' ),
+                            'default'  => array( 'url' => 'http://placehold.it/194x45'),
+                        ),
+
+                        array(
+                            'id'       => 'cozy_partner4',
+                            'type'     => 'media',
+                            'url'      => true,
+                            'title'    => __( 'Parner 04', 'redux-framework-demo' ),
+                            'compiler' => 'true',
+                            'desc'     => __( 'Please upload .....', 'redux-framework-demo' ),
+                            'default'  => array( 'url' => 'http://placehold.it/194x45'),
                         ),
 
                     ),
                 );
 
-
-
-
-            
 
 
             // Footer Section
@@ -765,6 +338,13 @@
                     'icon'   => 'el-icon-edit',
                     // 'submenu' => false, // Setting submenu to false on a given section will hide it from the WordPress sidebar menu!
                     'fields' => array(
+
+                        array(
+                            'id' => "footer_copyright",
+                            'type' => 'text',
+                            'title' => __('Copyright text', 'redux-framework-demo'),
+                            'default' => "&copy; 2014 Cozy - Real Estate WordPress Theme. All rights reserved. Developed by <a href='http://www.wiselythemes.com' target='_blank'>WiselyThemes</a>",
+                        ),
 
                         array(
                             'id' => "footer_facebook_link",
@@ -781,17 +361,10 @@
                         ),
 
                         array(
-                            'id' => "footer_linkedin_link",
+                            'id' => "footer_googleplus_link",
                             'type' => 'text',
-                            'title' => __('Linkedin Link', 'redux-framework-demo'),
-                            'default' => "http://www.linkedin.com/wiselythemes",
-                        ),
-
-                        array(
-                            'id' => "footer_dribbble_link",
-                            'type' => 'text',
-                            'title' => __('Dribbble Link', 'redux-framework-demo'),
-                            'default' => "http://www.dribbble.com/wiselythemes",
+                            'title' => __('Google Plus Link', 'redux-framework-demo'),
+                            'default' => "http://plus.google.com/wiselythemes",
                         ),
 
                         array(
@@ -800,15 +373,23 @@
                             'title' => __('Pinterest Link', 'redux-framework-demo'),
                             'default' => "http://www.pinterest.com/wiselythemes",
                         ),
-                    
 
+                        array(
+                            'id' => "footer_youtube_link",
+                            'type' => 'text',
+                            'title' => __('YouTube Link', 'redux-framework-demo'),
+                            'default' => "http://www.youtube.com/user/wiselythemes",
+                        ),
+
+                        array(
+                            'id' => "footer_feed_link",
+                            'type' => 'text',
+                            'title' => __('Feed Link', 'redux-framework-demo'),
+                            'default' => "#",
+                        ),
                       
                     ),
                 );
-
-
-
-
 
                 
 

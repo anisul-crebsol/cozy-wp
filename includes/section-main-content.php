@@ -55,11 +55,14 @@
 						
 						
 						<!-- BEGIN LATEST NEWS -->
-						<h1 class="section-title" data-animation-direction="from-bottom" data-animation-delay="50">Latest News</h1>
+						<h1 class="section-title" data-animation-direction="from-bottom" data-animation-delay="50">Latest News</h1>					
 						<div class="latest-news list-style clearfix">
+						<?php if ( have_posts() ) : ?>
+							<?php /* Start the Loop */ ?>
+							<?php while ( have_posts() ) : the_post(); ?>	
 							<div class="item col-sm-12" data-animation-direction="from-bottom" data-animation-delay="250">
 								<div class="image">
-									<a href="blog-detail.html">
+									<a href="<?php echo get_page_link(); ?>">
 										<span class="btn btn-default"><i class="fa fa-file-o"></i> Read More</span>
 									</a>
 									<img src="http://placehold.it/766x515" alt="" />
@@ -67,56 +70,26 @@
 								<div class="tag"><i class="fa fa-file-text"></i></div>
 								<div class="info-blog">
 									<ul class="top-info">
-										<li><i class="fa fa-calendar"></i> July 30, 2014</li>
-										<li><i class="fa fa-comments-o"></i> 2</li>
-										<li><i class="fa fa-tags"></i> Properties, Prices, best deals</li>
+										<li><i class="fa fa-calendar"></i> <?php echo $date = mysql2date('F j, Y', $post->post_date);?></li>
+										<li><i class="fa fa-comments-o"></i> <?php comments_number( '0', '1', '% responses' ); ?></li>
+										<li><i class="fa fa-tags"></i> 
+										<?php $posttags = get_the_tags(); 
+										if ($posttags) {
+											foreach($posttags as $tag) {
+												echo $tag->name . ' ,'; 
+											}
+										}?>
+										</li>
 									</ul>
 									<h3>
-										<a href="blog-detail.html">How to get your dream property for the best price?</a>
+										<a href="<?php echo get_page_link(); ?>"><?php the_title(); ?></a>
 									</h3>
-									<p>Sed rutrum urna id tellus euismod gravida. Praesent placerat, mauris ac pellentesque fringilla, tortor libero condimen.</p>
+									<p><?php the_excerpt(); ?></p>
 								</div>
 							</div>
-							<div class="item col-sm-12" data-animation-direction="from-bottom" data-animation-delay="450">
-								<div class="image">
-									<a href="blog-detail.html">
-										<span class="btn btn-default"><i class="fa fa-file-o"></i> Read More</span>
-									</a>
-									<img src="http://placehold.it/766x515" alt="" />
-								</div>
-								<div class="tag"><i class="fa fa-film"></i></div>
-								<div class="info-blog">
-									<ul class="top-info">
-										<li><i class="fa fa-calendar"></i> July 24, 2014</li>
-										<li><i class="fa fa-comments-o"></i> 4</li>
-										<li><i class="fa fa-tags"></i> Tips, Mortgage</li>
-									</ul>
-									<h3>
-										<a href="blog-detail.html">7 tips to get the best mortgage.</a>
-									</h3>
-									<p>Sed rutrum urna id tellus euismod gravida. Praesent placerat, mauris ac pellentesque fringilla, tortor libero condimen.</p>
-								</div>
-							</div>
-							<div class="item col-sm-12" data-animation-direction="from-bottom" data-animation-delay="650">
-								<div class="image">
-									<a href="blog-detail.html">
-										<span class="btn btn-default"><i class="fa fa-file-o"></i> Read More</span>
-									</a>
-									<img src="http://placehold.it/766x515" alt="" />
-								</div>
-								<div class="tag"><i class="fa fa-file-text"></i></div>
-								<div class="info-blog">
-									<ul class="top-info">
-										<li><i class="fa fa-calendar"></i> July 05, 2014</li>
-										<li><i class="fa fa-comments-o"></i> 1</li>
-										<li><i class="fa fa-tags"></i> Location, Price, House</li>
-									</ul>
-									<h3>
-										<a href="blog-detail.html">House, location or price: What's the most important factor?</a>
-									</h3>
-									<p>Sed rutrum urna id tellus euismod gravida. Praesent placerat, mauris ac pellentesque fringilla, tortor libero condimen.</p>
-								</div>
-							</div>
+							<?php endwhile; ?>
+						<?php else : ?>
+						<?php endif; ?>
 						</div>
 						<!-- END LATEST NEWS -->
 						

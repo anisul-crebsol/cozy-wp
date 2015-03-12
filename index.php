@@ -54,6 +54,6 @@
 		<!-- END CONTENT WRAPPER -->
 		
 		<!-- BEGIN PARTNERS WRAPPER -->
-<?php get_template_part ('/includes/section-partnars'); ?>
+<?php get_template_part ('/includes/section-partners'); ?>
 		<!-- END PARTNERS WRAPPER -->
 <?php get_footer(); ?>

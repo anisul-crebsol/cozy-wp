@@ -25,6 +25,7 @@ function cozy_setup() {
 
     register_nav_menus( array(
         'primary' => __( 'Primary Menu', 'cozy' ),
+        'secondery' => __( 'Footer Menu', 'cozy' ),
     ) );
 
     add_theme_support( 'html5', array(
@@ -182,7 +183,7 @@ function cozy_scripts() {
     wp_enqueue_script( 'cozy-infobox', get_template_directory_uri() . '/js/infobox.min.js', array(), '', true );
     wp_enqueue_script( 'cozy-variables', get_template_directory_uri() . '/js/variables.js', array(), '', true );
     wp_enqueue_script( 'cozy-scripts', get_template_directory_uri() . '/js/scripts.js', array(), '', true );
-    wp_enqueue_script( 'cozy-agencies', get_template_directory_uri() . '/js/agencies.js', array(), '', true );
+    wp_enqueue_script( 'cozy-agencies', get_template_directory_uri() . '/js/agencies.js' );
 
     if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
         wp_enqueue_script( 'comment-reply' );
