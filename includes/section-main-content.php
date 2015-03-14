@@ -1,3 +1,4 @@
+<?php global $wt_cozy; ?>
 					<div class="main col-sm-8">
 						<h1 class="section-title" data-animation-direction="from-bottom" data-animation-delay="50">Template Features</h1>
 
@@ -21,35 +22,35 @@
 						</div>
 						
 						
-						<h1 class="section-title" data-animation-direction="from-bottom" data-animation-delay="50">Property Gallery</h1>
-						<p class="center" data-animation-direction="from-bottom" data-animation-delay="150">Pellentesque elementum libero enim, eget gravida nunc laoreet et. Nullam ac enim auctor, fringilla risus at, imperdiet turpis. Pellentesque elementum libero enim, eget gravida nunc laoreet et.</p>
+						<h1 class="section-title" data-animation-direction="from-bottom" data-animation-delay="50"><?php echo $wt_cozy['section_gallery_title']?></h1>
+						<p class="center" data-animation-direction="from-bottom" data-animation-delay="150"><?php echo $wt_cozy['cozy_gallery_description']?></p>
 					
 						<div id="property-gallery" class="owl-carousel property-gallery">
 							<div class="item" data-animation-direction="from-bottom" data-animation-delay="350">
-								<a href="http://placehold.it/760x670" data-gal="prettyPhoto[gallery]" title="Lorem ipsum"><span class="btn btn-default">+</span></a>
-								<img src="http://placehold.it/246x217" alt="" />
+								<a href="<?php echo $wt_cozy['cozy_gallery1']['url']?>" data-gal="prettyPhoto[gallery]" title="<?php echo $wt_cozy['section_gallery1_title']?>"><span class="btn btn-default">+</span></a>
+								<img src="<?php echo $wt_cozy['cozy_gallery1_thumb']['url']?>" alt="" />
 							</div>
 			
 							<div class="item" data-animation-direction="from-bottom" data-animation-delay="350">
-								<a href="http://placehold.it/760x670" data-gal="prettyPhoto[gallery]" title="Lorem ipsum"><span class="btn btn-default">+</span></a>
-								<img src="http://placehold.it/246x217" alt="" />
+								<a href="<?php echo $wt_cozy['cozy_gallery2']['url']?>" data-gal="prettyPhoto[gallery]" title="<?php echo $wt_cozy['section_gallery2_title']?>"><span class="btn btn-default">+</span></a>
+								<img src="<?php echo $wt_cozy['cozy_gallery2_thumb']['url']?>" alt="" />
 							</div>
 							
 							<div class="item" data-animation-direction="from-bottom" data-animation-delay="350">
-								<a href="http://placehold.it/760x670" data-gal="prettyPhoto[gallery]" title="Lorem ipsum"><span class="btn btn-default">+</span></a>
-								<img src="http://placehold.it/246x217" alt="" />
+								<a href="<?php echo $wt_cozy['cozy_gallery3']['url']?>" data-gal="prettyPhoto[gallery]" title="<?php echo $wt_cozy['section_gallery3_title']?>"><span class="btn btn-default">+</span></a>
+								<img src="<?php echo $wt_cozy['cozy_gallery3_thumb']['url']?>" alt="" />
 							</div>
 							<div class="item">
-								<a href="http://placehold.it/760x670" data-gal="prettyPhoto[gallery]" title="Lorem ipsum"><span class="btn btn-default">+</span></a>
-								<img src="http://placehold.it/246x217" alt="" />
+								<a href="<?php echo $wt_cozy['cozy_gallery4']['url']?>" data-gal="prettyPhoto[gallery]" title="<?php echo $wt_cozy['section_gallery4_title']?>"><span class="btn btn-default">+</span></a>
+								<img src="<?php echo $wt_cozy['cozy_gallery4_thumb']['url']?>" alt="" />
 							</div>
 							<div class="item">
-								<a href="http://placehold.it/760x670" data-gal="prettyPhoto[gallery]" title="Lorem ipsum"><span class="btn btn-default">+</span></a>
-								<img src="http://placehold.it/246x217" alt="" />
+								<a href="<?php echo $wt_cozy['cozy_gallery5']['url']?>" data-gal="prettyPhoto[gallery]" title="<?php echo $wt_cozy['section_gallery5_title']?>"><span class="btn btn-default">+</span></a>
+								<img src="<?php echo $wt_cozy['cozy_gallery5_thumb']['url']?>" alt="" />
 							</div>
 							<div class="item">
-								<a href="http://placehold.it/760x670" data-gal="prettyPhoto[gallery]" title="Lorem ipsum"><span class="btn btn-default">+</span></a>
-								<img src="http://placehold.it/246x217" alt="" />
+								<a href="<?php echo $wt_cozy['cozy_gallery6']['url']?>" data-gal="prettyPhoto[gallery]" title="<?php echo $wt_cozy['section_gallery6_title']?>"><span class="btn btn-default">+</span></a>
+								<img src="<?php echo $wt_cozy['cozy_gallery6_thumb']['url']?>" alt="" />
 							</div>
 						</div>
 						

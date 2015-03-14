@@ -115,6 +115,7 @@
 								</ul>
 								
 							</nav> -->
+								<button id="nav-mobile-btn"><i class="fa fa-bars"></i></button>
 							        <?php
 							            wp_nav_menu( array(
 							                'menu'              => 'primary',

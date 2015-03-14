@@ -270,6 +270,194 @@
                 );
 
 
+                // Property Gallery Section
+
+                $this->sections[] = array(
+                    'title'  => __( 'Property Gallery', 'redux-framework-demo' ),
+                    'desc'   => __( '', 'redux-framework-demo' ),
+                    'icon'   => 'el-icon-cogs',
+                    // 'submenu' => false, // Setting submenu to false on a given section will hide it from the WordPress sidebar menu!
+                    'fields' => array(
+                        array(
+                            'id' => "section_gallery_title",
+                            'type' => 'text',
+                            'title' => __('Section Title', 'redux-framework-demo'),
+                            'default' => "Property Gallery",
+                        ),
+
+                        array(
+                            'id' => "cozy_gallery_description",
+                            'type' => 'textarea',
+                            'title' => __('Description', 'redux-framework-demo'),
+                            'default' => "Pellentesque elementum libero enim, eget gravida nunc laoreet et. Nullam ac enim auctor, fringilla risus at, imperdiet turpis. Pellentesque elementum libero enim, eget gravida nunc laoreet et.",
+                        ),
+
+                        array(
+                            'id'       => 'cozy_gallery1',
+                            'type'     => 'media',
+                            'url'      => true,
+                            'title'    => __( 'Gallery 01', 'redux-framework-demo' ),
+                            'compiler' => 'true',
+                            'desc'     => __( 'Please upload .....', 'redux-framework-demo' ),
+                            'default'  => array( 'url' => 'http://placehold.it/760x670'),
+                        ),
+
+                        array(
+                            'id'       => 'cozy_gallery1_thumb',
+                            'type'     => 'media',
+                            'url'      => true,
+                            'title'    => __( 'Gallery 01 Thumbnail', 'redux-framework-demo' ),
+                            'compiler' => 'true',
+                            'desc'     => __( 'Please upload .....', 'redux-framework-demo' ),
+                            'default'  => array( 'url' => 'http://placehold.it/246x217'),
+                        ),
+
+                        array(
+                            'id' => "cozy_gallery1_title",
+                            'type' => 'text',
+                            'title' => __('Gallery 01 Title', 'redux-framework-demo'),
+                            'default' => "Lorem ipsum",
+                        ),
+
+                        array(
+                            'id'       => 'cozy_gallery2',
+                            'type'     => 'media',
+                            'url'      => true,
+                            'title'    => __( 'Gallery 02', 'redux-framework-demo' ),
+                            'compiler' => 'true',
+                            'desc'     => __( 'Please upload .....', 'redux-framework-demo' ),
+                            'default'  => array( 'url' => 'http://placehold.it/760x670'),
+                        ),
+
+                        array(
+                            'id'       => 'cozy_gallery2_thumb',
+                            'type'     => 'media',
+                            'url'      => true,
+                            'title'    => __( 'Gallery 02 Thumbnail', 'redux-framework-demo' ),
+                            'compiler' => 'true',
+                            'desc'     => __( 'Please upload .....', 'redux-framework-demo' ),
+                            'default'  => array( 'url' => 'http://placehold.it/246x217'),
+                        ),
+
+                        array(
+                            'id' => "cozy_gallery2_title",
+                            'type' => 'text',
+                            'title' => __('Gallery 02 Title', 'redux-framework-demo'),
+                            'default' => "Lorem ipsum",
+                        ),
+
+                        array(
+                            'id'       => 'cozy_gallery3',
+                            'type'     => 'media',
+                            'url'      => true,
+                            'title'    => __( 'Gallery 03', 'redux-framework-demo' ),
+                            'compiler' => 'true',
+                            'desc'     => __( 'Please upload .....', 'redux-framework-demo' ),
+                            'default'  => array( 'url' => 'http://placehold.it/760x670'),
+                        ),
+
+                        array(
+                            'id'       => 'cozy_gallery3_thumb',
+                            'type'     => 'media',
+                            'url'      => true,
+                            'title'    => __( 'Gallery 03 Thumbnail', 'redux-framework-demo' ),
+                            'compiler' => 'true',
+                            'desc'     => __( 'Please upload .....', 'redux-framework-demo' ),
+                            'default'  => array( 'url' => 'http://placehold.it/246x217'),
+                        ),
+
+                        array(
+                            'id' => "cozy_gallery3_title",
+                            'type' => 'text',
+                            'title' => __('Gallery 03 Title', 'redux-framework-demo'),
+                            'default' => "Lorem ipsum",
+                        ),
+
+                        array(
+                            'id'       => 'cozy_gallery4',
+                            'type'     => 'media',
+                            'url'      => true,
+                            'title'    => __( 'Gallery 04', 'redux-framework-demo' ),
+                            'compiler' => 'true',
+                            'desc'     => __( 'Please upload .....', 'redux-framework-demo' ),
+                            'default'  => array( 'url' => 'http://placehold.it/760x670'),
+                        ),
+
+                        array(
+                            'id'       => 'cozy_gallery4_thumb',
+                            'type'     => 'media',
+                            'url'      => true,
+                            'title'    => __( 'Gallery 04 Thumbnail', 'redux-framework-demo' ),
+                            'compiler' => 'true',
+                            'desc'     => __( 'Please upload .....', 'redux-framework-demo' ),
+                            'default'  => array( 'url' => 'http://placehold.it/246x217'),
+                        ),
+
+                        array(
+                            'id' => "cozy_gallery4_title",
+                            'type' => 'text',
+                            'title' => __('Gallery 04 Title', 'redux-framework-demo'),
+                            'default' => "Lorem ipsum",
+                        ),
+
+                        array(
+                            'id'       => 'cozy_gallery5',
+                            'type'     => 'media',
+                            'url'      => true,
+                            'title'    => __( 'Gallery 05', 'redux-framework-demo' ),
+                            'compiler' => 'true',
+                            'desc'     => __( 'Please upload .....', 'redux-framework-demo' ),
+                            'default'  => array( 'url' => 'http://placehold.it/760x670'),
+                        ),
+
+                        array(
+                            'id'       => 'cozy_gallery5_thumb',
+                            'type'     => 'media',
+                            'url'      => true,
+                            'title'    => __( 'Gallery 05 Thumbnail', 'redux-framework-demo' ),
+                            'compiler' => 'true',
+                            'desc'     => __( 'Please upload .....', 'redux-framework-demo' ),
+                            'default'  => array( 'url' => 'http://placehold.it/246x217'),
+                        ),
+
+                        array(
+                            'id' => "cozy_gallery5_title",
+                            'type' => 'text',
+                            'title' => __('Gallery 05 Title', 'redux-framework-demo'),
+                            'default' => "Lorem ipsum",
+                        ),
+
+                        array(
+                            'id'       => 'cozy_gallery6',
+                            'type'     => 'media',
+                            'url'      => true,
+                            'title'    => __( 'Gallery 06', 'redux-framework-demo' ),
+                            'compiler' => 'true',
+                            'desc'     => __( 'Please upload .....', 'redux-framework-demo' ),
+                            'default'  => array( 'url' => 'http://placehold.it/760x670'),
+                        ),
+
+                        array(
+                            'id'       => 'cozy_gallery6_thumb',
+                            'type'     => 'media',
+                            'url'      => true,
+                            'title'    => __( 'Gallery 06 Thumbnail', 'redux-framework-demo' ),
+                            'compiler' => 'true',
+                            'desc'     => __( 'Please upload .....', 'redux-framework-demo' ),
+                            'default'  => array( 'url' => 'http://placehold.it/246x217'),
+                        ),
+
+                        array(
+                            'id' => "cozy_gallery6_title",
+                            'type' => 'text',
+                            'title' => __('Gallery 06 Title', 'redux-framework-demo'),
+                            'default' => "Lorem ipsum",
+                        ),
+
+                    ),
+                );
+
+
                 // Our Partners Section
 
                 $this->sections[] = array(
