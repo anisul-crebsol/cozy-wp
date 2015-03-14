@@ -229,11 +229,10 @@ function wt_cozy_cmb()
         'fields' => array(
            
             array(
-                'name' => __('Feature Icon ',"wt_cozy"),
-                'id' => $prefix . 'exp_url',
-                'type' => 'file'
-            ),
-           
+                'name' => __('Feature Icon Text',"wt_cozy"),
+                'id' => $prefix . 'exp_text',
+                'type' => 'text'
+            ),           
            
             array(
                 'name' => __('Description',"wt_cozy"),

@@ -1,57 +1,43 @@
 <?php global $wt_cozy; ?>
 					<div class="main col-sm-8">
-						<h1 class="section-title" data-animation-direction="from-bottom" data-animation-delay="50">Template Features</h1>
+						<h1 class="section-title" data-animation-direction="from-bottom" data-animation-delay="50"><?php echo $wt_cozy['section_feature_title']?></h1>
 
+						<?php if ($wt_cozy['section_feature_display']) : ?>
+
+	                    <?php 
+	                        $limit = $wt_cozy['section_feature_number'];
+	                    $args = array(
+	                            'post_type'         => 'feature',
+	                            'post_status'       => 'publish',
+	                            'posts_per_page'    => $limit,
+	                        );
+
+	                        $portfolio_query = new WP_Query( $args );?>
+	                    <?php while($portfolio_query->have_posts()): $portfolio_query->the_post(); ?>
 						<div class="feature col-sm-4" data-animation-direction="from-bottom" data-animation-delay="250">
-							<i class="fa fa-pencil"></i>
-							<h3>Simple, Clean & Modern Design</h3>
-							<p>Pellentesque elementum libero enim, eget gravida nunc laoreet et. Nullam ac enim auctor, fringilla risus at, imperdiet turpis.</p>
-							<a href="about.html" class="btn btn-default-color">Read More</a>
+							<i class="fa <?php echo $text = get_post_meta( $post->ID, '_wt_exp_text', true ); ?>"></i>
+							<h3><?php the_title() ?></h3>
+							<p><?php echo $text = get_post_meta( $post->ID, '_wt_exp_description', true ); ?></p>
+							<a href="<?php echo get_page_link(); ?>" class="btn btn-default-color">Read More</a>
 						</div>
-						<div class="feature col-sm-4" data-animation-direction="from-bottom" data-animation-delay="450">
-							<i class="fa fa-tablet"></i>
-							<h3>Fully Responsive & Retina Ready</h3>
-							<p>Pellentesque elementum libero enim, eget gravida nunc laoreet et. Nullam ac enim auctor, fringilla risus at, imperdiet turpis.</p>
-							<a href="about.html" class="btn btn-default-color">Read More</a>
-						</div>
-						<div class="feature col-sm-4" data-animation-direction="from-bottom" data-animation-delay="650">
-							<i class="fa fa-copy"></i>
-							<h3>+20 different Pages highly Customizable</h3>
-							<p>Pellentesque elementum libero enim, eget gravida nunc laoreet et. Nullam ac enim auctor, fringilla risus at, imperdiet turpis.</p>
-							<a href="about.html" class="btn btn-default-color">Read More</a>
-						</div>
-						
+		                <?php endwhile; ?>
+		                <?php wp_reset_postdata(); ?>
+						<?php endif; ?>
+
 						
 						<h1 class="section-title" data-animation-direction="from-bottom" data-animation-delay="50"><?php echo $wt_cozy['section_gallery_title']?></h1>
 						<p class="center" data-animation-direction="from-bottom" data-animation-delay="150"><?php echo $wt_cozy['cozy_gallery_description']?></p>
 					
 						<div id="property-gallery" class="owl-carousel property-gallery">
+							<?php 
+							$incr = 0;
+							for($inc=0; $inc<count($wt_cozy['cozy_gallery1']); $inc++){ 
+							?>
 							<div class="item" data-animation-direction="from-bottom" data-animation-delay="350">
-								<a href="<?php echo $wt_cozy['cozy_gallery1']['url']?>" data-gal="prettyPhoto[gallery]" title="<?php echo $wt_cozy['section_gallery1_title']?>"><span class="btn btn-default">+</span></a>
-								<img src="<?php echo $wt_cozy['cozy_gallery1_thumb']['url']?>" alt="" />
+								<a href="<?php echo $wt_cozy['cozy_gallery1'][$incr]['image']?>" data-gal="prettyPhoto[gallery]" title="<?php echo $wt_cozy['cozy_gallery1'][$incr]['title']?>"><span class="btn btn-default">+</span></a>
+								<img src="<?php echo $wt_cozy['cozy_gallery1'][$incr]['thumb']?>" alt="" />
 							</div>
-			
-							<div class="item" data-animation-direction="from-bottom" data-animation-delay="350">
-								<a href="<?php echo $wt_cozy['cozy_gallery2']['url']?>" data-gal="prettyPhoto[gallery]" title="<?php echo $wt_cozy['section_gallery2_title']?>"><span class="btn btn-default">+</span></a>
-								<img src="<?php echo $wt_cozy['cozy_gallery2_thumb']['url']?>" alt="" />
-							</div>
-							
-							<div class="item" data-animation-direction="from-bottom" data-animation-delay="350">
-								<a href="<?php echo $wt_cozy['cozy_gallery3']['url']?>" data-gal="prettyPhoto[gallery]" title="<?php echo $wt_cozy['section_gallery3_title']?>"><span class="btn btn-default">+</span></a>
-								<img src="<?php echo $wt_cozy['cozy_gallery3_thumb']['url']?>" alt="" />
-							</div>
-							<div class="item">
-								<a href="<?php echo $wt_cozy['cozy_gallery4']['url']?>" data-gal="prettyPhoto[gallery]" title="<?php echo $wt_cozy['section_gallery4_title']?>"><span class="btn btn-default">+</span></a>
-								<img src="<?php echo $wt_cozy['cozy_gallery4_thumb']['url']?>" alt="" />
-							</div>
-							<div class="item">
-								<a href="<?php echo $wt_cozy['cozy_gallery5']['url']?>" data-gal="prettyPhoto[gallery]" title="<?php echo $wt_cozy['section_gallery5_title']?>"><span class="btn btn-default">+</span></a>
-								<img src="<?php echo $wt_cozy['cozy_gallery5_thumb']['url']?>" alt="" />
-							</div>
-							<div class="item">
-								<a href="<?php echo $wt_cozy['cozy_gallery6']['url']?>" data-gal="prettyPhoto[gallery]" title="<?php echo $wt_cozy['section_gallery6_title']?>"><span class="btn btn-default">+</span></a>
-								<img src="<?php echo $wt_cozy['cozy_gallery6_thumb']['url']?>" alt="" />
-							</div>
+							<?php $incr++; } ?>
 						</div>
 						
 						
