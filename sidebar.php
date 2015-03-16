@@ -1,3 +1,4 @@
+<?php global $wt_cozy; ?>
 					<div class="sidebar colored col-sm-4">
 						
 						<!-- BEGIN FIND AGENTS -->
@@ -339,21 +340,33 @@
 							</div>
 						</div>
 						<!-- END TESTIMONIALS -->
-						
+
+<?php if ( is_active_sidebar( 'newsletter-widget' ) ) : ?>
+	<div id="primary-sidebar" class="primary-sidebar widget-area" role="complementary">
+		<?php dynamic_sidebar( 'newsletter-widget' ); ?>
+	</div><!-- #primary-sidebar -->
+
+
 						<!-- BEGIN NEWSLETTER -->
 						<div class="col-sm-12" data-animation-direction="from-bottom" data-animation-delay="200">
 							<div id="newsletter" class="col-sm-12">
-								<h2 class="section-title">Subscribe our weekly<br><span>Newsletter</span></h2>
-								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit lorem ipsum dolor sit amet consectetur adipiscing elit.</p>
-								
+								<h2 class="section-title"><?php echo $wt_cozy['section_newsletter_title2']?><br><span><?php echo $wt_cozy['section_newsletter_title']?></span></h2>
+								<p><?php echo $wt_cozy['section_newsletter_description']?></p>
+								<div class="newsletter newsletter-subscription">
+								<form method="post" action="http://localhost/cozy-wp/wp-content/plugins/newsletter/do/subscribe.php" onsubmit="return newsletter_check(this)">
 								<div class="input-group">
-									<input type="text" placeholder="Enter your E-mail" name="newsletter_email" id="newsletter_email" class="form-control" />
-									<span class="input-group-btn">
-										<button class="btn btn-default" type="button">Subscribe</button>
+								<input class="newsletter-email form-control" type="email" name="ne" size="30" required>
+									<span class="input-group-btn newsletter-td-submit">
+									<input class="newsletter-submit btn btn-default" type="submit" value="Subscribe"/>
 									</span>
+								</form>
+								</div>
 								</div>
 							</div>
 						</div>
 						<!-- END NEWSLETTER -->
+<?php endif; ?>
+
+
 						
 					</div>

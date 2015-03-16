@@ -559,6 +559,45 @@
                 );
 
 
+            //Sidebar
+                
+
+                $this->sections[] = array(
+                'icon'   => 'el-icon-eye-open',
+                'title'  => __( 'Sidebar', 'redux-framework-demo' ),
+                'fields' => array(
+
+                        array(
+                            'id' => 'section_newsletter_display',
+                            'type' => 'switch',
+                            'title' => __('Display Newsletter', 'redux-framework-demo'),
+                            'default' => true,
+                        ),
+                        
+                        array(
+                            'id' => "section_newsletter_title",
+                            'type' => 'text',
+                            'title' => __('Newsletter Title', 'redux-framework-demo'),
+                            'default' => "NEWSLETTER",
+                        ),
+
+                        array(
+                            'id' => "section_newsletter_title2",
+                            'type' => 'text',
+                            'title' => __('Newsletter Title 2', 'redux-framework-demo'),
+                            'default' => "SUBSCRIBE OUR WEEKLY",
+                        ),
+
+                        array(
+                            'id' => "section_newsletter_description",
+                            'type' => 'textarea',
+                            'title' => __('Newsletter Description', 'redux-framework-demo'),
+                            'default' => "Lorem ipsum dolor sit amet, consectetur adipiscing elit lorem ipsum dolor sit amet consectetur adipiscing elit.",
+                        ),
+                                      
+                    ),
+                );
+
 
             // Footer Section
 
@@ -620,6 +659,7 @@
                       
                     ),
                 );
+
 
 
             // Import/Export Options
