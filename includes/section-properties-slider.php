@@ -1,3 +1,5 @@
+<?php global $wt_cozy; ?>
+	<?php if ($wt_cozy['section_properties_display']) : ?>
 		<div class="parallax pattern-bg" data-stellar-background-ratio="0.5">
 			<div class="container">
 				<div class="row">
@@ -181,3 +183,4 @@
 				</div>
 			</div>
 		</div>
+	<?php endif; ?>

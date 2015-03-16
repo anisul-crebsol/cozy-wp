@@ -1,10 +1,11 @@
+<?php global $wt_cozy; ?>
 		<section id="home-search-section" data-stellar-background-ratio="0.5">
 			<div class="container">
 				<div class="row">
 					<div class="col-sm-12" data-animation-direction="from-top" data-animation-delay="50">
 						
-						<h2 class="slider-title">Find the perfect home</h2>
-						<div class="slider-subtitle">With Cozy Real Estate HTML Template</div>
+						<h2 class="slider-title"><?php echo $wt_cozy['section_search_heading']?></h2>
+						<div class="slider-subtitle"><?php echo $wt_cozy['section_search_heading2']?></div>
 					</div>
 					
 					<div id="home-search-buttons" class="col-sm-6 col-sm-offset-3" data-animation-direction="from-bottom" data-animation-delay="250">

@@ -188,11 +188,8 @@
 
                     $sampleHTML = $wp_filesystem->get_contents( dirname( __FILE__ ) . '/info-html.html' );
                 }
-
-
-
-
                 
+
 
                 // ACTUAL DECLARATION OF SECTIONS
                 $this->sections[] = array(
@@ -269,6 +266,110 @@
                     ),
                 );
 
+            //Search Section
+                
+
+                $this->sections[] = array(
+                'icon'   => 'el-icon-eye-open',
+                'title'  => __( 'Search Section', 'redux-framework-demo' ),
+                'fields' => array(
+
+                        array(
+                            'id' => 'section_search_heading',
+                            'type' => 'text',
+                            'title' => __('Section Heading', 'redux-framework-demo'),
+                            'default' => "Find The Perfect Home",
+                        ),
+
+                        array(
+                            'id' => 'section_search_heading2',
+                            'type' => 'text',
+                            'title' => __('Section Heading 2', 'redux-framework-demo'),
+                            'default' => "With Cozy Real Estate HTML Template",
+                        ),                                     
+                    ),
+                );
+
+
+            //Action (Buy Now) Section
+                
+
+                $this->sections[] = array(
+                'icon'   => 'el-icon-eye-open',
+                'title'  => __( 'Buy Now', 'redux-framework-demo' ),
+                'fields' => array(
+
+                        array(
+                            'id' => 'section_action_display',
+                            'type' => 'switch',
+                            'title' => __('Display Section', 'redux-framework-demo'),
+                            'default' => true,
+                        ),
+
+                        array(
+                            'id' => 'section_action_description',
+                            'type' => 'textarea',
+                            'title' => __('Section Description', 'redux-framework-demo'),
+                            'default' => "Cozy - Real Estate Template it's Awesome!<br/>It offers you a lot of great features.",
+                        ),  
+
+                        array(
+                            'id' => "section_action_buy",
+                            'type' => 'text',
+                            'title' => __('Action Button Text', 'redux-framework-demo'),
+                            'default' => "Buy Now!",
+                        ),
+
+                        array(
+                            'id' => "section_action_link",
+                            'type' => 'text',
+                            'title' => __('Action Link', 'redux-framework-demo'),
+                            'default' => "http://themeforest.net/user/WiselyThemes",
+                        ),
+                                      
+                    ),
+                );
+
+
+
+            //New Properties Section
+                
+
+                $this->sections[] = array(
+                'icon'   => 'el-icon-eye-open',
+                'title'  => __( 'New Properties', 'redux-framework-demo' ),
+                'fields' => array(
+                       
+                       array(
+                            'id' => 'section_properties_info',
+                            'type' => 'info',
+                            'title' => __('Create a new post from <a href="' . site_url() . '/wp-admin/post-new.php">here</a> ', 'redux-framework-demo'),
+                            'style' => 'warning'
+                        ),
+
+                        array(
+                            'id' => 'section_properties_display',
+                            'type' => 'switch',
+                            'title' => __('Display Section', 'redux-framework-demo'),
+                            'default' => true,
+                        ),
+                        
+                        array(
+                            'id' => "section_properties_title",
+                            'type' => 'text',
+                            'title' => __('Section Title', 'redux-framework-demo'),
+                            'default' => "New Properties",
+                        ),
+
+                        array(
+                            'id' => 'section_properties_number',
+                            'type' => 'text',
+                            'title' => __('How many posts to display?', 'redux-framework-demo'),
+                            'default' => "3",
+                        ),                                        
+                    ),
+                );
+
 
                 // Property Gallery Section
 
@@ -310,6 +411,47 @@
                 );
 
 
+
+            //Latest News Section
+                
+
+                $this->sections[] = array(
+                'icon'   => 'el-icon-eye-open',
+                'title'  => __( 'Latest News', 'redux-framework-demo' ),
+                'fields' => array(
+                       
+                       array(
+                            'id' => 'section_feature_info',
+                            'type' => 'info',
+                            'title' => __('Create a new post from <a href="' . site_url() . '/wp-admin/post-new.php">here</a> ', 'redux-framework-demo'),
+                            'style' => 'warning'
+                        ),
+
+                        array(
+                            'id' => 'section_news_display',
+                            'type' => 'switch',
+                            'title' => __('Display Section', 'redux-framework-demo'),
+                            'default' => true,
+                        ),
+                        
+                        array(
+                            'id' => "section_news_title",
+                            'type' => 'text',
+                            'title' => __('Section Title', 'redux-framework-demo'),
+                            'default' => "Latest News",
+                        ),
+
+                        array(
+                            'id' => 'section_news_number',
+                            'type' => 'text',
+                            'title' => __('How many posts to display?', 'redux-framework-demo'),
+                            'default' => "3",
+                        ),                                        
+                    ),
+                );
+
+
+
             //Template Features Section
                 
 
@@ -329,7 +471,7 @@
                             'id' => 'section_feature_display',
                             'type' => 'switch',
                             'title' => __('Display Section', 'redux-framework-demo'),
-                            'default' => "Our Front End Feature",
+                            'default' => true,
                         ),
                         
                         array(
@@ -349,6 +491,7 @@
                 );
 
 
+
                 // Our Partners Section
 
                 $this->sections[] = array(
@@ -358,11 +501,19 @@
                     // 'submenu' => false, // Setting submenu to false on a given section will hide it from the WordPress sidebar menu!
                     'fields' => array(
                         array(
+                            'id' => 'section_partners_display',
+                            'type' => 'switch',
+                            'title' => __('Display Section', 'redux-framework-demo'),
+                            'default' => true,
+                        ),
+
+                        array(
                             'id' => "section_partners_title",
                             'type' => 'text',
                             'title' => __('Section Title', 'redux-framework-demo'),
                             'default' => "Our Partners",
                         ),
+
 
                         array(
                             'id'       => 'cozy_partner1',

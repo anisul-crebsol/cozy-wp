@@ -3,15 +3,13 @@
 						<h1 class="section-title" data-animation-direction="from-bottom" data-animation-delay="50"><?php echo $wt_cozy['section_feature_title']?></h1>
 
 						<?php if ($wt_cozy['section_feature_display']) : ?>
-
 	                    <?php 
 	                        $limit = $wt_cozy['section_feature_number'];
-	                    $args = array(
+	                    	$args = array(
 	                            'post_type'         => 'feature',
 	                            'post_status'       => 'publish',
 	                            'posts_per_page'    => $limit,
 	                        );
-
 	                        $portfolio_query = new WP_Query( $args );?>
 	                    <?php while($portfolio_query->have_posts()): $portfolio_query->the_post(); ?>
 						<div class="feature col-sm-4" data-animation-direction="from-bottom" data-animation-delay="250">
@@ -40,9 +38,9 @@
 							<?php $incr++; } ?>
 						</div>
 						
-						
+						<?php if ($wt_cozy['section_news_display']) : ?>						
 						<!-- BEGIN LATEST NEWS -->
-						<h1 class="section-title" data-animation-direction="from-bottom" data-animation-delay="50">Latest News</h1>					
+						<h1 class="section-title" data-animation-direction="from-bottom" data-animation-delay="50"><?php echo $wt_cozy['section_news_title']?></h1>					
 						<div class="latest-news list-style clearfix">
 						<?php if ( have_posts() ) : ?>
 							<?php /* Start the Loop */ ?>
@@ -79,5 +77,6 @@
 						<?php endif; ?>
 						</div>
 						<!-- END LATEST NEWS -->
+						<?php endif; ?>
 						
 					</div>
