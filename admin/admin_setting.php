@@ -599,6 +599,51 @@
                 );
 
 
+            // Testimonial Section
+
+                $this->sections[] = array(
+                    'title'  => __( 'Testimonial', 'redux-framework-demo' ),
+                    'desc'   => __( '', 'redux-framework-demo' ),
+                    'icon'   => 'el-icon-tasks',
+                    // 'submenu' => false, // Setting submenu to false on a given section will hide it from the WordPress sidebar menu!
+                    'fields' => array(
+
+
+
+                        array(
+                            'id' => 'section_testimonial_info',
+                            'type' => 'info',
+                            'title' => __('Create a new Testimonial from <a href="' . site_url() . '/wp-admin/post-new.php?post_type=testimonial">here</a> ', 'redux-framework-demo'),
+                            'style' => 'warning'
+                        ),
+
+                        array(
+                            'id' => 'section_testimonial_display',
+                            'type' => 'switch',
+                            'title' => __('Display Section', 'redux-framework-demo'),
+                            'default' => true,
+                        ),
+                        
+                      array(
+                            'id'       => 'section_testimonial_title',
+                            'type'     => 'text',
+                            'validate' => '',
+                            'title'    => __( 'Section heading', 'redux-framework-demo'),
+                            'desc'     => __( '' ),
+                            'default'  => 'Testimonials',
+                        ),
+
+                      array(
+                            'id' => 'section_testimonial_number',
+                            'type' => 'text',
+                            'title' => __('How many posts to display?', 'redux-framework-demo'),
+                            'default' => "3",
+                        ),
+
+                    ),
+                );
+
+
             // Footer Section
 
                 $this->sections[] = array(

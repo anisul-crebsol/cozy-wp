@@ -33,24 +33,38 @@
 					<div class="block col-sm-3">
 						<h3>Latest Listings</h3>
 						<ul class="footer-listings">
+							<?php
+							$delay = 250;
+							//$display_posts = get_option();
+							$listing_args = array(
+								'post_type' => 'listing',
+								'tax_query'	=> array(
+									array(
+										'taxonomy'	=> 'status',
+										'field'		=> 'slug',
+										'terms'		=> array( 'featured' ),
+										'operator'	=> 'NOT IN',
+									),
+								),
+								'showposts' => 3 //$display_posts
+							);
+							query_posts($listing_args);
+							if (have_posts()) : while (have_posts()) : the_post();
+							
+							$listing_status = wp_listings_get_status();
+							$listing_price = get_post_meta( $post->ID, '_listing_price', true);
+							$listing_address = get_post_meta( $post->ID, '_listing_address', true);
+							$listing_sqft = get_post_meta( $post->ID, '_listing_sqft', true );
+							$listing_bedrooms = get_post_meta( $post->ID, '_listing_bedrooms', true );
+							$listing_bathrooms = get_post_meta( $post->ID, '_listing_bathrooms', true );
+							?>
 							<li>
 								<div class="image">
-									<a href="properties-detail.html"><img src="http://placehold.it/760x670" alt="" /></a>
+									<a href="<?php the_permalink(); ?>"><?php the_post_thumbnail(); ?></a>
 								</div>
-								<p><a href="properties-detail.html">Luxury Apartment with great views<span>+</span></a></p>
+								<p><a href="<?php the_permalink(); ?>"><?php the_title(); ?><span>+</span></a></p>
 							</li>
-							<li>
-								<div class="image">
-									<a href="properties-detail.html"><img src="http://placehold.it/760x670" alt="" /></a>
-								</div>
-								<p><a href="properties-detail.html">Stunning Villa with 5 bedrooms<span>+</span></a></p>
-							</li>
-							<li>
-								<div class="image">
-									<a href="properties-detail.html"><img src="http://placehold.it/760x670" alt="" /></a>
-								</div>
-								<p><a href="properties-detail.html">Recent construction with 3 bedrooms.<span>+</span></a></p>
-							</li>
+							<?php $delay+=200; endwhile; endif; wp_reset_query(); ?>
 						</ul>
 					</div>
 				</div>
@@ -88,7 +102,11 @@
 	<!-- END WRAPPER -->
 
 	
-	<script type="text/javascript">
+	
+<?php wp_footer(); ?>
+
+
+<script type="text/javascript">
 		(function($){
 			"use strict";
 			
@@ -98,6 +116,6 @@
 			});
 		})(jQuery);
 	</script>
-<?php wp_footer(); ?>
+<?php require get_template_directory() . '/inc/agencies.php'; ?>
 </body>
 </html>

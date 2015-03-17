@@ -50,7 +50,7 @@
 									<a href="<?php echo get_page_link(); ?>">
 										<span class="btn btn-default"><i class="fa fa-file-o"></i> Read More</span>
 									</a>
-									<img src="http://placehold.it/766x515" alt="" />
+									<?php the_post_thumbnail(); ?>
 								</div>
 								<div class="tag"><i class="fa fa-file-text"></i></div>
 								<div class="info-blog">

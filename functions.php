@@ -146,6 +146,8 @@ add_action( 'after_setup_theme', 'cozy_setup' );
         }
     }
 
+
+
 /**
  * Register widget area.
  *
@@ -261,7 +263,7 @@ function cozy_scripts() {
     wp_enqueue_script( 'cozy-infobox', get_template_directory_uri() . '/js/infobox.min.js', array(), '', true );
     wp_enqueue_script( 'cozy-variables', get_template_directory_uri() . '/js/variables.js', array(), '', true );
     wp_enqueue_script( 'cozy-scripts', get_template_directory_uri() . '/js/scripts.js', array(), '', true );
-    wp_enqueue_script( 'cozy-agencies', get_template_directory_uri() . '/js/agencies.js' );
+    //wp_enqueue_script( 'cozy-agencies', get_template_directory_uri() . '/js/agencies.js' );
 
     if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
         wp_enqueue_script( 'comment-reply' );
@@ -368,73 +370,79 @@ function wt_cozy_cmb()
                 'name' => __('Agent member Image ',"wt_cozy"),
                 'id' => $prefix . 'agent_img',
                 'type' => 'file'
-            ),
-            
-            
-            
+            ),                        
             array(
                 'name' => __('Description',"wt_cozy"),
                 'id' => $prefix . 'agent_description',
                 'type' => 'wysiwyg',
-
             ),
             array(
                 'name' => __('Facebook Link',"wt_cozy"),
                 'id' => $prefix . 'agent_facebook_link',
                 'type' => 'text',
-
             ),
             array(
                 'name' => __('Twitter Link',"wt_cozy"),
                 'id' => $prefix . 'agent_twitter_link',
                 'type' => 'text',
-
             ),
             array(
                 'name' => __('Linkedin Link',"wt_cozy"),
                 'id' => $prefix . 'agent_linkedin_link',
                 'type' => 'text',
-
             ),
             array(
                 'name' => __('Dribbble Link',"wt_cozy"),
                 'id' => $prefix . 'agent_dribbble_link',
                 'type' => 'text',
-
             ),
         )
     );
 
 
-    // Portfolio Meta Box
-
-    $meta_boxes[] = array(
-        'id' => 'postfolio',
-        'title' => __('Portfolio Details (Latest Portfolio will be displayed on top)',"wt_cozy"),
-        'pages' => array('portfolio'), // post type
+    // Agency Meta box
+    
+        $meta_boxes[] = array(
+        'id' => 'agency',
+        'title' => __('agency Details (Latest agency will be displayed on top)',"wt_cozy"),
+        'pages' => array('agency'), // post type
         'context' => 'normal',
         'priority' => 'high',
         'show_names' => true, // Show field names on the left
-        'fields' => array(
+        'fields' => array(                      
             array(
-                'name' => __('Live Preview Link',"wt_cozy"),
-                'id' => $prefix . 'portfolio_link',
-                'type' => 'text_medium'
+                'name' => __('Agency Title',"wt_cozy"),
+                'id' => $prefix . 'agency_title',
+                'type' => 'text',
             ),
-
             array(
-                'name' => __('Portfolio Item Image',"wt_cozy"),
-                'id' => $prefix . 'portfolio_img',
+                'name' => __('Agency Latitude',"wt_cozy"),
+                'id' => $prefix . 'agency_latitude',
+                'type' => 'text',
+            ),
+            array(
+                'name' => __('Agency Longtitude',"wt_cozy"),
+                'id' => $prefix . 'agency_longtitude',
+                'type' => 'text',
+            ),
+            array(
+                'name' => __('Agency Image ',"wt_cozy"),
+                'id' => $prefix . 'agency_img',
                 'type' => 'file'
-            ),
-
+            ), 
             array(
-                'name' => __('Large Portfolio Image',"wt_cozy"),
-                'id' => $prefix . 'large_portfolio_img',
+                'name' => __('Description',"wt_cozy"),
+                'id' => $prefix . 'agency_description',
+                'type' => 'wysiwyg',
+            ), 
+            array(
+                'name' => __('Agency Map Maker Icon ',"wt_cozy"),
+                'id' => $prefix . 'agency_map_maker_icon',
                 'type' => 'file'
-            ),
+            ), 
         )
     );
+
     return $meta_boxes;
 }
 
@@ -455,23 +463,23 @@ function wt_cozy_fields()
 {
 
     $labels1 = array(
-        'name' => _x('features', 'Post Type General Name', 'wt_cozy'),
-        'singular_name' => _x('feature', 'Post Type Singular Name', 'wt_cozy'),
+        'name' => _x('Features', 'Post Type General Name', 'wt_cozy'),
+        'singular_name' => _x('Feature', 'Post Type Singular Name', 'wt_cozy'),
         'menu_name' => __('Features', 'wt_cozy'),
-        'parent_item_colon' => __('Parent feature:', 'wt_cozy'),
-        'all_items' => __('All features', 'wt_cozy'),
-        'view_item' => __('View feature', 'wt_cozy'),
-        'add_new_item' => __('Add New feature', 'wt_cozy'),
-        'add_new' => __('New feature', 'wt_cozy'),
-        'edit_item' => __('Edit feature', 'wt_cozy'),
-        'update_item' => __('Update feature', 'wt_cozy'),
-        'search_items' => __('Search feature', 'wt_cozy'),
-        'not_found' => __('No feature found', 'wt_cozy'),
+        'parent_item_colon' => __('Parent Feature:', 'wt_cozy'),
+        'all_items' => __('All Features', 'wt_cozy'),
+        'view_item' => __('View Feature', 'wt_cozy'),
+        'add_new_item' => __('Add New Feature', 'wt_cozy'),
+        'add_new' => __('New Feature', 'wt_cozy'),
+        'edit_item' => __('Edit Feature', 'wt_cozy'),
+        'update_item' => __('Update Feature', 'wt_cozy'),
+        'search_items' => __('Search Features', 'wt_cozy'),
+        'not_found' => __('No Feature found', 'wt_cozy'),
         'not_found_in_trash' => __('No features found in Trash', 'wt_cozy'),
     );
     $args1 = array(
-        'label' => __('feature', 'wt_cozy'),
-        'description' => __('feature', 'wt_cozy'),
+        'label' => __('Features', 'wt_cozy'),
+        'description' => __('Features', 'wt_cozy'),
         'labels' => $labels1,
         'supports' => array('title'),
         'hierarchical' => false,
@@ -530,23 +538,23 @@ function wt_cozy_fields()
 
     // Team section
     $labels1 = array(
-        'name' => _x('agent', 'Post Type General Name', 'wt_cozy'),
-        'singular_name' => _x('agent', 'Post Type Singular Name', 'wt_cozy'),
-        'menu_name' => __('Agent', 'wt_cozy'),
-        'parent_item_colon' => __('Parent agent:', 'wt_cozy'),
-        'all_items' => __('All agent', 'wt_cozy'),
-        'view_item' => __('View agent', 'wt_cozy'),
-        'add_new_item' => __('Add New agent', 'wt_cozy'),
-        'add_new' => __('New agent member', 'wt_cozy'),
-        'edit_item' => __('Edit agent', 'wt_cozy'),
-        'update_item' => __('Update agent', 'wt_cozy'),
-        'search_items' => __('Search agent', 'wt_cozy'),
+        'name' => _x('Agents', 'Post Type General Name', 'wt_cozy'),
+        'singular_name' => _x('Agent', 'Post Type Singular Name', 'wt_cozy'),
+        'menu_name' => __('Agents', 'wt_cozy'),
+        'parent_item_colon' => __('Parent Agent:', 'wt_cozy'),
+        'all_items' => __('All Agents', 'wt_cozy'),
+        'view_item' => __('View Agent', 'wt_cozy'),
+        'add_new_item' => __('Add New Agent', 'wt_cozy'),
+        'add_new' => __('New Agent Member', 'wt_cozy'),
+        'edit_item' => __('Edit Agent', 'wt_cozy'),
+        'update_item' => __('Update Agent', 'wt_cozy'),
+        'search_items' => __('Search Agents', 'wt_cozy'),
         'not_found' => __('No agent found', 'wt_cozy'),
         'not_found_in_trash' => __('No agent found in Trash', 'wt_cozy'),
     );
     $args1 = array(
-        'label' => __('agent', 'wt_cozy'),
-        'description' => __('agent', 'wt_cozy'),
+        'label' => __('Agent', 'wt_cozy'),
+        'description' => __('Agent', 'wt_cozy'),
         'labels' => $labels1,
         'supports' => array('title'),
         'hierarchical' => false,
@@ -565,28 +573,26 @@ function wt_cozy_fields()
     );
     register_post_type('agent', $args1);
 
-
-    // Portfolio Custom Field
-
-    $labels2 = array(
-        'name' => _x('Porftolio', 'Post Type General Name', 'wt_cozy'),
-        'singular_name' => _x('Portfolio', 'Post Type Singular Name', 'wt_cozy'),
-        'menu_name' => __('Porftolio', 'wt_cozy'),
-        'parent_item_colon' => __('Parent Portfolio:', 'wt_cozy'),
-        'all_items' => __('All Porftolio', 'wt_cozy'),
-        'view_item' => __('View Portfolio', 'wt_cozy'),
-        'add_new_item' => __('Add New Portfolio', 'wt_cozy'),
-        'add_new' => __('New Portfolio', 'wt_cozy'),
-        'edit_item' => __('Edit Portfolio', 'wt_cozy'),
-        'update_item' => __('Update Portfolio', 'wt_cozy'),
-        'search_items' => __('Search Porftolio', 'wt_cozy'),
-        'not_found' => __('No Portfolio found', 'wt_cozy'),
-        'not_found_in_trash' => __('No Porftolio found in Trash', 'wt_cozy'),
+    // Agency section
+    $labels1 = array(
+        'name' => _x('Agencies', 'Post Type General Name', 'wt_cozy'),
+        'singular_name' => _x('Agency', 'Post Type Singular Name', 'wt_cozy'),
+        'menu_name' => __('Agencies', 'wt_cozy'),
+        'parent_item_colon' => __('Parent agency:', 'wt_cozy'),
+        'all_items' => __('All Agencies', 'wt_cozy'),
+        'view_item' => __('View Agency', 'wt_cozy'),
+        'add_new_item' => __('Add New Agency', 'wt_cozy'),
+        'add_new' => __('New Agency', 'wt_cozy'),
+        'edit_item' => __('Edit Agency', 'wt_cozy'),
+        'update_item' => __('Update Agency', 'wt_cozy'),
+        'search_items' => __('Search Agency', 'wt_cozy'),
+        'not_found' => __('No Agency found', 'wt_cozy'),
+        'not_found_in_trash' => __('No Agency found in Trash', 'wt_cozy'),
     );
-    $args2 = array(
-        'label' => __('Portfolio', 'wt_cozy'),
-        'description' => __('Portfolio', 'wt_cozy'),
-        'labels' => $labels2,
+    $args1 = array(
+        'label' => __('Agency', 'wt_cozy'),
+        'description' => __('Agency', 'wt_cozy'),
+        'labels' => $labels1,
         'supports' => array('title'),
         'hierarchical' => false,
         'public' => true,
@@ -595,14 +601,14 @@ function wt_cozy_fields()
         'show_in_nav_menus' => true,
         'show_in_admin_bar' => true,
         'menu_position' => 5,
-        'menu_icon' => get_template_directory_uri() . '/images/menu-icon/portfolio.png',
+        'menu_icon' => get_template_directory_uri() . '/images/menu-icon/agency.png',
         'can_export' => true,
         'has_archive' => true,
         'exclude_from_search' => false,
         'publicly_queryable' => true,
         'capability_type' => 'page',
     );
-    register_post_type('Portfolio', $args2);
+    register_post_type('agency', $args1);
 
 }
 
