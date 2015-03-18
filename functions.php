@@ -8,9 +8,6 @@
 /**
  * Set the content width based on the theme's design and stylesheet.
  */
-if ( ! isset( $content_width ) ) {
-    $content_width = 640; /* pixels */
-}
 
 if ( ! function_exists( 'cozy_setup' ) ) :
 
@@ -155,8 +152,17 @@ add_action( 'after_setup_theme', 'cozy_setup' );
  */
 function cozy_widgets_init() {
     register_sidebar( array(
-        'name'          => __( 'Newsletter Widget', 'cozy' ),
-        'id'            => 'newsletter-widget',
+        'name'          => __( 'Sidebar Home', 'cozy' ),
+        'id'            => 'sidebar-home',
+        'description'   => '',
+        'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+        'after_widget'  => '</aside>',
+        'before_title'  => '<h1 class="widget-title">',
+        'after_title'   => '</h1>',
+    ) );
+    register_sidebar( array(
+        'name'          => __( 'Footer', 'cozy' ),
+        'id'            => 'sidebar-footer',
         'description'   => '',
         'before_widget' => '<aside id="%1$s" class="widget %2$s">',
         'after_widget'  => '</aside>',
@@ -166,82 +172,29 @@ function cozy_widgets_init() {
 }
 add_action( 'widgets_init', 'cozy_widgets_init' );
 
+// Newsletter Widget
+require 'includes/widgets/agencies.php';
+require 'includes/widgets/find-agents.php'; 
+require 'includes/widgets/newsletter.php'; 
+require 'includes/widgets/testimonials.php';
+require 'includes/widgets/info.php';
+require 'includes/widgets/contact.php'; 
+require 'includes/widgets/links.php'; 
+require 'includes/widgets/listings.php';   
 
-/**
- * Adds WtNewsletterWidget widget.
- */
-class WtNewsletterWidget extends WP_Widget {
 
-    /**
-     * Register widget with WordPress.
-     */
-    function __construct() {
-        parent::__construct(
-            'foo_widget', // Base ID
-            __( 'Newsletter Widget', 'text_domain' ), // Name
-            array( 'description' => __( 'A Foo Widget', 'text_domain' ), ) // Args
-        );
-    }
-
-    /**
-     * Front-end display of widget.
-     *
-     * @see WP_Widget::widget()
-     *
-     * @param array $args     Widget arguments.
-     * @param array $instance Saved values from database.
-     */
-    public function widget( $args, $instance ) {
-        echo $args['before_widget'];
-        if ( ! empty( $instance['title'] ) ) {
-            echo $args['before_title'] . apply_filters( 'widget_title', $instance['title'] ). $args['after_title'];
-        }
-        echo __( '', 'text_domain' );
-        echo $args['after_widget'];
-    }
-
-    /**
-     * Back-end widget form.
-     *
-     * @see WP_Widget::form()
-     *
-     * @param array $instance Previously saved values from database.
-     */
-    public function form( $instance ) {
-        $title = ! empty( $instance['title'] ) ? $instance['title'] : __( 'New title', 'text_domain' );
-        ?>
-        <p>
-        <label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title:' ); ?></label> 
-        <input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo esc_attr( $title ); ?>">
-        </p>
-        <?php 
-    }
-
-    /**
-     * Sanitize widget form values as they are saved.
-     *
-     * @see WP_Widget::update()
-     *
-     * @param array $new_instance Values just sent to be saved.
-     * @param array $old_instance Previously saved values from database.
-     *
-     * @return array Updated safe values to be saved.
-     */
-    public function update( $new_instance, $old_instance ) {
-        $instance = array();
-        $instance['title'] = ( ! empty( $new_instance['title'] ) ) ? strip_tags( $new_instance['title'] ) : '';
-
-        return $instance;
-    }
-
-} // class WtNewsletterWidget
-
-// register WtNewsletterWidget widget
-function register_foo_widget() {
-    register_widget( 'WtNewsletterWidget' );
+// register WT Cozy widget
+function register_cozy_widget() {
+    register_widget( 'WT_Widget_Agencies' );
+    register_widget( 'WT_Widget_Agents' );
+    register_widget( 'WT_Widget_Newsletter' );
+    register_widget( 'WT_Widget_Testimonials' );
+    register_widget( 'WT_Widget_Info' );
+    register_widget( 'WT_Widget_Contact' );
+    register_widget( 'WT_Widget_Links' );
+    register_widget( 'WT_Widget_Listings' );
 }
-add_action( 'widgets_init', 'register_foo_widget' );
-
+add_action( 'widgets_init', 'register_cozy_widget' );
 
 
 /**

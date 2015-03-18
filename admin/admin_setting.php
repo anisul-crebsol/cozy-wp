@@ -559,12 +559,12 @@
                 );
 
 
-            //Sidebar
+            //Newsletter
                 
 
                 $this->sections[] = array(
                 'icon'   => 'el-icon-eye-open',
-                'title'  => __( 'Sidebar', 'redux-framework-demo' ),
+                'title'  => __( 'Newsletter', 'redux-framework-demo' ),
                 'fields' => array(
 
                         array(
