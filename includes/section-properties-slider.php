@@ -48,7 +48,14 @@
 										?>
 										<?php if($listing_address) echo "<span class='location'>$listing_address</span>"; ?>
 									</a>
-									<?php echo get_the_post_thumbnail( $post->ID, array( 270, 238 ) ); ?>
+									<?php
+									if ( has_post_thumbnail() ) {
+										echo get_the_post_thumbnail($post->ID, array( 270, 238 ));
+									}
+									else {
+										echo '<img src="http://placehold.it/270x238" />';
+									}
+									?>
 								</div>
 								<div class="price">
 									<i class="fa fa-home"></i><?php if('' != $listing_status) echo $listing_status; ?>

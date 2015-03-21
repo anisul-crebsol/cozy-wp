@@ -161,6 +161,15 @@ function cozy_widgets_init() {
         'after_title'   => '</h1>',
     ) );
     register_sidebar( array(
+        'name'          => __( 'Sidebar Home Grid', 'cozy' ),
+        'id'            => 'sidebar-home-grid',
+        'description'   => '',
+        'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+        'after_widget'  => '</aside>',
+        'before_title'  => '<h1 class="widget-title">',
+        'after_title'   => '</h1>',
+    ) );
+    register_sidebar( array(
         'name'          => __( 'Footer', 'cozy' ),
         'id'            => 'sidebar-footer',
         'description'   => '',
@@ -214,6 +223,7 @@ function cozy_scripts() {
     wp_enqueue_script( 'cozy-chosen-jquery', get_template_directory_uri() . '/js/chosen.jquery.min.js', array(), '', true );
     wp_enqueue_script( 'cozy-wow', 'http://maps.google.com/maps/api/js?sensor=false', array(), '', true );
     wp_enqueue_script( 'cozy-infobox', get_template_directory_uri() . '/js/infobox.min.js', array(), '', true );
+    wp_enqueue_script( 'cozy-freewall', get_template_directory_uri() . '/js/freewall.js', array(), '', true );
     wp_enqueue_script( 'cozy-variables', get_template_directory_uri() . '/js/variables.js', array(), '', true );
     wp_enqueue_script( 'cozy-scripts', get_template_directory_uri() . '/js/scripts.js', array(), '', true );
     //wp_enqueue_script( 'cozy-agencies', get_template_directory_uri() . '/js/agencies.js' );

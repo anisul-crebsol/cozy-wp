@@ -35,7 +35,7 @@ class WT_Widget_Newsletter extends WP_Widget {
                 <div class="newsletter newsletter-subscription">
                     <form method="post" action="http://localhost/cozy-wp/wp-content/plugins/newsletter/do/subscribe.php" onsubmit="return newsletter_check(this)">
                         <div class="input-group">
-                            <input class="newsletter-email form-control" type="email" name="ne" size="30" required>
+                            <input class="newsletter-email form-control" type="email" placeholder="Enter your E-mail" name="ne" size="30" required>
                             <span class="input-group-btn newsletter-td-submit">
                             <input class="newsletter-submit btn btn-default" type="submit" value="Subscribe"/>
                             </span>

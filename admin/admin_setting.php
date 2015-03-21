@@ -262,7 +262,6 @@
                             'title' => __('Google Map Link Here', 'redux-framework-demo'),
                             'default' => "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3323.5555106206834!2d-7.637222461654696!3d33.59088826069678!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x87da5314adb2dd65!2sRICHBOND!5e0!3m2!1sen!2s!4v1397056520314",
                         ),
-
                     ),
                 );
 
@@ -442,6 +441,13 @@
                         ),
 
                         array(
+                            'id' => "section_news_description",
+                            'type' => 'textarea',
+                            'title' => __('Section Description', 'redux-framework-demo'),
+                            'default' => "Pellentesque elementum libero enim, eget gravida nunc laoreet et. Nullam ac enim auctor, fringilla risus at, imperdiet turpis. Pellentesque elementum libero enim, eget gravida nunc laoreet et. ",
+                        ),
+
+                        array(
                             'id' => 'section_news_number',
                             'type' => 'text',
                             'title' => __('How many posts to display?', 'redux-framework-demo'),
@@ -486,7 +492,14 @@
                             'type' => 'text',
                             'title' => __('How many posts to display?', 'redux-framework-demo'),
                             'default' => "3",
-                        ),                                        
+                        ),   
+
+                        array(
+                            'id' => 'section_feature_number_grid',
+                            'type' => 'text',
+                            'title' => __('How many posts to display in grid page?', 'redux-framework-demo'),
+                            'default' => "4",
+                        ),                                     
                     ),
                 );
 
