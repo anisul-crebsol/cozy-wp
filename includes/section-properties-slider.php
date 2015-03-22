@@ -4,13 +4,13 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-sm-12">
-						<h1 class="section-title" data-animation-direction="from-bottom" data-animation-delay="50">New Properties Available</h1>
+						<h1 class="section-title" data-animation-direction="from-bottom" data-animation-delay="50"><?php echo $wt_cozy['section_properties_title']?></h1>
 						
 						<div id="new-properties-slider" class="owl-carousel carousel-style1">
 
 							<?php
 							$delay = 250;
-							//$display_posts = get_option();
+							$display_posts = $wt_cozy['section_properties_number'];
 							$listing_args = array(
 								'post_type' => 'listing',
 								'tax_query'	=> array(
@@ -21,7 +21,7 @@
 										'operator'	=> 'NOT IN',
 									),
 								),
-								'showposts' => 9 //$display_posts
+								'showposts' => $display_posts
 							);
 							query_posts($listing_args);
 							if (have_posts()) : while (have_posts()) : the_post();

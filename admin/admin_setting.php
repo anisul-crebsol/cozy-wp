@@ -342,7 +342,7 @@
                        array(
                             'id' => 'section_properties_info',
                             'type' => 'info',
-                            'title' => __('Create a new post from <a href="' . site_url() . '/wp-admin/post-new.php">here</a> ', 'redux-framework-demo'),
+                            'title' => __('Create a new post from <a href="' . site_url() . '/wp-admin/post-new.php?post_type=listing">here</a> ', 'redux-framework-demo'),
                             'style' => 'warning'
                         ),
 
@@ -357,14 +357,14 @@
                             'id' => "section_properties_title",
                             'type' => 'text',
                             'title' => __('Section Title', 'redux-framework-demo'),
-                            'default' => "New Properties",
+                            'default' => "New Properties Available",
                         ),
 
                         array(
                             'id' => 'section_properties_number',
                             'type' => 'text',
                             'title' => __('How many posts to display?', 'redux-framework-demo'),
-                            'default' => "3",
+                            'default' => "9",
                         ),                                        
                     ),
                 );

@@ -262,6 +262,10 @@ if ( !isset( $redux_demo ) ) {
 function wt_cozy_cmb()
 {
     $prefix = "_wt_";
+
+
+    // Feature Meta Box
+
     $meta_boxes[] = array(
         'id' => 'feature',
         'title' => __('feature Details (Latest feature will be displayed on top)',"wt_cozy"),
@@ -282,9 +286,10 @@ function wt_cozy_cmb()
                 'id' => $prefix . 'exp_description',
                 'type' => 'textarea'
             ),
-        )
+        ),
     );
 
+   
 
     // Testimonial Meta Box
 
@@ -316,7 +321,7 @@ function wt_cozy_cmb()
                 'id' => $prefix . 'test_description',
                 'type' => 'wysiwyg'
             ),
-        )
+        ),
     );
 
     // Agent Meta box
@@ -330,36 +335,56 @@ function wt_cozy_cmb()
         'show_names' => true, // Show field names on the left
         'fields' => array(
             array(
-                'name' => __('Agent member Image ',"wt_cozy"),
+                'name' => __('Agent Image ',"wt_cozy"),
                 'id' => $prefix . 'agent_img',
                 'type' => 'file'
-            ),                        
+            ), 
+            array(
+                'name' => __('Agent Name',"wt_cozy"),
+                'id' => $prefix . 'agent_name',
+                'type' => 'text_medium',
+            ),
+            array(
+                'name' => __('Agent Address',"wt_cozy"),
+                'id' => $prefix . 'agent_address',
+                'type' => 'text',
+            ),   
+            array(
+                'name' => __('Agent Address 2',"wt_cozy"),
+                'id' => $prefix . 'agent_address_two',
+                'type' => 'text',
+            ),
+            array(
+                'name' => __('Agent Email',"wt_cozy"),
+                'id' => $prefix . 'agent_email',
+                'type' => 'text_email',
+            ),                       
             array(
                 'name' => __('Description',"wt_cozy"),
                 'id' => $prefix . 'agent_description',
                 'type' => 'wysiwyg',
             ),
             array(
+                'name' => __('Linkedin Link',"wt_cozy"),
+                'id' => $prefix . 'agent_linkedin_link',
+                'type' => 'text_url',
+            ),
+            array(
                 'name' => __('Facebook Link',"wt_cozy"),
                 'id' => $prefix . 'agent_facebook_link',
-                'type' => 'text',
+                'type' => 'text_url',
             ),
             array(
                 'name' => __('Twitter Link',"wt_cozy"),
                 'id' => $prefix . 'agent_twitter_link',
-                'type' => 'text',
+                'type' => 'text_url',
             ),
             array(
-                'name' => __('Linkedin Link',"wt_cozy"),
-                'id' => $prefix . 'agent_linkedin_link',
-                'type' => 'text',
+                'name' => __('YouTube Link',"wt_cozy"),
+                'id' => $prefix . 'agent_youtube_link',
+                'type' => 'text_url',
             ),
-            array(
-                'name' => __('Dribbble Link',"wt_cozy"),
-                'id' => $prefix . 'agent_dribbble_link',
-                'type' => 'text',
-            ),
-        )
+        ),
     );
 
 
@@ -403,14 +428,33 @@ function wt_cozy_cmb()
                 'id' => $prefix . 'agency_map_maker_icon',
                 'type' => 'file'
             ), 
-        )
+        ),
     );
+
+
+    // Grid Page Meta box
+
+    $meta_boxes[] = array(
+        'id' => 'extra-information',
+        'title' => 'Extra Information',
+        'pages' => array('page'), // post type
+        'show_on' => array( 'key' => 'page-template', 'value' => 'page-grid.php' ),
+        'context' => 'normal', //  'normal', 'advanced', or 'side'
+        'priority' => 'high',  //  'high', 'core', 'default' or 'low'
+        'show_names' => true, // Show field names on the left
+        'fields' => array(
+            array(
+                'name' => __('Google Map Embed Code',"wt_cozy"),
+                'id' => $prefix . 'google_map',
+                'type' => 'textarea'
+            ),
+        ),
+    );           
 
     return $meta_boxes;
 }
 
 add_filter('cmb_meta_boxes', 'wt_cozy_cmb');
-
 
 
 // Initialize the metabox class
@@ -433,7 +477,7 @@ function wt_cozy_fields()
         'all_items' => __('All Features', 'wt_cozy'),
         'view_item' => __('View Feature', 'wt_cozy'),
         'add_new_item' => __('Add New Feature', 'wt_cozy'),
-        'add_new' => __('New Feature', 'wt_cozy'),
+        'add_new' => __('Add New Feature', 'wt_cozy'),
         'edit_item' => __('Edit Feature', 'wt_cozy'),
         'update_item' => __('Update Feature', 'wt_cozy'),
         'search_items' => __('Search Features', 'wt_cozy'),
@@ -471,7 +515,7 @@ function wt_cozy_fields()
     'all_items' => __('All Testimonials', 'wt_cozy'),
     'view_item' => __('View Testimonial', 'wt_cozy'),
     'add_new_item' => __('Add New Testimonial', 'wt_cozy'),
-    'add_new' => __('New Testimonial', 'wt_cozy'),
+    'add_new' => __('Add New Testimonial', 'wt_cozy'),
     'edit_item' => __('Edit Testimonial', 'wt_cozy'),
     'update_item' => __('Update Testimonial', 'wt_cozy'),
     'search_items' => __('Search Testimonials', 'wt_cozy'),
@@ -499,7 +543,7 @@ function wt_cozy_fields()
     );
     register_post_type('testimonial', $args4);
 
-    // Team section
+    // Agent section
     $labels1 = array(
         'name' => _x('Agents', 'Post Type General Name', 'wt_cozy'),
         'singular_name' => _x('Agent', 'Post Type Singular Name', 'wt_cozy'),
@@ -508,7 +552,7 @@ function wt_cozy_fields()
         'all_items' => __('All Agents', 'wt_cozy'),
         'view_item' => __('View Agent', 'wt_cozy'),
         'add_new_item' => __('Add New Agent', 'wt_cozy'),
-        'add_new' => __('New Agent Member', 'wt_cozy'),
+        'add_new' => __('Add New Agent', 'wt_cozy'),
         'edit_item' => __('Edit Agent', 'wt_cozy'),
         'update_item' => __('Update Agent', 'wt_cozy'),
         'search_items' => __('Search Agents', 'wt_cozy'),
@@ -545,7 +589,7 @@ function wt_cozy_fields()
         'all_items' => __('All Agencies', 'wt_cozy'),
         'view_item' => __('View Agency', 'wt_cozy'),
         'add_new_item' => __('Add New Agency', 'wt_cozy'),
-        'add_new' => __('New Agency', 'wt_cozy'),
+        'add_new' => __('Add New Agency', 'wt_cozy'),
         'edit_item' => __('Edit Agency', 'wt_cozy'),
         'update_item' => __('Update Agency', 'wt_cozy'),
         'search_items' => __('Search Agency', 'wt_cozy'),

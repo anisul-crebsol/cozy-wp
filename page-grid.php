@@ -19,146 +19,40 @@ global $wt_cozy; ?>
 		<!-- BEGIN HOME GRID -->
 		<div id="home-grid">
 			<div id="freewall" class="free-wall">
+
+			<?php if ($wt_cozy['section_feature_display']) : ?>
+		    <?php 
+		        $limit = $wt_cozy['section_grid_number'];
+		    	$args = array(
+		            'post_type'         => 'listing',
+		            'post_status'       => 'publish',
+		            'posts_per_page'    => 15,
+		        );
+		        $listing_query = new WP_Query( $args );?>
+		    <?php while($listing_query->have_posts()): $listing_query->the_post(); ?>
+
 				<div class="item">
 					<a class="info" href="properties-detail.html">
 						<span class="price">
-							<i class="fa fa-home"></i>For Sale<span>$950,000</span>
+							<i class="fa fa-home"></i><?php echo wp_listings_get_status();?><span><?php echo get_post_meta( $post->ID, '_listing_price', true);?></span>
 						</span>
-						<h3>Luxury Apartment with great views</h3>
-						<span class="location">Upper East Side, New York</span>
+						<h3><?php the_title() ?></h3>
+						<span class="location"><?php echo get_post_meta( $post->ID, '_listing_address', true);?></span>
 					</a>
-					<img src="http://placehold.it/760x670" alt="" />
+					<?php
+					if ( has_post_thumbnail() ) {
+						echo get_the_post_thumbnail($post->ID, array( 760, 670 ));
+					}
+					else {
+						echo '<img src="http://placehold.it/760x670" />';
+					}
+					?>
 				</div>
-				<div class="item">
-					<a class="info" href="properties-detail.html">
-						<span class="price">
-							<i class="fa fa-home"></i>For Sale<span>$1,253,000</span>
-						</span>
-						<h3>Stunning Villa with 5 bedrooms</h3>
-						<span class="location">Miami Beach, Florida</span>
-					</a>
-					<img src="http://placehold.it/760x670" alt="" />
-				</div>
-				<div class="item">
-					<a class="info" href="properties-detail.html">
-						<span class="price">
-							<i class="fa fa-home"></i>For Sale<span>$560,000</span>
-						</span>
-						<h3>Recent construction with 3 bedrooms</h3>
-						<span class="location">Park Slope, New York</span>
-					</a>
-					<img src="http://placehold.it/760x670" alt="" />
-				</div>
-				<div class="item">
-					<a class="info" href="properties-detail.html">
-						<span class="price">
-							<i class="fa fa-home"></i>For Rent<span>$850</span>
-						</span>
-						<h3>Modern construction with parking space</h3>
-						<span class="location">Midtown, New York</span>
-					</a>
-					<img src="http://placehold.it/760x670" alt="" />
-				</div>
-				<div class="item">
-					<a class="info" href="properties-detail.html">
-						<span class="price">
-							<i class="fa fa-home"></i>For Sale<span>$846,000</span>
-						</span>
-						<h3>Single Family Townhouse</h3>
-						<span class="location">Cobble Hill, New York</span>
-					</a>
-					<img src="http://placehold.it/760x670" alt="" />
-				</div>
-				<div class="item">
-					<a class="info" href="properties-detail.html">
-						<span class="price">
-							<i class="fa fa-home"></i>For Rent<span>$1,500</span>
-						</span>
-						<h3>3 bedroom villa with garage for rent</h3>
-						<span class="location">Bal Harbour, Florida</span>
-					</a>
-					<img src="http://placehold.it/760x670" alt="" />
-				</div>
-				<div class="item">
-					<a class="info" href="properties-detail.html">
-						<span class="price">
-							<i class="fa fa-home"></i>For Sale<span>$2,120,000</span>
-						</span>
-						<h3>Luxury Condo with 2 bedroms</h3>
-						<span class="location">Brooklyn Heights, New York</span>
-					</a>
-					<img src="http://placehold.it/760x670" alt="" />
-				</div>
-				<div class="item">
-					<a class="info" href="properties-detail.html">
-						<span class="price">
-							<i class="fa fa-home"></i>For Sale<span>$975,000</span>
-						</span>
-						<h3>Edition Residences on Collins Avenue</h3>
-						<span class="location">Miami Beach, Florida</span>
-					</a>
-					<img src="http://placehold.it/760x670" alt="" />
-				</div>
-				<div class="item">
-					<a class="info" href="properties-detail.html">
-						<span class="price">
-							<i class="fa fa-home"></i>For Sale<span>$650,000</span>
-						</span>
-						<h3>Gorgeous Apartment in New York</h3>
-						<span class="location">SoHo - Nolita, New York</span>
-					</a>
-					<img src="http://placehold.it/760x670" alt="" />
-				</div>
-				<div class="item">
-					<a class="info" href="properties-detail.html">
-						<span class="price">
-							<i class="fa fa-home"></i>For Rent<span>$560</span>
-						</span>
-						<h3>Apartment on North Moore Street</h3>
-						<span class="location">Tribeca, New York</span>
-					</a>
-					<img src="http://placehold.it/760x670" alt="" />
-				</div>
-				<div class="item">
-					<a class="info" href="properties-detail.html">
-						<span class="price">
-							<i class="fa fa-home"></i>For Sale<span>$1,500,000</span>
-						</span>
-						<h3>Gorgeous villa with ocean view</h3>
-						<span class="location">Bal Harbour, Florida</span>
-					</a>
-					<img src="http://placehold.it/760x670" alt="" />
-				</div>
-				<div class="item">
-					<a class="info" href="properties-detail.html">
-						<span class="price">
-							<i class="fa fa-home"></i>For Rent<span>$900</span>
-						</span>
-						<h3>2 bedroom appartment for rent</h3>
-						<span class="location">Upper East Side, New York</span>
-					</a>
-					<img src="http://placehold.it/760x670" alt="" />
-				</div>
-				<div class="item">
-					<a class="info" href="properties-detail.html">
-						<span class="price">
-							<i class="fa fa-home"></i>For Sale<span>$1,150,000</span>
-						</span>
-						<h3>Modern beach house with 4 bedrooms</h3>
-						<span class="location">Miami Beach, Florida</span>
-					</a>
-					<img src="http://placehold.it/760x670" alt="" />
-				</div>
-				<div class="item">
-					<a class="info" href="properties-detail.html">
-						<span class="price">
-							<i class="fa fa-home"></i>For Sale<span>$810,000</span>
-						</span>
-						<h3>Modern construction with 2 bedrooms</h3>
-						<span class="location">Bay Harbor Islands, Florida</span>
-					</a>
-					<img src="http://placehold.it/760x670" alt="" />
-				</div>
+
+		    <?php endwhile; ?>
+		    <?php wp_reset_postdata(); ?>
+			<?php endif; ?>
+
 			</div>
 		</div>
 		<!-- END HOME GRID -->
@@ -284,179 +178,70 @@ global $wt_cozy; ?>
 			<div class="container">
 				<div class="row">
 					<div class="col-sm-12">
-						<h1 class="section-title" data-animation-direction="from-bottom" data-animation-delay="50">Latest Properties</h1>
+						<h1 class="section-title" data-animation-direction="from-bottom" data-animation-delay="50"><?php echo $wt_cozy['section_properties_title']?></h1>
 						
 						<div id="new-properties-slider" class="owl-carousel carousel-style1">
-							<div class="item" data-animation-direction="from-bottom" data-animation-delay="250">
-								<div class="image">
-									<a href="properties-detail.html" class="info">
-										<h3>Luxury Apartment with great views</h3>
-										<span class="location">Upper East Side, New York</span>
-									</a>
-									<img src="http://placehold.it/760x670" alt="" />
-								</div>
-								<div class="price">
-									<i class="fa fa-home"></i>For Sale
-									<span>$950,000</span>
-								</div>
-								<ul class="amenities">
-									<li><i class="icon-area"></i> 2150 Sq Ft</li>
-									<li><i class="icon-bedrooms"></i> 4</li>
-									<li><i class="icon-bathrooms"></i> 3</li>
-								</ul>
-							</div>
+							<?php
+							$delay = 250;
+							$display_posts = $wt_cozy['section_properties_number'];
+							$listing_args = array(
+								'post_type' => 'listing',
+								'tax_query'	=> array(
+									array(
+										'taxonomy'	=> 'status',
+										'field'		=> 'slug',
+										'terms'		=> array( 'featured' ),
+										'operator'	=> 'NOT IN',
+									),
+								),
+								'showposts' => $display_posts
+							);
+							query_posts($listing_args);
+							if (have_posts()) : while (have_posts()) : the_post();
 							
-							<div class="item" data-animation-direction="from-bottom" data-animation-delay="450">
+							$listing_status = wp_listings_get_status();
+							$listing_price = get_post_meta( $post->ID, '_listing_price', true);
+							$listing_address = get_post_meta( $post->ID, '_listing_address', true);
+							$listing_sqft = get_post_meta( $post->ID, '_listing_sqft', true );
+							$listing_bedrooms = get_post_meta( $post->ID, '_listing_bedrooms', true );
+							$listing_bathrooms = get_post_meta( $post->ID, '_listing_bathrooms', true );
+							?>
+							<div class="item" data-animation-direction="from-bottom" data-animation-delay="<?php echo $delay; ?>">
 								<div class="image">
-									<a href="properties-detail.html" class="info">
-										<h3>Stunning Villa with 5 bedrooms</h3>
-										<span class="location">Miami Beach, Florida</span>
+									<a href="<?php the_permalink(); ?>" class="info">
+										<?php 
+											$listing_title = get_the_title();
+											$title_limit = 35;
+											$dots = " ...";
+											if(strlen($listing_title) <= $title_limit) {
+												echo "<h3>" . $listing_title . "</h3>";
+											} else {
+												echo "<h3>" . substr($listing_title, 0, $title_limit) . $dots . "</h3>";
+											}
+										?>
+										<?php if($listing_address) echo "<span class='location'>$listing_address</span>"; ?>
 									</a>
-									<img src="http://placehold.it/760x670" alt="" />
+									<?php
+									if ( has_post_thumbnail() ) {
+										echo get_the_post_thumbnail($post->ID, array( 270, 238 ));
+									}
+									else {
+										echo '<img src="http://placehold.it/270x238" />';
+									}
+									?>
 								</div>
 								<div class="price">
-									<i class="fa fa-home"></i>For Sale
-									<span>$1,253,000</span>
+									<i class="fa fa-home"></i><?php if('' != $listing_status) echo $listing_status; ?>
+									<?php if($listing_price) echo "<span>$listing_price</span>"; ?>
 								</div>
 								<ul class="amenities">
-									<li><i class="icon-area"></i> 3470 Sq Ft</li>
-									<li><i class="icon-bedrooms"></i> 5</li>
-									<li><i class="icon-bathrooms"></i> 4</li>
+									<?php if($listing_sqft) { ?><li><i class="icon-area"></i> <?php echo "$listing_sqft Sq Ft"; ?></li><?php } ?>
+									<?php if($listing_bedrooms) { ?><li><i class="icon-bedrooms"></i> <?php echo $listing_bedrooms; ?></li><?php } ?>
+									<?php if($listing_bathrooms) { ?><li><i class="icon-bathrooms"></i> <?php echo $listing_bathrooms; ?></li><?php } ?>
 								</ul>
 							</div>
+							<?php $delay+=200; endwhile; endif; wp_reset_query(); ?>
 							
-							<div class="item" data-animation-direction="from-bottom" data-animation-delay="650">
-								<div class="image">
-									<a href="properties-detail.html" class="info">
-										<h3>Recent construction with 3 bedrooms</h3>
-										<span class="location">Park Slope, New York</span>
-									</a>
-									<img src="http://placehold.it/760x670" alt="" />
-								</div>
-								<div class="price">
-									<i class="fa fa-home"></i>For Sale
-									<span>$560,000</span>
-								</div>
-								<ul class="amenities">
-									<li><i class="icon-area"></i> 1800 Sq Ft</li>
-									<li><i class="icon-bedrooms"></i> 3</li>
-									<li><i class="icon-bathrooms"></i> 2</li>
-								</ul>
-							</div>
-							
-							<div class="item" data-animation-direction="from-bottom" data-animation-delay="850">
-								<div class="image">
-									<a href="properties-detail.html" class="info">
-										<h3>Modern construction with parking space</h3>
-										<span class="location">Midtown, New York</span>
-									</a>
-									<img src="http://placehold.it/760x670" alt="" />
-								</div>
-								<div class="price">
-									<i class="fa fa-home"></i>For Rent
-									<span>$850</span>
-								</div>
-								<ul class="amenities">
-									<li><i class="icon-area"></i> 1300 Sq Ft</li>
-									<li><i class="icon-bedrooms"></i> 1</li>
-									<li><i class="icon-bathrooms"></i> 2</li>
-								</ul>
-							</div>
-							
-							<div class="item">
-								<div class="image">
-									<a href="properties-detail.html" class="info">
-										<h3>Single Family Townhouse</h3>
-										<span class="location">Cobble Hill, New York</span>
-									</a>
-									<img src="http://placehold.it/760x670" alt="" />
-								</div>
-								<div class="price">
-									<i class="fa fa-home"></i>For Sale
-									<span>$846,000</span>
-								</div>
-								<ul class="amenities">
-									<li><i class="icon-area"></i> 1580 Sq Ft</li>
-									<li><i class="icon-bedrooms"></i> 2</li>
-									<li><i class="icon-bathrooms"></i> 2</li>
-								</ul>
-							</div>
-							
-							<div class="item">
-								<div class="image">
-									<a href="properties-detail.html" class="info">
-										<h3>3 bedroom villa with garage for rent</h3>
-										<span class="location">Bal Harbour, Florida</span>
-									</a>
-									<img src="http://placehold.it/760x670" alt="" />
-								</div>
-								<div class="price">
-									<i class="fa fa-home"></i>For Rent
-									<span>$1500</span>
-								</div>
-								<ul class="amenities">
-									<li><i class="icon-area"></i> 2000 Sq Ft</li>
-									<li><i class="icon-bedrooms"></i> 3</li>
-									<li><i class="icon-bathrooms"></i> 2</li>
-								</ul>
-							</div>
-							
-							<div class="item">
-								<div class="image">
-									<a href="properties-detail.html" class="info">
-										<h3>Luxury Condo with 2 bedroms</h3>
-										<span class="location">Brooklyn Heights, New York</span>
-									</a>
-									<img src="http://placehold.it/760x670" alt="" />
-								</div>
-								<div class="price">
-									<i class="fa fa-home"></i>For Sale
-									<span>$2,120,000</span>
-								</div>
-								<ul class="amenities">
-									<li><i class="icon-area"></i> 3120 Sq Ft</li>
-									<li><i class="icon-bedrooms"></i> 4</li>
-									<li><i class="icon-bathrooms"></i> 2</li>
-								</ul>
-							</div>
-							
-							<div class="item">
-								<div class="image">
-									<a href="properties-detail.html" class="info">
-										<h3>Edition Residences on Collins Avenue</h3>
-										<span class="location">Miami Beach, Florida</span>
-									</a>
-									<img src="http://placehold.it/760x670" alt="" />
-								</div>
-								<div class="price">
-									<i class="fa fa-home"></i>For Sale
-									<span>$975,000</span>
-								</div>
-								<ul class="amenities">
-									<li><i class="icon-area"></i> 1200 Sq Ft</li>
-									<li><i class="icon-bedrooms"></i> 1</li>
-									<li><i class="icon-bathrooms"></i> 2</li>
-								</ul>
-							</div>
-							
-							<div class="item">
-								<div class="image">
-									<a href="properties-detail.html" class="info">
-										<h3>Gorgeous Apartment in New York</h3>
-										<span class="location">Soho - Nolita, New York</span>
-									</a>
-									<img src="http://placehold.it/760x670" alt="" />
-								</div>
-								<div class="price">
-									<i class="fa fa-home"></i>For Sale
-									<span>$650,000</span>
-								</div>
-								<ul class="amenities">
-									<li><i class="icon-area"></i> 1000 Sq Ft</li>
-									<li><i class="icon-bedrooms"></i> 1</li>
-									<li><i class="icon-bathrooms"></i> 1</li>
-								</ul>
-							</div>
 						</div>
 						
 					</div>
@@ -500,42 +285,30 @@ global $wt_cozy; ?>
 							<h1 class="section-title" data-animation-direction="from-left" data-animation-delay="50">Our Agents</h1>
 							
 							<ul class="agency-detail-agents clearfix">
+		                    <?php 
+		                        $limit = $wt_cozy['section_feature_number_grid'];
+		                    	$args = array(
+		                            'post_type'         => 'agent',
+		                            'post_status'       => 'publish',
+		                            'posts_per_page'    => $limit,
+		                        );
+		                        $agent_query = new WP_Query( $args );?>
+		                    <?php while($agent_query->have_posts()): $agent_query->the_post(); ?>
+
 								<li class="col-lg-6" data-animation-direction="from-left" data-animation-delay="250">
-									<a href="agent-detail.html"><img src="http://placehold.it/307x307" alt="" /></a>
+									<a href="<?php echo get_page_link(); ?>">							
+									<img src="<?php echo $text = get_post_meta( $post->ID, '_wt_agent_img', true ); ?>" alt=""></a>
 									<div class="info">
-										<a href="agent-detail.html"><h3>John Doe</h3></a>
-										<span class="location">Manhattan, New York</span>
-										<p>Curabitur quis augue magna volutpat velit nec, euismod nibh vestibulum.</p>
-										<a href="agent-detail.html">Learn More &raquo;</a>
+										<a href="<?php echo get_page_link(); ?>"><h3><?php the_title() ?></h3></a>
+										<span class="location"><?php echo $text = get_post_meta( $post->ID, '_wt_agent_address', true ); ?></span>
+										<p><?php echo $text = get_post_meta( $post->ID, '_wt_agent_description', true ); ?></p>
+										<a href="<?php echo get_page_link(); ?>">Learn More &raquo;</a>
 									</div>
 								</li>
-								<li class="col-lg-6" data-animation-direction="from-left" data-animation-delay="450">
-									<a href="agent-detail.html"><img src="http://placehold.it/307x307" alt="" /></a>
-									<div class="info">
-										<a href="agent-detail.html"><h3>Mary Ipsum Dolor</h3></a>
-										<span class="location">Miami, Florida</span>
-										<p>Curabitur quis augue magna volutpat velit nec, euismod nibh vestibulum.</p>
-										<a href="agent-detail.html">Learn More &raquo;</a>
-									</div>
-								</li>
-								<li class="col-lg-6" data-animation-direction="from-left" data-animation-delay="650">
-									<a href="agent-detail.html"><img src="http://placehold.it/307x307" alt="" /></a>
-									<div class="info">
-										<a href="agent-detail.html"><h3>Sarah Donec</h3></a>
-										<span class="location">Beverly Hills, California</span>
-										<p>Curabitur quis augue magna volutpat velit nec, euismod nibh vestibulum.</p>
-										<a href="agent-detail.html">Learn More &raquo;</a>
-									</div>
-								</li>
-								<li class="col-lg-6" data-animation-direction="from-left" data-animation-delay="850">
-									<a href="agent-detail.html"><img src="http://placehold.it/307x307" alt="" /></a>
-									<div class="info">
-										<a href="agent-detail.html"><h3>George Lorem</h3></a>
-										<span class="location">Long Island, New York</span>
-										<p>Curabitur quis augue magna volutpat velit nec, euismod nibh vestibulum.</p>
-										<a href="agent-detail.html">Learn More &raquo;</a>
-									</div>
-								</li>
+
+			                <?php endwhile; ?>
+			                <?php wp_reset_postdata(); ?>
+
 							</ul>
 							
 							<div class="col-lg-12 center">
