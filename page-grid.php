@@ -158,10 +158,11 @@ global $wt_cozy; ?>
 		<div class="home3-hero">
 			<div class="container">
 				<div class="row">
+				<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 					<div class="col-sm-7">
-						<h2 data-animation-direction="from-left" data-animation-delay="100">We will help you find the perfect property that fits all your needs.</h2>
-						<p data-animation-direction="from-left" data-animation-delay="300">Mauris hendrerit risus a arcu dapibus varius. Quisque dictum, erat molestie vehicula pellentesque, enim elit sodales leo, id pharetra mi tortor at tellus. Etiam ornare, enim at tincidunt congue, nibh dui suscipit augue, pellentesque hendrerit ligula lorem vehicula sapien. Nunc aliquet pulvinar porta. Sed et ligula at lacus posuere convallis.</p>
-						<a href="agent-listing.html" class="btn btn-default-color" data-animation-direction="from-left" data-animation-delay="500">Find an Agent</a>
+						<h2 data-animation-direction="from-left" data-animation-delay="100"><?php echo $text = get_post_meta( $post->ID, '_wt_grid_title', true ); ?></h2>
+						<p data-animation-direction="from-left" data-animation-delay="300"><?php echo $text = get_post_meta( $post->ID, '_wt_grid_description', true ); ?></p>
+						<a href="<?php echo get_post_type_archive_link('agent'); ?>" class="btn btn-default-color" data-animation-direction="from-left" data-animation-delay="500">Find an Agent</a>
 					</div>
 					
 					<div class="col-sm-5" data-animation-direction="from-right" data-animation-delay="150">
@@ -169,6 +170,7 @@ global $wt_cozy; ?>
 							<div id="map_agency" class="gmap"></div>
 						</div>
 					</div>
+					<?php endwhile; endif; ?>
 				</div>
 			</div>
 		</div>
@@ -269,9 +271,9 @@ global $wt_cozy; ?>
 		                        $feature_query = new WP_Query( $args );?>
 		                    <?php while($feature_query->have_posts()): $feature_query->the_post(); ?>
 							<div class="feature col-sm-3" data-animation-direction="from-bottom" data-animation-delay="250">
-								<i class="fa <?php echo $text = get_post_meta( $post->ID, '_wt_exp_text', true ); ?>"></i>
+								<i class="fa <?php echo $text = get_post_meta( $post->ID, '_wt_feature_icon_text', true ); ?>"></i>
 								<h3><?php the_title() ?></h3>
-								<p><?php echo $text = get_post_meta( $post->ID, '_wt_exp_description', true ); ?></p>
+								<p><?php echo $text = get_post_meta( $post->ID, '_wt_feature_description', true ); ?></p>
 								<a href="<?php echo get_page_link(); ?>" class="btn btn-default-color">Read More</a>
 							</div>
 			                <?php endwhile; ?>

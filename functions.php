@@ -43,6 +43,8 @@ function cozy_setup() {
 endif; // cozy_setup
 add_action( 'after_setup_theme', 'cozy_setup' );
 
+
+
 // Register Custom Navigation Walker
 //require_once('inc/wp_bootstrap_navwalker.php');
 
@@ -226,6 +228,7 @@ function cozy_scripts() {
     wp_enqueue_script( 'cozy-freewall', get_template_directory_uri() . '/js/freewall.js', array(), '', true );
     wp_enqueue_script( 'cozy-variables', get_template_directory_uri() . '/js/variables.js', array(), '', true );
     wp_enqueue_script( 'cozy-scripts', get_template_directory_uri() . '/js/scripts.js', array(), '', true );
+    wp_enqueue_script( 'cozy-google-map', get_template_directory_uri() . '/libs/google-map/admin-google.js', array(), '', true );
     //wp_enqueue_script( 'cozy-agencies', get_template_directory_uri() . '/js/agencies.js' );
 
     if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
@@ -276,20 +279,19 @@ function wt_cozy_cmb()
         'fields' => array(
            
             array(
-                'name' => __('Feature Icon Text',"wt_cozy"),
-                'id' => $prefix . 'exp_text',
+                'name' => __('Feature Icon Fontawesome Text',"wt_cozy"),
+                'id' => $prefix . 'feature_icon_text',
                 'type' => 'text'
             ),           
            
             array(
                 'name' => __('Description',"wt_cozy"),
-                'id' => $prefix . 'exp_description',
+                'id' => $prefix . 'feature_description',
                 'type' => 'textarea'
             ),
         ),
     );
-
-   
+  
 
     // Testimonial Meta Box
 
@@ -324,7 +326,8 @@ function wt_cozy_cmb()
         ),
     );
 
-    // Agent Meta box
+
+    // Agent Meta Box
     
         $meta_boxes[] = array(
         'id' => 'agent',
@@ -388,7 +391,7 @@ function wt_cozy_cmb()
     );
 
 
-    // Agency Meta box
+    // Agency Meta Box
     
         $meta_boxes[] = array(
         'id' => 'agency',
@@ -432,7 +435,7 @@ function wt_cozy_cmb()
     );
 
 
-    // Grid Page Meta box
+    // Grid Page Meta Box
 
     $meta_boxes[] = array(
         'id' => 'extra-information',
@@ -444,12 +447,23 @@ function wt_cozy_cmb()
         'show_names' => true, // Show field names on the left
         'fields' => array(
             array(
-                'name' => __('Google Map Embed Code',"wt_cozy"),
+                'name' => __('Page Heading',"wt_cozy"),
+                'id' => $prefix . 'grid_title',
+                'type' => 'text'
+            ),
+            array(
+                'name' => __('Page Description',"wt_cozy"),
+                'id' => $prefix . 'grid_description',
+                'type' => 'textarea'
+            ),
+            array(
+                'name' => __('Google Map',"wt_cozy"),
                 'id' => $prefix . 'google_map',
                 'type' => 'textarea'
             ),
         ),
-    );           
+    );    
+
 
     return $meta_boxes;
 }
@@ -674,3 +688,6 @@ function theme_t_wp_taxonomy_post_class( $classes, $class, $ID ) {
 }
 
 require_once get_template_directory() . '/example.php';
+
+//require_once get_template_directory() . '/libs/cmb2.php';
+

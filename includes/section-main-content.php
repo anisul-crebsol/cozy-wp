@@ -13,9 +13,9 @@
         $feature_query = new WP_Query( $args );?>
     <?php while($feature_query->have_posts()): $feature_query->the_post(); ?>
 	<div class="feature col-sm-4" data-animation-direction="from-bottom" data-animation-delay="250">
-		<i class="fa <?php echo $text = get_post_meta( $post->ID, '_wt_exp_text', true ); ?>"></i>
+		<i class="fa <?php echo $text = get_post_meta( $post->ID, '_wt_feature_icon_text', true ); ?>"></i>
 		<h3><?php the_title() ?></h3>
-		<p><?php echo $text = get_post_meta( $post->ID, '_wt_exp_description', true ); ?></p>
+		<p><?php echo $text = get_post_meta( $post->ID, '_wt_feature_description', true ); ?></p>
 		<a href="<?php echo get_page_link(); ?>" class="btn btn-default-color">Read More</a>
 	</div>
     <?php endwhile; ?>
