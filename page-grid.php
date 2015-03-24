@@ -426,7 +426,7 @@ global $wt_cozy; ?>
 										</li>
 									</ul>
 									<h3>
-										<a href="blog-detail.html"><?php the_title(); ?></a>
+										<a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
 									</h3>
 								</div>
 							</div>

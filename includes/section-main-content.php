@@ -80,7 +80,6 @@
 			</div>
 		</div>
 		<?php endwhile; ?>
-	<?php else : ?>
 	<?php endif; ?>
 	</div>
 	<!-- END LATEST NEWS -->

@@ -499,6 +499,13 @@
                             'type' => 'text',
                             'title' => __('How many posts to display in grid page?', 'redux-framework-demo'),
                             'default' => "4",
+                        ),
+
+                        array(
+                            'id' => 'section_feature_number_slider',
+                            'type' => 'text',
+                            'title' => __('How many posts to display in slider page?', 'redux-framework-demo'),
+                            'default' => "3",
                         ),                                     
                     ),
                 );
