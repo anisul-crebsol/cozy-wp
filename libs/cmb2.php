@@ -19,7 +19,7 @@ function wt_cozy_register_metabox() {
     // Grid Page Meta Box
 
     $wt_cozy = wt_cozy_metabox( array(
-        'id'           => $prefix . 'extra-information',
+        'id'           => $prefix . 'extra_information',
         'title'        => __( 'Extra Information', 'cmb2' ),
         'object_types' => array( 'page' ), // post type
         'show_on'      => array( 'key' => 'page-template', 'value' => 'page-grid.php' ),
