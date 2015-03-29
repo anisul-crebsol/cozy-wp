@@ -26,6 +26,7 @@ global $wt_cozy;
      <!-- IE6-8 support of HTML5 elements -->   
     <!--[if lt IE 9]>
     <script src="<?php echo esc_url( get_template_directory_uri() ); ?>/js/html5.js"></script>
+    <script src="<?php echo esc_url( get_template_directory_uri() ); ?>/js/respond.min.js"></script>
     <![endif]-->
 
     <!-- Fav and touch icons -->

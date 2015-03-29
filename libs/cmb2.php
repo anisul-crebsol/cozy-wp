@@ -50,7 +50,7 @@ function wt_cozy_register_metabox() {
 	$wt_cozy->add_field( array(
         'name' => __('Feature Icon Fontawesome Text',"wt_cozy"),
         'id' => $prefix . 'feature_icon_text',
-        'type' => 'text'
+        'type' => 'text_small'
 	) );
 	$wt_cozy->add_field( array(
         'name' => __('Description',"wt_cozy"),
@@ -121,6 +121,21 @@ function wt_cozy_register_metabox() {
                 'name' => __('Agent Address 2',"wt_cozy"),
                 'id' => $prefix . 'agent_address_two',
                 'type' => 'text'
+	) );
+	$wt_cozy->add_field( array(
+                'name' => __('Agent City',"wt_cozy"),
+                'id' => $prefix . 'agent_city',
+                'type' => 'text_medium'
+	) );
+	$wt_cozy->add_field( array(
+                'name' => __('Agent State',"wt_cozy"),
+                'id' => $prefix . 'agent_state',
+                'type' => 'text_medium'
+	) );
+	$wt_cozy->add_field( array(
+                'name' => __('Agent Country',"wt_cozy"),
+                'id' => $prefix . 'agent_country',
+                'type' => 'text_medium'
 	) );
 	$wt_cozy->add_field( array(
                 'name' => __('Agent Email',"wt_cozy"),

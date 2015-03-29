@@ -41,9 +41,14 @@
 	<!-- BEGIN LATEST NEWS -->
 	<h1 class="section-title" data-animation-direction="from-bottom" data-animation-delay="50"><?php echo $wt_cozy['section_news_title']?></h1>					
 	<div class="latest-news list-style clearfix">
-	<?php if ( have_posts() ) : ?>
-		<?php /* Start the Loop */ ?>
-		<?php while ( have_posts() ) : the_post(); ?>	
+        <?php 
+            $limit = $wt_cozy['section_news_number'];
+        	$args = array(
+                'post_status'       => 'publish',
+                'posts_per_page'    => $limit,
+            );
+            $blog_query = new WP_Query( $args );?>
+        <?php while($blog_query->have_posts()): $blog_query->the_post(); ?>
 		<div class="item col-sm-12" data-animation-direction="from-bottom" data-animation-delay="250">
 			<div class="image">
 				<a href="<?php echo get_page_link(); ?>">
@@ -80,7 +85,7 @@
 			</div>
 		</div>
 		<?php endwhile; ?>
-	<?php endif; ?>
+        <?php wp_reset_postdata(); ?>
 	</div>
 	<!-- END LATEST NEWS -->
 	<?php endif; ?>

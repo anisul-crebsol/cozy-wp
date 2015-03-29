@@ -55,6 +55,6 @@
 			});
 		})(jQuery);
 	</script>
-<?php require get_template_directory() . '/inc/agencies.php'; ?>
+<?php //require get_template_directory() . '/inc/agencies.php'; ?>
 </body>
 </html>

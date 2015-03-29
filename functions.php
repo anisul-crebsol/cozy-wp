@@ -147,46 +147,73 @@ require_once get_template_directory() . '/libs/google-map/cmb-field-map.php';
 function cozy_scripts() {
     
     wp_enqueue_style( 'cozy-style', get_stylesheet_uri() );
+
     wp_enqueue_style( 'cozy-bootsrap', get_template_directory_uri() . '/css/bootstrap.min.css' );
+
     wp_enqueue_style( 'cozy-revolution-style', get_template_directory_uri() . '/rs-plugin/css/settings.css' );
+
     wp_enqueue_style( 'cozy-main-style', get_template_directory_uri() . '/css/style.css' );
+
     wp_enqueue_style( 'cozy-google-font', 'http://fonts.googleapis.com/css?family=Raleway:300,500,900%7COpen+Sans:400,700,400italic' );
 
     wp_enqueue_script( 'cozy-modernizr', get_template_directory_uri() . '/js/modernizr-2.8.1.min.js', array(), '', true );
+
     wp_enqueue_script( 'cozy-common', get_template_directory_uri() . '/js/common.js', array(), '', true );
+
+
+    if ( is_page_template('page-search.php') || is_page_template('page-map.php')) {
+    wp_enqueue_script( 'cozy-prettyphoto', get_template_directory_uri() . '/js/jquery.prettyPhoto.js', array(), '', true );
+    }
+
     wp_enqueue_script( 'cozy-owl-carousel', get_template_directory_uri() . '/js/owl.carousel.min.js', array(), '', true );
+
     wp_enqueue_script( 'cozy-chosen-jquery', get_template_directory_uri() . '/js/chosen.jquery.min.js', array(), '', true );
+
     wp_enqueue_script( 'cozy-wow', 'http://maps.google.com/maps/api/js?sensor=false', array(), '', true );
+
+
+    if ( is_page_template('page-grid.php') || is_page_template('page-slider.php') || is_page_template('page-search.php')) {
+    wp_enqueue_script( 'cozy-infobox', get_template_directory_uri() . '/js/infobox.min.js', array(), '', true );
+    }
+
     wp_enqueue_script( 'cozy-variables', get_template_directory_uri() . '/js/variables.js', array(), '', true );
+
     wp_enqueue_script( 'cozy-scripts', get_template_directory_uri() . '/js/scripts.js', array(), '', true );
+
     wp_enqueue_script( 'cozy-properties', get_template_directory_uri() . '/js/properties.js', array(), '', true );
-    wp_enqueue_script( 'cozy-google-map', get_template_directory_uri() . '/libs/google-map/admin-google.js', array(), '', true );
-    wp_enqueue_script( 'cozy-term-button', get_template_directory_uri() . '/js/term-button.js', array(), '', true );
+
+    if ( is_page_template('page-search.php') || is_page_template('page-slider.php') || is_page_template('page-search.php')) {
+    wp_enqueue_script( 'cozy-agencies', get_template_directory_uri() . '/js/agencies.js', array(), '', true );
+    }
+
+    //wp_enqueue_script( 'cozy-google-map', get_template_directory_uri() . '/libs/google-map/admin-google.js', array(), '', true );
+    //wp_enqueue_script( 'cozy-term-button', get_template_directory_uri() . '/js/term-button.js', array(), '', true );
+
 
     if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
         wp_enqueue_script( 'comment-reply' );
     }
-    if ( is_page_template('page-search.php') || is_page_template('page-map.php')) {
-    wp_enqueue_script( 'cozy-prettyphoto', get_template_directory_uri() . '/js/jquery.prettyPhoto.js', array(), '', true );
-    }
-    if ( is_page_template('page-grid.php') || is_page_template('page-slider.php') || is_page_template('page-search.php')) {
-    wp_enqueue_script( 'cozy-infobox', get_template_directory_uri() . '/js/infobox.min.js', array(), '', true );
-    }
+
+
     if ( is_page_template('page-grid.php')) {
     wp_enqueue_script( 'cozy-freewall', get_template_directory_uri() . '/js/freewall.js', array(), '', true );
     }
+
+
     if ( is_page_template('page-slider.php')) {
     wp_enqueue_script( 'cozy-themepunch-tools', get_template_directory_uri() . '/rs-plugin/js/jquery.themepunch.tools.min.js', array(), '', true);
     wp_enqueue_script( 'cozy-revolution', get_template_directory_uri() . '/rs-plugin/js/jquery.themepunch.revolution.min.js', array(), '', true);
     }
-    if ( is_page_template('page-grid.php')) {
-    wp_enqueue_script( 'cozy-freewall', get_template_directory_uri() . '/js/freewall.js', array(), '', true );
-    }
+
+
     if ( is_page_template('page-map.php')) {
     wp_enqueue_script( 'cozy-markerclusterer', get_template_directory_uri() . '/js/markerclusterer.min.js', array(), '', true );
+
     wp_enqueue_script( 'cozy-countup', get_template_directory_uri() . '/js/countUp.min.js', array(), '', true );
+
     wp_enqueue_script( 'cozy-tweet', get_template_directory_uri() . '/twitter/jquery.tweet.min.js', array(), '', true );
     }
+
 }
 add_action( 'wp_enqueue_scripts', 'cozy_scripts' );
 
@@ -198,3 +225,152 @@ add_action('admin_enqueue_scripts', 'wt_cozy_add_admin_scripts_page');
             wp_enqueue_script( 'metabox-sc', get_template_directory_uri().'/js/change-metabox.js' , array( 'jquery' ) );
         }
     }
+
+
+// Big Home Search
+
+add_action('wp_enqueue_scripts', 'term_button_enqueue_scripts');
+function term_button_enqueue_scripts()
+{
+    wp_register_script('ajaxHandle', get_stylesheet_directory_uri() . '/js/term-button.js', array(), true, true);
+    wp_enqueue_script('ajaxHandle');
+    wp_localize_script('ajaxHandle', 'ajax_object', array('ajaxurl' => admin_url('admin-ajax.php')));
+}
+
+function custom_search_query($query)
+{
+
+    if (isset($_GET['post_type'])) {
+        $type = $_GET['post_type'];
+
+        if ($type == 'listing') {
+
+            $custom_fields = array(
+                "_listing_state",
+                "_listing_city",
+                "_listing_zip",
+                "_listing_address"
+            );
+
+            $searchterm = $query->query_vars['s'];
+
+            $query->query_vars['s'] = "";
+            if ($searchterm != "") {
+
+                $listingArgs = array(
+                    'post_type' => $_GET['post_type'],
+                    'posts_per_page' => -1,
+                    'orderby' => 'post_date',
+                    'order' => 'ASC',
+                    'tax_query' => array(
+                        array(
+                            'taxonomy' => 'status',
+                            'terms' => $_GET['term_slug'],
+                            'field' => 'slug',
+                        )
+                    ),
+                    'meta_query' => array(
+                        'relation' => 'OR',
+                    ),
+                );
+
+                foreach ($custom_fields as $cf) {
+                    array_push($listingArgs['meta_query'], array(
+                        'key' => $cf,
+                        'value' => $searchterm,
+                        'compare' => 'LIKE'
+                    ));
+                }
+                query_posts($listingArgs);
+
+            } else {
+                if (isset($_POST['s']) && empty($_POST['s'])) {
+                    $query_vars['s'] = " ";
+                }
+            }
+        }
+    }
+}
+
+// Working............................................................................
+if(isset($_REQUEST['post_type']) && $_REQUEST['post_type']=='listing'&& $_REQUEST['submit_listings']=='Search')
+add_action('init','custom_search_query');
+//...................................................................................
+
+//add_filter("pre_get_posts", "custom_search_query");
+
+
+// Find An Agent Search
+
+function get_countries($key = '_wt_agent_country', $type = 'agent', $status = 'publish')
+{
+    global $wpdb;
+
+    if (empty($key))
+        return;
+
+    $res = $wpdb->get_col($wpdb->prepare("
+        SELECT DISTINCT pm.meta_value FROM {$wpdb->postmeta} pm
+        LEFT JOIN {$wpdb->posts} p ON p.ID = pm.post_id
+        WHERE pm.meta_key = '%s'
+        AND p.post_status = '%s'
+        AND p.post_type = '%s'
+        ", $key, $status, $type));
+
+    return $res;
+}
+
+function get_states()
+{
+    global $wpdb;
+
+    $country = @$_POST['country'];
+
+    if (empty($country))
+        return;
+
+    $res = $wpdb->get_col($wpdb->prepare("
+        select pm.meta_value FROM wp_postmeta pm
+        where pm.meta_key = '_wt_agent_state'
+        and pm.post_id IN
+        ( select pm.post_id
+        from wp_postmeta pm
+        where pm.meta_value='%s'
+        and pm.meta_key = '_wt_agent_country')
+        ", $country));
+
+    echo json_encode($res);
+
+    die();
+}
+
+add_action('wp_ajax_get_states', 'get_states');
+add_action('wp_ajax_nopriv_get_states', 'get_states');
+
+
+function get_cities()
+{
+    global $wpdb;
+
+    $state = @$_POST['state'];
+
+    if (empty($state))
+        return;
+
+    $res = $wpdb->get_col($wpdb->prepare("
+        select pm.meta_value FROM wp_postmeta pm
+        where pm.meta_key = '_wt_agent_city'
+        and pm.post_id IN
+        ( select pm.post_id
+        from wp_postmeta pm
+        where pm.meta_value='%s'
+        and pm.meta_key = '_wt_agent_state')
+        ", $state));
+
+    echo json_encode($res);
+
+    die();
+}
+
+add_action('wp_ajax_get_cities', 'get_cities');
+add_action('wp_ajax_nopriv_get_cities', 'get_cities');
