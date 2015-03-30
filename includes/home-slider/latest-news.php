@@ -29,12 +29,18 @@
 				<li><i class="fa fa-calendar"></i> <?php echo $date = mysql2date('F j, Y', $post->post_date);?></li>
 				<li><i class="fa fa-comments-o"></i> <?php comments_number( '0', '1', '% responses' ); ?></li>
 				<li><i class="fa fa-tags"></i> 
-				<?php $posttags = get_the_tags(); 
-				if ($posttags) {											
+				<?php $posttags = get_the_tags(); 					
+					if ($posttags) {
+					$i=0;										
 					foreach($posttags as $tag) {
-						$tabname[] = $tag->name; 
-					}
-					echo implode(', ', $tabname);
+						$tabname = $tag->name; 
+						if (count($posttags) - $i < 2){
+							echo $tabname;
+						} else {
+							echo $tabname.','.' ';
+						}
+						$i++;							
+					}						
 				}?>
 				</li>
 			</ul>

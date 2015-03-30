@@ -11,7 +11,7 @@
 <?php while($blog_query->have_posts()): $blog_query->the_post(); ?>
 	<div class="item">
 		<div class="image">
-			<a href="blog-detail.html"><span class="btn btn-default"><i class="fa fa-file-o"></i> Read More</span></a>
+			<a href="<?php the_permalink(); ?>"><span class="btn btn-default"><i class="fa fa-file-o"></i> Read More</span></a>
 			<?php
 			if ( has_post_thumbnail() ) {
 				echo get_the_post_thumbnail($post->ID, array( 760, 670 ));
@@ -29,12 +29,18 @@
 				<li><i class="fa fa-calendar"></i> <?php echo $date = mysql2date('F j, Y', $post->post_date);?></li>
 				<li><i class="fa fa-comments-o"></i> <?php comments_number( '0', '1', '% responses' ); ?></li>
 				<li><i class="fa fa-tags"></i> 
-				<?php $posttags = get_the_tags(); 
-				if ($posttags) {											
+				<?php $posttags = get_the_tags(); 					
+					if ($posttags) {
+					$i=0;										
 					foreach($posttags as $tag) {
-						$tabname[] = $tag->name; 
-					}
-					echo implode(', ', $tabname);
+						$tabname = $tag->name; 
+						if (count($posttags) - $i < 2){
+							echo $tabname;
+						} else {
+							echo $tabname.','.' ';
+						}
+						$i++;							
+					}						
 				}?>
 				</li>
 			</ul>

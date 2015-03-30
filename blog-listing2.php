@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Blog Listing1
+ * Template Name: Blog Listing2
  * @package cozy
  */
 global $wt_cozy; ?>
@@ -34,7 +34,7 @@ global $wt_cozy; ?>
 
 						
 						<!-- BEGIN BLOG LISTING -->
-<?php get_template_part ('/includes/blog-listing/blog-listing'); ?>
+<?php get_template_part ('/includes/blog-listing/blog-listing2'); ?>
 						<!-- END BLOG LISTING -->
 						
 						
