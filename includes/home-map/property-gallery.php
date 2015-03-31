@@ -32,7 +32,7 @@
 		</a>
 			<?php
 			if ( has_post_thumbnail() ) {
-				echo get_the_post_thumbnail($post->ID, array( 246, 235 ));
+				the_post_thumbnail('thumbnail', array('class' => 'img-responsive'));
 			}
 			else {
 				echo '<img src="http://placehold.it/246x236" />';

@@ -6,7 +6,7 @@
 	<div class="blog-main-image">
 		<?php
 		if ( has_post_thumbnail() ) {
-			echo get_the_post_thumbnail($post->ID, array( 765, 362 ));
+			the_post_thumbnail('thumbnail', array('class' => 'img-responsive'));
 		}
 		else {
 			echo '<img src="http://placehold.it/765x362" />';
@@ -61,10 +61,6 @@
 	<h1 class="section-title">Comments</h1>
 	
 	<div class="comments">
-			<?php if ( comments_open() || get_comments_number() ) :
-				comments_template();
-			endif;
-			?>
 		<ul>
 			<li>
 				<img src="<?php echo get_stylesheet_directory_uri(); ?>/images/comment-man.jpg" alt="" />
@@ -95,28 +91,10 @@
 		</ul>
 		
 		<div class="comments-form">
-			<div class="col-sm-12">
-				<h3>Leave a Reply</h3>
-				<p>Your email address will no be published. Required fields are marked*</p>
-			</div>
-			
-			<form class="form-style">
-				<div class="col-sm-6">
-					<input type="text" name="Name" placeholder="Name*" class="form-control" />
-				</div>
-				
-				<div class="col-sm-6">
-					<input type="email" name="Email" placeholder="Email*" class="form-control"  />
-				</div>
-				
-				<div class="col-sm-12">
-					<textarea name="Comment" placeholder="Comment*" class="form-control"></textarea> 
-				</div>
-				
-				<div class="center">
-					<button type="submit" class="btn btn-default-color btn-lg">Post Comment</button>
-				</div>
-			</form>
+			<?php if ( comments_open() || get_comments_number() ) :
+				comments_template();
+			endif;
+			?>
 		</div>
 	</div>
 	<?php endwhile; ?>

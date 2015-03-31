@@ -61,7 +61,7 @@ class WT_Widget_Listings extends WP_Widget {
                                     <a href="<?php the_permalink(); ?>">
                                     <?php
                                     if ( has_post_thumbnail() ) {
-                                        echo get_the_post_thumbnail($post->ID, array( 58, 58 ));
+                                        the_post_thumbnail('thumbnail', array('class' => 'img-responsive'));
                                     }
                                     else {
                                         echo '<img src="http://placehold.it/58x58" />';
