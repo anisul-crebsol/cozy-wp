@@ -150,6 +150,43 @@ function wt_cozy_fields()
     );
     register_post_type('agency', $args1);
 
+
+    // Properties section
+    $labels1 = array(
+        'name' => _x('Properties', 'Post Type General Name', 'wt_cozy'),
+        'singular_name' => _x('Property', 'Post Type Singular Name', 'wt_cozy'),
+        'menu_name' => __('Properties', 'wt_cozy'),
+        'parent_item_colon' => __('Parent Property:', 'wt_cozy'),
+        'all_items' => __('All Properties', 'wt_cozy'),
+        'view_item' => __('View Property', 'wt_cozy'),
+        'add_new_item' => __('Add New Property', 'wt_cozy'),
+        'add_new' => __('Add New Property', 'wt_cozy'),
+        'edit_item' => __('Edit Property', 'wt_cozy'),
+        'update_item' => __('Update Property', 'wt_cozy'),
+        'search_items' => __('Search Property', 'wt_cozy'),
+        'not_found' => __('No Property found', 'wt_cozy'),
+        'not_found_in_trash' => __('No Property found in Trash', 'wt_cozy'),
+    );
+    $args1 = array(
+        'label' => __('Property', 'wt_cozy'),
+        'description' => __('Property', 'wt_cozy'),
+        'labels' => $labels1,
+        'supports' => array('title'),
+        'hierarchical' => false,
+        'public' => true,
+        'show_ui' => true,
+        'show_in_menu' => true,
+        'show_in_nav_menus' => true,
+        'show_in_admin_bar' => true,
+        'menu_position' => 5,
+        'menu_icon' => get_template_directory_uri() . '/images/menu-icon/agency.png',
+        'can_export' => true,
+        'has_archive' => true,
+        'exclude_from_search' => false,
+        'publicly_queryable' => true,
+        'capability_type' => 'page',
+    );
+    register_post_type('property', $args1);
 }
 
 add_action('init', 'wt_cozy_fields', 0);
@@ -183,7 +220,6 @@ add_action( 'init', 'register_taxonomy_filters' );
    'show_ui' => true,
    'show_tagcloud' => false,
    'hierarchical' => true,
-
    'rewrite' => true,
    'query_var' => true
   );
@@ -204,4 +240,71 @@ function theme_t_wp_taxonomy_post_class( $classes, $class, $ID ) {
         }
     }
     return $classes;
+}
+
+
+// Custom taxonomies
+
+// hook into the init action and call create_book_taxonomies when it fires
+add_action( 'init', 'create_book_taxonomies', 0 );
+
+// create two taxonomies, genres and writers for the post type "property"
+function create_book_taxonomies() {
+    // Add new taxonomy, make it hierarchical (like categories)
+    $labels = array(
+        'name'              => _x( 'Genres', 'taxonomy general name' ),
+        'singular_name'     => _x( 'Genre', 'taxonomy singular name' ),
+        'search_items'      => __( 'Search Genres' ),
+        'all_items'         => __( 'All Genres' ),
+        'parent_item'       => __( 'Parent Genre' ),
+        'parent_item_colon' => __( 'Parent Genre:' ),
+        'edit_item'         => __( 'Edit Genre' ),
+        'update_item'       => __( 'Update Genre' ),
+        'add_new_item'      => __( 'Add New Genre' ),
+        'new_item_name'     => __( 'New Genre Name' ),
+        'menu_name'         => __( 'Genre' ),
+    );
+
+    $args = array(
+        'hierarchical'      => true,
+        'labels'            => $labels,
+        'show_ui'           => true,
+        'show_admin_column' => true,
+        'query_var'         => true,
+        'rewrite'           => array( 'slug' => 'genre' ),
+    );
+
+    register_taxonomy( 'genre', array( 'property' ), $args );
+
+    // Add new taxonomy, NOT hierarchical (like tags)
+    $labels = array(
+        'name'                       => _x( 'Writers', 'taxonomy general name' ),
+        'singular_name'              => _x( 'Writer', 'taxonomy singular name' ),
+        'search_items'               => __( 'Search Writers' ),
+        'popular_items'              => __( 'Popular Writers' ),
+        'all_items'                  => __( 'All Writers' ),
+        'parent_item'                => null,
+        'parent_item_colon'          => null,
+        'edit_item'                  => __( 'Edit Writer' ),
+        'update_item'                => __( 'Update Writer' ),
+        'add_new_item'               => __( 'Add New Writer' ),
+        'new_item_name'              => __( 'New Writer Name' ),
+        'separate_items_with_commas' => __( 'Separate writers with commas' ),
+        'add_or_remove_items'        => __( 'Add or remove writers' ),
+        'choose_from_most_used'      => __( 'Choose from the most used writers' ),
+        'not_found'                  => __( 'No writers found.' ),
+        'menu_name'                  => __( 'Writers' ),
+    );
+
+    $args = array(
+        'hierarchical'          => false,
+        'labels'                => $labels,
+        'show_ui'               => true,
+        'show_admin_column'     => true,
+        'update_count_callback' => '_update_post_term_count',
+        'query_var'             => true,
+        'rewrite'               => array( 'slug' => 'writer' ),
+    );
+
+    register_taxonomy( 'writer', 'property', $args );
 }
