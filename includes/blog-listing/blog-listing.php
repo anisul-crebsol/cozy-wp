@@ -2,15 +2,16 @@
 	<div class="row">
 <?php 
     $limit = 9;
+    $count = 0;
 	$args = array(
         'post_status'       => 'publish',
         'posts_per_page'    => $limit,
     );
     $blog_query = new WP_Query( $args );?>
-<?php while($blog_query->have_posts()): $blog_query->the_post(); $count++;?>
-<?php if ( 1 == $count%3 ) {
-        echo '<div class="clearfix"></div>';
-    } ?>
+<?php while($blog_query->have_posts()): $blog_query->the_post(); ?>
+
+<?php $clearFix = @( $count%3 == 0 ?  '<div class="clearfix"></div>' : ''); echo $clearFix;  ?>
+
 		<div class="item col-md-4"><!-- Set width to 4 columns for grid view mode only -->
 			<div class="image">
 				<a href="<?php the_permalink(); ?>">
@@ -52,7 +53,7 @@
 				<p><?php the_excerpt(); ?></p>
 			</div>
 		</div>
-<?php endwhile; ?>
+<?php $count++; endwhile; ?>
 <?php wp_reset_postdata(); ?>
 
 	</div>

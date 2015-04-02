@@ -1,16 +1,14 @@
 <div class="grid-style1 clearfix">
 	<div class="row">
 <?php 
-    $limit = 4;
+    $limit = 4;    
 	$args = array(
         'post_status'       => 'publish',
         'posts_per_page'    => $limit,
     );
     $blog_query = new WP_Query( $args );?>
-<?php while($blog_query->have_posts()): $blog_query->the_post(); $count++;?>
-<?php if ( 1 == $count%3 ) {
-        echo '<div class="clearfix"></div>';
-    } ?>
+<?php while($blog_query->have_posts()): $blog_query->the_post(); ?>
+
 		<div class="item col-md-12"><!-- Set width to 4 columns for grid view mode only -->
 			<div class="image image-large">
 				<a href="<?php the_permalink(); ?>">
