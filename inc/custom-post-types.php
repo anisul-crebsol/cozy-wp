@@ -248,21 +248,21 @@ function theme_t_wp_taxonomy_post_class( $classes, $class, $ID ) {
 // hook into the init action and call create_book_taxonomies when it fires
 add_action( 'init', 'create_book_taxonomies', 0 );
 
-// create two taxonomies, genres and writers for the post type "property"
+// create two taxonomies, Status and writers for the post type "property"
 function create_book_taxonomies() {
     // Add new taxonomy, make it hierarchical (like categories)
     $labels = array(
-        'name'              => _x( 'Genres', 'taxonomy general name' ),
-        'singular_name'     => _x( 'Genre', 'taxonomy singular name' ),
-        'search_items'      => __( 'Search Genres' ),
-        'all_items'         => __( 'All Genres' ),
-        'parent_item'       => __( 'Parent Genre' ),
-        'parent_item_colon' => __( 'Parent Genre:' ),
-        'edit_item'         => __( 'Edit Genre' ),
-        'update_item'       => __( 'Update Genre' ),
-        'add_new_item'      => __( 'Add New Genre' ),
-        'new_item_name'     => __( 'New Genre Name' ),
-        'menu_name'         => __( 'Genre' ),
+        'name'              => _x( 'Status', 'taxonomy general name' ),
+        'singular_name'     => _x( 'Status', 'taxonomy singular name' ),
+        'search_items'      => __( 'Search Status' ),
+        'all_items'         => __( 'All Status' ),
+        'parent_item'       => __( 'Parent Status' ),
+        'parent_item_colon' => __( 'Parent Status:' ),
+        'edit_item'         => __( 'Edit Status' ),
+        'update_item'       => __( 'Update Status' ),
+        'add_new_item'      => __( 'Add New Status' ),
+        'new_item_name'     => __( 'New Status Name' ),
+        'menu_name'         => __( 'Status' ),
     );
 
     $args = array(
@@ -271,29 +271,81 @@ function create_book_taxonomies() {
         'show_ui'           => true,
         'show_admin_column' => true,
         'query_var'         => true,
-        'rewrite'           => array( 'slug' => 'genre' ),
+        'rewrite'           => array( 'slug' => 'property-status' ),
     );
 
-    register_taxonomy( 'genre', array( 'property' ), $args );
+    register_taxonomy( 'property-status', array( 'property' ), $args );
+
+    // Add new taxonomy, make it hierarchical (like categories)
+    $labels = array(
+        'name'              => _x( 'Locations', 'taxonomy general name' ),
+        'singular_name'     => _x( 'Location', 'taxonomy singular name' ),
+        'search_items'      => __( 'Search Locations' ),
+        'all_items'         => __( 'All Locations' ),
+        'parent_item'       => __( 'Parent Locations' ),
+        'parent_item_colon' => __( 'Parent Locations:' ),
+        'edit_item'         => __( 'Edit Location' ),
+        'update_item'       => __( 'Update Location' ),
+        'add_new_item'      => __( 'Add New Location' ),
+        'new_item_name'     => __( 'New Location Name' ),
+        'menu_name'         => __( 'Locations' ),
+    );
+
+    $args = array(
+        'hierarchical'      => true,
+        'labels'            => $labels,
+        'show_ui'           => true,
+        'show_admin_column' => true,
+        'query_var'         => true,
+        'rewrite'           => array( 'slug' => 'property-locations' ),
+    );
+
+    register_taxonomy( 'property-locations', array( 'property' ), $args );
+
+    // Add new taxonomy, make it hierarchical (like categories)
+    $labels = array(
+        'name'              => _x( 'Property Types', 'taxonomy general name' ),
+        'singular_name'     => _x( 'Property Type', 'taxonomy singular name' ),
+        'search_items'      => __( 'Search Property Types' ),
+        'all_items'         => __( 'All Property Types' ),
+        'parent_item'       => __( 'Parent Property Types' ),
+        'parent_item_colon' => __( 'Parent Property Types:' ),
+        'edit_item'         => __( 'Edit Property Type' ),
+        'update_item'       => __( 'Update Property Type' ),
+        'add_new_item'      => __( 'Add New Property Type' ),
+        'new_item_name'     => __( 'New Property Type Name' ),
+        'menu_name'         => __( 'Property Types' ),
+    );
+
+    $args = array(
+        'hierarchical'      => true,
+        'labels'            => $labels,
+        'show_ui'           => true,
+        'show_admin_column' => true,
+        'query_var'         => true,
+        'rewrite'           => array( 'slug' => 'wt-property-types' ),
+    );
+
+    register_taxonomy( 'wt-property-types', array( 'property' ), $args );
 
     // Add new taxonomy, NOT hierarchical (like tags)
     $labels = array(
-        'name'                       => _x( 'Writers', 'taxonomy general name' ),
-        'singular_name'              => _x( 'Writer', 'taxonomy singular name' ),
-        'search_items'               => __( 'Search Writers' ),
-        'popular_items'              => __( 'Popular Writers' ),
-        'all_items'                  => __( 'All Writers' ),
+        'name'                       => _x( 'Features', 'taxonomy general name' ),
+        'singular_name'              => _x( 'Feature', 'taxonomy singular name' ),
+        'search_items'               => __( 'Search Features' ),
+        'popular_items'              => __( 'Popular Features' ),
+        'all_items'                  => __( 'All Features' ),
         'parent_item'                => null,
         'parent_item_colon'          => null,
         'edit_item'                  => __( 'Edit Writer' ),
         'update_item'                => __( 'Update Writer' ),
         'add_new_item'               => __( 'Add New Writer' ),
         'new_item_name'              => __( 'New Writer Name' ),
-        'separate_items_with_commas' => __( 'Separate writers with commas' ),
-        'add_or_remove_items'        => __( 'Add or remove writers' ),
-        'choose_from_most_used'      => __( 'Choose from the most used writers' ),
-        'not_found'                  => __( 'No writers found.' ),
-        'menu_name'                  => __( 'Writers' ),
+        'separate_items_with_commas' => __( 'Separate Features with commas' ),
+        'add_or_remove_items'        => __( 'Add or remove Features' ),
+        'choose_from_most_used'      => __( 'Choose from the most used Features' ),
+        'not_found'                  => __( 'No Features found.' ),
+        'menu_name'                  => __( 'Features' ),
     );
 
     $args = array(
@@ -303,8 +355,40 @@ function create_book_taxonomies() {
         'show_admin_column'     => true,
         'update_count_callback' => '_update_post_term_count',
         'query_var'             => true,
-        'rewrite'               => array( 'slug' => 'writer' ),
+        'rewrite'               => array( 'slug' => 'property-features' ),
     );
 
-    register_taxonomy( 'writer', 'property', $args );
+    register_taxonomy( 'property-features', 'property', $args );
+
+    // Add new taxonomy, NOT hierarchical (like tags)
+    $labels = array(
+        'name'                       => _x( 'Amenities', 'taxonomy general name' ),
+        'singular_name'              => _x( 'Amenity', 'taxonomy singular name' ),
+        'search_items'               => __( 'Search Amenities' ),
+        'popular_items'              => __( 'Popular Amenities' ),
+        'all_items'                  => __( 'All Amenities' ),
+        'parent_item'                => null,
+        'parent_item_colon'          => null,
+        'edit_item'                  => __( 'Edit Writer' ),
+        'update_item'                => __( 'Update Writer' ),
+        'add_new_item'               => __( 'Add New Writer' ),
+        'new_item_name'              => __( 'New Writer Name' ),
+        'separate_items_with_commas' => __( 'Separate Amenities with commas' ),
+        'add_or_remove_items'        => __( 'Add or remove Amenities' ),
+        'choose_from_most_used'      => __( 'Choose from the most used Amenities' ),
+        'not_found'                  => __( 'No Amenities found.' ),
+        'menu_name'                  => __( 'Amenities' ),
+    );
+
+    $args = array(
+        'hierarchical'          => false,
+        'labels'                => $labels,
+        'show_ui'               => true,
+        'show_admin_column'     => true,
+        'update_count_callback' => '_update_post_term_count',
+        'query_var'             => true,
+        'rewrite'               => array( 'slug' => 'property-amenities' ),
+    );
+
+    register_taxonomy( 'property-amenities', 'property', $args );
 }
