@@ -266,16 +266,6 @@ function wt_cozy_register_metabox() {
                 'id' => $prefix . 'property_bathrooms',
                 'type' => 'text_medium'
 	) );
-	$wt_cozy->add_field( array(
-                'name' => __('Price',"wt_cozy"),
-                'id' => $prefix . 'property_price',
-                'type' => 'text_medium'
-	) );
-	$wt_cozy->add_field( array(
-                'name' => __('Address',"wt_cozy"),
-                'id' => $prefix . 'property_address',
-                'type' => 'text_medium'
-	) );
 	$wt_cozy = wt_cozy_metabox( array(
 		'id'            => $prefix . 'property-slider',
 		'title'         => __( 'Property Slider',"wt_cozy" ),
