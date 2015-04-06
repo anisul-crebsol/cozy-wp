@@ -17,7 +17,8 @@
 			</ul>
 		</div>
 	</div>
-	
+	<?php global $wt_cozy; ?>
+	<?php echo $text = get_post_meta( $post->ID, '_wt_property_author', true ); ?>
 	<form class="form-style col-md-8">
 		<div class="col-sm-12">
 			<input type="text" name="Name" placeholder="Name" class="form-control required fromName" />

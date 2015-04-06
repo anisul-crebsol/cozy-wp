@@ -247,8 +247,8 @@ function wt_cozy_register_metabox() {
                 'type' => 'text_medium'
 	) );
 	$wt_cozy->add_field( array(
-                'name' => __('MLS#',"wt_cozy"),
-                'id' => $prefix . 'property_mls',
+                'name' => __('ID#',"wt_cozy"),
+                'id' => $prefix . 'property_id',
                 'type' => 'text_medium'
 	) );
 	$wt_cozy->add_field( array(
@@ -331,7 +331,6 @@ function wt_cozy_register_metabox() {
 		'split_values' => true,
 		// 'repeatable' => true,
 	) );
-
 	$wt_cozy = wt_cozy_metabox( array(
 		'id'            => $prefix . 'property-author',
 		'title'         => __( 'Property Agent',"wt_cozy" ),
@@ -340,30 +339,36 @@ function wt_cozy_register_metabox() {
 		'priority'      => 'high',
 		'show_names'    => true, // Show field names on the left
 	) );
+	
+
 	$wt_cozy->add_field( array(
-                'name' => __('Property Author',"wt_cozy"),
-                'id' => $prefix . 'property_author',
-                'show_on_cb' => 'wt_cozy_agent_list'
+    'name' => __('Property Author',"wt_cozy"),
+    'id' => $prefix . 'property_author',
+    'desc'             => 'Select an option',    
+    'type'             => 'select',
+    'show_option_none' => true,
+    'default'          => 'custom',
+    'options'          => wt_cozy_agent_list( array( 'post_type' => 'agent', 'numberposts' => -1 ) ),
 	) );	
 }
 
-function wt_cozy_agent_list( $field ) {
+function wt_cozy_agent_list( $query_args ) {
 
-	$type = 'agent';
-	$args=array(
-	  'post_type' => $type,
-	  'post_status' => 'publish',
-	  'posts_per_page' => -1,
-	  'caller_get_posts'=> 1
-	  );
-	$agent_query = null;
-	$agent_query = new WP_Query($args);
-	if( $agent_query->have_posts() ) { 	?>
-	<select name="agentList">
-	 <?php while ($agent_query->have_posts()) : $agent_query->the_post(); ?>
-		<option value="<?php the_id(); ?>"><?php the_title(); ?></option>>	    
-	    <?php
-	  endwhile; ?>
-	  </select>
-	<?php }	wp_reset_query();  // Restore global post data stomped by the_post().
+    $args = wp_parse_args( $query_args, array(
+        'post_type'   => 'agent',
+        'numberposts' => -1,
+    ) );
+
+    $posts = get_posts( $args );
+
+    $post_options = array();
+    if ( $posts ) {
+        foreach ( $posts as $post ) {
+          $post_options[ $post->ID ] = $post->post_title;
+        }
+    }
+
+    return $post_options;
 }
+
+

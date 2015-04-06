@@ -1,30 +1,29 @@
 <?php global $wt_cozy; ?>
 <ul class="property-amenities-list">
-	<li class="enabled"> Security System </li>
-	<li class="enabled"> Parking On Street </li>
-	<li class="enabled"> Garage </li>
-	<li class="enabled"> Internet </li>
-	<li class="enabled"> Telephone </li>
-	<li class="disabled"> Alarm Clock </li>
-	<li class="disabled"> Water Cooler </li>
-	<li class="enabled"> Air Conditioning </li>
-	<li class="enabled"> Heating </li>
-	<li class="enabled"> Washing Machine </li>
-	<li class="disabled"> Clothes Dryer </li>
-	<li class="enabled"> Fireplace </li>
-	<li class="disabled"> Sofa Bed </li>
-	<li class="enabled"> Dishwasher </li>
-	<li class="enabled"> Refrigerator </li>
-	<li class="disabled"> Freezer </li>
-	<li class="enabled"> Oven </li>
-	<li class="enabled"> Microwave </li>
-	<li class="enabled"> Coffee Maker </li>
-	<li class="enabled"> Toaster </li>
-	<li class="disabled"> Ice Maker </li>
-	<li class="enabled"> Stove </li>
-	<li class="enabled"> Dishes & Utensils </li>
-	<li class="enabled"> Satellite / Cable TV  </li>
-	<li class="enabled"> Balcony </li>
-	<li class="disabled"> Deck / Patio </li>
-	<li class="enabled"> Outdoor Grill </li>
+	<?php 
+
+    	$args = array(
+            'post_type'         => 'property',
+            'post_status'       => 'publish',
+            'posts_per_page'    => -1,            
+        );
+
+        $property_query = new WP_Query( $args );
+        $thisPostID = $post->ID;
+
+       	while($property_query->have_posts()): $property_query->the_post(); 
+       	$postID = $post->ID;
+
+       	if($postID == $thisPostID): $className = 'enabled'; else : $className = 'disabled'; endif;
+
+     	$amenities = wp_get_post_terms($postID, 'property-amenities', array("fields" => "names"));
+
+		foreach($amenities as $amenity):
+			
+				echo '<li class="'.$className.'">'.$amenity.'</li>';
+			
+		 endforeach;
+
+		 endwhile;
+	 ?>
 </ul>

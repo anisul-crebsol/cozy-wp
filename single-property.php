@@ -29,25 +29,47 @@ global $wt_cozy; ?>
 					<!-- BEGIN MAIN CONTENT -->
 					<div class="main col-sm-8">
 					<?php while ( have_posts() ) : the_post(); ?>					
-						<h1 class="property-title"><?php the_title(); ?> <small>Upper East Side, New York</small></h1>
+						<h1 class="property-title"><?php the_title(); ?> <small><?php echo $text = get_post_meta( $post->ID, '_wt_property_address', true ); ?>, <?php echo $text = get_post_meta( $post->ID, '_wt_property_city', true ); ?></small></h1>
 						
 						<div class="property-topinfo">
 							<ul class="amenities">
-								<li><i class="icon-apartment"></i> Apartment</li>
-								<li><i class="icon-area"></i> 2150 Sq Ft</li>
-								<li><i class="icon-bedrooms"></i> 4</li>
-								<li><i class="icon-bathrooms"></i> 3</li>
+								<li><i class="icon-apartment"></i>
+								<?php $terms = wp_get_post_terms($post->ID, 'wt-property-types', array("fields" => "names"));
+									$i=0;
+									foreach($terms as $term):
+										if (count($terms) - $i < 2):
+											echo $term;
+										else :
+											echo $term.','.' ';
+										endif;
+										$i++;
+									 endforeach;
+								 ?>
+								</li>
+								<li><i class="icon-area"></i> <?php echo $text = get_post_meta( $post->ID, '_wt_property_square_feet', true ); ?></li>
+								<li><i class="icon-bedrooms"></i> <?php echo $text = get_post_meta( $post->ID, '_wt_property_bedrooms', true ); ?></li>
+								<li><i class="icon-bathrooms"></i> <?php echo $text = get_post_meta( $post->ID, '_wt_property_bathrooms', true ); ?></li>
 							</ul>
 							
-							<div id="property-id">ID: #025635637</div>
+							<div id="property-id">ID: #<?php echo $text = get_post_meta( $post->ID, '_wt_property_id', true ); ?></div>
 						</div>
-
 						<!-- BEGIN PROPERTY DETAIL SLIDERS WRAPPER -->
 						<div id="property-detail-wrapper" class="style1">
 							
 							<div class="price">
-								<i class="fa fa-home"></i>For Sale
-								<span>$950,000</span>
+								<i class="fa fa-home"></i>
+								<?php $terms = wp_get_post_terms($post->ID, 'property-status', array("fields" => "names"));
+									$i=0;
+									foreach($terms as $term):
+										if (count($terms) - $i < 2):
+											echo $term;
+										else :
+											echo $term.','.' ';
+										endif;
+										$i++;
+									 endforeach;
+								 ?>
+								<span><?php echo $text = get_post_meta( $post->ID, '_wt_property_price', true ); ?></span>
 							</div>
 									
 							<!-- BEGIN PROPERTY DETAIL LARGE IMAGE SLIDER -->
@@ -71,24 +93,7 @@ global $wt_cozy; ?>
 
 						<!-- END PROPERTY AMENITIES LIST -->
 						
-							<?php 
-							/*$entries = get_post_meta( get_the_ID(), '_wt_repeat_group', true );
 
-							foreach ( (array) $entries as $key => $entry ) {
-
-							    if ( isset( $entry['image_id'] ) ) {
-							        $img = wp_get_attachment_image( $entry['image_id'], 'share-pick', null, array(
-							            'class' => 'thumb',
-							        ) );
-							    }
-							    $caption = isset( $entry['image_caption'] ) ? wpautop( $entry['image_caption'] ) : '';
-
-							    // Do something with the data
-									echo "</div>";
-									echo 'test';
-									echo "<div class='item'>";
-							}*/
-							?>
 
 						<h1 class="section-title">Property Features</h1>
 						<!-- BEGIN PROPERTY FEATURES LIST -->
