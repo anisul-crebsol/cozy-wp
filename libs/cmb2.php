@@ -143,6 +143,11 @@ function wt_cozy_register_metabox() {
                 'type' => 'text_email'
 	) );
 	$wt_cozy->add_field( array(
+                'name' => __('Agent Telephone',"wt_cozy"),
+                'id' => $prefix . 'agent_telephone',
+                'type' => 'text_medium'
+	) );
+	$wt_cozy->add_field( array(
                 'name' => __('Description',"wt_cozy"),
                 'id' => $prefix . 'agent_description',
                 'type' => 'wysiwyg'

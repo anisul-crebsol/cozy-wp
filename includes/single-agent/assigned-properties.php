@@ -1,5 +1,5 @@
-<h1 class="section-title">Similar Properties</h1>
-<div id="similar-properties" class="grid-style1 clearfix">
+<h1 class="section-title">Assigned Properties</h1>
+<div id="assigned-properties" class="grid-style1 clearfix">
 	<div class="row">
 		<div class="item col-md-4">
 			<div class="image">
@@ -244,5 +244,5 @@
 </div>
 
 <p class="center">
-	<a href="#" class="btn btn-default-color" data-grid-id="similar-properties" data-load-amount="3">Load More Properties</a>
+	<a href="#" class="btn btn-default-color" data-grid-id="assigned-properties" data-load-amount="3">Load More Properties</a>
 </p>

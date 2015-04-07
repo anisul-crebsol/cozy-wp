@@ -74,13 +74,14 @@ global $wt_cozy; ?>
 									
 							<!-- BEGIN PROPERTY DETAIL LARGE IMAGE SLIDER -->
 
-<?php get_template_part ('/includes/property-detail/slider'); ?>
+<?php get_template_part ('/includes/single-property/slider'); ?>
 
 							<!-- END PROPERTY DETAIL LARGE IMAGE SLIDER -->
 							
+
 							<!-- BEGIN PROPERTY DETAIL THUMBNAILS SLIDER -->
 
-<?php get_template_part ('/includes/property-detail/thumbnail'); ?>
+<?php get_template_part ('/includes/single-property/thumbnail'); ?>
 
 							<!-- END PROPERTY DETAIL THUMBNAILS SLIDER -->
 						
@@ -89,15 +90,14 @@ global $wt_cozy; ?>
 						<?php echo $text = get_post_meta( $post->ID, '_wt_property_description', true ); ?>												
 						<!-- BEGIN PROPERTY AMENITIES LIST -->
 
-<?php get_template_part ('/includes/property-detail/amenities'); ?>
+<?php get_template_part ('/includes/single-property/amenities'); ?>
 
 						<!-- END PROPERTY AMENITIES LIST -->
 						
 
 
-						<h1 class="section-title">Property Features</h1>
 						<!-- BEGIN PROPERTY FEATURES LIST -->
-<?php get_template_part ('/includes/property-detail/feature-list'); ?>
+<?php get_template_part ('/includes/single-property/feature-list'); ?>
 						<!-- END PROPERTY FEATURES LIST -->
 						
 						
@@ -105,29 +105,16 @@ global $wt_cozy; ?>
 						<!-- PROPERTY MAP HOLDER -->
 						<div id="property_location" class="map col-sm-12"></div>
 						
-						<div class="share-wraper col-sm-12">
-							<h5>Share this Property:</h5>
-							<ul class="social-networks">
-								<li><a target="_blank" href="http://www.facebook.com/sharer.php?s=100&amp;p%5Burl%5D=http%3A%2F%2Fwww.wiselythemes.com%2Fhtml%2Fcozy%2Fproperties-detail.html%3Ffb%3Dtrue&amp;p%5Bimages%5D%5B0%5D=http%3A%2F%2Fwww.wiselythemes.com%2Fhtml%2Fcozy%2Fimages%2Fdetail-img1.jpg&amp;p%5Btitle%5D=Cozy%20Property"><i class="fa fa-facebook"></i></a></li>
-								<li><a target="_blank" href="https://twitter.com/intent/tweet?url=http://www.wiselythemes.com/html/cozy/properties-detail.html&amp;text=Cozy%20Property"><i class="fa fa-twitter"></i></a></li>
-								<li><a target="_blank" href="https://plus.google.com/share?url=http://www.wiselythemes.com/html/cozy/properties-detail.html"><i class="fa fa-google"></i></a></li>
-								<li><a target="_blank" href="http://pinterest.com/pin/create/button/?url=http://www.wiselythemes.com/html/cozy/properties-detail.html&amp;description=Cozy%20Property&amp;media=http%3A%2F%2Fwww.wiselythemes.com%2Fhtml%2Fcozy%2Fimages%2Fdetail-img1.jpg"><i class="fa fa-pinterest"></i></a></li>
-								<li><a href="mailto:?subject=Check%20out%20this%20property%20I%20found!&amp;body=http://www.wiselythemes.com/html/cozy/properties-detail.html"><i class="fa fa-envelope"></i></a></li>
-							</ul>
-							
-							<a class="print-button" href="javascript:window.print();">
-								<i class="fa fa-print"></i>
-							</a>
-						</div>
-						
+
+<?php get_template_part ('/includes/single-property/share'); ?>						
 						
 						<!-- BEING AGENT INFORMATION -->
-<?php get_template_part ('/includes/property-detail/agent-info'); ?>
+<?php get_template_part ('/includes/single-property/agent-info'); ?>
 						<!-- END AGENT INFORMATION -->
 						
 						
 						<!-- BEGIN SIMILAR PROPERTIES -->
-<?php get_template_part ('/includes/property-detail/similar'); ?>
+<?php get_template_part ('/includes/single-property/similar'); ?>
 						<!-- END PROPERTIES ASSIGNED -->
 					<?php endwhile; ?>						
 					</div>	
@@ -138,15 +125,15 @@ global $wt_cozy; ?>
 					<div class="sidebar gray col-sm-4">
 						
 						<!-- BEGIN ADVANCED SEARCH -->
-<?php get_template_part ('/includes/property-detail/advanced-search'); ?>
+<?php get_template_part ('/includes/single-property/advanced-search'); ?>
 						<!-- END ADVANCED SEARCH -->
 						
 						<!-- BEGIN LATEST NEWS -->
-<?php get_template_part ('/includes/property-detail/latest-news'); ?>
+<?php get_template_part ('/includes/single-property/latest-news'); ?>
 						<!-- END LATEST NEWS -->
 							
 						<!-- BEGIN NEWSLETTER -->
-<?php get_template_part ('/includes/property-detail/newsletter'); ?>
+<?php get_template_part ('/includes/single-property/newsletter'); ?>
 						<!-- END NEWSLETTER -->
 						
 					</div>
