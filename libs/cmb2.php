@@ -354,7 +354,45 @@ function wt_cozy_register_metabox() {
     'show_option_none' => true,
     'default'          => 'custom',
     'options'          => wt_cozy_agent_list( array( 'post_type' => 'agent', 'numberposts' => -1 ) ),
-	) );	
+	) );
+
+
+    // User Meta Box
+
+    $wt_cozy = wt_cozy_metabox(array(
+        'id' => $prefix . 'user',
+        'title' => __('User Details', "wt_cozy"),
+        'object_types' => array('user',), // Post type
+        'context' => 'normal',
+        'priority' => 'high',
+        'show_names' => true, // Show field names on the left
+    ));
+    $wt_cozy->add_field(array(
+        'name' => __('Address', "wt_cozy"),
+        'id' => $prefix . 'user_address',
+        'type' => 'text'
+    ));
+    $wt_cozy->add_field(array(
+        'name' => __('City', "wt_cozy"),
+        'id' => $prefix . 'user_city',
+        'type' => 'text'
+    ));
+    $wt_cozy->add_field(array(
+        'name' => __('Country', "wt_cozy"),
+        'id' => $prefix . 'user_country',
+        'type' => 'text'
+    ));
+    $wt_cozy->add_field(array(
+        'name' => __('Phone', "wt_cozy"),
+        'id' => $prefix . 'user_phone',
+        'type' => 'text'
+    ));
+    $wt_cozy->add_field(array(
+        'name' => __('Postcode', "wt_cozy"),
+        'id' => $prefix . 'postcode',
+        'type' => 'text'
+    ));
+    	
 }
 
 function wt_cozy_agent_list( $query_args ) {

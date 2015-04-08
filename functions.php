@@ -337,8 +337,22 @@ function cozy_scripts() {
     wp_enqueue_script( 'cozy-tweet', get_template_directory_uri() . '/twitter/jquery.tweet.min.js', array(), '', true );
     }
 
+    if (is_page_template('register.php')) {
+        wp_enqueue_script('cozy-registration', get_template_directory_uri() . '/js/registration.js', array(), '', true);
+        wp_enqueue_script('cozy-bootstrap-checkbox', get_template_directory_uri() . '/js/bootstrap-checkbox.js', array(), '', true);
+        wp_enqueue_script('cozy-agencies', get_template_directory_uri() . '/js/agencies.js', array(), '', true);
+    }
+
 }
 add_action( 'wp_enqueue_scripts', 'cozy_scripts' );
+
+function cozy_localize_scripts() {
+   wp_enqueue_script('function', plugins_url('function.js', __FILE__), array('jquery', 'json2'));
+   wp_localize_script('function', 'cozy', array('ajaxurl' => admin_url('admin-ajax.php')));
+}
+
+add_action('wp_ajax_nopriv_pfxconversion', 'pfxconversion');
+add_action('wp_enqueue_scripts', 'cozy_localize_scripts');
 
 add_action('admin_enqueue_scripts', 'wt_cozy_add_admin_scripts_page');
     if(!function_exists('wt_cozy_add_admin_scripts_page'))
@@ -497,3 +511,63 @@ function get_cities()
 
 add_action('wp_ajax_get_cities', 'get_cities');
 add_action('wp_ajax_nopriv_get_cities', 'get_cities');
+
+
+// NEW usr registration ajax function
+
+
+add_action("wp_ajax_new_user_registration", "new_user_registration_callback");
+add_action("wp_ajax_nopriv_new_user_registration", "new_user_registration_callback");
+
+function new_user_registration_callback() {
+    global $wpdb; // this is how you get access to the database
+//    var_dump($_POST);
+    $success = 0;
+
+    if ($_POST) {
+        if ($_POST['terms'] == 'on') {
+            if (!empty($_POST['Password']) && ($_POST['Password'] == $_POST['confirm_Password'])) {
+                if ((!empty($_POST['email']))) {
+
+                    if (!(email_exists($_POST['email']))) {
+                        $userdata = array(
+                            'user_login' => sanitize_user($_POST['email']),
+                            'user_email' => sanitize_email($_POST['email']),
+                            'user_pass' => esc_attr($_POST['Password']),
+                            'first_name' => sanitize_text_field($_POST['firstname']),
+                            'last_name' => sanitize_text_field($_POST['lastname']),
+                        );
+                        $user_id = wp_insert_user($userdata);
+                        add_user_meta($user_id, '_wt_user_address', sanitize_text_field($_POST['address']), true);
+                        add_user_meta($user_id, '_wt_user_city', sanitize_text_field($_POST['city']), true);
+                        add_user_meta($user_id, '_wt_user_country', sanitize_text_field($_POST['country']), true);
+                        add_user_meta($user_id, '_wt_user_phone', sanitize_text_field($_POST['phone']), true);
+                        add_user_meta($user_id, '_wt_postcode', sanitize_text_field($_POST['postcode']), true);
+                        $registration_error = 'Thank you For registration. You will redirect soon...';
+                        $success = 1;
+                        $login = wp_login(sanitize_user($_POST['email']), esc_attr($_POST['Password']), 'Login Success');
+                        wp_set_auth_cookie($user_id, false, is_ssl());
+                    } else {
+                        $registration_error = 'email exist';
+                    }
+                } else {
+                    $registration_error = 'email field required.';
+                }
+            } else {
+                $registration_error = 'Password field required.';
+            }
+        } else {
+            $registration_error = 'Accept the  Terms of Use.';
+        }
+    }
+
+    $register_json_array = new StdClass();
+    $register_json_array->phpmsg = $registration_error;
+    $register_json_array->success = $success;
+
+    //   $register_json_array = array("phpmsg" => $registration_error, "success" => $success);
+// response output
+    echo json_encode($register_json_array);
+
+    wp_die(); // this is required to terminate immediately and return a proper response
+}

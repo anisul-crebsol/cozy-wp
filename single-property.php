@@ -87,7 +87,7 @@ global $wt_cozy; ?>
 						
 						</div>
 
-						<?php echo $text = get_post_meta( $post->ID, '_wt_property_description', true ); ?>												
+<?php echo $text = get_post_meta( $post->ID, '_wt_property_description', true ); ?>												
 						<!-- BEGIN PROPERTY AMENITIES LIST -->
 
 <?php get_template_part ('/includes/single-property/amenities'); ?>

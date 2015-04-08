@@ -18,7 +18,7 @@
 				echo '<img alt="" src="'. $property_agent_image .' " />';
 			}
 			else {
-				echo '<img alt="" src="http://placehold.it/308x308" />';
+				echo '<img alt="" src="http://placehold.it/307x307" />';
 			}
 			?>
 		</div>
