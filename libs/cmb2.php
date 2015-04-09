@@ -185,36 +185,111 @@ function wt_cozy_register_metabox() {
 		'show_names'    => true, // Show field names on the left
 	) );
 	$wt_cozy->add_field( array(
-                'name' => __('Agency Title',"wt_cozy"),
-                'id' => $prefix . 'agency_title',
-                'type' => 'text'
+                'name' => __('Agency Street',"wt_cozy"),
+                'id' => $prefix . 'agency_street',
+                'type' => 'text_medium'
 	) );
 	$wt_cozy->add_field( array(
-                'name' => __('Agency Latitude',"wt_cozy"),
-                'id' => $prefix . 'agency_latitude',
-                'type' => 'text'
+                'name' => __('Agency City',"wt_cozy"),
+                'id' => $prefix . 'agency_city',
+                'type' => 'text_medium'
 	) );
 	$wt_cozy->add_field( array(
-                'name' => __('Agency Longtitude',"wt_cozy"),
-                'id' => $prefix . 'agency_longtitude',
-                'type' => 'text'
+                'name' => __('Agency State',"wt_cozy"),
+                'id' => $prefix . 'agency_state',
+                'type' => 'text_medium'
 	) );
 	$wt_cozy->add_field( array(
-                'name' => __('Agency Image ',"wt_cozy"),
-                'id' => $prefix . 'agency_img',
-                'type' => 'file'
+                'name' => __('Agency Country',"wt_cozy"),
+                'id' => $prefix . 'agency_country',
+                'type' => 'text_medium'
 	) );
 	$wt_cozy->add_field( array(
-                'name' => __('Description',"wt_cozy"),
-                'id' => $prefix . 'agency_description',
-                'type' => 'wysiwyg'
+                'name' => __('Agency Email',"wt_cozy"),
+                'id' => $prefix . 'agency_email',
+                'type' => 'text_email'
 	) );
 	$wt_cozy->add_field( array(
-                'name' => __('Agency Map Maker Icon ',"wt_cozy"),
-                'id' => $prefix . 'agency_map_maker_icon',
-                'type' => 'file'
+                'name' => __('Agency Telephone',"wt_cozy"),
+                'id' => $prefix . 'agency_telephone',
+                'type' => 'text_medium'
+	) );
+	$wt_cozy = wt_cozy_metabox( array(
+		'id'            => $prefix . 'agency-social',
+		'title'         => __( 'Social Icons',"wt_cozy" ),
+		'object_types'  => array( 'agency', ), // Post type
+		'context'       => 'normal',
+		'priority'      => 'high',
+		'show_names'    => true, // Show field names on the left
+	) );
+	$wt_cozy->add_field( array(
+                'name' => __('Google Plus',"wt_cozy"),
+                'id' => $prefix . 'agency_gplus',
+                'type' => 'text_url'
+	) );
+	$wt_cozy->add_field( array(
+                'name' => __('Google Facebook',"wt_cozy"),
+                'id' => $prefix . 'agency_facebook',
+                'type' => 'text_url'
+	) );
+	$wt_cozy->add_field( array(
+                'name' => __('Google Twitter',"wt_cozy"),
+                'id' => $prefix . 'agency_twitter',
+                'type' => 'text_url'
+	) );
+	$wt_cozy->add_field( array(
+                'name' => __('Google YouTube',"wt_cozy"),
+                'id' => $prefix . 'agency_youtube',
+                'type' => 'text_url'
+	) );
+	$wt_cozy = wt_cozy_metabox( array(
+		'id'            => $prefix . 'agency-content',
+		'title'         => __( 'Main Content',"wt_cozy" ),
+		'object_types'  => array( 'agency', ), // Post type
+		'context'       => 'normal',
+		'priority'      => 'high',
+		'show_names'    => true, // Show field names on the left
+	) );
+	$wt_cozy->add_field( array(
+                'name' => __('Content Over Gallery',"wt_cozy"),
+                'id' => $prefix . 'property_content1',
+                'type' => 'wysiwyg',
+                'options' => array(
+			        'textarea_rows' => get_option('default_post_edit_rows', 5),
+			    ),
+	) );
+	$wt_cozy->add_field( array(
+			    'name' => 'Agency Image gallery',
+			    'desc' => '',
+			    'id'   => $prefix . 'property_gallery',
+			    'type' => 'file_list',
+			    // 'preview_size' => array( 100, 100 ), // Default: array( 50, 50 )
+			) );
+	$wt_cozy->add_field( array(
+                'name' => __('Content Under Gallery',"wt_cozy"),
+                'id' => $prefix . 'property_content2',
+                'type' => 'wysiwyg',
+                'options' => array(
+			        'textarea_rows' => get_option('default_post_edit_rows', 10),
+			    ),
 	) );
 
+	$wt_cozy = wt_cozy_metabox( array(
+		'id'            => $prefix . 'agency-mapbox',
+		'title'         => __( 'Agency Map',"wt_cozy" ),
+		'object_types'  => array( 'agency', ), // Post type
+		'context'       => 'normal',
+		'priority'      => 'high',
+		'show_names'    => true, // Show field names on the left
+	) );
+	$wt_cozy->add_field( array(
+		'name' => __( 'Google Map', 'cmb2' ),
+		'desc' => __( 'Field description (optional)', 'cmb2' ),
+		'id'   => $prefix . 'agency_map',
+		'type' => 'pw_map',
+		'split_values' => true,
+		// 'repeatable' => true,
+	) );
 
     // Property Meta Box
 
@@ -344,8 +419,6 @@ function wt_cozy_register_metabox() {
 		'priority'      => 'high',
 		'show_names'    => true, // Show field names on the left
 	) );
-	
-
 	$wt_cozy->add_field( array(
     'name' => __('Property Author',"wt_cozy"),
     'id' => $prefix . 'property_author',
@@ -354,6 +427,45 @@ function wt_cozy_register_metabox() {
     'show_option_none' => true,
     'default'          => 'custom',
     'options'          => wt_cozy_agent_list( array( 'post_type' => 'agent', 'numberposts' => -1 ) ),
+	) );
+		
+	$wt_cozy = wt_cozy_metabox( array(
+		'id'            => $prefix . 'property-social',
+		'title'         => __( 'Social Icons',"wt_cozy" ),
+		'object_types'  => array( 'property', ), // Post type
+		'context'       => 'normal',
+		'priority'      => 'high',
+		'show_names'    => true, // Show field names on the left
+	) );
+	$wt_cozy->add_field( array(
+                'name' => __('Google Plus',"wt_cozy"),
+                'id' => $prefix . 'property_gplus',
+                'type' => 'text_url'
+	) );
+	$wt_cozy->add_field( array(
+                'name' => __('Facebook',"wt_cozy"),
+                'id' => $prefix . 'property_facebook',
+                'type' => 'text_url'
+	) );
+	$wt_cozy->add_field( array(
+                'name' => __('Twitter',"wt_cozy"),
+                'id' => $prefix . 'property_twitter',
+                'type' => 'text_url'
+	) );
+	$wt_cozy->add_field( array(
+                'name' => __('YouTube',"wt_cozy"),
+                'id' => $prefix . 'property_youtube',
+                'type' => 'text_url'
+	) );
+	$wt_cozy->add_field( array(
+                'name' => __('Pinterest',"wt_cozy"),
+                'id' => $prefix . 'property_pinterest',
+                'type' => 'text_url'
+	) );
+	$wt_cozy->add_field( array(
+                'name' => __('Mail',"wt_cozy"),
+                'id' => $prefix . 'property_mail',
+                'type' => 'text_url'
 	) );
 
 
@@ -413,5 +525,3 @@ function wt_cozy_agent_list( $query_args ) {
 
     return $post_options;
 }
-
-

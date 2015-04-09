@@ -336,6 +336,10 @@ function cozy_scripts() {
 
     wp_enqueue_script( 'cozy-tweet', get_template_directory_uri() . '/twitter/jquery.tweet.min.js', array(), '', true );
     }
+    
+    if ('property' == get_post_type()) {
+    wp_enqueue_script( 'cozy-markerclusterer', get_template_directory_uri() . '/js/markerclusterer.min.js', array(), '', true );
+    }
 
     if (is_page_template('register.php')) {
         wp_enqueue_script('cozy-registration', get_template_directory_uri() . '/js/registration.js', array(), '', true);

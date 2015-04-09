@@ -1,3 +1,4 @@
+<?php global $wt_cozy; ?>
 <div id="property-detail-large" class="owl-carousel">
 
 

@@ -16,14 +16,15 @@
 
        	if($postID == $thisPostID): $className = 'enabled'; else : $className = 'disabled'; endif;
 
-     	$amenities = wp_get_post_terms($postID, 'property-amenities', array("fields" => "names"));
+     	  $amenities = wp_get_post_terms($postID, 'property-amenities', array("fields" => "names"));
 
-		foreach($amenities as $amenity):
+		    foreach($amenities as $amenity):
 			
 				echo '<li class="'.$className.'">'.$amenity.'</li>';
 			
-		 endforeach;
-
-		 endwhile;
-	 ?>
+      ?>
+      
+	<?php endforeach;?>
+	<?php endwhile; ?>
+  <?php wp_reset_postdata(); ?>
 </ul>

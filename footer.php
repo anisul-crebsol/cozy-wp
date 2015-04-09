@@ -45,16 +45,16 @@
 <?php wp_footer(); ?>
 
 
-<script type="text/javascript">
-		(function($){
-			"use strict";
+// <script type="text/javascript">
+// 		(function($){
+// 			"use strict";
 			
-			$(document).ready(function(){
-				//Create agencies map with markers and populate dropdown agencies list.
-				Cozy.agencyMap(agencies, "map_agency");
-			});
-		})(jQuery);
-	</script>
+// 			$(document).ready(function(){
+// 				//Create agencies map with markers and populate dropdown agencies list.
+// 				Cozy.agencyMap(agencies, "map_agency");
+// 			});
+// 		})(jQuery);
+// 	</script>
 <?php //require get_template_directory() . '/inc/agencies.php'; ?>
 </body>
 </html>

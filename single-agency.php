@@ -17,7 +17,7 @@ global $wt_cozy; ?>
 		
 		
 		<!-- BEGIN PAGE TITLE/BREADCRUMB -->
-<?php get_template_part ('/includes/single-agency/breadcrumb'); ?>
+<?php get_template_part ('/includes/blog-listing/breadcrumb'); ?>
 		<!-- END PAGE TITLE/BREADCRUMB -->
 		
 		

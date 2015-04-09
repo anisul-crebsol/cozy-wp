@@ -143,6 +143,16 @@ global $wt_cozy; ?>
 			</div>
 		</div>
 		<!-- END CONTENT WRAPPER -->
-		
-		
+
+
+	<script type="text/javascript">
+		(function($){
+			"use strict";
+			
+			$(document).ready(function(){
+				//Create property map centered on the marker of the property with id=0.
+				Cozy.propertiesMap(property, 'property_location', 0);
+			});
+		})(jQuery);
+	</script>		
 <?php get_footer(); ?>
