@@ -18,7 +18,7 @@ global $wt_cozy; ?>
 		
 		
 		<!-- BEGIN PAGE TITLE/BREADCRUMB -->
-<?php get_template_part ('/includes/blog-listing/breadcrumb'); ?>
+<?php get_template_part ('/includes/breadcrumb'); ?>
 		<!-- END PAGE TITLE/BREADCRUMB -->
 		
 		

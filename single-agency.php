@@ -17,7 +17,7 @@ global $wt_cozy; ?>
 		
 		
 		<!-- BEGIN PAGE TITLE/BREADCRUMB -->
-<?php get_template_part ('/includes/blog-listing/breadcrumb'); ?>
+<?php get_template_part ('/includes/breadcrumb'); ?>
 		<!-- END PAGE TITLE/BREADCRUMB -->
 		
 		
@@ -32,9 +32,13 @@ global $wt_cozy; ?>
 						<!-- BEGIN AGENCY DETAIL -->
 <?php get_template_part ('/includes/single-agency/agency-detail'); ?>
 						<!-- END AGENCY DETAIL -->
+<?php if ( have_posts() ) : ?>
+
+<?php /* Start the Loop */ ?>
+<?php while ( have_posts() ) : the_post(); ?>						
 						
-						
-						<p class="center">Praesent id lectus commodo, porttitor nunc in, consequat lacus. Aliquam vel varius sapien. Vestibulum pulvinar elit ut nisl egestas aliquam. Nullam suscipit nunc vel magna mattis vestibulum. Proin sit amet nulla orci. Sed eleifend adipiscing sapien, eget luctus libero consequat ac. Morbi ac est ipsum.</p>
+						<p class="center">
+<?php echo $property_content1 = get_post_meta( $post->ID, '_wt_property_content1', true ); ?></p>
 						
 						<!-- BEGIN GALLERY -->
 <?php get_template_part ('/includes/single-agency/gallery'); ?>
@@ -42,14 +46,10 @@ global $wt_cozy; ?>
 						
 						
 						<p class="center">
-							Morbi eget dui leo. Sed rutrum urna id tellus euismod gravida. Praesent placerat, mauris ac pellentesque fringilla, tortor libero condimentum mi, at fermentum tortor velit eu felis. Aliquam bibendum risus at lectus condimentum aliquam. Integer eros leo, consectetur non mauris at, aliquam consectetur nibh. Pellentesque vulputate gravida ante, vel pellentesque ante mollis ac. Donec at tristique nulla, vitae facilisis metus.
-							<br/><br/>
-							Sed nec rhoncus felis, vitae ultricies risus. Nam sit amet risus non dui ultrices tempus quis a est. Vivamus nec dictum est, at adipiscing purus.
-							<br/><br/><br/>
-							<a href="#" data-slide-to="contact-agency" class="btn btn-fullcolor">Contact Agency</a>
-							<br/><br/>
+<?php echo $property_content2 = get_post_meta( $post->ID, '_wt_property_content2', true ); ?>
 						</p>
-						
+<?php endwhile; ?>
+<?php endif; ?>						
 						
 						<!-- BEGIN AGENTS LIST -->
 <?php get_template_part ('/includes/single-agency/agents-list'); ?>

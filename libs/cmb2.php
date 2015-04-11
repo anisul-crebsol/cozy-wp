@@ -261,7 +261,7 @@ function wt_cozy_register_metabox() {
 	$wt_cozy->add_field( array(
 			    'name' => 'Agency Image gallery',
 			    'desc' => '',
-			    'id'   => $prefix . 'property_gallery',
+			    'id'   => $prefix . 'agency_gallery',
 			    'type' => 'file_list',
 			    // 'preview_size' => array( 100, 100 ), // Default: array( 50, 50 )
 			) );

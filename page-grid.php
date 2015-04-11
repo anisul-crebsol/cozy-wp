@@ -40,7 +40,7 @@ global $wt_cozy; ?>
 					<div class="main">
 
 		<!-- BEGIN FEATURES SECTION -->
-<?php get_template_part ('/includes/home-grid/fetures'); ?>
+<?php get_template_part ('/includes/home-grid/features'); ?>
 		<!-- END FEATURES SECTION -->
 
 						<div class="content-divider col-sm-12"></div>
