@@ -187,6 +187,43 @@ function wt_cozy_fields()
         'capability_type' => 'page',
     );
     register_post_type('property', $args1);
+
+    // Register FAQ post type
+    $labels1 = array(
+        'name' => _x('FAQ', 'Post Type General Name', 'wt_cozy'),
+        'singular_name' => _x('FAQ', 'Post Type Singular Name', 'wt_cozy'),
+        'menu_name' => __('FAQ', 'wt_cozy'),
+        'parent_item_colon' => __('Parent FAQ:', 'wt_cozy'),
+        'all_items' => __('All FAQs', 'wt_cozy'),
+        'view_item' => __('View FAQ', 'wt_cozy'),
+        'add_new_item' => __('Add New FAQ', 'wt_cozy'),
+        'add_new' => __('Add New FAQ', 'wt_cozy'),
+        'edit_item' => __('Edit FAQ', 'wt_cozy'),
+        'update_item' => __('Update FAQ', 'wt_cozy'),
+        'search_items' => __('Search FAQs', 'wt_cozy'),
+        'not_found' => __('No FAQ found', 'wt_cozy'),
+        'not_found_in_trash' => __('No faqs found in Trash', 'wt_cozy'),
+    );
+    $args1 = array(
+        'label' => __('FAQs', 'wt_cozy'),
+        'description' => __('FAQs', 'wt_cozy'),
+        'labels' => $labels1,
+        'supports' => array('title'),
+        'hierarchical' => false,
+        'public' => true,
+        'show_ui' => true,
+        'show_in_menu' => true,
+        'show_in_nav_menus' => true,
+        'show_in_admin_bar' => true,
+        'menu_position' => 5,
+        'menu_icon' => get_template_directory_uri() . '/images/menu-icon/feature.png',
+        'can_export' => true,
+        'has_archive' => true,
+        'exclude_from_search' => false,
+        'publicly_queryable' => true,
+        'capability_type' => 'page',
+    );
+    register_post_type('faq', $args1);
 }
 
 add_action('init', 'wt_cozy_fields', 0);
@@ -392,3 +429,35 @@ function create_book_taxonomies() {
 
     register_taxonomy( 'property-amenities', 'property', $args );
 }
+
+// Custom Taxonomy for FAQ
+
+function add_faq_category_taxonomies() {
+
+    register_taxonomy('faq_category', 'faq', array(
+        // Hierarchical taxonomy (like categories)
+        'hierarchical' => true,
+        // This array of options controls the labels displayed in the WordPress Admin UI
+        'labels' => array(
+            'name' => _x('FAQ Category', 'taxonomy general name'),
+            'singular_name' => _x('FAQ-Category', 'taxonomy singular name'),
+            'search_items' => __('Search FAQ-Categories'),
+            'all_items' => __('All FAQ-Categories'),
+            'parent_item' => __('Parent FAQ-Category'),
+            'parent_item_colon' => __('Parent FAQ-Category:'),
+            'edit_item' => __('Edit FAQ-Category'),
+            'update_item' => __('Update FAQ-Category'),
+            'add_new_item' => __('Add New FAQ-Category'),
+            'new_item_name' => __('New FAQ-Category Name'),
+            'menu_name' => __('FAQ Categories'),
+        ),
+        // Control the slugs used for this taxonomy
+        'rewrite' => array(
+            'slug' => 'faq_category', // This controls the base slug that will display before each term
+            'with_front' => false, // Don't display the category base before "/locations/"
+            'hierarchical' => true // This will allow URL's like "/locations/boston/cambridge/"
+        ),
+    ));
+}
+
+add_action('init', 'add_faq_category_taxonomies', 0);

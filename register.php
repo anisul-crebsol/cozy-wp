@@ -1,12 +1,12 @@
 <?php
 /**
  * Template Name: Register
- * @package cozy
+ * @package Cozy
  */
 global $wt_cozy;
-?>
 
-<?php get_header(); ?>
+get_header(); ?>
+
 </head>
 <body>
     <!-- BEGIN WRAPPER -->
@@ -18,7 +18,7 @@ global $wt_cozy;
 
 
         <!-- BEGIN PAGE TITLE/BREADCRUMB -->
-        <?php get_template_part ('/includes/breadcrumb'); ?>
+        <?php get_template_part('/includes/breadcrumb'); ?>
         <!-- END PAGE TITLE/BREADCRUMB -->
 
 
@@ -65,8 +65,11 @@ global $wt_cozy;
                         </div>
 
                         <div class="login-info col-sm-4 col-sm-offset-1">
-                            <?php echo $post->post_content; ?>
-
+                            <?php
+                            while (have_posts()) : the_post();
+                                the_content();
+                            endwhile
+                            ?>
                         </div>
                     </div>  
                     <!-- END MAIN CONTENT -->
@@ -75,8 +78,8 @@ global $wt_cozy;
             </div>
         </div>
         <!-- END CONTENT WRAPPER -->
-<script>
-    var ajaxHomeUrl = '<?php echo get_site_url(); ?>';
-</script>
+        <script>
+            var ajaxHomeUrl = '<?php echo get_site_url(); ?>';
+        </script>
 
         <?php get_footer(); ?>

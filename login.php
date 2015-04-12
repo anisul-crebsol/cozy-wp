@@ -1,7 +1,7 @@
 <?php
 /**
  * Template Name: Login
- * @package cozy
+ * @package Cozy
  */
 global $wt_cozy;
 

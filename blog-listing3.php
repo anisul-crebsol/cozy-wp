@@ -1,7 +1,7 @@
 <?php
 /**
  * Template Name: Blog Listing3
- * @package cozy
+ * @package Cozy
  */
 global $wt_cozy; ?>
 

@@ -1,11 +1,10 @@
 <?php
 /**
- * Template Name: Agency Listing
- * @package cozy
+ * @package Cozy
  */
-global $wt_cozy; ?>
+global $wt_cozy;
 
-<?php get_header(); ?>
+get_header(); ?>
 
 </head>
 <body>
@@ -18,21 +17,7 @@ global $wt_cozy; ?>
 		
 		
 		<!-- BEGIN PAGE TITLE/BREADCRUMB -->
-		<div class="parallax colored-bg pattern-bg" data-stellar-background-ratio="0.5">
-			<div class="container">
-				<div class="row">
-					<div class="col-sm-12">
-						<h1 class="page-title">Agency Listing</h1>
-						
-						<ul class="breadcrumb">
-							<li><a href="index.html">Home </a></li>
-							<li><a href="#">Pages</a></li>
-							<li><a href="agency-listing.html">Agency Listing</a></li>
-						</ul>
-					</div>
-				</div>
-			</div>
-		</div>
+<?php get_template_part ('/includes/breadcrumb'); ?>
 		<!-- END PAGE TITLE/BREADCRUMB -->
 		
 		

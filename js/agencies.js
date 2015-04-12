@@ -8,7 +8,7 @@ var agencies = [
 		"image":"http://placehold.it/700x603",
 		"description":"242 E 67th St, New York, NY <br> Phone: (123) 546-7890",
 		"link":"agency-detail.html",
-		"map_marker_icon":"images/markers/coral-marker-cozy.png"
+		"map_marker_icon":"http://localhost/cozy-wp/wp-content/themes/cozy/images/markers/coral-marker-cozy.png"
 	},
 	{
 		"id": 1,
@@ -18,7 +18,7 @@ var agencies = [
 		"image":"http://placehold.it/700x603",
 		"description":"S Lucas Ave, Los Angeles, CA <br> Phone: (123) 546-7890",
 		"link":"agency-detail.html",
-		"map_marker_icon":"images/markers/coral-marker-cozy.png"
+		"map_marker_icon":"http://localhost/cozy-wp/wp-content/themes/cozy/images/markers/coral-marker-cozy.png"
 	},
 	{
 		"id": 2,
@@ -28,7 +28,7 @@ var agencies = [
 		"image":"http://placehold.it/700x603",
 		"description":"162 Hicks St Brooklyn, NY <br> Phone: (123) 546-7890",
 		"link":"agency-detail.html",
-		"map_marker_icon":"images/markers/coral-marker-cozy.png"
+		"map_marker_icon":"http://localhost/cozy-wp/wp-content/themes/cozy/images/markers/coral-marker-cozy.png"
 	},
 	{
 		"id": 3,
@@ -38,7 +38,7 @@ var agencies = [
 		"image":"http://placehold.it/700x603",
 		"description":"133 Avenue C, New York, NY <br> Phone: (123) 546-7890",
 		"link":"agency-detail.html",
-		"map_marker_icon":"images/markers/coral-marker-cozy.png"
+		"map_marker_icon":"http://localhost/cozy-wp/wp-content/themes/cozy/images/markers/coral-marker-cozy.png"
 	},
 	{
 		"id": 4,
@@ -48,7 +48,7 @@ var agencies = [
 		"image":"http://placehold.it/700x603",
 		"description":"Palm Beach Gardens, FL <br> Phone: (123) 546-7890",
 		"link":"agency-detail.html",
-		"map_marker_icon":"images/markers/coral-marker-cozy.png"
+		"map_marker_icon":"http://localhost/cozy-wp/wp-content/themes/cozy/images/markers/coral-marker-cozy.png"
 	},
 	{
 		"id": 5,
@@ -58,6 +58,6 @@ var agencies = [
 		"image":"http://placehold.it/700x603",
 		"description":"West Palm Beach, FL <br> Phone: (123) 546-7890",
 		"link":"agency-detail.html",
-		"map_marker_icon":"images/markers/coral-marker-cozy.png"
+		"map_marker_icon":"http://localhost/cozy-wp/wp-content/themes/cozy/images/markers/coral-marker-cozy.png"
 	}
 ];

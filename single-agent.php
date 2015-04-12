@@ -1,6 +1,6 @@
 <?php
 /**
- * @package cozy
+ * @package Cozy
  */
 global $wt_cozy; ?>
 

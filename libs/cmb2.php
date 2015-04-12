@@ -504,6 +504,22 @@ function wt_cozy_register_metabox() {
         'id' => $prefix . 'postcode',
         'type' => 'text'
     ));
+
+    // FAQ Meta Box
+
+    $wt_cozy = wt_cozy_metabox(array(
+        'id' => $prefix . 'faq',
+        'title' => __('FAQ Content', "wt_cozy"),
+        'object_types' => array('faq',), // Post type
+        'context' => 'normal',
+        'priority' => 'high',
+        'show_names' => true, // Show field names on the left
+    ));
+    $wt_cozy->add_field(array(
+        'name' => __('Content', "wt_cozy"),
+        'id' => $prefix . 'faq_content',
+        'type' => 'wysiwyg'
+    ));
     	
 }
 

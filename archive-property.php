@@ -29,12 +29,16 @@ get_header(); ?>
 					<!-- BEGIN MAIN CONTENT -->
 					<div class="main col-sm-8">
 
-<?php get_template_part ('/includes/blog-listing/listing-header'); ?>					
+<?php get_template_part ('/includes/properties/listing-header'); ?>					
 
 						
-						<!-- BEGIN BLOG LISTING -->
-<?php get_template_part ('/includes/blog-listing/blog-listing'); ?>
-						<!-- END BLOG LISTING -->
+						<!-- BEGIN PROPERTY LISTING -->
+						<div id="property-listing" class="list-style clearfix">
+							<div class="row">
+<?php get_template_part ('/includes/properties/property-listing'); ?>	
+							</div>
+						</div>
+						<!-- END PROPERTY LISTING -->
 						
 						
 						<!-- BEGIN PAGINATION -->
@@ -48,23 +52,17 @@ get_header(); ?>
 					<!-- BEGIN SIDEBAR -->
 					<div class="sidebar gray col-sm-4">
 						
-<?php get_template_part ('/includes/blog-listing/categories'); ?>
-						
-						<!-- BEGIN ARCHIVES ACCORDION -->
-
-<?php get_template_part ('/includes/blog-listing/archives-accordion'); ?>
-
-						<!-- END  ARCHIVES ACCORDION -->
-						
-						
-						<!-- BEGIN TAGS -->
-<?php get_template_part ('/includes/blog-listing/tags'); ?>
-						<!-- BEGIN TAGS -->
-						
+						<!-- BEGIN ADVANCED SEARCH -->
+<?php get_template_part ('/includes/properties/advanced-search'); ?>
+						<!-- END ADVANCED SEARCH -->
 						
 						<!-- BEGIN LATEST NEWS -->
-<?php get_template_part ('/includes/blog-listing/latest-news'); ?>
+<?php get_template_part ('/includes/properties/latest-news'); ?>
 						<!-- END LATEST NEWS -->
+							
+						<!-- BEGIN NEWSLETTER -->
+<?php get_template_part ('/includes/properties/newsletter'); ?>
+						<!-- END NEWSLETTER -->
 						
 					</div>
 					<!-- END SIDEBAR -->
@@ -73,6 +71,6 @@ get_header(); ?>
 			</div>
 		</div>
 		<!-- END CONTENT WRAPPER -->
-
-
+		
+		
 <?php get_footer(); ?>

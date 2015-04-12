@@ -1,11 +1,11 @@
 <?php
 /**
  * Template Name: About
- * @package cozy
+ * @package Cozy
  */
-global $wt_cozy; ?>
+global $wt_cozy;
 
-<?php get_header(); ?>
+get_header(); ?>
 
 </head>
 <body>

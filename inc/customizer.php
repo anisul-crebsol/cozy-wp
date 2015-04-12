@@ -2,7 +2,7 @@
 /**
  * Cozy Theme Customizer
  *
- * @package cozy
+ * @package Cozy
  */
 
 /**

@@ -49,7 +49,7 @@
 <?php if ( comments_open() ) : ?>
 
 <div id="respond">
-
+	<h2 class="section-title">Comments</h1>
 	<div class="col-sm-12">
 	<h3><?php comment_form_title( __('Leave a Reply'), __('Leave a Reply to %s' ) ); ?></h3>
 	</div>

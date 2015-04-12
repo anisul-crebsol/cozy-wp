@@ -2,7 +2,7 @@
 /**
  * cozy functions and definitions
  *
- * @package cozy
+ * @package Cozy
  */
 
 /**
@@ -350,13 +350,6 @@ function cozy_scripts() {
 }
 add_action( 'wp_enqueue_scripts', 'cozy_scripts' );
 
-function cozy_localize_scripts() {
-   wp_enqueue_script('function', plugins_url('function.js', __FILE__), array('jquery', 'json2'));
-   wp_localize_script('function', 'cozy', array('ajaxurl' => admin_url('admin-ajax.php')));
-}
-
-add_action('wp_ajax_nopriv_pfxconversion', 'pfxconversion');
-add_action('wp_enqueue_scripts', 'cozy_localize_scripts');
 
 add_action('admin_enqueue_scripts', 'wt_cozy_add_admin_scripts_page');
     if(!function_exists('wt_cozy_add_admin_scripts_page'))
@@ -534,23 +527,27 @@ function new_user_registration_callback() {
                 if ((!empty($_POST['email']))) {
 
                     if (!(email_exists($_POST['email']))) {
-                        $userdata = array(
-                            'user_login' => sanitize_user($_POST['email']),
-                            'user_email' => sanitize_email($_POST['email']),
-                            'user_pass' => esc_attr($_POST['Password']),
-                            'first_name' => sanitize_text_field($_POST['firstname']),
-                            'last_name' => sanitize_text_field($_POST['lastname']),
-                        );
-                        $user_id = wp_insert_user($userdata);
-                        add_user_meta($user_id, '_wt_user_address', sanitize_text_field($_POST['address']), true);
-                        add_user_meta($user_id, '_wt_user_city', sanitize_text_field($_POST['city']), true);
-                        add_user_meta($user_id, '_wt_user_country', sanitize_text_field($_POST['country']), true);
-                        add_user_meta($user_id, '_wt_user_phone', sanitize_text_field($_POST['phone']), true);
-                        add_user_meta($user_id, '_wt_postcode', sanitize_text_field($_POST['postcode']), true);
-                        $registration_error = 'Thank you For registration. You will redirect soon...';
-                        $success = 1;
-                        $login = wp_login(sanitize_user($_POST['email']), esc_attr($_POST['Password']), 'Login Success');
-                        wp_set_auth_cookie($user_id, false, is_ssl());
+                        if (is_email($_POST['email'])) {
+                            $userdata = array(
+                                'user_login' => sanitize_user($_POST['email']),
+                                'user_email' => sanitize_email($_POST['email']),
+                                'user_pass' => esc_attr($_POST['Password']),
+                                'first_name' => sanitize_text_field($_POST['firstname']),
+                                'last_name' => sanitize_text_field($_POST['lastname']),
+                            );
+                            $user_id = wp_insert_user($userdata);
+                            add_user_meta($user_id, '_wt_user_address', sanitize_text_field($_POST['address']), true);
+                            add_user_meta($user_id, '_wt_user_city', sanitize_text_field($_POST['city']), true);
+                            add_user_meta($user_id, '_wt_user_country', sanitize_text_field($_POST['country']), true);
+                            add_user_meta($user_id, '_wt_user_phone', sanitize_text_field($_POST['phone']), true);
+                            add_user_meta($user_id, '_wt_postcode', sanitize_text_field($_POST['postcode']), true);
+                            $registration_error = 'Thank you For registration. You will redirect soon...';
+                            $success = 1;
+                            $login = wp_login(sanitize_user($_POST['email']), esc_attr($_POST['Password']), 'Login Success');
+                            wp_set_auth_cookie($user_id, false, is_ssl());
+                        } else {
+                            $registration_error = 'Invalid Email Address.';
+                        }
                     } else {
                         $registration_error = 'email exist';
                     }
@@ -575,3 +572,87 @@ function new_user_registration_callback() {
 
     wp_die(); // this is required to terminate immediately and return a proper response
 }
+
+function get_terms_by_post_type($taxonomies, $post_types) {
+    global $wpdb;
+    $query = $wpdb->get_results("SELECT t.*, COUNT(*) AS count from $wpdb->terms AS t INNER JOIN $wpdb->term_taxonomy AS tt ON t.term_id = tt.term_id INNER JOIN $wpdb->term_relationships AS r ON r.term_taxonomy_id = tt.term_taxonomy_id INNER JOIN $wpdb->posts AS p ON p.ID = r.object_id WHERE p.post_type IN('" . join("', '", $post_types) . "') AND tt.taxonomy IN('" . join("', '", $taxonomies) . "') GROUP BY t.term_id");
+    return $query;
+}
+
+// Add FAQ Shortcode
+function faq_shortcode() {
+    ?>
+
+    <?php
+    $terms = get_terms_by_post_type(array('faq_category'), array('faq'));
+    $total_terms_count = count($terms);
+    $term_count = 1;
+    foreach ($terms as $term) {
+        ?>
+        <h3><?php echo $term->name; ?></h3>
+        <div id="accordion<?php echo $term_count; ?>" class="panel-group">
+            <?php
+            // WP_Query arguments
+            $args = array(
+                'post_type' => 'faq',
+                'post_status' => 'publish',
+                'tax_query' => array(
+                    'relation' => 'AND',
+                    array(
+                        'taxonomy' => 'faq_category',
+                        'field' => 'slug', //(string) - Select taxonomy term by ('id' or 'slug')
+                        'terms' => array($term->slug), //(int/string/array) - Taxonomy term(s).
+                        'include_children' => true, //(bool) - Whether or not to include children for hierarchical taxonomies. Defaults to true.
+                        'operator' => 'IN'                    //(string) - Operator to test. Possible values are 'IN', 'NOT IN', 'AND'.
+                    )
+                )
+            );
+
+// The Query
+            $get_faq_query = new WP_Query($args);
+
+// The Loop
+            if ($get_faq_query->have_posts()) {
+
+                $term_post_count = 1;
+
+                while ($get_faq_query->have_posts()) {
+                    $get_faq_query->the_post();
+                    // do something
+//                    the_title();
+                    ?>
+                    <div class="panel">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#accordion<?php echo $term_count; ?>" href="#collapseOne<?php echo $term_count . $term_post_count; ?>" class="collapsed">
+                                    <?php the_title(); ?>
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="collapseOne<?php echo $term_count . $term_post_count; ?>" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                <?php
+                                echo get_post_meta(get_the_id(), '_wt_faq_content', true);
+                                ?>
+                            </div>
+                        </div>
+                    </div>
+
+                    <?php
+                    $term_post_count++;
+                }
+            } else {
+                // no posts found
+            }
+
+// Restore original Post Data
+            wp_reset_postdata();
+            $term_count++;
+            echo '</div>';
+        }
+        ?>
+
+        <?php
+    }
+
+    add_shortcode('faq', 'faq_shortcode');

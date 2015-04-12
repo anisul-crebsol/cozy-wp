@@ -10,8 +10,8 @@
 							</ul>
 							
 							<ul id="top-buttons">
-								<li><a href="<?php echo wp_login_url( get_permalink() ); ?>"><i class="fa fa-sign-in"></i> Login</a></li>
-								<li><a href="<?php echo wp_registration_url(); ?>"><i class="fa fa-pencil-square-o"></i> Register</a></li>
+								<li><a href="<?php echo esc_url( home_url( '/login/' ) ); ?>"><i class="fa fa-sign-in"></i> Login</a></li>
+								<li><a href="<?php echo esc_url( home_url( '/register/' ) ); ?>"><i class="fa fa-pencil-square-o"></i> Register</a></li>
 								<li class="divider"></li>
 								<li>
 									<div class="language-switcher">

@@ -1,7 +1,7 @@
 <?php
 /**
  * Template Name: Properties Grid2
- * @package cozy
+ * @package Cozy
  */
 global $wt_cozy; ?>
 
@@ -18,21 +18,7 @@ global $wt_cozy; ?>
 		
 		
 		<!-- BEGIN PAGE TITLE/BREADCRUMB -->
-		<div class="parallax colored-bg pattern-bg" data-stellar-background-ratio="0.5">
-			<div class="container">
-				<div class="row">
-					<div class="col-sm-12">
-						<h1 class="page-title">Property Grid Listing 2</h1>
-						
-						<ul class="breadcrumb">
-							<li><a href="index.html">Home </a></li>
-							<li><a href="#">Properties</a></li>
-							<li><a href="properties-grid2.html">Property Grid Listing 2</a></li>
-						</ul>
-					</div>
-				</div>
-			</div>
-		</div>
+<?php get_template_part ('/includes/breadcrumb'); ?>
 		<!-- END PAGE TITLE/BREADCRUMB -->
 		
 		

@@ -1,3 +1,9 @@
+<?php
+/**
+ * @package Cozy
+ */
+global $wt_cozy; ?>
+
 <div class="main col-sm-8">
 <?php while ( have_posts() ) : the_post(); ?>
 
@@ -91,11 +97,13 @@
 		</ul>
 		
 		<div class="comments-form">
-			<?php if ( comments_open() || get_comments_number() ) :
-				comments_template();
-			endif;
+			<?php
+				// If comments are open or we have at least one comment, load up the comment template
+				if ( comments_open() || get_comments_number() ) :
+					comments_template();
+				endif;
 			?>
 		</div>
 	</div>
-	<?php endwhile; ?>
+	<?php endwhile; // end of the loop. ?>
 </div>	
