@@ -6,20 +6,35 @@
     <?php 
         $limit = $wt_cozy['section_grid_number'];
     	$args = array(
-            'post_type'         => 'listing',
+            'post_type'         => 'property',
             'post_status'       => 'publish',
             'posts_per_page'    => 15,
         );
         $listing_query = new WP_Query( $args );?>
-    <?php while($listing_query->have_posts()): $listing_query->the_post(); ?>
+    <?php while($listing_query->have_posts()): $listing_query->the_post(); 
 
+		$property_status = get_the_terms($post->ID, 'property-status', true);
+		$property_price = get_post_meta( $post->ID, '_wt_property_price', true);
+		$property_address = get_post_meta( $post->ID, '_wt_property_address', true);
+		$property_sqft = get_post_meta( $post->ID, '_wt_property_square_feet', true );
+    ?>
 		<div class="item">
-			<a class="info" href="properties-detail.html">
+			<a class="info" href="<?php the_permalink(); ?>">
 				<span class="price">
-					<i class="fa fa-home"></i><?php echo wp_listings_get_status();?><span><?php echo get_post_meta( $post->ID, '_listing_price', true);?></span>
+					<i class="fa fa-home"></i> 
+						<?php 
+						if ( $property_status && ! is_wp_error( $property_status ) ) : 
+						$draught_links = array();
+						foreach ( $property_status as $status ) {
+							$draught_links[] = $status->name;
+						}														
+						echo $on_draught = join( ", ", $draught_links );
+						endif;
+						?>
+					<span><?php echo $property_price; ?></span>
 				</span>
 				<h3><?php the_title() ?></h3>
-				<span class="location"><?php echo get_post_meta( $post->ID, '_listing_address', true);?></span>
+				<span class="location"><?php echo $property_address; ?></span>
 			</a>
 			<?php
 			if ( has_post_thumbnail() ) {

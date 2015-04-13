@@ -9,11 +9,11 @@
 					<?php
 					$delay = 250;
 					$display_posts = 3;
-					$listing_args = array(
-						'post_type' => 'listing',
+					$property_args = array(
+						'post_type' => 'property',
 						'tax_query'	=> array(
 							array(
-								'taxonomy'	=> 'status',
+								'taxonomy'	=> 'property-status',
 								'field'		=> 'slug',
 								'terms'		=> array( 'featured' ),
 								'operator'	=> 'NOT IN',
@@ -21,25 +21,34 @@
 						),
 						'showposts' => $display_posts
 					);
-					query_posts($listing_args);
+					query_posts($property_args);
 					if (have_posts()) : while (have_posts()) : the_post();
 					
-					$listing_status = wp_listings_get_status();
-					$listing_price = get_post_meta( $post->ID, '_listing_price', true);
+					$property_status = get_the_terms($post->ID, 'property-status', true);
+					$property_price = get_post_meta( $post->ID, '_wt_property_price', true);
 					?>
 					<div class="item">
 						<div class="image">
-							<a href="properties-detail.html"></a>
+							<a href="<?php the_permalink(); ?>"></a>
 							<img src="http://placehold.it/760x670" alt="" />
 						</div>
 						<div class="price">
-							<i class="fa fa-home"></i><?php if('' != $listing_status) echo $listing_status; ?>
-							<?php if($listing_price) echo "<span>$listing_price</span>"; ?>
+							<i class="fa fa-home"></i>
+							<?php 
+							if ( $property_status && ! is_wp_error( $property_status ) ) : 
+							$draught_links = array();
+							foreach ( $property_status as $status ) {
+								$draught_links[] = $status->name;
+							}														
+							echo $on_draught = join( ", ", $draught_links );
+							endif;
+							?>
+							<?php if($property_price) echo "<span>$property_price</span>"; ?>
 						</div>
 						<div class="info">
-							<h3><a href="properties-detail.html"><?php the_title() ?></a></h3>
+							<h3><a href="<?php the_permalink(); ?>"><?php the_title() ?></a></h3>
 							<p><?php the_excerpt() ?></p>
-							<a href="properties-detail.html" class="btn btn-default">Read More</a>
+							<a href="<?php the_permalink(); ?>" class="btn btn-default">Read More</a>
 						</div>
 					</div>
 					

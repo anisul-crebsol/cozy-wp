@@ -7,10 +7,10 @@
 	<?php
 	$display_posts = 5;
 	$listing_args = array(
-		'post_type' => 'listing',
+		'post_type' => 'property',
 		'tax_query'	=> array(
 			array(
-				'taxonomy'	=> 'status',
+				'taxonomy'	=> 'property-status',
 				'field'		=> 'slug',
 				'terms'		=> array( 'featured' ),
 				'operator'	=> 'NOT IN',
@@ -21,14 +21,12 @@
 	query_posts($listing_args);
 	if (have_posts()) : while (have_posts()) : the_post();
 	
-	$listing_status = wp_listings_get_status();
-	$listing_price = get_post_meta( $post->ID, '_listing_price', true);
-	$listing_address = get_post_meta( $post->ID, '_listing_address', true);
+	$property_address = get_post_meta( $post->ID, '_wt_property_address', true);
 	?>					
 	<div class="item" data-animation-direction="from-bottom" data-animation-delay="450">
 		<a href="http://placehold.it/760x670" data-gal="prettyPhoto[gallery]" title="Lorem ipsum">
 			<h3><?php the_title() ?></h3>
-			<?php if($listing_address) echo "<span class='location'>$listing_address</span>"; ?>
+			<?php if($property_address) echo "<span class='location'>$property_address</span>"; ?>
 		</a>
 			<?php
 			if ( has_post_thumbnail() ) {

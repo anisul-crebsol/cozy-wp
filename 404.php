@@ -1,5 +1,7 @@
 <?php
 /**
+ * Template Name: 404
+ *
  * The template for displaying 404 pages (not found).
  *
  * @package Cozy

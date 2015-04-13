@@ -35,10 +35,10 @@ class WT_Widget_Listings extends WP_Widget {
                             $delay = 250;
                             //$display_posts = get_option();
                             $listing_args = array(
-                                'post_type' => 'listing',
+                                'post_type' => 'property',
                                 'tax_query' => array(
                                     array(
-                                        'taxonomy'  => 'status',
+                                        'taxonomy'  => 'property-status',
                                         'field'     => 'slug',
                                         'terms'     => array( 'featured' ),
                                         'operator'  => 'NOT IN',
@@ -47,15 +47,7 @@ class WT_Widget_Listings extends WP_Widget {
                                 'showposts' => 3 //$display_posts
                             );
                             query_posts($listing_args);
-                            if (have_posts()) : while (have_posts()) : the_post();
-                            
-                            $listing_status = wp_listings_get_status();
-                            $listing_price = get_post_meta( $post->ID, '_listing_price', true);
-                            $listing_address = get_post_meta( $post->ID, '_listing_address', true);
-                            $listing_sqft = get_post_meta( $post->ID, '_listing_sqft', true );
-                            $listing_bedrooms = get_post_meta( $post->ID, '_listing_bedrooms', true );
-                            $listing_bathrooms = get_post_meta( $post->ID, '_listing_bathrooms', true );
-                            ?>
+                            if (have_posts()) : while (have_posts()) : the_post(); ?>
                             <li>
                                 <div class="image">
                                     <a href="<?php the_permalink(); ?>">
