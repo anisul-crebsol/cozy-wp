@@ -31,7 +31,7 @@ get_header(); ?>
 					<!-- BEGIN MAIN CONTENT -->
 					<div class="main col-sm-8">
 						
-<?php get_template_part ('/includes/archive-agency/listing-header'); ?>
+<?php get_template_part ('/includes/archive-agent/listing-header'); ?>
 						
 						<!-- BEGIN AGENTS LISTING -->
 <?php get_template_part ('/includes/archive-agent/agents-listing'); ?>
@@ -39,7 +39,7 @@ get_header(); ?>
 						
 						
 						<!-- BEGIN PAGINATION -->
-<?php get_template_part ('/includes/archive-agency/pagination'); ?>
+<?php get_template_part ('/includes/pagination'); ?>
 						<!-- END PAGINATION -->
 						
 					</div>	

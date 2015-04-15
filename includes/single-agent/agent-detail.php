@@ -9,6 +9,10 @@
 	$agent_image = get_post_meta( $post->ID, '_wt_agent_img', true );
 	$agent_country = get_post_meta( $post->ID, '_wt_agent_country', true );
 	$agent_telephone = get_post_meta( $post->ID, '_wt_agent_telephone', true );
+	$agent_linkedin_link = get_post_meta( $post->ID, '_wt_agent_linkedin_link', true );
+	$agent_facebook_link = get_post_meta( $post->ID, '_wt_agent_facebook_link', true );
+	$agent_twitter_link = get_post_meta( $post->ID, '_wt_agent_twitter_link', true );
+	$agent_youtube_link = get_post_meta( $post->ID, '_wt_agent_youtube_link', true );
 ?>
 <div class="agent-detail clearfix">
 	<div class="image col-md-5">
@@ -17,7 +21,7 @@
 			echo '<img alt="" src="'. $agent_image .' " />';
 		}
 		else {
-			echo '<img alt="" src="http://placehold.it/308x307" />';
+			echo '<img alt="" src="http://placehold.it/307x307" />';
 		}
 		?>
 	</div>
@@ -31,16 +35,16 @@
 		</header>
 		
 		<ul class="contact-us">
-			<li><i class="fa fa-envelope"></i><a href="mailto:john.doe@yourdomain.com"><?php echo $agent_email ?></a></li>
+			<li><i class="fa fa-envelope"></i><a href="mailto:<?php echo $agent_email ?>"><?php echo $agent_email ?></a></li>
 			<li><i class="fa fa-map-marker"></i> <?php echo $agent_address .','. $agent_country ?></li>
-			<li><i class="fa fa-phone"></i> 800-123-4567</li>
+			<li><i class="fa fa-phone"></i> <?php echo $agent_telephone ?></li>
 		</ul>
 		
 		<ul class="social-networks">
-			<li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-			<li><a href="#"><i class="fa fa-facebook"></i></a></li>
-			<li><a href="#"><i class="fa fa-twitter"></i></a></li>
-			<li><a href="#"><i class="fa fa-youtube"></i></a></li>
+			<li><a href="<?php echo $agent_linkedin_link ?>"><i class="fa fa-linkedin"></i></a></li>
+			<li><a href="<?php echo $agent_facebook_link ?>"><i class="fa fa-facebook"></i></a></li>
+			<li><a href="<?php echo $agent_twitter_link ?>"><i class="fa fa-twitter"></i></a></li>
+			<li><a href="<?php echo $agent_youtube_link ?>"><i class="fa fa-youtube"></i></a></li>
 		</ul>
 
 	</div>

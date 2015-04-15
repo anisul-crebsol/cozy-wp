@@ -1,3 +1,5 @@
+<div id="property-listing" class="grid-style1 clearfix">
+	<div class="row">
 <?php
 $delay = 250;
 $display_posts = 6;
@@ -28,11 +30,13 @@ $property_bedrooms = get_post_meta( $post->ID, '_wt_property_bedrooms', true );
 $property_bathrooms = get_post_meta( $post->ID, '_wt_property_bathrooms', true );
 
 $clearFix = @( $count%3 == 0 ?  '<div class="clearfix"></div>' : ''); echo $clearFix;  ?>
-
-<div class="item col-md-4"><!-- Set width to 4 columns for grid view mode only -->
+<div class="item col-sm-4"><!-- Set width to 4 columns for grid view mode only -->
 	<div class="image">
-		<a href="properties-detail.html">
-			<span class="btn btn-default"><i class="fa fa-file-o"></i> Details</span>
+		<a href="<?php the_permalink(); ?>">
+			<h3>
+			<?php the_title(); ?>
+			</h3>
+			<?php if($property_address) echo "<span class='location'>$property_address</span>"; ?>
 		</a>
 		<img src="http://placehold.it/760x670" alt="" />
 	</div>
@@ -49,37 +53,13 @@ $clearFix = @( $count%3 == 0 ?  '<div class="clearfix"></div>' : ''); echo $clea
 		?>
 		<?php if($property_price) echo "<span>$property_price</span>"; ?>
 	</div>
-	<div class="info">
-		<h3>
-			<a href="<?php the_permalink(); ?>">
-			<?php 
-				$property_title = get_the_title();
-				$title_limit = 50;
-				$dots = " ...";
-				if(strlen($property_title) <= $title_limit) {
-					echo $property_title ;
-				} else {
-					echo substr($property_title, 0, $title_limit) . $dots ;
-				}
-			?>
-			</a>
-			<?php if($property_address) echo "<small>$property_address</small>"; ?>
-		</h3>
-		<p>
-		<?php 
-			$description_limit = 110;
-			if(strlen($property_description) <= $description_limit) {
-				echo $property_description;
-			} else {
-				echo substr($property_description, 0, $description_limit);
-			}
-		?>	
-		</p>	
-		<ul class="amenities">
-			<?php if($property_sqft) { ?><li><i class="icon-area"></i> <?php echo "$property_sqft"; ?></li><?php } ?>
-			<?php if($property_bedrooms) { ?><li><i class="icon-bedrooms"></i> <?php echo $property_bedrooms; ?></li><?php } ?>
-			<?php if($property_bathrooms) { ?><li><i class="icon-bathrooms"></i> <?php echo $property_bathrooms; ?></li><?php } ?>
-		</ul>
-	</div>
+	<ul class="amenities">
+		<?php if($property_sqft) { ?><li><i class="icon-area"></i> <?php echo "$property_sqft"; ?></li><?php } ?>
+		<?php if($property_bedrooms) { ?><li><i class="icon-bedrooms"></i> <?php echo $property_bedrooms; ?></li><?php } ?>
+		<?php if($property_bathrooms) { ?><li><i class="icon-bathrooms"></i> <?php echo $property_bathrooms; ?></li><?php } ?>
+	</ul>
 </div>
 <?php $count++; endwhile; endif; ?>
+	</div>
+</div>
+

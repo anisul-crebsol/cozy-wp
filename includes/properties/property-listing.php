@@ -1,8 +1,10 @@
 <?php
 $delay = 250;
-$display_posts = 6;
+$display_posts = 3;
+$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 $property_args = array(
 	'post_type' => 'property',
+	'paged' => $paged,
 	'tax_query'	=> array(
 		array(
 			'taxonomy'	=> 'property-status',
@@ -18,6 +20,7 @@ if (have_posts()) : while (have_posts()) : the_post();
 
 $count++;
 $property_status = get_the_terms($post->ID, 'property-status', true);
+$property_description = get_post_meta( $post->ID, '_wt_property_description', true );
 $property_price = get_post_meta( $post->ID, '_wt_property_price', true);
 $property_address = get_post_meta( $post->ID, '_wt_property_address', true);
 $property_sqft = get_post_meta( $post->ID, '_wt_property_square_feet', true );
@@ -71,8 +74,16 @@ if ( 1 == $count%3 ) {
 			</a>
 			<?php if($property_address) echo "<small>$property_address</small>"; ?>
 		</h3>
-		<p><?php the_excerpt() ?></p>
-	
+		<p>
+		<?php 
+			$description_limit = 190;
+			if(strlen($property_description) <= $description_limit) {
+				echo $property_description;
+			} else {
+				echo substr($property_description, 0, $description_limit);
+			}
+		?>	
+		</p>
 		<ul class="amenities">
 			<?php if($property_sqft) { ?><li><i class="icon-area"></i> <?php echo "$property_sqft"; ?></li><?php } ?>
 			<?php if($property_bedrooms) { ?><li><i class="icon-bedrooms"></i> <?php echo $property_bedrooms; ?></li><?php } ?>
@@ -80,4 +91,4 @@ if ( 1 == $count%3 ) {
 		</ul>
 	</div>
 </div>
-<?php endwhile; endif; wp_reset_query(); ?>
+<?php endwhile; endif; ?>
