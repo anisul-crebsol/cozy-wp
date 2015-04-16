@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Agency Detail
+ * Template Name: Agency Archive
  *
  * @package Cozy
  */
@@ -39,7 +39,7 @@ get_header(); ?>
 						
 						
 						<!-- BEGIN PAGINATION -->
-<?php get_template_part ('/includes/archive-agency/pagination'); ?>
+<?php get_template_part ('/includes/pagination'); ?>
 						<!-- END PAGINATION -->
 						
 					</div>	

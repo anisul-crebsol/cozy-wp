@@ -1,8 +1,6 @@
 <div id="agents-results" class="agents-grid">
 	<div class="row">
 <?php
-$delay = 250;
-
 $display_posts = 3;
 $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 $property_args = array(

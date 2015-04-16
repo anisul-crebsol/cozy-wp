@@ -252,7 +252,7 @@ function wt_cozy_register_metabox() {
 	) );
 	$wt_cozy->add_field( array(
                 'name' => __('Content Over Gallery',"wt_cozy"),
-                'id' => $prefix . 'property_content1',
+                'id' => $prefix . 'agency_description1',
                 'type' => 'wysiwyg',
                 'options' => array(
 			        'textarea_rows' => get_option('default_post_edit_rows', 5),
@@ -267,7 +267,7 @@ function wt_cozy_register_metabox() {
 			) );
 	$wt_cozy->add_field( array(
                 'name' => __('Content Under Gallery',"wt_cozy"),
-                'id' => $prefix . 'property_content2',
+                'id' => $prefix . 'agency_description2',
                 'type' => 'wysiwyg',
                 'options' => array(
 			        'textarea_rows' => get_option('default_post_edit_rows', 10),
@@ -520,7 +520,74 @@ function wt_cozy_register_metabox() {
         'id' => $prefix . 'faq_content',
         'type' => 'wysiwyg'
     ));
-    	
+
+
+    // Pricing table meta box
+
+    $wt_cozy = wt_cozy_metabox(array(
+        'id' => $prefix . 'price_table_features',
+        'title' => __('Price Table Features', "wt_cozy"),
+        'object_types' => array('price-table',), // Post type
+        'context' => 'normal',
+        'priority' => 'high',
+        'show_names' => true, // Show field names on the left
+    ));
+    $wt_cozy->add_field(array(
+        'name' => 'Background Image',
+        'desc' => 'Upload an image or enter an URL.',
+        'id' => $prefix . 'price_image',
+        'type' => 'file',
+        // Optionally hide the text input for the url:
+        'options' => array(
+            'url' => true,
+        ),
+    ));
+    $wt_cozy->add_field(array(
+        'name' => __('price', "wt_cozy"),
+        'id' => $prefix . 'package_price',
+        'type' => 'text'
+    ));
+
+    $wt_cozy->add_field(array(
+        'name' => __('Package Time Duration', "wt_cozy"),
+        'id' => $prefix . 'package_time',
+        'type' => 'text'
+    ));
+    $wt_cozy->add_field(array(
+        'name' => __('Featured Package', "wt_cozy"),
+        'id' => $prefix . 'featured_checkbox',
+        'type' => 'checkbox'
+    ));
+    $wt_cozy->add_field(array(
+        'name' => __('Tooltrip Description', "wt_cozy"),
+        'id' => $prefix . 'tooltrip_description',
+        'type' => 'text'
+    ));
+
+
+    $group_field_id = $wt_cozy->add_field(array(
+        'id' => $prefix . 'repeat_group',
+        'type' => 'group',
+        'description' => __('Generates reusable form entries for Price Table Feature', 'cozy'),
+        'options' => array(
+            'group_title' => __('Price Table Features {#}', 'cozy'), // since version 1.1.4, {#} gets replaced by row number
+            'add_button' => __('Add Another Price Table Features', 'cozy'),
+            'remove_button' => __('Remove Price Table Features', 'cozy'),
+            'sortable' => true, // beta
+        ),
+    ));
+    $wt_cozy->add_group_field($group_field_id, array(
+        'name' => 'Feature Text',
+        'description' => 'Write Price Feature',
+        'id' => 'price_feature_text',
+        'type' => 'text_medium',
+    ));
+    $wt_cozy->add_group_field($group_field_id, array(
+        'name' => 'Disable',
+        'description' => 'Disable This Feature ?',
+        'id' => 'price_feature_disable',
+        'type' => 'checkbox',
+    ));    	
 }
 
 function wt_cozy_agent_list( $query_args ) {

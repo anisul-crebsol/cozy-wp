@@ -42,6 +42,9 @@
 	
 <?php wp_footer(); ?>
 <?php get_template_part ('/includes/footer-scripts'); ?>
+<script>
+	$('.dropdown-toggle').dropdownHover(options);
+</script>
 <?php //require get_template_directory() . '/inc/agencies.php'; ?>
 </body>
 </html>

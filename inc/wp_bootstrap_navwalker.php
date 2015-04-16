@@ -61,7 +61,7 @@
             $item_output = $args->before;
             /* If this item has a dropdown menu, make clicking on this link toggle it */
             if ($item->hasChildren && $depth == 0) {
-                $item_output .= '<a'. $attributes .' class="dropdown-toggle" data-toggle="dropdown">';
+                $item_output .= '<a'. $attributes .' class="dropdown-toggle" data-hover="dropdown">';
             } else {
                 $item_output .= '<a'. $attributes .'>';
             }

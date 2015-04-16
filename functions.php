@@ -207,7 +207,7 @@ function wt_cozy_excerpt_more( $more ) {
 add_filter('excerpt_more', 'wt_cozy_excerpt_more');
 
 
-// Newsletter Widget
+// Widgets
 require 'includes/widgets/agencies.php';
 require 'includes/widgets/find-agents.php'; 
 require 'includes/widgets/newsletter.php'; 
@@ -217,6 +217,8 @@ require 'includes/widgets/contact.php';
 require 'includes/widgets/links.php'; 
 require 'includes/widgets/listings.php';   
 
+// add shortcode
+require_once get_template_directory() . '/libs/wt-cozy-shortcode.php';
 
 // register WT Cozy widget
 function register_cozy_widget() {
@@ -279,7 +281,7 @@ function cozy_scripts() {
 
     wp_enqueue_style( 'cozy-google-font', 'http://fonts.googleapis.com/css?family=Raleway:300,500,900%7COpen+Sans:400,700,400italic' );
 
-    wp_enqueue_script( 'cozy-modernizr', get_template_directory_uri() . '/js/modernizr-2.8.1.min.js', array(), '', true );
+    wp_enqueue_script( 'cozy-modernizr', get_template_directory_uri() . '/js/modernizr-2.8.1.min.js');
 
     wp_enqueue_script( 'cozy-common', get_template_directory_uri() . '/js/common.js', array(), '', true );
 
@@ -377,13 +379,13 @@ function custom_search_query($query)
     if (isset($_GET['post_type'])) {
         $type = $_GET['post_type'];
 
-        if ($type == 'listing') {
+        if ($type == 'property') {
 
             $custom_fields = array(
-                "_listing_state",
-                "_listing_city",
-                "_listing_zip",
-                "_listing_address"
+                "_property_state",
+                "_property_city",
+                "_property_zip",
+                "_property_address"
             );
 
             $searchterm = $query->query_vars['s'];
@@ -391,7 +393,7 @@ function custom_search_query($query)
             $query->query_vars['s'] = "";
             if ($searchterm != "") {
 
-                $listingArgs = array(
+                $propertyArgs = array(
                     'post_type' => $_GET['post_type'],
                     'posts_per_page' => -1,
                     'orderby' => 'post_date',
@@ -409,13 +411,13 @@ function custom_search_query($query)
                 );
 
                 foreach ($custom_fields as $cf) {
-                    array_push($listingArgs['meta_query'], array(
+                    array_push($propertyArgs['meta_query'], array(
                         'key' => $cf,
                         'value' => $searchterm,
                         'compare' => 'LIKE'
                     ));
                 }
-                query_posts($listingArgs);
+                query_posts($propertyArgs);
 
             } else {
                 if (isset($_POST['s']) && empty($_POST['s'])) {
@@ -579,84 +581,6 @@ function get_terms_by_post_type($taxonomies, $post_types) {
     return $query;
 }
 
-// Add FAQ Shortcode
-function faq_shortcode() {
-    ?>
-
-    <?php
-    $terms = get_terms_by_post_type(array('faq_category'), array('faq'));
-    $total_terms_count = count($terms);
-    $term_count = 1;
-    foreach ($terms as $term) {
-        ?>
-        <h3><?php echo $term->name; ?></h3>
-        <div id="accordion<?php echo $term_count; ?>" class="panel-group">
-            <?php
-            // WP_Query arguments
-            $args = array(
-                'post_type' => 'faq',
-                'post_status' => 'publish',
-                'tax_query' => array(
-                    'relation' => 'AND',
-                    array(
-                        'taxonomy' => 'faq_category',
-                        'field' => 'slug', //(string) - Select taxonomy term by ('id' or 'slug')
-                        'terms' => array($term->slug), //(int/string/array) - Taxonomy term(s).
-                        'include_children' => true, //(bool) - Whether or not to include children for hierarchical taxonomies. Defaults to true.
-                        'operator' => 'IN'                    //(string) - Operator to test. Possible values are 'IN', 'NOT IN', 'AND'.
-                    )
-                )
-            );
-
-// The Query
-            $get_faq_query = new WP_Query($args);
-
-// The Loop
-            if ($get_faq_query->have_posts()) {
-
-                $term_post_count = 1;
-
-                while ($get_faq_query->have_posts()) {
-                    $get_faq_query->the_post();
-                    // do something
-//                    the_title();
-                    ?>
-                    <div class="panel">
-                        <div class="panel-heading">
-                            <h4 class="panel-title">
-                                <a data-toggle="collapse" data-parent="#accordion<?php echo $term_count; ?>" href="#collapseOne<?php echo $term_count . $term_post_count; ?>" class="collapsed">
-                                    <?php the_title(); ?>
-                                </a>
-                            </h4>
-                        </div>
-                        <div id="collapseOne<?php echo $term_count . $term_post_count; ?>" class="panel-collapse collapse">
-                            <div class="panel-body">
-                                <?php
-                                echo get_post_meta(get_the_id(), '_wt_faq_content', true);
-                                ?>
-                            </div>
-                        </div>
-                    </div>
-
-                    <?php
-                    $term_post_count++;
-                }
-            } else {
-                // no posts found
-            }
-
-// Restore original Post Data
-            wp_reset_postdata();
-            $term_count++;
-            echo '</div>';
-        }
-        ?>
-
-        <?php
-    }
-
-    add_shortcode('faq', 'faq_shortcode');
-
 
 /**
  * WordPress Bootstrap Pagination
@@ -739,4 +663,31 @@ function wt_cozy_pagination( $args = array() ) {
     }
     if ( isset($echo) )
         echo $args['before_output'] . $echo . $args['after_output'];
+}
+
+// Hooks your functions into the correct filters
+function cozy_shortcode_add_mce_button() {
+    // check user permissions
+    if (!current_user_can('edit_posts') && !current_user_can('edit_pages')) {
+        return;
+    }
+    // check if WYSIWYG is enabled
+    if ('true' == get_user_option('rich_editing')) {
+        add_filter('mce_external_plugins', 'cozy_shortcode_add_tinymce_plugin');
+        add_filter('mce_buttons', 'cozy_shortcode_register_mce_button');
+    }
+}
+
+add_action('admin_head', 'cozy_shortcode_add_mce_button');
+
+// Declare script for new button
+function cozy_shortcode_add_tinymce_plugin($plugin_array) {
+    $plugin_array['cozy_shortcode_mce_button'] = get_template_directory_uri() . '/js/shortcode.js';
+    return $plugin_array;
+}
+
+// Register new button in the editor
+function cozy_shortcode_register_mce_button($buttons) {
+    array_push($buttons, 'cozy_shortcode_mce_button');
+    return $buttons;
 }

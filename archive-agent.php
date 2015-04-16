@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Agent Detail
+ * Template Name: Agent Archive
  *
  * @package Cozy
  */

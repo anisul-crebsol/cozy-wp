@@ -224,6 +224,46 @@ function wt_cozy_fields()
         'capability_type' => 'page',
     );
     register_post_type('faq', $args1);
+
+    // Register Price table post type
+
+    $labels1 = array(
+        'name' => _x('Price Table', 'Post Type General Name', 'wt_cozy'),
+        'singular_name' => _x('priceTable', 'Post Type Singular Name', 'wt_cozy'),
+        'menu_name' => __('Price Table', 'wt_cozy'),
+        'parent_item_colon' => __('Parent Price Table:', 'wt_cozy'),
+        'all_items' => __('All Price Table', 'wt_cozy'),
+        'view_item' => __('View Price Table', 'wt_cozy'),
+        'add_new_item' => __('Add New Price Table', 'wt_cozy'),
+        'add_new' => __('Add New Price Table', 'wt_cozy'),
+        'edit_item' => __('Edit Price Table', 'wt_cozy'),
+        'update_item' => __('Update Price Table', 'wt_cozy'),
+        'search_items' => __('Search Price Tables', 'wt_cozy'),
+        'not_found' => __('No Price Table found', 'wt_cozy'),
+        'not_found_in_trash' => __('No Price Tables found in Trash', 'wt_cozy'),
+    );
+
+    $args1 = array(
+        'label' => __('Price Table', 'wt_cozy'),
+        'description' => __('Price Table', 'wt_cozy'),
+        'labels' => $labels1,
+        'supports' => array('title'),
+        'hierarchical' => false,
+        'public' => true,
+        'show_ui' => true,
+        'show_in_menu' => true,
+        'show_in_nav_menus' => true,
+        'show_in_admin_bar' => true,
+        'menu_position' => 5,
+        'menu_icon' => get_template_directory_uri() . '/images/menu-icon/feature.png',
+        'can_export' => true,
+        'has_archive' => true,
+        'exclude_from_search' => false,
+        'publicly_queryable' => true,
+        'capability_type' => 'page',
+    );
+
+    register_post_type('price-table', $args1);
 }
 
 add_action('init', 'wt_cozy_fields', 0);
