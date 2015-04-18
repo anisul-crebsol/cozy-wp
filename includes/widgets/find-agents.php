@@ -30,11 +30,11 @@ class WT_Widget_Agents extends WP_Widget {
 <!-- BEGIN FIND AGENTS -->
 <div id="find_agents" class="col-sm-12" data-animation-direction="fade" data-animation-delay="250">
 
-    <form role="search" method="get" class="search-form" id="search-form" action="<?php echo home_url( '/sample-page' ); ?>">
+    <form role="search" method="get" class="search-form" id="search-form" action="<?php echo home_url( '/' ); ?>">
         <h2 class="section-title">Find An Agent</h2>
         <img src="http://placehold.it/307x188" alt="" id="agents-img"/>
 
-        <select id="agents_country" name="agents_country" data-placeholder="Choose a country">
+        <select id="agents_country" name="s" data-placeholder="Choose a country">
             <option value=""> </option>
             <?php
             // position is a meta key and ourteam is a custom post type for my project

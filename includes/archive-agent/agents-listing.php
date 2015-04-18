@@ -40,7 +40,7 @@ if ( 1 == $count%3 ) {
 		?>
 	</div>
 	<div class="info">
-		<h2><?php the_title(); ?> <small><?php echo $agent_address ?></small></h2>
+		<h2><?php the_title(); ?> <small><?php echo $agent_address; ?></small></h2>
 		
 		<p>
 		<?php 

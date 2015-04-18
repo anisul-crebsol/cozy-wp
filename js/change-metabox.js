@@ -11,11 +11,11 @@ jQuery(document).ready(function($) {
 		else {
 			$('#_wt_extra_information').hide();
 		}
-		if ( $('select#page_template :selected').val() == 'page-slider.php' ) {
-			$('#_twftn_metabox_templateB').show();
+		if ( $('select#page_template :selected').val() == 'page-our-partners.php' ) {
+			$('#_wt_partners').show();
 		}
 		else {
-			$('#_twftn_metabox_templateB').hide();
+			$('#_wt_partners').hide();
 		}
 
 	};

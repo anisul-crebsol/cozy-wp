@@ -171,7 +171,7 @@ function wt_cozy_fields()
         'label' => __('Property', 'wt_cozy'),
         'description' => __('Property', 'wt_cozy'),
         'labels' => $labels1,
-        'supports' => array('title'),
+        'supports' => array('title','thumbnail'),
         'hierarchical' => false,
         'public' => true,
         'show_ui' => true,

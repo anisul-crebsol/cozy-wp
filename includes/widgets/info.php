@@ -28,11 +28,11 @@ class WT_Widget_Info extends WP_Widget {
 
         global $wt_cozy; ?>
         <!-- BEGIN INFOBOX -->
-                    <div class="block col-sm-3">
-                        <a href="<?php echo esc_url( home_url( '/' ) ); ?>"><img src="<?php echo $wt_cozy['cozy_logo']['url']?>" alt="Cozy Logo" /></a>
-                        <br><br>
-                        <p><?php echo $wt_cozy['cozy_description']?></p>
-                    </div>
+            <div class="block col-sm-3">
+                <a href="<?php echo esc_url( home_url( '/' ) ); ?>"><img src="<?php echo $wt_cozy['cozy_logo']['url']?>" alt="Cozy Logo" /></a>
+                <br><br>
+                <p><?php echo $wt_cozy['cozy_description']?></p>
+            </div>
         <!-- END INFOBOX -->
         
         <?php

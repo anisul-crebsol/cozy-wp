@@ -22,7 +22,7 @@ function wt_cozy_register_metabox() {
         'id'           => $prefix . 'extra_information',
         'title'        => __( 'Extra Information', 'cmb2' ),
         'object_types' => array( 'page' ), // post type
-        'show_on'      => array( 'key' => 'page-template', 'value' => 'page-grid.php' ),
+        //'show_on'      => array( 'key' => 'page-template', 'value' => 'page-grid.php' ),
         'context'      => 'normal', //  'normal', 'advanced', or 'side'
         'priority'     => 'high',  //  'high', 'core', 'default' or 'low'
         'show_names'   => true, // Show field names on the left
@@ -291,6 +291,7 @@ function wt_cozy_register_metabox() {
 		// 'repeatable' => true,
 	) );
 
+
     // Property Meta Box
 
 	$wt_cozy = wt_cozy_metabox( array(
@@ -469,6 +470,25 @@ function wt_cozy_register_metabox() {
 	) );
 
 
+	// Our Partners Meta Box
+	$wt_cozy = wt_cozy_metabox( array(
+		'id'            => $prefix . 'partners',
+		'title'         => __( 'Our Partners',"wt_cozy" ),
+		'object_types'  => array( 'page',), // Post type
+        //'show_on'      => array( 'key' => 'page-template', 'value' => 'page-our-partners.php' ),
+		'context'       => 'normal',
+		'priority'      => 'high',
+		'show_names'    => true, // Show field names on the left
+	) );
+
+	$wt_cozy->add_field( array(
+                'name' => __('Testimonial image ',"wt_cozy"),
+                'id' => $prefix . 'test_image',
+                'type' => 'file'
+	) );
+	
+
+
     // User Meta Box
 
     $wt_cozy = wt_cozy_metabox(array(
@@ -589,6 +609,8 @@ function wt_cozy_register_metabox() {
         'type' => 'checkbox',
     ));    	
 }
+
+
 
 function wt_cozy_agent_list( $query_args ) {
 

@@ -9,10 +9,10 @@
 			<div class="row">
 				<div class="col-sm-12">
 					<i id="filter-close" class="fa fa-minus"></i>
-					<form>
+					<form action="<?php echo home_url( '/' ); ?>">
 						<div class="form-group">
 							<div class="form-control-large">
-								<input type="text" class="form-control" name="location" placeholder="City, State, Country, etc...">
+								<input type="text" class="form-control" name="s" placeholder="City, State, Country, etc...">
 							</div>
 							
 							<div class="form-control-large">

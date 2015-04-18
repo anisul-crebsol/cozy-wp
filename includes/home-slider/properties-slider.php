@@ -26,6 +26,7 @@
 					
 					$property_status = get_the_terms($post->ID, 'property-status', true);
 					$property_price = get_post_meta( $post->ID, '_wt_property_price', true);
+					$property_description = get_post_meta( $post->ID, '_wt_property_description', true );
 					?>
 					<div class="item">
 						<div class="image">
@@ -47,7 +48,16 @@
 						</div>
 						<div class="info">
 							<h3><a href="<?php the_permalink(); ?>"><?php the_title() ?></a></h3>
-							<p><?php the_excerpt() ?></p>
+							<p>
+							<?php 
+								$description_limit = 190;
+								if(strlen($property_description) <= $description_limit) {
+									echo $property_description;
+								} else {
+									echo substr($property_description, 0, $description_limit);
+								}
+							?>
+							</p>
 							<a href="<?php the_permalink(); ?>" class="btn btn-default">Read More</a>
 						</div>
 					</div>

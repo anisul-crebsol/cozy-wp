@@ -1,6 +1,5 @@
-<?php global $wt_cozy; ?>
 <div class="revslider-container">
-	<div class="revslider" >
+	<div>
 	<?php putRevSlider("home") ?>
 	</div>
 </div>

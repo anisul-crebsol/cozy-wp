@@ -18,7 +18,7 @@
 			
 			$(document).ready(function(){
 				//Create agency map centered on the marker of the agency with id=1.
-				Cozy.agencyMap(agencies, "map_agency", 1);
+				Cozy.agencyMap(agencies, "map_agency");
 			});
 		})(jQuery);
 	</script>

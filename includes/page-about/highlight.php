@@ -3,16 +3,27 @@
 		<div class="row">
 			<div class="main col-sm-6">
 				<div class="center">
-					<h2 class="section-highlight" data-animation-direction="from-left" data-animation-delay="50">Cozy it's a clean and modern Real Estate Template!</h2>
-					<p class="darker-text" data-animation-direction="from-left" data-animation-delay="250">Very professional and highly customizable html5 template with lots of custom pages and useful features.</p>
-					<p data-animation-direction="from-left" data-animation-delay="650">Mauris hendrerit risus a arcu dapibus varius. Quisque dictum, erat molestie vehicula pellentesque, enim elit sodales leo, id pharetra mi tortor at tellus. Etiam ornare, enim at tincidunt congue, nibh dui suscipit augue, pellentesque hendrerit ligula lorem vehicula sapien. Nunc aliquet pulvinar porta. Sed et ligula at lacus posuere convallis ornare, enim at tincidunt congue, nibh dui suscipit augue.</p>
-					<br/>
-					<a href="#" class="btn btn-default-color" data-animation-direction="from-left" data-animation-delay="850">Buy Cozy Template!</a>
+
+					<?php if ( have_posts() ) : ?>
+
+						<?php /* Start the Loop */ ?>
+						<?php while ( have_posts() ) : the_post(); ?>
+
+							<?php the_content(); ?>
+
+						<?php endwhile; ?>
+
+					<?php else : ?>
+
+						<?php get_template_part( 'content', 'none' ); ?>
+
+					<?php endif; ?>
+					
 				</div>
 			</div>
 			
 			<div class="col-sm-6">
-				<img id="about-img" src="http://placehold.it/670x592" alt="" data-animation-direction="from-right" data-animation-delay="200" />
+				<img id="about-img" src="<?php $thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'thumbnail_large' ); echo $url = $thumb['0']; ?>" alt="" data-animation-direction="from-right" data-animation-delay="200" />
 			</div>
 		</div>
 	</div>

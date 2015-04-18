@@ -25,7 +25,7 @@
 					</span>
                     </div>
 
-                    <a href="#" class="advanced-search">Advanced Search</a>
+                    <a href="<?php echo home_url( '/?s=&post_type=property' ); ?>" class="advanced-search">Advanced Search</a>
                 </div>
             </form>
         </div>

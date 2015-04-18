@@ -391,21 +391,12 @@
                             'title' => __('Description', 'redux-framework-demo'),
                             'default' => "Pellentesque elementum libero enim, eget gravida nunc laoreet et. Nullam ac enim auctor, fringilla risus at, imperdiet turpis. Pellentesque elementum libero enim, eget gravida nunc laoreet et.",
                         ),
-
                         array(
-                            'id'       => 'cozy_gallery1',
-                            'type'     => 'slides',
-                            'url'      => true,
-                            'title'    => __( 'Gallery Images', 'redux-framework-demo' ),
-                            'compiler' => 'true',
-                            'desc'     => __( 'Please upload .....', 'redux-framework-demo' ),
-                            'default'  => array( 'url' => 'http://placehold.it/760x670'),
-                            'placeholder' => array( 
-                                'title' => __('This is a title', 'redux-framework-demo'),
-                                'image' => 'http://placehold.it/760x670' ,
-                                'thumb' => 'http://placehold.it/246x217' ,
-                            ),
-                        ),
+                            'id' => 'property_gallery_number',
+                            'type' => 'text',
+                            'title' => __('How many gallery image to display?', 'redux-framework-demo'),
+                            'default' => "4",
+                        ), 
                     ),
                 );
 

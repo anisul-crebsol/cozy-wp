@@ -2,10 +2,10 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-sm-12">
-				<form>
+				<form method="get" action="<?php echo home_url('/'); ?>">
 					<div class="form-group">
 						<div class="form-control-large">
-							<input type="text" class="form-control" name="location" placeholder="City, State, Country, etc...">
+							<input type="text" class="form-control" name="s" placeholder="City, State, Country, etc...">
 						</div>
 						
 						<div class="form-control-large">
