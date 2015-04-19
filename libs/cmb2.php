@@ -471,6 +471,7 @@ function wt_cozy_register_metabox() {
 
 
 	// Our Partners Meta Box
+
 	$wt_cozy = wt_cozy_metabox( array(
 		'id'            => $prefix . 'partners',
 		'title'         => __( 'Our Partners',"wt_cozy" ),
@@ -480,14 +481,37 @@ function wt_cozy_register_metabox() {
 		'priority'      => 'high',
 		'show_names'    => true, // Show field names on the left
 	) );
-
-	$wt_cozy->add_field( array(
-                'name' => __('Testimonial image ',"wt_cozy"),
-                'id' => $prefix . 'test_image',
-                'type' => 'file'
+	$group_field_id = $wt_cozy->add_field( array(
+	    'id'          => $prefix . 'partners_repeat_group',
+	    'type'        => 'group',
+	    'description' => __( 'Generates repeatable entries for our partners', 'cozy' ),
+	    'options'     => array(
+	        'group_title'   => __( 'Partners Image {#}', 'cozy' ), // since version 1.1.4, {#} gets replaced by row number
+	        'add_button'    => __( 'Add Another Partner', 'cozy' ),
+	        'remove_button' => __( 'Remove This Partner', 'cozy' ),
+	        'sortable'      => true, // beta
+	    ),
 	) );
-	
+	$wt_cozy->add_group_field( $group_field_id, array(
+        'name' => __('Partners Image',"wt_cozy"),
+	    'description' => 'Upload Partners Image',
+	    'id'   => 'partner_image',
+	    'type' => 'file',
+	) );
+	$wt_cozy->add_group_field( $group_field_id, array(
+        'name' => __('Partners Hover Image',"wt_cozy"),
+	    'description' => 'Upload Partners Image for Mouse-over',
+	    'id'   => 'partner_image_hover',
+	    'type' => 'file',
+	) );
+	$wt_cozy->add_group_field( $group_field_id, array(
+        'name' => __('Partners Link',"wt_cozy"),
+	    'description' => 'Partners Link',
+	    'id'   => 'partner_link',
+	    'type' => 'text_medium',
+	) );
 
+	
 
     // User Meta Box
 
@@ -524,6 +548,7 @@ function wt_cozy_register_metabox() {
         'id' => $prefix . 'postcode',
         'type' => 'text'
     ));
+
 
     // FAQ Meta Box
 
@@ -609,7 +634,6 @@ function wt_cozy_register_metabox() {
         'type' => 'checkbox',
     ));    	
 }
-
 
 
 function wt_cozy_agent_list( $query_args ) {

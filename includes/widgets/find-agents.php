@@ -4,15 +4,15 @@
  * Agents widget class
  */
 
-class WT_Widget_Agents extends WP_Widget {
+class WT_Widget_Find_Agents extends WP_Widget {
 
     /**
      * Register widget with WordPress.
      */
 
     public function __construct() {
-        $widget_ops = array('classname' => 'widget_agents', 'description' => __('Arbitrary text or HTML.'));
-        parent::__construct('wt_cozy_agents', __('Sidebar Agents'), $widget_ops);
+        $widget_ops = array('classname' => 'widget_find_agents', 'description' => __('Arbitrary text or HTML.'));
+        parent::__construct('wt_cozy_agents', __('Sidebar Find Agents'), $widget_ops);
     }
 
     /**

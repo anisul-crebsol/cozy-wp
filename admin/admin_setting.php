@@ -525,45 +525,14 @@
                             'default' => "Our Partners",
                         ),
 
-
                         array(
-                            'id'       => 'cozy_partner1',
-                            'type'     => 'media',
-                            'url'      => true,
-                            'title'    => __( 'Parner 01', 'redux-framework-demo' ),
-                            'compiler' => 'true',
-                            'desc'     => __( 'Please upload .....', 'redux-framework-demo' ),
-                            'default'  => array( 'url' => 'http://placehold.it/194x45'),
-                        ),
-
-                        array(
-                            'id'       => 'cozy_partner2',
-                            'type'     => 'media',
-                            'url'      => true,
-                            'title'    => __( 'Parner 02', 'redux-framework-demo' ),
-                            'compiler' => 'true',
-                            'desc'     => __( 'Please upload .....', 'redux-framework-demo' ),
-                            'default'  => array( 'url' => 'http://placehold.it/194x45'),
-                        ),
-
-                        array(
-                            'id'       => 'cozy_partner3',
-                            'type'     => 'media',
-                            'url'      => true,
-                            'title'    => __( 'Parner 03', 'redux-framework-demo' ),
-                            'compiler' => 'true',
-                            'desc'     => __( 'Please upload .....', 'redux-framework-demo' ),
-                            'default'  => array( 'url' => 'http://placehold.it/194x45'),
-                        ),
-
-                        array(
-                            'id'       => 'cozy_partner4',
-                            'type'     => 'media',
-                            'url'      => true,
-                            'title'    => __( 'Parner 04', 'redux-framework-demo' ),
-                            'compiler' => 'true',
-                            'desc'     => __( 'Please upload .....', 'redux-framework-demo' ),
-                            'default'  => array( 'url' => 'http://placehold.it/194x45'),
+                            'id'       => 'opt_select_partners',
+                            'type'     => 'select',
+                            'title'    => __('Select Partners Page', 'redux-framework-demo'), 
+                            'subtitle' => __('Select Our Partners Page to Display', 'redux-framework-demo'),
+                            'desc'     => __('Please create a page with page template "Our Partners" and add some partner image then select that page here to display in section our partners.', 'redux-framework-demo'),
+                            // Must provide key => value pairs for select options
+                            'options'  => wt_cozy_page_list( array( 'post_type' => 'page', 'numberposts' => -1 ) ),
                         ),
 
                     ),
@@ -1027,3 +996,23 @@
             return $return;
         }
     endif;
+
+
+function wt_cozy_page_list( $query_args ) {
+
+    $args = wp_parse_args( $query_args, array(
+        'post_type'   => 'page',
+        'numberposts' => -1,
+    ) );
+
+    $posts = get_posts( $args );
+
+    $post_options = array();
+    if ( $posts ) {
+        foreach ( $posts as $post ) {
+          $post_options[ $post->ID ] = $post->post_title;
+        }
+    }
+
+    return $post_options;
+}

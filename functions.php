@@ -215,6 +215,8 @@ add_filter('excerpt_more', 'wt_cozy_excerpt_more');
 
 
 // Widgets
+require 'includes/widgets/about.php';
+require 'includes/widgets/agents.php';
 require 'includes/widgets/agencies.php';
 require 'includes/widgets/find-agents.php'; 
 require 'includes/widgets/newsletter.php'; 
@@ -229,8 +231,10 @@ require_once get_template_directory() . '/libs/wt-cozy-shortcode.php';
 
 // register WT Cozy widget
 function register_cozy_widget() {
+    register_widget( 'WT_Widget_About' );
+    register_widget( 'WT_Widget_Agents' );    
     register_widget( 'WT_Widget_Agencies' );
-    register_widget( 'WT_Widget_Agents' );
+    register_widget( 'WT_Widget_Find_Agents' );
     register_widget( 'WT_Widget_Newsletter' );
     register_widget( 'WT_Widget_Testimonials' );
     register_widget( 'WT_Widget_Info' );
