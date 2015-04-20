@@ -25,40 +25,30 @@ class WT_Widget_About extends WP_Widget {
      */
 
     public function widget( $args, $instance ) {
-        ?>
-    <!-- BEGIN SIDEBAR AGENTS -->
-    <div class="col-sm-12">
-        <h2 class="section-title" data-animation-direction="from-bottom" data-animation-delay="50">Our Agents</h2>
-        <ul class="agency-detail-agents">
+        
+        /** BEGIN SIDEBAR ABOUT WIDGET */
 
-        <?php 
-            $limit = $wt_cozy['section_feature_number_slider'];
-            $args = array(
-                'post_type'         => 'agent',
-                'post_status'       => 'publish',
-                'posts_per_page'    => $limit,
-            );
-            $agent_query = new WP_Query( $args );?>
-        <?php while($agent_query->have_posts()): $agent_query->the_post(); ?>
+        $title = apply_filters( 'widget_title', empty( $instance['title'] ) ? '' : $instance['title'], $instance, $this->id_base );
 
-            <li class="col-lg-12" data-animation-direction="from-bottom" data-animation-delay="200">
-                <a href="<?php echo get_page_link(); ?>"><img src="<?php echo $text = get_post_meta( $post->ID, '_wt_agent_img', true ); ?>" alt="" /></a>
-                <div class="info">
-                    <a href="<?php echo get_page_link(); ?>"><h3><?php the_title() ?></h3></a>
-                    <span class="location"><?php echo $text = get_post_meta( $post->ID, '_wt_agent_address', true ); ?></span>
-                    <p><?php echo $text = get_post_meta( $post->ID, '_wt_agent_description', true ); ?></p>
-                    <a href="<?php echo get_page_link(); ?>">Learn More &raquo;</a>
-                </div>
-            </li>
-
-        <?php endwhile; ?>
-        <?php wp_reset_postdata(); ?>
-
-        </ul>
-    </div>
-    <!-- END SIDEBAR AGENTS -->
-    <?php
+        /**
+         * Filter the content of the Text widget.
+         *
+         * @since 2.3.0
+         *
+         * @param string    $widget_text The widget content.
+         * @param WP_Widget $instance    WP_Widget instance.
+         */
+        $text = apply_filters( 'widget_text', empty( $instance['text'] ) ? '' : $instance['text'], $instance );
+        echo '<div class="col-sm-12">';
+        if ( ! empty( $title ) ) {
+            echo '<h2 class="section-title" data-animation-direction="from-bottom" data-animation-delay="50">' . $title . '</h2>';
+        } ?>
+            <p class="center" data-animation-direction="from-bottom" data-animation-delay="200"><?php echo !empty( $instance['filter'] ) ? wpautop( $text ) : $text; ?></p>
+        <?php
+        echo '</div">';
     }
+    /** END SIDEBAR ABOUT WIDGET */
+
 
     /**
      * Sanitize widget form values as they are saved.

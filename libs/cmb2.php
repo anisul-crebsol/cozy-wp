@@ -328,6 +328,11 @@ function wt_cozy_register_metabox() {
                 'type' => 'text_medium'
 	) );
 	$wt_cozy->add_field( array(
+                'name' => __('Country',"wt_cozy"),
+                'id' => $prefix . 'property_country',
+                'type' => 'text_medium'
+	) );
+	$wt_cozy->add_field( array(
                 'name' => __('ID#',"wt_cozy"),
                 'id' => $prefix . 'property_id',
                 'type' => 'text_medium'
