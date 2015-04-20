@@ -29,12 +29,12 @@
         <?php while($agent_query->have_posts()): $agent_query->the_post(); ?>
 
 			<li class="col-lg-12" data-animation-direction="from-bottom" data-animation-delay="200">
-				<a href="<?php echo get_page_link(); ?>"><img src="<?php echo $text = get_post_meta( $post->ID, '_wt_agent_img', true ); ?>" alt="" /></a>
+				<a href="<?php the_permalink(); ?>"><img src="<?php echo $text = get_post_meta( $post->ID, '_wt_agent_img', true ); ?>" alt="" /></a>
 				<div class="info">
-					<a href="<?php echo get_page_link(); ?>"><h3><?php the_title() ?></h3></a>
+					<?php the_title( sprintf( '<a href="%s"><h3>', esc_url( get_permalink() ) ), '</h3></a>' ); ?>
 					<span class="location"><?php echo $text = get_post_meta( $post->ID, '_wt_agent_address', true ); ?></span>
 					<p><?php echo $text = get_post_meta( $post->ID, '_wt_agent_description', true ); ?></p>
-					<a href="<?php echo get_page_link(); ?>">Learn More &raquo;</a>
+					<a href="<?php the_permalink(); ?>">Learn More &raquo;</a>
 				</div>
 			</li>
 

@@ -16,14 +16,14 @@
 
 			$property_address = get_post_meta( $post->ID, '_wt_property_address', true ); 
 	 		$property_price = get_post_meta( $post->ID, '_wt_property_price', true );
-			$square_feet = get_post_meta( $post->ID, '_wt_property_square_feet', true );
+			$square_feet = get_post_meta( $post->ID, '_wt_property_area', true );
 			$property_bedrooms = get_post_meta( $post->ID, '_wt_property_bedrooms', true );
 			$property_bathrooms = get_post_meta( $post->ID, '_wt_property_bathrooms', true );
 	    ?>
 
 		<div class="item col-md-4">
 			<div class="image">
-				<a href="<?php echo get_page_link(); ?>">
+				<a href="<?php the_permalink(); ?>">
 					<h3><?php the_title() ?></h3>
 					<?php if ($property_price !='') { ?><span class="location"><?php echo $property_address; ?></span><?php } ?>
 				</a>

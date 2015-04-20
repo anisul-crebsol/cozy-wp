@@ -224,7 +224,8 @@ require 'includes/widgets/testimonials.php';
 require 'includes/widgets/info.php';
 require 'includes/widgets/contact.php'; 
 require 'includes/widgets/links.php'; 
-require 'includes/widgets/listings.php';   
+require 'includes/widgets/listings.php'; 
+require 'includes/widgets/more-information.php';   
 
 // add shortcode
 require_once get_template_directory() . '/libs/wt-cozy-shortcode.php';
@@ -241,6 +242,8 @@ function register_cozy_widget() {
     register_widget( 'WT_Widget_Contact' );
     register_widget( 'WT_Widget_Links' );
     register_widget( 'WT_Widget_Listings' );
+    register_widget( 'WT_Widget_more_information' );
+
 }
 add_action( 'widgets_init', 'register_cozy_widget' );
 

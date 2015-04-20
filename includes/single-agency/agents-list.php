@@ -16,13 +16,13 @@
 		$agent_description = get_post_meta( $post->ID, '_wt_agent_description', true );
     ?>
 	<li class="col-lg-6">
-		<a href="<?php echo get_page_link(); ?>">							
+		<a href="<?php the_permalink(); ?>">							
 		<img src="<?php echo $agent_image; ?>" alt=""></a>
 		<div class="info">
-			<a href="<?php echo get_page_link(); ?>"><h3><?php the_title() ?></h3></a>
+			<?php the_title( sprintf( '<a href="%s"><h3>', esc_url( get_permalink() ) ), '</h3></a>' ); ?>
 			<span class="location"><?php echo $agent_address; ?></span>
 			<p><?php echo $agent_description; ?></p>
-			<a href="<?php echo get_page_link(); ?>">Learn More &raquo;</a>
+			<a href="<?php the_permalink(); ?>">Learn More &raquo;</a>
 		</div>
 	</li>
     <?php endwhile; ?>

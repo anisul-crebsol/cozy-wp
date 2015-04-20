@@ -47,7 +47,7 @@
 							<?php if($property_price) echo "<span>$property_price</span>"; ?>
 						</div>
 						<div class="info">
-							<h3><a href="<?php the_permalink(); ?>"><?php the_title() ?></a></h3>
+							<?php the_title( sprintf( '<h3><a href="%s">', esc_url( get_permalink() ) ), '</a></h3>' ); ?>
 							<p>
 							<?php 
 								$description_limit = 190;

@@ -313,6 +313,15 @@ function wt_cozy_register_metabox() {
                 'type' => 'text_medium'
 	) );
 	$wt_cozy->add_field( array(
+                'name' => __('Price',"wt_cozy"),
+                'id' => $prefix . 'property_price',
+                'type' => 'text_medium',
+				'attributes' => array(
+					'type' => 'number',
+					'pattern' => '\d*',
+				),
+	) );
+	$wt_cozy->add_field( array(
                 'name' => __('Address',"wt_cozy"),
                 'id' => $prefix . 'property_address',
                 'type' => 'text_medium'
@@ -338,19 +347,31 @@ function wt_cozy_register_metabox() {
                 'type' => 'text_medium'
 	) );
 	$wt_cozy->add_field( array(
-                'name' => __('Square Feet',"wt_cozy"),
-                'id' => $prefix . 'property_square_feet',
-                'type' => 'text_medium'
+                'name' => __('Property Area',"wt_cozy"),
+                'id' => $prefix . 'property_area',
+                'type' => 'text_medium',
+				'attributes' => array(
+					'type' => 'number',
+					'pattern' => '\d*',
+				),
 	) );
 	$wt_cozy->add_field( array(
                 'name' => __('Bedrooms',"wt_cozy"),
                 'id' => $prefix . 'property_bedrooms',
-                'type' => 'text_medium'
+                'type' => 'text_medium',
+				'attributes' => array(
+					'type' => 'number',
+					'pattern' => '\d*',
+				),
 	) );
 	$wt_cozy->add_field( array(
                 'name' => __('Bathrooms',"wt_cozy"),
                 'id' => $prefix . 'property_bathrooms',
-                'type' => 'text_medium'
+                'type' => 'text_medium',
+				'attributes' => array(
+					'type' => 'number',
+					'pattern' => '\d*',
+				), 
 	) );
 	$wt_cozy = wt_cozy_metabox( array(
 		'id'            => $prefix . 'property-slider',

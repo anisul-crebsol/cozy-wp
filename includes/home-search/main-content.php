@@ -20,7 +20,7 @@
 		<i class="fa <?php echo $feature_icon_text; ?>"></i>
 		<h3><?php the_title() ?></h3>
 		<p><?php echo $feature_description; ?></p>
-		<a href="<?php echo get_page_link(); ?>" class="btn btn-default-color">Read More</a>
+		<a href="<?php the_permalink(); ?>" class="btn btn-default-color">Read More</a>
 	</div>
     <?php endwhile; ?>
     <?php wp_reset_postdata(); ?>
@@ -70,7 +70,7 @@
         <?php while($blog_query->have_posts()): $blog_query->the_post(); ?>
 		<div class="item col-sm-12" data-animation-direction="from-bottom" data-animation-delay="250">
 			<div class="image">
-				<a href="<?php echo get_page_link(); ?>">
+				<a href="<?php the_permalink(); ?>">
 					<span class="btn btn-default"><i class="fa fa-file-o"></i> Read More</span>
 				</a>
 				<?php
@@ -104,7 +104,7 @@
 					</li>
 				</ul>
 				<h3>
-					<a href="<?php echo get_page_link(); ?>"><?php the_title(); ?></a>
+					<a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
 				</h3>
 				<?php the_excerpt(); ?>
 			</div>

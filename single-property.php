@@ -46,7 +46,7 @@ get_header(); ?>
 									 endforeach;
 								 ?>
 								</li>
-								<li><i class="icon-area"></i> <?php echo $text = get_post_meta( $post->ID, '_wt_property_square_feet', true ); ?></li>
+								<li><i class="icon-area"></i> <?php echo $text = get_post_meta( $post->ID, '_wt_property_area', true ); ?></li>
 								<li><i class="icon-bedrooms"></i> <?php echo $text = get_post_meta( $post->ID, '_wt_property_bedrooms', true ); ?></li>
 								<li><i class="icon-bathrooms"></i> <?php echo $text = get_post_meta( $post->ID, '_wt_property_bathrooms', true ); ?></li>
 							</ul>

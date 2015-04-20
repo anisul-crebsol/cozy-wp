@@ -12,7 +12,7 @@ class WT_Widget_Find_Agents extends WP_Widget {
 
     public function __construct() {
         $widget_ops = array('classname' => 'widget_find_agents', 'description' => __('Arbitrary text or HTML.'));
-        parent::__construct('wt_cozy_agents', __('Sidebar Find Agents'), $widget_ops);
+        parent::__construct('wt_cozy_find_agents', __('Sidebar Find Agents'), $widget_ops);
     }
 
     /**

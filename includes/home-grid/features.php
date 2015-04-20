@@ -20,7 +20,7 @@
 		<i class="fa <?php echo $feature_icon_text; ?>"></i>
 		<h3><?php the_title() ?></h3>
 		<p><?php echo $feature_description; ?></p>
-		<a href="<?php echo get_page_link(); ?>" class="btn btn-default-color">Read More</a>
+		<a href="<?php the_permalink(); ?>" class="btn btn-default-color">Read More</a>
 	</div>
     <?php endwhile; ?>
     <?php wp_reset_postdata(); ?>

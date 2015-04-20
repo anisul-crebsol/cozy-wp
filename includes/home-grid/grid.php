@@ -16,7 +16,7 @@
 		$property_status = get_the_terms($post->ID, 'property-status', true);
 		$property_price = get_post_meta( $post->ID, '_wt_property_price', true);
 		$property_address = get_post_meta( $post->ID, '_wt_property_address', true);
-		$property_sqft = get_post_meta( $post->ID, '_wt_property_square_feet', true );
+		$property_sqft = get_post_meta( $post->ID, '_wt_property_area', true );
     ?>
 		<div class="item">
 			<a class="info" href="<?php the_permalink(); ?>">
