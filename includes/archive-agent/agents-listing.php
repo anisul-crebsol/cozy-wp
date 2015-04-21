@@ -58,10 +58,10 @@ if ( 1 == $count%3 ) {
 		</ul>
 		
 		<ul class="social-networks">
-			<li><a href="<?php echo $agent_linkedin_link ?>"><i class="fa fa-linkedin"></i></a></li>
-			<li><a href="<?php echo $agent_facebook_link ?>"><i class="fa fa-facebook"></i></a></li>
-			<li><a href="<?php echo $agent_twitter_link ?>"><i class="fa fa-twitter"></i></a></li>
-			<li><a href="<?php echo $agent_youtube_link ?>"><i class="fa fa-youtube"></i></a></li>
+			<li><a href="<?php echo $agent_linkedin_link; ?>"><i class="fa fa-linkedin"></i></a></li>
+			<li><a href="<?php echo $agent_facebook_link; ?>"><i class="fa fa-facebook"></i></a></li>
+			<li><a href="<?php echo $agent_twitter_link; ?>"><i class="fa fa-twitter"></i></a></li>
+			<li><a href="<?php echo $agent_youtube_link ;?>"><i class="fa fa-youtube"></i></a></li>
 		</ul>
 	</div>
 </div>	

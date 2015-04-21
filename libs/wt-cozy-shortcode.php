@@ -69,18 +69,12 @@ function faq_shortcode() {
             }
 
 
-
 // Restore original Post Data
-
             wp_reset_postdata();
-
             $term_count++;
-
             echo '</div>';
         }
         ?>
-
-
 
         <?php
     }
@@ -555,4 +549,9 @@ function faq_shortcode() {
 
         <?php
     }
-    
+
+function get_terms_by_post_type($taxonomies, $post_types) {
+    global $wpdb;
+    $query = $wpdb->get_results("SELECT t.*, COUNT(*) AS count from $wpdb->terms AS t INNER JOIN $wpdb->term_taxonomy AS tt ON t.term_id = tt.term_id INNER JOIN $wpdb->term_relationships AS r ON r.term_taxonomy_id = tt.term_taxonomy_id INNER JOIN $wpdb->posts AS p ON p.ID = r.object_id WHERE p.post_type IN('" . join("', '", $post_types) . "') AND tt.taxonomy IN('" . join("', '", $taxonomies) . "') GROUP BY t.term_id");
+    return $query;
+}
