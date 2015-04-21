@@ -49,7 +49,7 @@ get_header(); ?>
 					
 					<!-- BEGIN SIDEBAR -->
 <?php //get_template_part ('/includes/home-slider/sidebar'); ?>
-<?php get_sidebar('home2'); ?>
+<?php get_sidebar('2'); ?>
 					<!-- END SIDEBAR -->
 					
 				</div>

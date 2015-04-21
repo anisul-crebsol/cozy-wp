@@ -131,6 +131,7 @@ function register_cozy_widget() {
 }
 add_action( 'widgets_init', 'register_cozy_widget' );
 
+
 if ( !class_exists( 'CozyFramework' ) ) {
     require_once( dirname( __FILE__ ) . '/framework/framework.php' );
 }
@@ -194,4 +195,4 @@ require get_template_directory() . '/libs/wt-cozy-shortcode.php';
 require get_template_directory() . '/libs/cozy-accordion/cozy_accordion.php';
 
 // Cozy Tab
-require get_template_directory() . '/libs/cozy-tab/cozy_tabs.php';
+//require get_template_directory() . '/libs/cozy-tab/cozy_tabs.php';
