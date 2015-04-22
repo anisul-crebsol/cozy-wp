@@ -182,9 +182,6 @@ require get_template_directory() . '/inc/advanced-search.php';
 // Pagination
 require get_template_directory() . '/inc/pagination.php';
 
-// Pagination
-require get_template_directory() . '/inc/registration.php';
-
 // Shortcode Button
 require get_template_directory() . '/inc/shortcode-button.php';
 
@@ -194,5 +191,12 @@ require get_template_directory() . '/libs/wt-cozy-shortcode.php';
 // Cozy Accordion
 require get_template_directory() . '/libs/cozy-accordion/cozy_accordion.php';
 
+// Pagination
+require get_template_directory() . '/inc/registration.php';
+
 // Cozy Tab
 //require get_template_directory() . '/libs/cozy-tab/cozy_tabs.php';
+
+// Shortcode Button
+//require get_template_directory() . '/js/agencies.php';
+

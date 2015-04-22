@@ -26,14 +26,23 @@ class WT_Widget_Find_Agents extends WP_Widget {
 
     public function widget( $args, $instance ) {
 
-        global $wt_cozy; ?>
+        global $wt_cozy; 
+		
+		$title = apply_filters( 'widget_title', empty( $instance['title'] ) ? '' : $instance['title'], $instance, $this->id_base );
+        $image = apply_filters( 'widget_title', empty( $instance['image'] ) ? '' : $instance['image'], $instance, $this->id_base );
+        $search = apply_filters( 'widget_title', empty( $instance['search'] ) ? '' : $instance['search'], $instance, $this->id_base );
+		?>
 <!-- BEGIN FIND AGENTS -->
 <div id="find_agents" class="col-sm-12" data-animation-direction="fade" data-animation-delay="250">
 
     <form role="search" method="get" class="search-form" id="search-form" action="<?php echo home_url( '/' ); ?>">
-        <h2 class="section-title">Find An Agent</h2>
-        <img src="http://placehold.it/307x188" alt="" id="agents-img"/>
-
+        <?php
+			if ( ! empty( $title ) ) {
+            echo '<h2 class="section-title" data-animation-direction="from-bottom" data-animation-delay="50">' . $title . '</h2>';
+        }
+		?>
+        
+        <img src="<?php echo $image ?>" alt="" id="agents-img"/>
         <select id="agents_country" name="s" data-placeholder="Choose a country">
             <option value=""> </option>
             <?php
@@ -57,7 +66,16 @@ class WT_Widget_Find_Agents extends WP_Widget {
         </select>
         <input type="hidden" name="agent_search" value="agent_search" />
         <div class="form-actions">
-            <button type="submit" class="btn btn-default">Search</button>
+            <button type="submit" class="btn btn-default">
+            <?php 
+                if ($search) {
+                    echo $search;
+                }
+                else {
+                    echo 'Search';
+                }
+             ?>
+             </button>
         </div>
     </form>
 </div>
@@ -78,7 +96,12 @@ class WT_Widget_Find_Agents extends WP_Widget {
      */
 
     public function update( $new_instance, $old_instance ) {
-
+        $instance = $old_instance;
+        $instance['title'] = strip_tags($new_instance['title']);
+        $instance['image'] = strip_tags($new_instance['image']);
+        $instance['search'] = strip_tags($new_instance['search']);
+        $instance['filter'] = isset($new_instance['filter']);
+        return $instance;
     }
 
     /**
@@ -90,7 +113,20 @@ class WT_Widget_Find_Agents extends WP_Widget {
      */
 
     public function form( $instance ) {
+        $instance = wp_parse_args( (array) $instance, array( 'title' => '', 'text' => '' ) );
+        $title = strip_tags($instance['title']);
+        $image = strip_tags($instance['image']);
+        $search = strip_tags($instance['search']);
 
+?>
+        <p><label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Title:'); ?></label>
+        <input class="widefat" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" type="text" value="<?php echo esc_attr($title); ?>" /></p>
+        <p><label for="<?php echo $this->get_field_id('image'); ?>"><?php _e('Image URL:'); ?></label>
+        <input class="widefat" id="<?php echo $this->get_field_id('image'); ?>" name="<?php echo $this->get_field_name('image'); ?>" type="text" value="<?php echo esc_attr($image); ?>" /></p>
+        <p><label for="<?php echo $this->get_field_id('image'); ?>"><?php _e('Search Button Text:'); ?></label>
+        <input class="widefat" id="<?php echo $this->get_field_id('search'); ?>" name="<?php echo $this->get_field_name('search'); ?>" type="text" value="<?php echo esc_attr($search); ?>" /></p>
+
+<?php
     }
 }
 

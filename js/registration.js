@@ -15,32 +15,62 @@ jQuery(function ($) {
         var city = $('#city').val();
         var country = $('#country').val();
         var phone = $('#phone').val();
+		var username = $('#username').val();
         var email = $('#email').val();
         var confirm_email = $('#confirm_email').val();
         var Password = $('#Password').val();
         var confirm_Password = $('#confirm_Password').val();
-        var terms = 'no';
-        if ($('#terms').is(":checked"))
-        {
-            var terms = $('#terms').val();
-        }
+        
         // js validation start
+		
+		if (username == '')
+        {			
+            $(".phpmsg").append('<br/> Username is required.');
+            validation_flag = 0;
+        } 
+		
+		if (email == '')
+        {			
+            $(".phpmsg").append('<br/> Email is required.');
+            validation_flag = 0;
+        } 		
         if (!validateEmail(email))
         {
+			alert(validateEmail(email));
             $(".phpmsg").append('<br/> Invalid Email Address.');
             validation_flag = 0;
         }
-        if (email !== confirm_email)
+		if (email !== confirm_email)
         {
             $(".phpmsg").append('<br/> Email Address Missmatch.');
             validation_flag = 0;
         }
-        if (Password !== confirm_email)
+        
+		if (Password == '')
+        {			
+            $(".phpmsg").append('<br/> Password is required.');
+            validation_flag = 0;
+        } 		
+        
+		
+       if (Password !== confirm_Password)
         {
             $(".phpmsg").append('<br/>Password Missmatch.');
-            validation_flag = 0;
+            validation_flag = 0;			
         }
-
+		else{
+			var validation_flag = 1;
+		}
+		
+		var terms = 'no';
+        if ($('#terms').is(":checked"))
+        {
+            var terms = $('#terms').val();
+			var validation_flag = 1;
+        } else {
+			$(".phpmsg").append('<br/> Please, select terms.');
+            validation_flag = 0;
+		}
         // js validation end
 
 
@@ -60,6 +90,7 @@ jQuery(function ($) {
                     city: city,
                     country: country,
                     phone: phone,
+					username: username,
                     email: email,
                     confirm_email: confirm_email,
                     Password: Password,
@@ -85,7 +116,7 @@ jQuery(function ($) {
     });
 });
 
-function validateEmail(email) {
-    var re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
+function validateEmail(email) {	
+	var re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
     return re.test(email);
 }

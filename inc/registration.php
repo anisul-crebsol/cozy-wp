@@ -14,12 +14,14 @@ function new_user_registration_callback() {
     if ($_POST) {
         if ($_POST['terms'] == 'on') {
             if (!empty($_POST['Password']) && ($_POST['Password'] == $_POST['confirm_Password'])) {
-                if ((!empty($_POST['email']))) {
-
+				
+				if ((!empty($_POST['username']))) {
+                if ((!empty($_POST['email']))) {					
+					if (!(username_exists($_POST['username']))) {
                     if (!(email_exists($_POST['email']))) {
                         if (is_email($_POST['email'])) {
                             $userdata = array(
-                                'user_login' => sanitize_user($_POST['email']),
+                                'user_login' => sanitize_user($_POST['username']),
                                 'user_email' => sanitize_email($_POST['email']),
                                 'user_pass' => esc_attr($_POST['Password']),
                                 'first_name' => sanitize_text_field($_POST['firstname']),
@@ -39,11 +41,17 @@ function new_user_registration_callback() {
                             $registration_error = 'Invalid Email Address.';
                         }
                     } else {
-                        $registration_error = 'email exist';
+                        $registration_error = 'email exist!';
                     }
+					} else {
+						$registration_error = 'email exist!';
+					}
                 } else {
                     $registration_error = 'email field required.';
                 }
+				} else {
+					$registration_error = 'Username field required.';
+				}
             } else {
                 $registration_error = 'Password field required.';
             }

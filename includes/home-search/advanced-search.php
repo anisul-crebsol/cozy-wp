@@ -15,7 +15,8 @@
                     <input type="button" class="btn btn-default" id="for-rent" name="for-rent" value="for-rent" />
 
                     <div class="input-group">
-                        <input type="search" class="form-control" placeholder="City, State, Country, etc..." value="" id="property_search" name="s" title="Search for:" />
+                        <input type="hidden" value="" id="s" name="s">  
+                        <input type="search" class="form-control" placeholder="City, State, Country, etc..." value="" id="property_search" name="location" title="Search for:" />
                         <input type="hidden" name="post_type" id="post_type" value="property" />
                         <input type="hidden" name="term_slug" id="term_slug" value="for-sale" />                        
 					<span class="input-group-btn">

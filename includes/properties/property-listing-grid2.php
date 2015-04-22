@@ -25,7 +25,7 @@ $property_status = get_the_terms($post->ID, 'property-status', true);
 $property_description = get_post_meta( $post->ID, '_wt_property_description', true );
 $property_price = get_post_meta( $post->ID, '_wt_property_price', true);
 $property_address = get_post_meta( $post->ID, '_wt_property_address', true);
-$property_sqft = get_post_meta( $post->ID, '_wt_property_area', true );
+$property_area = get_post_meta( $post->ID, '_wt_property_area', true );
 $property_bedrooms = get_post_meta( $post->ID, '_wt_property_bedrooms', true );
 $property_bathrooms = get_post_meta( $post->ID, '_wt_property_bathrooms', true );
 
@@ -54,7 +54,7 @@ $clearFix = @( $count%3 == 0 ?  '<div class="clearfix"></div>' : ''); echo $clea
 		<?php if($property_price) echo "<span>$property_price</span>"; ?>
 	</div>
 	<ul class="amenities">
-		<?php if($property_sqft) { ?><li><i class="icon-area"></i> <?php echo "$property_sqft"; ?></li><?php } ?>
+		<?php if($property_area) { ?><li><i class="icon-area"></i> <?php echo "$property_area"; ?></li><?php } ?>
 		<?php if($property_bedrooms) { ?><li><i class="icon-bedrooms"></i> <?php echo $property_bedrooms; ?></li><?php } ?>
 		<?php if($property_bathrooms) { ?><li><i class="icon-bathrooms"></i> <?php echo $property_bathrooms; ?></li><?php } ?>
 	</ul>

@@ -41,6 +41,7 @@ get_header(); ?>
                                     <input type="text" id="city"  name="city" value="<?php echo $_POST['city']; ?>" placeholder="City" class="form-control" />
                                     <input type="text" id="country" name="country" value="<?php echo $_POST['country']; ?>" placeholder="Country" class="form-control" />
                                     <input type="text" id="phone" name="phone" value="<?php echo $_POST['phone']; ?>" placeholder="Phone*" class="form-control" />
+									<input type="text" id="username"  name="username" value="<?php echo $_POST['username']; ?>" placeholder="Username*" class="form-control" />
                                     <input type="email" id="email"  name="email" value="<?php echo $_POST['email']; ?>" placeholder="Email Address*" class="form-control" />
                                     <input type="email" id="confirm_email"  name="confirm_email" placeholder="Confirm Email Address*" class="form-control" />
                                     <input type="password" id="Password" name="Password" placeholder="Password*" class="form-control" />

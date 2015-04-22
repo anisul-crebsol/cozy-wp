@@ -21,7 +21,7 @@
 	$property_description = get_post_meta( $post->ID, '_wt_property_description', true);
 	$property_price = get_post_meta( $post->ID, '_wt_property_price', true);
 	$property_address = get_post_meta( $post->ID, '_wt_property_address', true);
-	$property_sqft = get_post_meta( $post->ID, '_wt_property_area', true );
+	$property_area = get_post_meta( $post->ID, '_wt_property_area', true );
 	$property_bedrooms = get_post_meta( $post->ID, '_wt_property_bedrooms', true );
 	$property_bathrooms = get_post_meta( $post->ID, '_wt_property_bathrooms', true );
 	?>
@@ -61,7 +61,7 @@
 				<?php if($property_address) echo "<span class='location'>$property_address</span>"; ?>
 			</div>
 			<ul class="amenities col-md-4">
-				<?php if($property_sqft) { ?><li><i class="icon-area"></i> <?php echo "$property_sqft"; ?></li><?php } ?>
+				<?php if($property_area) { ?><li><i class="icon-area"></i> <?php echo "$property_area"; ?></li><?php } ?>
 				<?php if($property_bedrooms) { ?><li><i class="icon-bedrooms"></i> <?php echo $property_bedrooms; ?></li><?php } ?>
 				<?php if($property_bathrooms) { ?><li><i class="icon-bathrooms"></i> <?php echo $property_bathrooms; ?></li><?php } ?>
 			</ul>

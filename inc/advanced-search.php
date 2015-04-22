@@ -10,67 +10,143 @@ function term_button_enqueue_scripts()
     wp_localize_script('ajaxHandle', 'ajax_object', array('ajaxurl' => admin_url('admin-ajax.php')));
 }
 
-function custom_search_query($query)
-{
+/*
+ * Advanced search
+ */
 
-    if (isset($_GET['post_type'])) {
-        $type = $_GET['post_type'];
+function search_filter($query) {
+    if (!is_admin() && $query->is_main_query()) {
+        if ($query->is_search) {
+            if (isset($_GET['advancedSearch']) && ($_GET['advancedSearch'] == 'advancedSearch')) {
+                $location = $_GET['location'];
+                $search_prop_type = $_GET['search_prop_type'];
+                $search_status = $_GET['search_status'];
+                $search_bedrooms = $_GET['search_bedrooms'];
+                $search_bathrooms = $_GET['search_bathrooms'];
+                $search_minprice = intval($_GET['search_minprice']);
+                $search_maxprice = intval($_GET['search_maxprice']);
 
-        if ($type == 'property') {
+                 //   var_dump($_GET);
+                $query->set('post_type', array('property'));
 
-            $custom_fields = array(
-                "_property_state",
-                "_property_city",
-                "_property_zip",
-                "_property_address"
-            );
-
-            $searchterm = $query->query_vars['s'];
-
-            $query->query_vars['s'] = "";
-            if ($searchterm != "") {
-
-                $propertyArgs = array(
-                    'post_type' => $_GET['post_type'],
-                    'posts_per_page' => -1,
-                    'orderby' => 'post_date',
-                    'order' => 'ASC',
-                    'tax_query' => array(
-                        array(
-                            'taxonomy' => 'status',
-                            'terms' => $_GET['term_slug'],
-                            'field' => 'slug',
-                        )
-                    ),
-                    'meta_query' => array(
+                if (!empty($location)) {
+                    $metaquery [] = array(
                         'relation' => 'OR',
+                        array(
+                            'key' => '_wt_property_city',
+                            'value' => $location,
+                            'compare' => 'LIKE'
+                        ),
+                        array(
+                            'key' => '_wt_property_state',
+                            'value' => $location,
+                            'compare' => 'LIKE'
+                        )
+                    );
+                }
+                if (!empty($search_bedrooms)) {
+                    $metaquery [] = array(
+                        array(
+                            'key' => '_wt_property_bedrooms',
+                            'value' => $search_bedrooms,
+                            'compare' => 'LIKE'
+                        ),
+                        array(
+                            'key' => '_wt_property_bathrooms',
+                            'value' => $search_bathrooms,
+                            'compare' => 'LIKE'
+                        )
+                    );
+                }
+                if (!empty($search_bathrooms)) {
+                    $metaquery [] = array(
+                        array(
+                            'key' => '_wt_property_bathrooms',
+                            'value' => $search_bathrooms,
+                            'compare' => 'LIKE'
+                        )
+                    );
+                }
+                if (!empty($search_minprice)) {
+                    $metaquery [] = array(
+                        array(
+                            'key' => '_wt_property_price',
+                            'compare' => '>=',
+                            'value' => $search_minprice,
+                            'type' => 'numeric',
+                        )
+                    );
+                }
+                if (!empty($search_maxprice)) {
+                    $metaquery [] = array(
+                        array(
+                            'key' => '_wt_property_price',
+                            'value' => $search_maxprice,
+                            'compare' => '<=',
+                            'type' => 'numeric',
+                        )
+                    );
+                }
+                $query->set('meta_query', $metaquery);
+
+                if (!empty($_GET['search_status'])) {
+                    $taxquery[] = array(
+                        array(
+                            'taxonomy' => 'property-status',
+                            'field' => 'slug',
+                            'terms' => array($_GET['search_status']),
+                            'operator' => 'IN'
+                        )
+                    );
+                }
+                if (!empty($search_prop_type)) {
+                    $taxquery [] = array(
+                        array(
+                            'taxonomy' => 'wt-property-types',
+                            'field' => 'slug',
+                            'terms' => array($search_prop_type),
+                            'operator' => 'IN'
+                        )
+                    );
+                }
+                $query->set('tax_query', $taxquery);
+            }
+
+            if (isset($_GET['submit_property']) && ($_GET['submit_property'] == 'Search')) {
+                $country_city_location = $_GET['location'];
+                $query->set('post_type', array('property'));
+
+                $metaquery = array(
+                    'relation' => 'OR',
+                    array(
+                        'key' => '_wt_property_city', '_wt_property_state',
+                        'value' => $country_city_location,
+                        'compare' => 'LIKE'
                     ),
+                    array(
+                        'key' => '_wt_property_state',
+                        'value' => $country_city_location,
+                        'compare' => 'LIKE'
+                    )
+                );
+                $query->set('meta_query', $metaquery);
+
+                $taxquery = array(
+                    array(
+                        'taxonomy' => 'property-status',
+                        'field' => 'slug',
+                        'terms' => array($_GET['term_slug']),
+                        'operator' => 'IN'
+                    )
                 );
 
-                foreach ($custom_fields as $cf) {
-                    array_push($propertyArgs['meta_query'], array(
-                        'key' => $cf,
-                        'value' => $searchterm,
-                        'compare' => 'LIKE'
-                    ));
-                }
-                query_posts($propertyArgs);
-
-            } else {
-                if (isset($_POST['s']) && empty($_POST['s'])) {
-                    $query_vars['s'] = " ";
-                }
+                $query->set('tax_query', $taxquery);
             }
         }
     }
 }
 
-// Working............................................................................
-//if(isset($_REQUEST['post_type']) && $_REQUEST['post_type']=='property'&& $_REQUEST['submit_properties']=='Search')
-//add_action('init','custom_search_query');
-//...................................................................................
-
-//add_filter("pre_get_posts", "custom_search_query");
+add_action('pre_get_posts', 'search_filter');
 
 
 // Find An Agent Search
