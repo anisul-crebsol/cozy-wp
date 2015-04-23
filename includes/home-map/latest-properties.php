@@ -20,8 +20,12 @@
 	$property_status = get_the_terms($post->ID, 'property-status', true);
 	$property_description = get_post_meta( $post->ID, '_wt_property_description', true);
 	$property_price = get_post_meta( $post->ID, '_wt_property_price', true);
+	if ($property_price) : $property_price = $property_price; else : $property_price = 0; endif;
+	$property_price_eng = number_format($property_price);
+	$property_price_symble = get_post_meta( $post->ID, '_wt_property_price_symble', true);
 	$property_address = get_post_meta( $post->ID, '_wt_property_address', true);
 	$property_area = get_post_meta( $post->ID, '_wt_property_area', true );
+	$property_area_measurement = get_post_meta( $post->ID, '_wt_property_area_measurement', true );
 	$property_bedrooms = get_post_meta( $post->ID, '_wt_property_bedrooms', true );
 	$property_bathrooms = get_post_meta( $post->ID, '_wt_property_bathrooms', true );
 	?>
@@ -42,7 +46,7 @@
 			echo $on_draught = join( ", ", $draught_links );
 			endif;
 			?>
-			<?php if($property_price) echo "<span>$property_price</span>"; ?>
+			<?php if($property_price) echo "<span>$property_price_symble $property_price_eng</span>"; ?>
 		</div>
 		<div class="info">
 			<div class="item-title col-md-8">
@@ -61,7 +65,7 @@
 				<?php if($property_address) echo "<span class='location'>$property_address</span>"; ?>
 			</div>
 			<ul class="amenities col-md-4">
-				<?php if($property_area) { ?><li><i class="icon-area"></i> <?php echo "$property_area"; ?></li><?php } ?>
+				<?php if($property_area) { ?><li><i class="icon-area"></i> <?php echo $property_area . ' '. $property_area_measurement ; ?></li><?php } ?>
 				<?php if($property_bedrooms) { ?><li><i class="icon-bedrooms"></i> <?php echo $property_bedrooms; ?></li><?php } ?>
 				<?php if($property_bathrooms) { ?><li><i class="icon-bathrooms"></i> <?php echo $property_bathrooms; ?></li><?php } ?>
 			</ul>

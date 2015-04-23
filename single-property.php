@@ -28,8 +28,21 @@ get_header(); ?>
 				
 					<!-- BEGIN MAIN CONTENT -->
 					<div class="main col-sm-8">
-					<?php while ( have_posts() ) : the_post(); ?>					
-						<h1 class="property-title"><?php the_title(); ?> <small><?php echo $text = get_post_meta( $post->ID, '_wt_property_address', true ); ?>, <?php echo $text = get_post_meta( $post->ID, '_wt_property_city', true ); ?></small></h1>
+					<?php while ( have_posts() ) : the_post(); 
+						$property_types = wp_get_post_terms($post->ID, 'wt-property-types', array("fields" => "names"));
+						$property_id = get_post_meta( $post->ID, '_wt_property_id', true);
+						$property_price = get_post_meta( $post->ID, '_wt_property_price', true);
+						if ($property_price) : $property_price = $property_price; else : $property_price = 0; endif;
+						$property_price_eng = number_format($property_price);
+						$property_price_symble = get_post_meta( $post->ID, '_wt_property_price_symble', true);
+						$property_address = get_post_meta( $post->ID, '_wt_property_address', true);
+						$property_city = get_post_meta( $post->ID, '_wt_property_city', true);
+						$property_area = get_post_meta( $post->ID, '_wt_property_area', true );
+						$property_area_measurement = get_post_meta( $post->ID, '_wt_property_area_measurement', true );
+						$property_bedrooms = get_post_meta( $post->ID, '_wt_property_bedrooms', true );
+						$property_bathrooms = get_post_meta( $post->ID, '_wt_property_bathrooms', true );
+					?>					
+						<h1 class="property-title"><?php the_title(); ?> <small><?php echo $property_address; ?>, <?php echo $property_city; ?></small></h1>
 						
 						<div class="property-topinfo">
 							<ul class="amenities">
@@ -46,12 +59,12 @@ get_header(); ?>
 									 endforeach;
 								 ?>
 								</li>
-								<li><i class="icon-area"></i> <?php echo $text = get_post_meta( $post->ID, '_wt_property_area', true ); ?></li>
-								<li><i class="icon-bedrooms"></i> <?php echo $text = get_post_meta( $post->ID, '_wt_property_bedrooms', true ); ?></li>
-								<li><i class="icon-bathrooms"></i> <?php echo $text = get_post_meta( $post->ID, '_wt_property_bathrooms', true ); ?></li>
+								<?php if($property_area) { ?><li><i class="icon-area"></i> <?php echo $property_area . ' '. $property_area_measurement ; ?></li><?php } ?>
+								<?php if($property_bedrooms) { ?><li><i class="icon-bedrooms"></i> <?php echo $property_bedrooms; ?></li><?php } ?>
+								<?php if($property_bathrooms) { ?><li><i class="icon-bathrooms"></i> <?php echo $property_bathrooms; ?></li><?php } ?>
 							</ul>
 							
-							<div id="property-id">ID: #<?php echo $text = get_post_meta( $post->ID, '_wt_property_id', true ); ?></div>
+							<div id="property-id">ID: #<?php echo $property_id; ?></div>
 						</div>
 						<!-- BEGIN PROPERTY DETAIL SLIDERS WRAPPER -->
 						<div id="property-detail-wrapper" class="style1">
@@ -69,7 +82,7 @@ get_header(); ?>
 										$i++;
 									 endforeach;
 								 ?>
-								<span><?php echo $text = get_post_meta( $post->ID, '_wt_property_price', true ); ?></span>
+								<?php if($property_price) echo "<span>$property_price_symble $property_price_eng</span>"; ?>
 							</div>
 									
 							<!-- BEGIN PROPERTY DETAIL LARGE IMAGE SLIDER -->

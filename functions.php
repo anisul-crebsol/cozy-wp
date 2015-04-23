@@ -189,7 +189,7 @@ require get_template_directory() . '/inc/shortcode-button.php';
 require get_template_directory() . '/libs/wt-cozy-shortcode.php';
 
 // Cozy Accordion
-require get_template_directory() . '/libs/cozy-accordion/cozy_accordion.php';
+//require get_template_directory() . '/libs/cozy-accordion/cozy_accordion.php';
 
 // Pagination
 require get_template_directory() . '/inc/registration.php';

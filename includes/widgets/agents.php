@@ -42,7 +42,7 @@ class WT_Widget_Agents extends WP_Widget {
         <?php 
         $number = ( ! empty( $instance['number'] ) ) ? absint( $instance['number'] ) : 4;
         if ( ! $number )
-            $number = 5;
+            $number = 4;
             $args = array(
                 'post_type'         => 'agent',
                 'post_status'       => 'publish',

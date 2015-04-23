@@ -29,8 +29,8 @@ class WT_Widget_Find_Agents extends WP_Widget {
         global $wt_cozy; 
 		
 		$title = apply_filters( 'widget_title', empty( $instance['title'] ) ? '' : $instance['title'], $instance, $this->id_base );
-        $image = apply_filters( 'widget_title', empty( $instance['image'] ) ? '' : $instance['image'], $instance, $this->id_base );
-        $search = apply_filters( 'widget_title', empty( $instance['search'] ) ? '' : $instance['search'], $instance, $this->id_base );
+        $image = apply_filters( 'widget_image', empty( $instance['image'] ) ? '' : $instance['image'], $instance, $this->id_base );
+        $search = apply_filters( 'widget_search', empty( $instance['search'] ) ? '' : $instance['search'], $instance, $this->id_base );
 		?>
 <!-- BEGIN FIND AGENTS -->
 <div id="find_agents" class="col-sm-12" data-animation-direction="fade" data-animation-delay="250">
@@ -123,7 +123,7 @@ class WT_Widget_Find_Agents extends WP_Widget {
         <input class="widefat" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" type="text" value="<?php echo esc_attr($title); ?>" /></p>
         <p><label for="<?php echo $this->get_field_id('image'); ?>"><?php _e('Image URL:'); ?></label>
         <input class="widefat" id="<?php echo $this->get_field_id('image'); ?>" name="<?php echo $this->get_field_name('image'); ?>" type="text" value="<?php echo esc_attr($image); ?>" /></p>
-        <p><label for="<?php echo $this->get_field_id('image'); ?>"><?php _e('Search Button Text:'); ?></label>
+        <p><label for="<?php echo $this->get_field_id('search'); ?>"><?php _e('Search Button Text:'); ?></label>
         <input class="widefat" id="<?php echo $this->get_field_id('search'); ?>" name="<?php echo $this->get_field_name('search'); ?>" type="text" value="<?php echo esc_attr($search); ?>" /></p>
 
 <?php

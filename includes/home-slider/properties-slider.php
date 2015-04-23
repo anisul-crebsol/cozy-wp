@@ -26,6 +26,9 @@
 					
 					$property_status = get_the_terms($post->ID, 'property-status', true);
 					$property_price = get_post_meta( $post->ID, '_wt_property_price', true);
+					if ($property_price) : $property_price = $property_price; else : $property_price = 0; endif;
+					$property_price_eng = number_format($property_price);
+					$property_price_symble = get_post_meta( $post->ID, '_wt_property_price_symble', true);
 					$property_description = get_post_meta( $post->ID, '_wt_property_description', true );
 					?>
 					<div class="item">
@@ -44,7 +47,7 @@
 							echo $on_draught = join( ", ", $draught_links );
 							endif;
 							?>
-							<?php if($property_price) echo "<span>$property_price</span>"; ?>
+							<?php if($property_price) echo "<span>$property_price_symble $property_price_eng</span>"; ?>
 						</div>
 						<div class="info">
 							<?php the_title( sprintf( '<h3><a href="%s">', esc_url( get_permalink() ) ), '</a></h3>' ); ?>

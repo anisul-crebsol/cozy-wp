@@ -30,16 +30,23 @@ class WT_Widget_Testimonials extends WP_Widget {
 
 <!-- BEGIN TESTIMONIALS -->
 <div id="testimonials" class="col-sm-12" data-animation-direction="from-bottom" data-animation-delay="200">
-	<h2 class="section-title"><?php echo $wt_cozy['section_testimonial_title']?></h2>
+       <?php 
+            $title = apply_filters( 'widget_title', empty( $instance['title'] ) ? '' : $instance['title'], $instance, $this->id_base );
+            if ( ! empty( $title ) ) {
+            echo '<h2 class="section-title" data-animation-direction="from-bottom" data-animation-delay="50">' . $title . '</h2>';
+            } 
+        ?>
 	
 	<div id="testimonials-slider" class="owl-carousel testimonials">
 
         <?php 
-            $limit = $wt_cozy['section_testimonial_number'];
+        $number = ( ! empty( $instance['number'] ) ) ? absint( $instance['number'] ) : 2;
+        if ( ! $number )
+            $number = 2;
         	$args = array(
                 'post_type'         => 'testimonial',
                 'post_status'       => 'publish',
-                'posts_per_page'    => $limit,
+                'posts_per_page'    => $number,
             );
             $testimonial_query = new WP_Query( $args );?>
 
@@ -81,7 +88,11 @@ class WT_Widget_Testimonials extends WP_Widget {
      */
 
     public function update( $new_instance, $old_instance ) {
-
+        $instance = $old_instance;
+        $instance['title'] = strip_tags($new_instance['title']);
+        $instance['number'] = absint( $new_instance['number'] );
+        $instance['filter'] = isset($new_instance['filter']);
+        return $instance;
     }
 
     /**
@@ -93,7 +104,15 @@ class WT_Widget_Testimonials extends WP_Widget {
      */
 
     public function form( $instance ) {
+        $instance = wp_parse_args( (array) $instance, array( 'title' => '', 'text' => '' ) );
+        $title = strip_tags($instance['title']);
+        $number = isset( $instance['number'] ) ? absint( $instance['number'] ) : 4;
+?>
+        <p><label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Title:'); ?></label>
+        <input class="widefat" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" type="text" value="<?php echo esc_attr($title); ?>" /></p>
 
+        <p><label for="<?php echo $this->get_field_id( 'number' ); ?>"><?php _e( 'Number of testimonials to show:' ); ?></label>
+        <input id="<?php echo $this->get_field_id( 'number' ); ?>" name="<?php echo $this->get_field_name( 'number' ); ?>" type="text" value="<?php echo $number; ?>" size="3" /></p>
+<?php
     }
 }
-

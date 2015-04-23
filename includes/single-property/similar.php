@@ -15,8 +15,12 @@
 	    <?php while($property_query->have_posts()): $property_query->the_post();
 
 			$property_address = get_post_meta( $post->ID, '_wt_property_address', true ); 
-	 		$property_price = get_post_meta( $post->ID, '_wt_property_price', true );
-			$square_feet = get_post_meta( $post->ID, '_wt_property_area', true );
+			$property_price = get_post_meta( $post->ID, '_wt_property_price', true);
+			if ($property_price) : $property_price = $property_price; else : $property_price = 0; endif;
+			$property_price_eng = number_format($property_price);
+			$property_price_symble = get_post_meta( $post->ID, '_wt_property_price_symble', true);
+			$property_area = get_post_meta( $post->ID, '_wt_property_area', true );
+			$property_area_measurement = get_post_meta( $post->ID, '_wt_property_area_measurement', true );
 			$property_bedrooms = get_post_meta( $post->ID, '_wt_property_bedrooms', true );
 			$property_bathrooms = get_post_meta( $post->ID, '_wt_property_bathrooms', true );
 	    ?>
@@ -49,12 +53,10 @@
 							$i++;
 						 endforeach;
 					 ?>
-				<?php if ($property_price !='') { ?><span><?php echo $property_price; ?></span><?php } ?>
+				<?php if($property_price) echo "<span>$property_price_symble $property_price_eng</span>"; ?>
 			</div>
 			<ul class="amenities">
-				<?php if ($square_feet !='') { ?><li><i class="icon-area"></i>
-					<?php echo $square_feet; ?>
-				</li><?php } ?>
+				<?php if($property_area) { ?><li><i class="icon-area"></i> <?php echo $property_area . ' '. $property_area_measurement ; ?></li><?php } ?>
 				<?php if ($property_bedrooms !='') { ?><li><i class="icon-bedrooms"></i> <?php echo $property_bedrooms; ?></li><?php } ?>
 				<?php if ($property_bathrooms !='') { ?><li><i class="icon-bathrooms"></i> <?php echo $property_bathrooms; ?></li><?php } ?>
 			</ul>

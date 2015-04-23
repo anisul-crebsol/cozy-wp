@@ -310,11 +310,6 @@ function wt_cozy_register_metabox() {
 	$wt_cozy->add_field( array(
                 'name' => __('Price',"wt_cozy"),
                 'id' => $prefix . 'property_price',
-                'type' => 'text_medium'
-	) );
-	$wt_cozy->add_field( array(
-                'name' => __('Price',"wt_cozy"),
-                'id' => $prefix . 'property_price',
                 'type' => 'text_medium',
 				'attributes' => array(
 					'type' => 'number',
@@ -325,6 +320,7 @@ function wt_cozy_register_metabox() {
                 'name' => __('Price Symble',"wt_cozy"),
                 'id' => $prefix . 'property_price_symble',
                 'type' => 'text_medium',
+                'default' => '$',
 	) );
 	$wt_cozy->add_field( array(
                 'name' => __('Address',"wt_cozy"),
@@ -364,6 +360,7 @@ function wt_cozy_register_metabox() {
                 'name' => __('Area Measurement',"wt_cozy"),
                 'id' => $prefix . 'property_area_measurement',
                 'type' => 'text_medium',
+                'default' => 'sq ft',
 	) );
 	$wt_cozy->add_field( array(
                 'name' => __('Bedrooms',"wt_cozy"),
