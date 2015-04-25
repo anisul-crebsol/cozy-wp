@@ -2,7 +2,7 @@
 <div id="property-gallery2" class="property-gallery2">
 	<div class="item">
 		<h1 class="section-title" data-animation-direction="from-left" data-animation-delay="50">Cozy Gallery</h1>
-		<p class="section-text" data-animation-direction="from-left" data-animation-delay="250">Pellentesque elementum libero enim, eget gravida nunc laoreet et. Nullam ac enim auctor, fringilla risus at, imperdiet turpis.</p>
+		<p class="section-text" data-animation-direction="from-left" data-animation-delay="250"><?php echo $wt_cozy['cozy_gallery_description']?></p>
 	</div>
 	<?php
 	$display_posts = 5;

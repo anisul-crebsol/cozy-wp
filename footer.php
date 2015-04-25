@@ -50,5 +50,11 @@
 	
 <?php wp_footer(); ?>
 <?php get_template_part ('/includes/footer-scripts'); ?>
+
+<?php
+// Agency
+require get_template_directory() . '/inc/agencies.php';
+?>
+
 </body>
 </html>

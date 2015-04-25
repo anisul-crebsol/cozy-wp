@@ -36,6 +36,7 @@ class WT_Widget_Newsletter extends WP_Widget {
         ?>
         <!-- BEGIN NEWSLETTER -->
         <div class="col-sm-12" data-animation-direction="from-bottom" data-animation-delay="200">
+
             <div id="newsletter" class="col-sm-12">
                 <h2 class="section-title"><?php echo $title; ?><br><span><?php echo $title; ?></span></h2>
                 <p><?php echo $text; ?></p>
@@ -43,9 +44,16 @@ class WT_Widget_Newsletter extends WP_Widget {
                     <form method="post" action="<?php echo plugin_dir_url('') .'newsletter/do/subscribe.php' ?>" onsubmit="return newsletter_check(this)">
                         <div class="input-group">
                             <input class="newsletter-email form-control" type="email" placeholder="<?php echo $placeholder; ?>" name="ne" size="30" required>
+                            <?php if ( is_page_template('page-search.php')) { ?>
                             <span class="input-group-btn newsletter-td-submit">
                             <input class="newsletter-submit btn btn-default" type="submit" value="<?php echo $subscribe; ?>"/>
                             </span>
+                            <?php }
+                            else { ?>
+                            <span class="input-group-btn newsletter-td-submit">
+                            <input class="newsletter-submit btn btn-default-color" type="submit" value="<?php echo $subscribe; ?>"/>
+                            </span>
+                            <?php } ?> 
                         </div>  
                     </form>
                 </div>

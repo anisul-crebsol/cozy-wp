@@ -84,6 +84,16 @@ function cozy_widgets_init() {
         'before_title'  => '<h1 class="widget-title">',
         'after_title'   => '</h1>',
     ) );
+      register_sidebar(array(
+           'name' => __('More Information', 'cozy'),
+           'id' => 'sidebar-more-information',
+           'description' => '',
+           'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+           'after_widget' => '</aside>',
+           'before_title' => '<h1 class="widget-title">',
+           'after_title' => '</h1>',
+       ));
+  
 }
 add_action( 'widgets_init', 'cozy_widgets_init' );
 
@@ -113,6 +123,7 @@ require get_template_directory() . '/includes/widgets/contact.php';
 require get_template_directory() . '/includes/widgets/links.php'; 
 require get_template_directory() . '/includes/widgets/listings.php'; 
 require get_template_directory() . '/includes/widgets/more-information.php';
+require get_template_directory() . '/includes/widgets/property-search.php';
 
 // Register WT Cozy widget
 function register_cozy_widget() {
@@ -127,6 +138,7 @@ function register_cozy_widget() {
     register_widget( 'WT_Widget_Links' );
     register_widget( 'WT_Widget_Listings' );
     register_widget( 'WT_Widget_more_information' );
+    register_widget( 'WT_Widget_Property_Search' );
 
 }
 add_action( 'widgets_init', 'register_cozy_widget' );
@@ -139,6 +151,8 @@ if ( !class_exists( 'CozyFramework' ) ) {
 if ( !isset( $redux_demo ) ) {
     require_once( dirname( __FILE__ ) . '/admin/admin_setting.php' );
 }
+
+add_filter('widget_text', 'do_shortcode');
 
 // Implement the Custom Header feature.
 //require get_template_directory() . '/inc/custom-header.php';

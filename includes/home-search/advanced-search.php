@@ -20,10 +20,9 @@
                         <input type="hidden" name="post_type" id="post_type" value="property" />
                         <input type="hidden" name="term_slug" id="term_slug" value="for-sale" />                        
 					<span class="input-group-btn">
-                            <input type="submit" class="btn btn-default" name="submit_property" value="Search" ><i class="fa fa-search"></i>Search</input>
-
-                        <!--      <button  type="button"><i class="fa fa-search"></i>Search</button> -->
-					</span>
+                            <input type="hidden" name="submit_property" value="Search">
+                            <button type="submit" class="btn btn-default"><i class="fa fa-search"></i>Search</button>
+                    </span>
                     </div>
 
                     <a href="<?php echo home_url( '/?s=&post_type=property' ); ?>" class="advanced-search">Advanced Search</a>
