@@ -30,16 +30,16 @@ function faq_shortcode() {
                 )
             );
 
-// The Query
+            // The Query
 
             $get_faq_query = new WP_Query($args);
-// The Loop
+            // The Loop
             if ($get_faq_query->have_posts()) {
                 $term_post_count = 1;
                 while ($get_faq_query->have_posts()) {
                     $get_faq_query->the_post();
                     // do something
-//                    the_title();
+            //  the_title();
                     ?>
                     <div class="panel">
                         <div class="panel-heading">

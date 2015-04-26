@@ -9,25 +9,25 @@
                     text: 'Price Table',
                     menu: [
                         {
-                            text: 'price_table_1',
+                            text: 'Price Table 1',
                             onclick: function () {
                                 editor.insertContent('[price_table_1]');
                             }
                         },
                         {
-                            text: 'price_table_2',
+                            text: 'Price Table 2',
                             onclick: function () {
                                 editor.insertContent('[price_table_2]');
                             }
                         },
                         {
-                            text: 'price_table_3',
+                            text: 'Price Table 3',
                             onclick: function () {
                                 editor.insertContent('[price_table_3]');
                             }
                         },
                         {
-                            text: 'price_table_4',
+                            text: 'Price Table 4',
                             onclick: function () {
                                 editor.insertContent('[price_table_4]');
                             }
@@ -63,10 +63,10 @@
                     ]
                 },
                   {
-                    text: 'icon-list',
+                    text: 'Icon List',
                     menu: [
                         {
-                            text: 'icon-list',
+                            text: 'Icon List',
                             onclick: function () {
                                 editor.insertContent('[cozy_icon_pack]');
                             }

@@ -37,17 +37,15 @@ get_header(); ?>
 <?php /* Start the Loop */ ?>
 <?php while ( have_posts() ) : the_post(); ?>						
 						
-						<p class="center">
-<?php echo $property_content1 = get_post_meta( $post->ID, '_wt_agency_description1', true ); ?></p>
+						
+<?php echo $property_content1 = wpautop(get_post_meta( $post->ID, '_wt_agency_description1', true )); ?>
 						
 						<!-- BEGIN GALLERY -->
 <?php get_template_part ('/includes/single-agency/gallery'); ?>
 						<!-- END GALLERY -->
 						
+<?php echo $property_content2 = wpautop(get_post_meta( $post->ID, '_wt_agency_description2', true )); ?>
 						
-						<p class="center">
-<?php echo $property_content2 = get_post_meta( $post->ID, '_wt_agency_description2', true ); ?>
-						</p>
 <?php endwhile; ?>
 <?php endif; ?>						
 						

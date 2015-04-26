@@ -48,8 +48,7 @@ get_header(); ?>
 					<!-- END MAIN CONTENT -->
 					
 					<!-- BEGIN SIDEBAR -->
-<?php //get_template_part ('/includes/home-slider/sidebar'); ?>
-<?php get_sidebar('2'); ?>
+<?php get_sidebar(); ?>
 					<!-- END SIDEBAR -->
 					
 				</div>

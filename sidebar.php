@@ -29,11 +29,9 @@ elseif ( is_page_template('page-slider.php')) { ?>
 
 // Sidebar Home Map
 elseif ( is_page_template('page-map.php')) { ?>
-<div class="sidebar col-sm-4">
-	<?php if ( is_active_sidebar( 'sidebar-home-map' ) ) : ?>
-	<?php dynamic_sidebar( 'sidebar-home-map' ); ?>
+	<?php if ( is_active_sidebar( 'sidebar-home-map-top' ) ) : ?>
+	<?php dynamic_sidebar( 'sidebar-home-map-top' ); ?>
 	<?php endif; ?>
-</div>
 <?php }
 
 // Sidebar for Single Post 
@@ -57,7 +55,7 @@ elseif ( is_post_type_archive('property')) { ?>
 <?php } 
 
 // Sidebar for all single post and archive pages of custom post types ( Single Property, Agent, Agency, Features, Testimonials, Faq and Price )
-elseif ( is_singular('agent') || is_singular('agency')) || is_singular('property') || is_singular('feature') || is_singular('testimonial') || is_singular('faq') || is_singular('price-table') || is_post_type_archive('agent') || is_post_type_archive('agency')){ ?>
+elseif ( is_singular('agent') || is_singular('agency') || is_singular('property') || is_singular('feature') || is_singular('testimonial') || is_singular('faq') || is_singular('price-table') || is_post_type_archive('agent') || is_post_type_archive('agency')){ ?>
 <div class="sidebar col-sm-4">
 	<?php if ( is_active_sidebar( 'sidebar-custom-post' ) ) : ?>
 	<?php dynamic_sidebar( 'sidebar-custom-post' ); ?>

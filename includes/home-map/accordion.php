@@ -1,4 +1,5 @@
 <?php global $wt_cozy; ?>
+<h2 class="section-title" data-animation-direction="from-bottom" data-animation-delay="50">More Features</h2>
 <div id="accordion" class="panel-group" data-animation-direction="from-bottom" data-animation-delay="250">
 	<div class="panel">
 		<div class="panel-heading">

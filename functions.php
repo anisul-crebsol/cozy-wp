@@ -58,8 +58,44 @@ add_action( 'after_setup_theme', 'cozy_setup' );
  */
 function cozy_widgets_init() {
     register_sidebar( array(
-        'name'          => __( 'Sidebar Home', 'cozy' ),
-        'id'            => 'sidebar-home',
+        'name'          => __( 'Sidebar | Home Search', 'cozy' ),
+        'id'            => 'sidebar-home-search',
+        'description'   => 'Sidebar for Home Search',
+        'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+        'after_widget'  => '</aside>',
+        'before_title'  => '<h1 class="widget-title">',
+        'after_title'   => '</h1>',
+    ) );
+    register_sidebar( array(
+        'name'          => __( 'Sidebar | Home Slider', 'cozy' ),
+        'id'            => 'sidebar-home-slider',
+        'description'   => 'Sidebar for Home Slider',
+        'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+        'after_widget'  => '</aside>',
+        'before_title'  => '<h1 class="widget-title">',
+        'after_title'   => '</h1>',
+    ) );
+    register_sidebar( array(
+        'name'          => __( 'Sidebar | Home Map ( Top )', 'cozy' ),
+        'id'            => 'sidebar-home-map-top',
+        'description'   => 'Top Sidebar for Home Map',
+        'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+        'after_widget'  => '</aside>',
+        'before_title'  => '<h1 class="widget-title">',
+        'after_title'   => '</h1>',
+    ) );
+    register_sidebar( array(
+        'name'          => __( 'Sidebar | Home Map ( Bottom )', 'cozy' ),
+        'id'            => 'sidebar-home-map-bottom',
+        'description'   => 'Bottom Sidebar for Home Map',
+        'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+        'after_widget'  => '</aside>',
+        'before_title'  => '<h1 class="widget-title">',
+        'after_title'   => '</h1>',
+    ) );
+    register_sidebar( array(
+        'name'          => __( 'Sidebar | Blog', 'cozy' ),
+        'id'            => 'sidebar-blog',
         'description'   => '',
         'before_widget' => '<aside id="%1$s" class="widget %2$s">',
         'after_widget'  => '</aside>',
@@ -67,9 +103,9 @@ function cozy_widgets_init() {
         'after_title'   => '</h1>',
     ) );
     register_sidebar( array(
-        'name'          => __( 'Sidebar Home Grid', 'cozy' ),
-        'id'            => 'sidebar-home-grid',
-        'description'   => '',
+        'name'          => __( 'Sidebar | Property, Agent, Agency..', 'cozy' ),
+        'id'            => 'sidebar-custom-post-type',
+        'description'   => 'Sidebar for All custom post ( Property, Agent, Agency etc. )',
         'before_widget' => '<aside id="%1$s" class="widget %2$s">',
         'after_widget'  => '</aside>',
         'before_title'  => '<h1 class="widget-title">',
@@ -78,21 +114,21 @@ function cozy_widgets_init() {
     register_sidebar( array(
         'name'          => __( 'Footer', 'cozy' ),
         'id'            => 'sidebar-footer',
-        'description'   => '',
+        'description'   => 'Sidebar for footer',
         'before_widget' => '<aside id="%1$s" class="widget %2$s">',
         'after_widget'  => '</aside>',
         'before_title'  => '<h1 class="widget-title">',
         'after_title'   => '</h1>',
     ) );
-      register_sidebar(array(
-           'name' => __('More Information', 'cozy'),
-           'id' => 'sidebar-more-information',
-           'description' => '',
-           'before_widget' => '<aside id="%1$s" class="widget %2$s">',
-           'after_widget' => '</aside>',
-           'before_title' => '<h1 class="widget-title">',
-           'after_title' => '</h1>',
-       ));
+    register_sidebar(array(
+       'name' => __('More Information Tab (Hidden)', 'cozy'),
+       'id' => 'sidebar-more-information',
+       'description' => 'Please add some sidebar widget for tab and use shortcode anywhere in site. Normally this sidebar will be hidden.',
+       'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+       'after_widget' => '</aside>',
+       'before_title' => '<h1 class="widget-title">',
+       'after_title' => '</h1>',
+   ));
   
 }
 add_action( 'widgets_init', 'cozy_widgets_init' );
@@ -124,6 +160,7 @@ require get_template_directory() . '/includes/widgets/links.php';
 require get_template_directory() . '/includes/widgets/listings.php'; 
 require get_template_directory() . '/includes/widgets/more-information.php';
 require get_template_directory() . '/includes/widgets/property-search.php';
+require get_template_directory() . '/includes/widgets/contact-us.php';
 
 // Register WT Cozy widget
 function register_cozy_widget() {
@@ -139,6 +176,7 @@ function register_cozy_widget() {
     register_widget( 'WT_Widget_Listings' );
     register_widget( 'WT_Widget_more_information' );
     register_widget( 'WT_Widget_Property_Search' );
+    register_widget( 'WT_Widget_Contact_Us' );
 
 }
 add_action( 'widgets_init', 'register_cozy_widget' );
@@ -176,7 +214,7 @@ require get_template_directory() . '/inc/custom-post-types.php';
 require get_template_directory() . '/inc/add-plugins.php';
 
 // Custom Metabox
-require get_template_directory() . '/libs/cmb2.php';
+require get_template_directory() . '/libs/custom-meta-boxes.php';
 
 // Register Custom Navigation Walker
 require get_template_directory() . '/libs/google-map/cmb-field-map.php';
@@ -203,7 +241,7 @@ require get_template_directory() . '/inc/shortcode-button.php';
 require get_template_directory() . '/libs/wt-cozy-shortcode.php';
 
 // Cozy Accordion
-//require get_template_directory() . '/libs/cozy-accordion/cozy_accordion.php';
+require get_template_directory() . '/libs/cozy-accordion/cozy_accordion.php';
 
 // Pagination
 require get_template_directory() . '/inc/registration.php';

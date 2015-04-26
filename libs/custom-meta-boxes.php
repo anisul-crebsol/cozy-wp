@@ -88,7 +88,19 @@ function wt_cozy_register_metabox() {
                 'name' => __('Testimonial ',"wt_cozy"),
                 'id' => $prefix . 'test_description',
                 'type' => 'wysiwyg',
-				'options' => array( 'textarea_rows' => 5, )
+			    'options' => array(
+			        'wpautop' => true, // use wpautop?
+			        'media_buttons' => false, // show insert/upload button(s)
+			        'textarea_name' => $editor_id, // set the textarea name to something different, square brackets [] can be used here
+			        'textarea_rows' => get_option('default_post_edit_rows', 5), // rows="..."
+			        'tabindex' => '',
+			        'editor_css' => '', // intended for extra styles for both visual and HTML editors buttons, needs to include the `<style>` tags, can use "scoped".
+			        'editor_class' => '', // add extra class(es) to the editor textarea
+			        'teeny' => false, // output the minimal editor config used in Press This
+			        'dfw' => false, // replace the default fullscreen with DFW (needs specific css)
+			        'tinymce' => true, // load TinyMCE, can be used to pass settings directly to TinyMCE using an array()
+			        'quicktags' => true // load Quicktags, can be used to pass settings directly to Quicktags using an array()
+			    ),
 	) );
 
 
@@ -150,7 +162,20 @@ function wt_cozy_register_metabox() {
 	$wt_cozy->add_field( array(
                 'name' => __('Description',"wt_cozy"),
                 'id' => $prefix . 'agent_description',
-                'type' => 'wysiwyg'
+                'type' => 'wysiwyg',
+			    'options' => array(
+			        'wpautop' => true, // use wpautop?
+			        'media_buttons' => false, // show insert/upload button(s)
+			        'textarea_name' => $editor_id, // set the textarea name to something different, square brackets [] can be used here
+			        'textarea_rows' => get_option('default_post_edit_rows', 10), // rows="..."
+			        'tabindex' => '',
+			        'editor_css' => '', // intended for extra styles for both visual and HTML editors buttons, needs to include the `<style>` tags, can use "scoped".
+			        'editor_class' => '', // add extra class(es) to the editor textarea
+			        'teeny' => false, // output the minimal editor config used in Press This
+			        'dfw' => false, // replace the default fullscreen with DFW (needs specific css)
+			        'tinymce' => true, // load TinyMCE, can be used to pass settings directly to TinyMCE using an array()
+			        'quicktags' => true // load Quicktags, can be used to pass settings directly to Quicktags using an array()
+			    ),
 	) );
 	$wt_cozy->add_field( array(
                 'name' => __('Linkedin Link',"wt_cozy"),
@@ -254,8 +279,18 @@ function wt_cozy_register_metabox() {
                 'name' => __('Content Over Gallery',"wt_cozy"),
                 'id' => $prefix . 'agency_description1',
                 'type' => 'wysiwyg',
-                'options' => array(
-			        'textarea_rows' => get_option('default_post_edit_rows', 5),
+			    'options' => array(
+			        'wpautop' => true, // use wpautop?
+			        'media_buttons' => false, // show insert/upload button(s)
+			        'textarea_name' => $editor_id, // set the textarea name to something different, square brackets [] can be used here
+			        'textarea_rows' => get_option('default_post_edit_rows', 5), // rows="..."
+			        'tabindex' => '',
+			        'editor_css' => '', // intended for extra styles for both visual and HTML editors buttons, needs to include the `<style>` tags, can use "scoped".
+			        'editor_class' => '', // add extra class(es) to the editor textarea
+			        'teeny' => false, // output the minimal editor config used in Press This
+			        'dfw' => false, // replace the default fullscreen with DFW (needs specific css)
+			        'tinymce' => true, // load TinyMCE, can be used to pass settings directly to TinyMCE using an array()
+			        'quicktags' => true // load Quicktags, can be used to pass settings directly to Quicktags using an array()
 			    ),
 	) );
 	$wt_cozy->add_field( array(
@@ -269,8 +304,18 @@ function wt_cozy_register_metabox() {
                 'name' => __('Content Under Gallery',"wt_cozy"),
                 'id' => $prefix . 'agency_description2',
                 'type' => 'wysiwyg',
-                'options' => array(
-			        'textarea_rows' => get_option('default_post_edit_rows', 10),
+			    'options' => array(
+			        'wpautop' => true, // use wpautop?
+			        'media_buttons' => false, // show insert/upload button(s)
+			        'textarea_name' => $editor_id, // set the textarea name to something different, square brackets [] can be used here
+			        'textarea_rows' => get_option('default_post_edit_rows', 10), // rows="..."
+			        'tabindex' => '',
+			        'editor_css' => '', // intended for extra styles for both visual and HTML editors buttons, needs to include the `<style>` tags, can use "scoped".
+			        'editor_class' => '', // add extra class(es) to the editor textarea
+			        'teeny' => false, // output the minimal editor config used in Press This
+			        'dfw' => false, // replace the default fullscreen with DFW (needs specific css)
+			        'tinymce' => true, // load TinyMCE, can be used to pass settings directly to TinyMCE using an array()
+			        'quicktags' => true // load Quicktags, can be used to pass settings directly to Quicktags using an array()
 			    ),
 	) );
 
@@ -305,7 +350,21 @@ function wt_cozy_register_metabox() {
 	$wt_cozy->add_field( array(
                 'name' => __('Description',"wt_cozy"),
                 'id' => $prefix . 'property_description',
-                'type' => 'wysiwyg'
+                'type' => 'wysiwyg',
+			    'options' => array(
+			        'wpautop' => true, // use wpautop?
+			        'media_buttons' => false, // show insert/upload button(s)
+			        'textarea_name' => $editor_id, // set the textarea name to something different, square brackets [] can be used here
+			        'textarea_rows' => get_option('default_post_edit_rows', 10), // rows="..."
+			        'tabindex' => '',
+			        'editor_css' => '', // intended for extra styles for both visual and HTML editors buttons, needs to include the `<style>` tags, can use "scoped".
+			        'editor_class' => '', // add extra class(es) to the editor textarea
+			        'teeny' => false, // output the minimal editor config used in Press This
+			        'dfw' => false, // replace the default fullscreen with DFW (needs specific css)
+			        'tinymce' => true, // load TinyMCE, can be used to pass settings directly to TinyMCE using an array()
+			        'quicktags' => true // load Quicktags, can be used to pass settings directly to Quicktags using an array()
+			    ),
+
 	) );
 	$wt_cozy->add_field( array(
                 'name' => __('Price',"wt_cozy"),
@@ -596,7 +655,20 @@ function wt_cozy_register_metabox() {
     $wt_cozy->add_field(array(
         'name' => __('Content', "wt_cozy"),
         'id' => $prefix . 'faq_content',
-        'type' => 'wysiwyg'
+        'type' => 'wysiwyg',
+	    'options' => array(
+	        'wpautop' => true, // use wpautop?
+	        'media_buttons' => false, // show insert/upload button(s)
+	        'textarea_name' => $editor_id, // set the textarea name to something different, square brackets [] can be used here
+	        'textarea_rows' => get_option('default_post_edit_rows', 10), // rows="..."
+	        'tabindex' => '',
+	        'editor_css' => '', // intended for extra styles for both visual and HTML editors buttons, needs to include the `<style>` tags, can use "scoped".
+	        'editor_class' => '', // add extra class(es) to the editor textarea
+	        'teeny' => false, // output the minimal editor config used in Press This
+	        'dfw' => false, // replace the default fullscreen with DFW (needs specific css)
+	        'tinymce' => true, // load TinyMCE, can be used to pass settings directly to TinyMCE using an array()
+	        'quicktags' => true // load Quicktags, can be used to pass settings directly to Quicktags using an array()
+	    ),
     ));
 
 

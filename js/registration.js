@@ -36,7 +36,6 @@ jQuery(function ($) {
         } 		
         if (!validateEmail(email))
         {
-			alert(validateEmail(email));
             $(".phpmsg").append('<br/> Invalid Email Address.');
             validation_flag = 0;
         }
