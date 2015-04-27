@@ -82,7 +82,7 @@
 				?>
 				</p>
 				<p class="col-md-3 right">
-					<a href="<?php the_permalink(); ?>" class="btn btn-default-color">Read More</a>
+					<a href="<?php the_permalink(); ?>" class="btn btn-default-color"><?php _e( 'Read More', 'cozy' );?></a>
 				</p>
 			</div>
 		</div>

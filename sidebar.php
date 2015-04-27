@@ -34,9 +34,19 @@ elseif ( is_page_template('page-map.php')) { ?>
 	<?php endif; ?>
 <?php }
 
+// Sidebar for all single post and archive pages of custom post types ( Single Property, Agent, Agency, Features, Testimonials, Faq and Price )
+elseif ( is_singular (array( 'property', 'agency', 'agent', 'feature', 'testimonial', 'faq', 'price-table' )) || is_post_type_archive (array('property', 'agency', 'agent', 'feature', 'testimonial', 'faq', 'price-table')) || is_page_template (array('archive-agency.php', 'archive-agent.php', 'archive-property.php', 'properties-list.php', 'properties-grid.php', ) ) ) { ?>
+<div class="sidebar gray col-sm-4">
+	<?php if ( is_active_sidebar( 'sidebar-custom-post' ) ) : ?>
+	<?php dynamic_sidebar( 'sidebar-custom-post' ); ?>
+	<?php endif; ?>
+</div>
+
+<?php }
+
 // Sidebar for Single Post 
-elseif ( is_single() || is_archive() ){ ?>
-<div class="sidebar col-sm-4">
+elseif ( is_page_template (array('blog-listing1.php', 'blog-listing2.php', 'blog-listing3.php', 'blog-listing4.php' ) ) ||is_single() || is_archive() ){ ?>
+<div class="sidebar gray col-sm-4">
 	<?php if ( is_active_sidebar( 'sidebar-blog' ) ) : ?>
 	<?php dynamic_sidebar( 'sidebar-blog' ); ?>
 	<?php endif; ?>
@@ -44,22 +54,4 @@ elseif ( is_single() || is_archive() ){ ?>
 
 <?php }
 
-// Sidebar for Property Archive
-elseif ( is_post_type_archive('property')) { ?>
-<div class="sidebar col-sm-4">
-	<?php if ( is_active_sidebar( 'sidebar-single-property' ) ) : ?>
-	<?php dynamic_sidebar( 'sidebar-single-property' ); ?>
-	<?php endif; ?>
-</div>
-
-<?php } 
-
-// Sidebar for all single post and archive pages of custom post types ( Single Property, Agent, Agency, Features, Testimonials, Faq and Price )
-elseif ( is_singular('agent') || is_singular('agency') || is_singular('property') || is_singular('feature') || is_singular('testimonial') || is_singular('faq') || is_singular('price-table') || is_post_type_archive('agent') || is_post_type_archive('agency')){ ?>
-<div class="sidebar col-sm-4">
-	<?php if ( is_active_sidebar( 'sidebar-custom-post' ) ) : ?>
-	<?php dynamic_sidebar( 'sidebar-custom-post' ); ?>
-	<?php endif; ?>
-</div>
-
-<?php } ?>
+?>

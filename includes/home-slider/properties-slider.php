@@ -61,7 +61,7 @@
 								}
 							?>
 							</p>
-							<a href="<?php the_permalink(); ?>" class="btn btn-default">Read More</a>
+							<a href="<?php the_permalink(); ?>" class="btn btn-default"><?php _e( 'Read More', 'cozy' );?></a>
 						</div>
 					</div>
 					

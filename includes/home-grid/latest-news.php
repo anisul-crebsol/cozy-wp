@@ -26,7 +26,7 @@
 					<div class="item col-sm-4" data-animation-direction="from-bottom" data-animation-delay="650">
 						<div class="image">
 							<a href="<?php the_permalink(); ?>">
-								<span class="btn btn-default"><i class="fa fa-file-o"></i> Read More</span>
+								<span class="btn btn-default"><i class="fa fa-file-o"></i> <?php _e( 'Read More', 'cozy' );?></span>
 							</a>
 							<?php
 							if ( has_post_thumbnail() ) {

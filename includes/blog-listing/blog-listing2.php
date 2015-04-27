@@ -14,7 +14,7 @@
 		<div class="item col-md-6"><!-- Set width to 4 columns for grid view mode only -->
 			<div class="image">
 				<a href="<?php the_permalink(); ?>">
-					<span class="btn btn-default"><i class="fa fa-file-o"></i> Read More</span>
+					<span class="btn btn-default"><i class="fa fa-file-o"></i> <?php _e( 'Read More', 'cozy' );?></span>
 				</a>
 				<?php
 				if ( has_post_thumbnail() ) {

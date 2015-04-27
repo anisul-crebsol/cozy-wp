@@ -99,17 +99,17 @@ function cozy_widgets_init() {
         'description'   => '',
         'before_widget' => '<aside id="%1$s" class="widget %2$s">',
         'after_widget'  => '</aside>',
-        'before_title'  => '<h1 class="widget-title">',
-        'after_title'   => '</h1>',
+        'before_title'  => '<h2 class="section-title">',
+        'after_title'   => '</h2>',
     ) );
     register_sidebar( array(
         'name'          => __( 'Sidebar | Property, Agent, Agency..', 'cozy' ),
-        'id'            => 'sidebar-custom-post-type',
+        'id'            => 'sidebar-custom-post',
         'description'   => 'Sidebar for All custom post ( Property, Agent, Agency etc. )',
         'before_widget' => '<aside id="%1$s" class="widget %2$s">',
         'after_widget'  => '</aside>',
-        'before_title'  => '<h1 class="widget-title">',
-        'after_title'   => '</h1>',
+        'before_title'  => '<h2 class="widget-title">',
+        'after_title'   => '</h2>',
     ) );
     register_sidebar( array(
         'name'          => __( 'Footer', 'cozy' ),
@@ -117,8 +117,8 @@ function cozy_widgets_init() {
         'description'   => 'Sidebar for footer',
         'before_widget' => '<aside id="%1$s" class="widget %2$s">',
         'after_widget'  => '</aside>',
-        'before_title'  => '<h1 class="widget-title">',
-        'after_title'   => '</h1>',
+        'before_title'  => '<h2 class="widget-title">',
+        'after_title'   => '</h2>',
     ) );
     register_sidebar(array(
        'name' => __('More Information Tab (Hidden)', 'cozy'),
@@ -161,6 +161,10 @@ require get_template_directory() . '/includes/widgets/listings.php';
 require get_template_directory() . '/includes/widgets/more-information.php';
 require get_template_directory() . '/includes/widgets/property-search.php';
 require get_template_directory() . '/includes/widgets/contact-us.php';
+require get_template_directory() . '/includes/widgets/latest-news.php';
+require get_template_directory() . '/includes/widgets/categories.php';
+require get_template_directory() . '/includes/widgets/archives.php';
+require get_template_directory() . '/includes/widgets/tags.php';
 
 // Register WT Cozy widget
 function register_cozy_widget() {
@@ -177,6 +181,10 @@ function register_cozy_widget() {
     register_widget( 'WT_Widget_more_information' );
     register_widget( 'WT_Widget_Property_Search' );
     register_widget( 'WT_Widget_Contact_Us' );
+    register_widget( 'WT_Widget_Latest_News' );
+    register_widget( 'WT_Widget_Cozy_Categories' );
+    register_widget( 'WT_Widget_Cozy_Archives' );
+    register_widget( 'WT_Widget_Cozy_Tags' );
 
 }
 add_action( 'widgets_init', 'register_cozy_widget' );

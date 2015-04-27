@@ -153,7 +153,7 @@ if( !class_exists( 'ReduxFramework_extension_edd' ) ) {
         }
         
 
-        $response = wp_remote_get( add_query_arg( $api_params, $_POST['data']['remote_api_url'] ), array( 'timeout' => 15, 'sslverify' => false ) );
+        $response = wp_remote_get( esc_url(add_query_arg( $api_params, $_POST['data']['remote_api_url'] ) ), array( 'timeout' => 15, 'sslverify' => false ) );
 
         if ( is_wp_error( $response ) )
           return false;

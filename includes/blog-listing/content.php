@@ -1,14 +1,12 @@
+<?php
+/**
+ * @package Cozy
+ */
+global $wt_cozy; ?>
+
 <div id="blog-listing" class="grid-style1 clearfix">
 	<div class="row">
-<?php 
-    $limit = 9;
-    $count = 0;
-	$args = array(
-        'post_status'       => 'publish',
-        'posts_per_page'    => $limit,
-    );
-    $blog_query = new WP_Query( $args );?>
-<?php while($blog_query->have_posts()): $blog_query->the_post(); ?>
+<?php while ( have_posts() ) : the_post(); ?>
 
 <?php $clearFix = @( $count%3 == 0 ?  '<div class="clearfix"></div>' : ''); echo $clearFix;  ?>
 
@@ -54,7 +52,5 @@
 			</div>
 		</div>
 <?php $count++; endwhile; ?>
-<?php wp_reset_postdata(); ?>
-
 	</div>
 </div>

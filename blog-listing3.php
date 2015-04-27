@@ -47,27 +47,7 @@ global $wt_cozy; ?>
 					
 					
 					<!-- BEGIN SIDEBAR -->
-					<div class="sidebar gray col-sm-4">
-						
-<?php get_template_part ('/includes/sidebar/categories'); ?>
-						
-						<!-- BEGIN ARCHIVES ACCORDION -->
-
-<?php get_template_part ('/includes/sidebar/archives-accordion'); ?>
-
-						<!-- END  ARCHIVES ACCORDION -->
-						
-						
-						<!-- BEGIN TAGS -->
-<?php get_template_part ('/includes/sidebar/tags'); ?>
-						<!-- BEGIN TAGS -->
-						
-						
-						<!-- BEGIN LATEST NEWS -->
-<?php get_template_part ('/includes/sidebar/latest-news'); ?>
-						<!-- END LATEST NEWS -->
-						
-					</div>
+<?php get_sidebar(); ?>
 					<!-- END SIDEBAR -->
 
 				</div>

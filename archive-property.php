@@ -50,21 +50,7 @@ get_header(); ?>
 					
 					
 					<!-- BEGIN SIDEBAR -->
-					<div class="sidebar gray col-sm-4">
-						
-						<!-- BEGIN ADVANCED SEARCH -->
-<?php get_template_part ('/includes/sidebar/advanced-search'); ?>
-						<!-- END ADVANCED SEARCH -->
-						
-						<!-- BEGIN LATEST NEWS -->
-<?php get_template_part ('/includes/sidebar/latest-news'); ?>
-						<!-- END LATEST NEWS -->
-							
-						<!-- BEGIN NEWSLETTER -->
-<?php get_template_part ('/includes/sidebar/newsletter'); ?>
-						<!-- END NEWSLETTER -->
-						
-					</div>
+<?php get_sidebar(); ?>		
 					<!-- END SIDEBAR -->
 
 				</div>

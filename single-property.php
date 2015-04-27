@@ -135,37 +135,12 @@ get_header(); ?>
 					
 					
 					<!-- BEGIN SIDEBAR -->
-					<div class="sidebar gray col-sm-4">
-						
-						<!-- BEGIN ADVANCED SEARCH -->
-<?php get_template_part ('/includes/single-property/advanced-search'); ?>
-						<!-- END ADVANCED SEARCH -->
-						
-						<!-- BEGIN LATEST NEWS -->
-<?php get_template_part ('/includes/single-property/latest-news'); ?>
-						<!-- END LATEST NEWS -->
-							
-						<!-- BEGIN NEWSLETTER -->
-<?php get_template_part ('/includes/single-property/newsletter'); ?>
-						<!-- END NEWSLETTER -->
-						
-					</div>
+<?php get_sidebar(); ?>								
 					<!-- END SIDEBAR -->
 
 				</div>
 			</div>
 		</div>
 		<!-- END CONTENT WRAPPER -->
-
-
-	<script type="text/javascript">
-		(function($){
-			"use strict";
-			
-			$(document).ready(function(){
-				//Create property map centered on the marker of the property with id=0.
-				Cozy.propertiesMap(property, 'property_location', 0);
-			});
-		})(jQuery);
-	</script>		
+	
 <?php get_footer(); ?>

@@ -20,7 +20,7 @@
 		<i class="fa <?php echo $feature_icon_text; ?>"></i>
 		<h3><?php the_title() ?></h3>
 		<p><?php echo $feature_description; ?></p>
-		<a href="<?php the_permalink(); ?>" class="btn btn-default-color">Read More</a>
+		<a href="<?php the_permalink(); ?>" class="btn btn-default-color"><?php _e( 'Read More', 'cozy' );?></a>
 	</div>
     <?php endwhile; ?>
     <?php wp_reset_postdata(); ?>
@@ -71,7 +71,7 @@
 		<div class="item col-sm-12" data-animation-direction="from-bottom" data-animation-delay="250">
 			<div class="image">
 				<a href="<?php the_permalink(); ?>">
-					<span class="btn btn-default"><i class="fa fa-file-o"></i> Read More</span>
+					<span class="btn btn-default"><i class="fa fa-file-o"></i> <?php _e( 'Read More', 'cozy' );?></span>
 				</a>
 				<?php
 				if ( has_post_thumbnail() ) {

@@ -11,7 +11,7 @@
 <?php while($blog_query->have_posts()): $blog_query->the_post(); ?>
 	<div class="item">
 		<div class="image">
-			<a href="<?php the_permalink(); ?>"><span class="btn btn-default"><i class="fa fa-file-o"></i> Read More</span></a>
+			<a href="<?php the_permalink(); ?>"><span class="btn btn-default"><i class="fa fa-file-o"></i> <?php _e( 'Read More', 'cozy' );?></span></a>
 			<?php
 			if ( has_post_thumbnail() ) {
 				the_post_thumbnail('thumbnail', array('class' => 'img-responsive'));

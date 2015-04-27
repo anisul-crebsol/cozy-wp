@@ -32,25 +32,7 @@ get_header(); ?>
 					
 					
 					<!-- BEGIN SIDEBAR -->
-					<div class="sidebar gray col-sm-4">
-						
-<?php get_template_part ('/includes/single/categories'); ?>
-						
-						<!-- BEGIN ARCHIVES ACCORDION -->
-<?php get_template_part ('/includes/single/archives'); ?>
-						<!-- END  ARCHIVES ACCORDION -->
-						
-						
-						<!-- BEGIN TAGS -->
-<?php get_template_part ('/includes/single/tags'); ?>
-						<!-- BEGIN TAGS -->
-						
-						
-						<!-- BEGIN LATEST NEWS -->
-<?php get_template_part ('/includes/single/latest-news'); ?>
-						<!-- END LATEST NEWS -->
-						
-					</div>
+<?php get_sidebar(); ?>
 					<!-- END SIDEBAR -->
 
 				</div>
