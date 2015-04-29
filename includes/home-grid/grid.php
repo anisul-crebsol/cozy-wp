@@ -1,14 +1,14 @@
 <?php global $wt_cozy; ?>
+<?php if ($wt_cozy['section_grid_display']) : ?>
 <div id="home-grid">
 	<div id="freewall" class="free-wall">
 
-	<?php if ($wt_cozy['section_feature_display']) : ?>
     <?php 
         $limit = $wt_cozy['section_grid_number'];
     	$args = array(
             'post_type'         => 'property',
             'post_status'       => 'publish',
-            'posts_per_page'    => 15,
+            'posts_per_page'    => $limit,
         );
         $listing_query = new WP_Query( $args );?>
     <?php while($listing_query->have_posts()): $listing_query->the_post(); 
@@ -50,7 +50,7 @@
 
     <?php endwhile; ?>
     <?php wp_reset_postdata(); ?>
-	<?php endif; ?>
 
 	</div>
 </div>
+<?php endif; ?>

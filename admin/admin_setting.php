@@ -220,6 +220,7 @@
                 );
 
 
+
                 // Contact Section
 
                 $this->sections[] = array(
@@ -265,6 +266,8 @@
                     ),
                 );
 
+
+
             //Search Section
                 
 
@@ -288,6 +291,7 @@
                         ),                                     
                     ),
                 );
+
 
 
             //Action (Buy Now) Section
@@ -370,6 +374,7 @@
                 );
 
 
+
                 // Property Gallery Section
 
                 $this->sections[] = array(
@@ -378,11 +383,33 @@
                     'icon'   => 'el-icon-cogs',
                     // 'submenu' => false, // Setting submenu to false on a given section will hide it from the WordPress sidebar menu!
                     'fields' => array(
+
+                        array(
+                            'id' => 'section_gallery_display',
+                            'type' => 'switch',
+                            'title' => __('Display Gallery Section', 'redux-framework-demo'),
+                            'default' => true,
+                        ),
+
                         array(
                             'id' => "section_gallery_title",
                             'type' => 'text',
                             'title' => __('Section Title', 'redux-framework-demo'),
                             'default' => "Property Gallery",
+                        ),
+
+                        array(
+                            'id' => "section_featured_properties_title",
+                            'type' => 'text',
+                            'title' => __('Featured Properties Section Title', 'redux-framework-demo'),
+                            'default' => "Featured Properties",
+                        ),
+
+                        array(
+                            'id' => "section_recent_properties_title",
+                            'type' => 'text',
+                            'title' => __('Recent Properties Section Title', 'redux-framework-demo'),
+                            'default' => "Recent Properties",
                         ),
 
                         array(
@@ -396,6 +423,18 @@
                             'type' => 'text',
                             'title' => __('How many gallery image to display?', 'redux-framework-demo'),
                             'default' => "4",
+                        ), 
+                        array(
+                            'id' => 'section_featured_properties_number',
+                            'type' => 'text',
+                            'title' => __('How many featured Properties to display?', 'redux-framework-demo'),
+                            'default' => "3",
+                        ), 
+                        array(
+                            'id' => 'section_recent_properties_number',
+                            'type' => 'text',
+                            'title' => __('How many Recent Property to display?', 'redux-framework-demo'),
+                            'default' => "6",
                         ), 
                     ),
                 );
@@ -538,6 +577,48 @@
                     ),
                 );
 
+                // Our Agents Section
+
+                $this->sections[] = array(
+                    'title'  => __( 'Our Agents', 'redux-framework-demo' ),
+                    'desc'   => __( '', 'redux-framework-demo' ),
+                    'icon'   => 'el-icon-cogs',
+                    // 'submenu' => false, // Setting submenu to false on a given section will hide it from the WordPress sidebar menu!
+                    'fields' => array(
+
+                        array(
+                            'id' => "section_agents_title",
+                            'type' => 'text',
+                            'title' => __('Section Title', 'redux-framework-demo'),
+                            'default' => "Our Agents",
+                        ),
+                    ),
+                );
+
+
+                // Grid Section
+
+                $this->sections[] = array(
+                    'title'  => __( 'Grid Section', 'redux-framework-demo' ),
+                    'desc'   => __( '', 'redux-framework-demo' ),
+                    'icon'   => 'el-icon-cogs',
+                    // 'submenu' => false, // Setting submenu to false on a given section will hide it from the WordPress sidebar menu!
+                    'fields' => array(
+
+                        array(
+                            'id' => 'section_grid_display',
+                            'type' => 'switch',
+                            'title' => __('Display Grid Section', 'redux-framework-demo'),
+                            'default' => true,
+                        ),
+                        array(
+                            'id' => 'section_grid_number',
+                            'type' => 'text',
+                            'title' => __('How many posts to display in grid section?', 'redux-framework-demo'),
+                            'default' => "15",
+                        ), 
+                    ),
+                );
 
             //Newsletter
                 

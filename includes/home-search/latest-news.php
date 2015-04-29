@@ -1,16 +1,16 @@
 <?php global $wt_cozy; ?>
-<?php if ($wt_cozy['section_news_display']) : ?>
-<h1 class="section-title" data-animation-direction="from-bottom" data-animation-delay="50"><?php echo $wt_cozy['section_news_title']?></h1>
-<div class="grid-style1">
-<?php 
-    $limit = $wt_cozy['section_news_number'];
-	$args = array(
-        'post_status'       => 'publish',
-        'posts_per_page'    => $limit,
-    );
-    $blog_query = new WP_Query( $args );?>
-<?php while($blog_query->have_posts()): $blog_query->the_post(); ?>
-	<div class="item col-md-4" data-animation-direction="from-bottom" data-animation-delay="250">
+<?php if ($wt_cozy['section_news_display']) : ?>						
+<h1 class="section-title" data-animation-direction="from-bottom" data-animation-delay="50"><?php echo $wt_cozy['section_news_title']?></h1>					
+<div class="latest-news list-style clearfix">
+    <?php 
+        $limit = $wt_cozy['section_news_number'];
+    	$args = array(
+            'post_status'       => 'publish',
+            'posts_per_page'    => $limit,
+        );
+        $blog_query = new WP_Query( $args );?>
+    <?php while($blog_query->have_posts()): $blog_query->the_post(); ?>
+	<div class="item col-sm-12" data-animation-direction="from-bottom" data-animation-delay="250">
 		<div class="image">
 			<a href="<?php the_permalink(); ?>">
 				<span class="btn btn-default"><i class="fa fa-file-o"></i> <?php _e( 'Read More', 'cozy' );?></span>
@@ -20,7 +20,7 @@
 				the_post_thumbnail('thumbnail', array('class' => 'img-responsive'));
 			}
 			else {
-				echo '<img src="http://placehold.it/760x670" />';
+				echo '<img src="http://placehold.it/766x515" />';
 			}
 			?>
 		</div>
@@ -51,10 +51,7 @@
 			<?php the_excerpt(); ?>
 		</div>
 	</div>
-<?php endwhile; ?>
-<?php wp_reset_postdata(); ?>
+	<?php endwhile; ?>
+    <?php wp_reset_postdata(); ?>
 </div>
-
-<div class="center"><a href="<?php echo esc_url( home_url( '/blog/' ) ); ?>" class="btn btn-default-color" data-animation-direction="from-bottom" data-animation-delay="850"><?php _e( 'View All News', 'cozy' );?></a></div>
-
 <?php endif; ?>

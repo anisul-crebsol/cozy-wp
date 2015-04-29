@@ -1,14 +1,15 @@
 <?php global $wt_cozy; ?>
+<?php if ($wt_cozy['section_properties_display']) : ?>
 <div class="parallax pattern-bg" data-stellar-background-ratio="0.5">
 	<div class="container">
 		<div class="row">
 			<div class="col-sm-12">
-				<h1 class="section-title" data-animation-direction="from-bottom" data-animation-delay="50">Featured Properties</h1>
+				<h1 class="section-title" data-animation-direction="from-bottom" data-animation-delay="50"><?php echo $wt_cozy['section_featured_properties_title']?></h1>
 				
 				<div id="featured-properties-slider" class="owl-carousel fullwidthsingle" data-animation-direction="from-bottom" data-animation-delay="250">
 					<?php
 					$delay = 250;
-					$display_posts = 3;
+					$display_posts = $wt_cozy['section_featured_properties_number'];
 					$property_args = array(
 						'post_type' => 'property',
 						'tax_query'	=> array(
@@ -73,3 +74,4 @@
 		</div>
 	</div>
 </div>
+<?php endif; ?>

@@ -55,7 +55,7 @@ class WT_Widget_Agents extends WP_Widget {
                 <a href="<?php the_permalink(); ?>"><img src="<?php echo $text = get_post_meta( get_the_ID(), '_wt_agent_img', true ); ?>" alt="" /></a>
                 <div class="info">
 
-                    <?php if ( is_page_template('page-search.php')) {
+                    <?php if ( is_page_template('page-home-search.php')) {
                          the_title( sprintf( '<h3><a href="%s">', esc_url( get_permalink() ) ), '</a></h3>' );
                     } 
                     else {

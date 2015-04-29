@@ -1,4 +1,5 @@
 <?php global $wt_cozy; ?>
+<?php if ($wt_cozy['section_gallery_display']) : ?>
 <div class="parallax colored-bg" id="home-grid-latest-properties" data-stellar-background-ratio="0.5">
 	<div class="container">
 		<div class="row">
@@ -86,3 +87,4 @@
 		</div>
 	</div>
 </div>
+<?php endif; ?>

@@ -1,6 +1,6 @@
 <?php global $wt_cozy; ?>
 <div id="testimonials" class="col-sm-4">
-	<h2 class="section-title" data-animation-direction="from-right" data-animation-delay="50">Testimonials</h2>
+	<h2 class="section-title" data-animation-direction="from-right" data-animation-delay="50"><?php echo $wt_cozy['section_testimonial_title']?></h2>
 	<div id="testimonials-slider" class="owl-carousel testimonials">
 
     <?php 

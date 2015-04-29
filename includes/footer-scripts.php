@@ -1,4 +1,4 @@
-<?php if ( is_page_template('page-map.php')) { ?>
+<?php if ( is_page_template('page-home-map.php')) { ?>
 	<script type="text/javascript">
 		(function($){
 			"use strict";
@@ -11,7 +11,7 @@
 	</script>
 <?php
     }
- 	elseif ( is_page_template('page-grid.php')) { ?>
+ 	elseif ( is_page_template('page-home-grid.php')) { ?>
 	<script type="text/javascript">
 		(function($){
 			"use strict";
@@ -24,7 +24,7 @@
 	</script>
 <?php
     }
-	elseif ( is_page_template('page-search.php') || is_page_template('page-slider.php')) { ?>
+	elseif ( is_page_template('page-home-search.php') || is_page_template('page-home-slider.php')) { ?>
 	<script type="text/javascript">
 		(function($){
 			"use strict";

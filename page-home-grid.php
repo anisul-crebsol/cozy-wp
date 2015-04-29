@@ -21,7 +21,7 @@ get_header(); ?>
 		<!-- END HOME GRID -->
 		
 		<!-- BEGIN HOME ADVANCED SEARCH (class="gray" for a gray background) -->
-<?php get_template_part ('/includes/home-grid/advanced-search'); ?>
+<?php get_template_part ('/includes/advanced-search'); ?>
 		<!-- END HOME ADVANCED SEARCH -->
 		
 		<!-- BEGIN HOME HERO UNIT -->

@@ -1,7 +1,7 @@
 <?php global $wt_cozy; ?>
 <div id="property-gallery2" class="property-gallery2">
 	<div class="item">
-		<h1 class="section-title" data-animation-direction="from-left" data-animation-delay="50">Cozy Gallery</h1>
+		<h1 class="section-title" data-animation-direction="from-left" data-animation-delay="50"><?php echo $wt_cozy['section_gallery_title']?></h1>
 		<p class="section-text" data-animation-direction="from-left" data-animation-delay="250"><?php echo $wt_cozy['cozy_gallery_description']?></p>
 	</div>
 	<?php

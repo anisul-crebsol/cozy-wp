@@ -1,4 +1,5 @@
 <?php global $wt_cozy; ?>
+<h1 class="section-title" data-animation-direction="from-bottom" data-animation-delay="50">Latest Properties</h1>
 <div id="latest-properties-slider" class="owl-carousel fullwidthsingle2" data-animation-direction="from-bottom" data-animation-delay="250">
 	<?php
 	$display_posts = 3;

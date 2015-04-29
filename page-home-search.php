@@ -18,7 +18,7 @@ get_header(); ?>
 		
 		
 		<!-- BEGIN HOME SEARCH SECTION -->
-<?php get_template_part ('/includes/home-search/advanced-search'); ?>
+<?php get_template_part ('/includes/home-search/home-search'); ?>
 		<!-- END HOME SEARCH SECTION -->
 		
 		<!-- BEGIN ACTION BOX -->
@@ -35,7 +35,21 @@ get_header(); ?>
 				<div class="row">
 				
 					<!-- BEGIN MAIN CONTENT -->
-<?php get_template_part ('/includes/home-search/main-content'); ?>
+					<div class="main col-sm-8">
+
+		<!-- BEGIN FEATURES -->
+<?php get_template_part ('/includes/home-search/features'); ?>
+		<!-- BEGIN FEATURES -->
+
+		<!-- BEGIN PROPERTY GALLERY -->
+<?php get_template_part ('/includes/home-search/property-gallery'); ?>
+		<!-- BEGIN PROPERTY GALLERY -->
+
+		<!-- BEGIN LATEST NEWS -->
+<?php get_template_part ('/includes/home-search/latest-news'); ?>
+		<!-- END LATEST NEWS -->
+
+					</div>
 					<!-- END MAIN CONTENT -->
 
 					<!-- BEGIN SIDEBAR -->					

@@ -38,7 +38,7 @@
 							
 							<!-- BEGIN SEARCH -->
 							<div id="sb-search" class="sb-search">
-								<form method="get" action="<?php echo home_url('/'); ?>">
+								<form method="get" action="<?php echo esc_url( home_url( '/' ) ); ?>">
 									<input class="sb-search-input" placeholder="Search..." type="text" value="" name="s" id="search">
 									<input class="sb-search-submit" type="submit" value="">
 									<i class="fa fa-search sb-icon-search"></i>

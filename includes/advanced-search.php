@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-12">
-                <form method="get" action="<?php echo home_url('/'); ?>">
+                <form method="get" action="<?php echo esc_url( home_url( '/' ) ); ?>">
                     <div class="form-group">
                         <div class="form-control-large">
                             <input type="hidden" value="" id="s" name="s">  
@@ -27,8 +27,8 @@
                         <div class="form-control-small">
                             <select id="search_status" name="search_status" data-placeholder="Status">
                                 <option value=""> </option>
-                                <option value="for-sale">For Sale</option>
-                                <option value="for-rent">For Rent</option>
+                                <option value="for-sale"><?php _e( 'For Sale', 'cozy' );?>a</option>
+                                <option value="for-rent"><?php _e( 'For Rent', 'cozy' );?></option>
                             </select>
                         </div>
 
@@ -92,7 +92,7 @@
                         </div>
                         <input type="hidden" value="advancedSearch" id="advancedSearch" name="advancedSearch">  
 
-                        <button type="submit" class="btn btn-fullcolor">Search</button>
+                        <button type="submit" class="btn btn-fullcolor"><?php _e( 'Search', 'cozy' );?></button>
                     </div>
                 </form>
 

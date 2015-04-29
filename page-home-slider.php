@@ -22,7 +22,7 @@ get_header(); ?>
 		<!-- END HOME SLIDER SECTION -->
 		
 		<!-- BEGIN HOME ADVANCED SEARCH -->
-<?php get_template_part ('/includes/home-slider/search'); ?>
+<?php get_template_part ('/includes/advanced-search'); ?>
 		<!-- END HOME ADVANCED SEARCH -->
 		
 		<!-- BEGIN PROPERTIES SLIDER WRAPPER-->

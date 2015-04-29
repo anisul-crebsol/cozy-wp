@@ -22,7 +22,7 @@ function wt_cozy_register_metabox() {
         'id'           => $prefix . 'extra_information',
         'title'        => __( 'Extra Information', 'cmb2' ),
         'object_types' => array( 'page' ), // post type
-        //'show_on'      => array( 'key' => 'page-template', 'value' => 'page-grid.php' ),
+        //'show_on'      => array( 'key' => 'page-template', 'value' => 'page-home-grid.php' ),
         'context'      => 'normal', //  'normal', 'advanced', or 'side'
         'priority'     => 'high',  //  'high', 'core', 'default' or 'low'
         'show_names'   => true, // Show field names on the left

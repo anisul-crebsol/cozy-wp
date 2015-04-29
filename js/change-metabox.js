@@ -5,7 +5,7 @@ jQuery(document).ready(function($) {
 
 	function show_boxes(){
 		
-		if ( $('select#page_template :selected').val() == 'page-grid.php' ) {
+		if ( $('select#page_template :selected').val() == 'page-home-grid.php' ) {
 			$('#_wt_extra_information').show();
 		}
 		else {

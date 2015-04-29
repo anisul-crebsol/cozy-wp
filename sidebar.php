@@ -1,7 +1,7 @@
 <?php global $wt_cozy; ?>
 
 <!-- Sidebar Home Search -->
-<?php if ( is_page_template('page-search.php')) { ?>
+<?php if ( is_page_template('page-home-search.php')) { ?>
 <div class="sidebar colored col-sm-4">
 	<?php if ( is_active_sidebar( 'sidebar-home-search' ) ) : ?>
 	<?php dynamic_sidebar( 'sidebar-home-search' ); ?>
@@ -10,7 +10,7 @@
 <?php }
 
 // Sidebar Home Grid
-elseif ( is_page_template('page-grid.php')) { ?>
+elseif ( is_page_template('page-home-grid.php')) { ?>
 <div class="sidebar col-sm-4">
 	<?php if ( is_active_sidebar( 'sidebar-home-grid' ) ) : ?>
 	<?php dynamic_sidebar( 'sidebar-home-grid' ); ?>
@@ -19,7 +19,7 @@ elseif ( is_page_template('page-grid.php')) { ?>
 <?php }
 
 // Sidebar Home Slider
-elseif ( is_page_template('page-slider.php')) { ?>
+elseif ( is_page_template('page-home-slider.php')) { ?>
 <div class="sidebar col-sm-4">
 	<?php if ( is_active_sidebar( 'sidebar-home-slider' ) ) : ?>
 	<?php dynamic_sidebar( 'sidebar-home-slider' ); ?>
@@ -28,7 +28,7 @@ elseif ( is_page_template('page-slider.php')) { ?>
 <?php }
 
 // Sidebar Home Map
-elseif ( is_page_template('page-map.php')) { ?>
+elseif ( is_page_template('page-home-map.php')) { ?>
 	<?php if ( is_active_sidebar( 'sidebar-home-map-top' ) ) : ?>
 	<?php dynamic_sidebar( 'sidebar-home-map-top' ); ?>
 	<?php endif; ?>

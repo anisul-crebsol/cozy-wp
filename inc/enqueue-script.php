@@ -19,7 +19,7 @@ function cozy_scripts() {
     wp_enqueue_script( 'cozy-common', get_template_directory_uri() . '/js/common.js', array(), '', true );
 
 
-    if ( is_page_template('page-search.php') || is_page_template('page-map.php')) {
+    if ( is_page_template('page-home-search.php') || is_page_template('page-home-map.php')) {
     wp_enqueue_script( 'cozy-prettyphoto', get_template_directory_uri() . '/js/jquery.prettyPhoto.js', array(), '', true );
     }
 
@@ -30,11 +30,11 @@ function cozy_scripts() {
     wp_enqueue_script( 'cozy-wow', 'http://maps.google.com/maps/api/js?sensor=false', array(), '', true );
 
 
-    if ( is_page_template('page-grid.php') || is_page_template('page-slider.php') || is_page_template('page-search.php')) {
+    if ( is_page_template('page-home-grid.php') || is_page_template('page-home-slider.php') || is_page_template('page-home-search.php')) {
     wp_enqueue_script( 'cozy-infobox', get_template_directory_uri() . '/js/infobox.min.js', array(), '', true );
     }
 
-    if ( is_page_template('page-search.php') || is_page_template('page-slider.php') || is_page_template('page-search.php') || is_page_template('archive-agency.php')){
+    if ( is_page_template('page-home-search.php') || is_page_template('page-home-slider.php') || is_page_template('page-home-search.php') || is_page_template('archive-agency.php')){
     //wp_enqueue_script( 'cozy-agencies', get_template_directory_uri() . '/js/agencies.js', array(), '', true );
     }
 
@@ -47,18 +47,18 @@ function cozy_scripts() {
     }
 
 
-    if ( is_page_template('page-grid.php')) {
+    if ( is_page_template('page-home-grid.php')) {
     wp_enqueue_script( 'cozy-freewall', get_template_directory_uri() . '/js/freewall.js', array(), '', true );
     }
 
 
-    if ( is_page_template('page-slider.php')) {
+    if ( is_page_template('page-home-slider.php')) {
     //wp_enqueue_script( 'cozy-themepunch-tools', get_template_directory_uri() . '/rs-plugin/js/jquery.themepunch.tools.min.js', array(), '', true);
     //wp_enqueue_script( 'cozy-revolution', get_template_directory_uri() . '/rs-plugin/js/jquery.themepunch.revolution.min.js', array(), '', true);
     }
 
 
-    if ( is_page_template('page-map.php')) {
+    if ( is_page_template('page-home-map.php')) {
     wp_enqueue_script( 'cozy-markerclusterer', get_template_directory_uri() . '/js/markerclusterer.min.js', array(), '', true );
 
     wp_enqueue_script( 'cozy-countup', get_template_directory_uri() . '/js/countUp.min.js', array(), '', true );

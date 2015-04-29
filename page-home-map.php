@@ -32,7 +32,6 @@ get_header(); ?>
 				
 					<!-- BEGIN MAIN CONTENT 1 -->
 					<div class="main col-sm-8">
-						<h1 class="section-title" data-animation-direction="from-bottom" data-animation-delay="50">Latest Properties</h1>
 						
 						<!-- BEGIN LATEST PROPERTIES SLIDER -->
 <?php get_template_part ('/includes/home-map/latest-properties'); ?>
@@ -52,7 +51,6 @@ get_header(); ?>
 <?php //get_template_part ('/includes/home-map/accordion'); ?>
 						<!-- END ACCORDION -->
 						
-						<h2 class="section-title" data-animation-direction="from-bottom" data-animation-delay="50">More Features</h2>
 						<!-- BEGIN TABS -->
 <?php get_template_part ('/includes/home-map/tabs'); ?>
 						<!-- END TABS -->

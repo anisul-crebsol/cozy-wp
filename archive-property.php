@@ -35,7 +35,7 @@ get_header(); ?>
 						<!-- BEGIN PROPERTY LISTING -->
 						<div id="property-listing" class="list-style clearfix">
 							<div class="row">
-<?php get_template_part ('/includes/properties/property-listing'); ?>	
+<?php get_template_part ('/includes/properties/property-listing'); ?>
 							</div>
 						</div>
 						<!-- END PROPERTY LISTING -->

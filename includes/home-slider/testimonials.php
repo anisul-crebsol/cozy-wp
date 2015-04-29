@@ -1,9 +1,10 @@
 <?php global $wt_cozy; ?>
+<?php if ($wt_cozy['section_testimonial_display']) : ?>
 <div class="parallax dark-bg" style="background-image:url(http://placehold.it/1920x800);" data-stellar-background-ratio="0.5">
 	<div class="container">
 		<div class="row">
 			<div class="col-sm-12" data-animation-direction="from-top" data-animation-delay="50">
-				<h2 class="section-title">Testimonials</h2>
+				<h2 class="section-title"><?php echo $wt_cozy['section_testimonial_title']?></h2>
 				
 				<div id="testimonials-slider" class="owl-carousel testimonials">
 
@@ -41,3 +42,4 @@
 		</div>
 	</div>
 </div>
+<?php endif; ?>

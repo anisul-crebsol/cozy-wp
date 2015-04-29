@@ -1,4 +1,5 @@
 <?php global $wt_cozy; ?>
+<?php if ($wt_cozy['section_news_display']) : ?>
 <div class="gray-bg">
 	<div class="container">
 		<div class="row">
@@ -8,7 +9,7 @@
 				<p class="center" data-animation-direction="from-left" data-animation-delay="250">
 					<?php echo $wt_cozy['section_news_description']?>
 					<br><br>
-					<a href="<?php echo get_home_url(); ?>/blog/" class="btn btn-default-color" data-animation-direction="from-left" data-animation-delay="450">View All</a>
+					<a href="<?php echo get_home_url(); ?>/blog/" class="btn btn-default-color" data-animation-direction="from-left" data-animation-delay="450"><?php _e( 'View All', 'cozy' );?></a>
 					<br><br>
 				</p>
 			</div>
@@ -71,3 +72,4 @@
 		</div>
 	</div>
 </div>
+<?php endif; ?>

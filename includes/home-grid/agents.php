@@ -1,6 +1,6 @@
 <?php global $wt_cozy; ?>
 <div id="agents" class="col-sm-8">
-	<h1 class="section-title" data-animation-direction="from-left" data-animation-delay="50">Our Agents</h1>
+	<h1 class="section-title" data-animation-direction="from-left" data-animation-delay="50"><?php echo $wt_cozy['section_agents_title']?></h1>
 	
 	<ul class="agency-detail-agents clearfix">
     <?php 
@@ -24,7 +24,7 @@
 				<?php the_title( sprintf( '<a href="%s"><h3>', esc_url( get_permalink() ) ), '</h3></a>' ); ?>
 				<span class="location"><?php echo $agent_address; ?></span>
 				<p><?php echo $agent_description; ?></p>
-				<a href="<?php the_permalink(); ?>">Learn More &raquo;</a>
+				<a href="<?php the_permalink(); ?>"><?php _e( 'Learn More &raquo;', 'cozy' );?></a>
 			</div>
 		</li>
     <?php endwhile; ?>
@@ -32,7 +32,7 @@
 	</ul>
 
 	<div class="col-lg-12 center">
-		<a href="#" class="btn btn-default-color">See all Agents</a>
+		<a href="#" class="btn btn-default-color"><?php _e( 'See all Agents', 'cozy' );?></a>
 	</div>
 	<br>
 </div>

@@ -1,4 +1,5 @@
 <?php global $wt_cozy; ?>
+<h2 class="section-title" data-animation-direction="from-bottom" data-animation-delay="50">More Features</h2>
 <ul class="nav nav-tabs" data-animation-direction="from-bottom" data-animation-delay="250">
 	<li class="active"><a href="#tab1" data-toggle="tab">Tab 1</a></li>
 	<li><a href="#tab2" data-toggle="tab">Tab 2</a></li>
