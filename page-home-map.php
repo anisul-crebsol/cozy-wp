@@ -64,7 +64,7 @@ get_header(); ?>
 		
 		
 		<!-- BEGIN PROPERTIES SLIDER WRAPPER-->
-<?php get_template_part ('/includes/home-map/properties-slider'); ?>
+<?php get_template_part ('/includes/home-map/why-choose'); ?>
 		<!-- END PROPERTIES SLIDER WRAPPER -->
 		
 						

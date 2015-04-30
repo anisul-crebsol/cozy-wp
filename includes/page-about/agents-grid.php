@@ -1,6 +1,7 @@
 <h1 class="section-title" data-animation-direction="from-bottom" data-animation-delay="50">Our Agents</h1>
 <ul class="agents-grid">
 <?php
+$count = 0;
 $display_posts = 4;
 $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 $property_args = array(
@@ -15,6 +16,7 @@ if (have_posts()) : while (have_posts()) : the_post();
 	$agent_description = get_post_meta( $post->ID, '_wt_agent_description', true );
 	$agent_email = get_post_meta( $post->ID, '_wt_agent_email', true );
 	$agent_image = get_post_meta( $post->ID, '_wt_agent_img', true );
+	$agent_address = get_post_meta( $post->ID, '_wt_agent_address', true );
 	$agent_linkedin_link = get_post_meta( $post->ID, '_wt_agent_linkedin_link', true );
 	$agent_facebook_link = get_post_meta( $post->ID, '_wt_agent_facebook_link', true );
 	$agent_twitter_link = get_post_meta( $post->ID, '_wt_agent_twitter_link', true );

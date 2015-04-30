@@ -1,20 +1,31 @@
 <?php global $wt_cozy; ?>
-<h1 class="section-title" data-animation-direction="from-bottom" data-animation-delay="50">What are you looking for?</h1>
-<p class="center" data-animation-direction="from-bottom" data-animation-delay="150">Curabitur dignissim tortor ut scelerisque consectetur. Praesent pulvinar placerat lorem, et ultricies urna ultrices vel. Praesent eu libero a sapien adipiscing interdum feugiat id lectus.</p>
+<?php if ($wt_cozy['section_news_display']) : ?>
+<h1 class="section-title" data-animation-direction="from-bottom" data-animation-delay="50"><?php echo $wt_cozy['section_looking_for_title']?></h1>
+<p class="center" data-animation-direction="from-bottom" data-animation-delay="150"><?php echo $wt_cozy['section_looking_for_description']?></p>
 <ul class="property-large-buttons clearfix">
+<?php  
+$terms = get_terms( 'wt-property-types' );
+ if ( ! empty( $terms ) && ! is_wp_error( $terms ) ){
+     $count = 0;
+     $limit = 3;
+     foreach ( $terms as $term ) { 
+     	if($count<$limit):
+$icon = get_option("category_$term->term_id");
+     	?>
 	<li id="residential" data-animation-direction="from-bottom" data-animation-delay="250">
-		<i class="fa fa-home"></i><br>
-		<h4>Residential</h4>
-		<a href="properties-grid.html" class="btn btn-default">View All</a>
-	</li>
-	<li id="commercial" data-animation-direction="from-bottom" data-animation-delay="450">
-		<i class="fa fa-tags"></i><br>
-		<h4>Commercial</h4>
-		<a href="properties-grid.html" class="btn btn-default">View All</a>
-	</li>
-	<li id="land" data-animation-direction="from-bottom" data-animation-delay="650">
-		<i class="fa fa-leaf"></i><br>
-		<h4>Land</h4>
-		<a href="properties-grid.html" class="btn btn-default">View All</a>
-	</li>
+		<i class="fa <?php echo $icon['img']; ?>"></i><br>
+		<h4><?php echo $term->name; ?></h4>
+		<a href="<?php echo esc_url( home_url( '/wt-property-types/'.$term->slug ) ); ?>" class="btn btn-default"><?php _e( 'View All', 'cozy' );?></a>
+	</li> 
+
+	<?php
+	$count++;
+	endif;
+     }
+ }
+?>
 </ul>
+<p>
+</p>
+<?php $icon = get_option('category_61') ;?>
+<?php endif; ?>

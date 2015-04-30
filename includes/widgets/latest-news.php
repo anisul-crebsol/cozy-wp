@@ -43,7 +43,6 @@ class WT_Widget_Latest_News extends WP_Widget {
         if ( ! empty( $title ) ) {
             echo '<h2 class="section-title" data-animation-direction="from-bottom" data-animation-delay="50">' . $title . '</h2>';
         } 
-           echo '<p class="center" data-animation-direction="from-bottom" data-animation-delay="200">'; echo !empty( $instance['filter'] ) ? wpautop( $text ) : $text; echo '</p>';
         
         echo '</div>';
 
@@ -117,7 +116,6 @@ class WT_Widget_Latest_News extends WP_Widget {
     public function form( $instance ) {
         $instance = wp_parse_args( (array) $instance, array( 'title' => '', 'text' => '' ) );
         $title = strip_tags($instance['title']);
-        $text = esc_textarea($instance['text']);
 ?>
         <p><label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Title:'); ?></label>
         <input class="widefat" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" type="text" value="<?php echo esc_attr($title); ?>" /></p>

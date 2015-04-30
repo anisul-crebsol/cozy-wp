@@ -1,6 +1,6 @@
 <?php global $wt_cozy; ?>
 <?php if ($wt_cozy['section_feature_display']) : ?>
-<h1 class="section-title" data-animation-direction="from-bottom" data-animation-delay="<?php echo $delay; ?>"><?php echo $wt_cozy['section_feature_title']?></h1>
+<h1 class="section-title animate-from-bottom animation-from-bottom" data-animation-direction="from-bottom" data-animation-delay="50"><?php echo $wt_cozy['section_feature_title']?></h1>
 <?php 
     $limit = $wt_cozy['section_feature_number'];
 	$args = array(

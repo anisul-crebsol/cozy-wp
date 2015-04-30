@@ -1,4 +1,5 @@
 <?php
+$count = 0;
 $delay = 250;
 $display_posts = 3;
 $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;

@@ -22,7 +22,7 @@
 			<?php the_title( sprintf( '<a href="%s"><h3>', esc_url( get_permalink() ) ), '</h3></a>' ); ?>
 			<span class="location"><?php echo $agent_address; ?></span>
 			<p><?php echo $agent_description; ?></p>
-			<a href="<?php the_permalink(); ?>">Learn More &raquo;</a>
+			<a href="<?php the_permalink(); ?>"><?php _e('Learn More &raquo;', 'cozy'); ?></a>
 		</div>
 	</li>
     <?php endwhile; ?>

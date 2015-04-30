@@ -1,6 +1,7 @@
 <div id="blog-listing" class="grid-style1 clearfix">
 	<div class="row">
 <?php 
+	$count = 0;
     $limit = 8;
 	$args = array(
         'post_status'       => 'publish',

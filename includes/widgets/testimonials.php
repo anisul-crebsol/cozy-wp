@@ -11,8 +11,8 @@ class WT_Widget_Testimonials extends WP_Widget {
      */
 
     public function __construct() {
-        $widget_ops = array('classname' => 'widget_testimonials', 'description' => __('Arbitrary text or HTML.'));
-        parent::__construct('wt_cozy_Testimonials', __('Sidebar Testimonials'), $widget_ops);
+        $widget_ops = array('classname' => 'widget_testimonials', 'description' => __('Arbitrary text or HTML.', 'cozy'));
+        parent::__construct('wt_cozy_Testimonials', __('Sidebar Testimonials', 'cozy'), $widget_ops);
     }
 
     /**
@@ -108,10 +108,10 @@ class WT_Widget_Testimonials extends WP_Widget {
         $title = strip_tags($instance['title']);
         $number = isset( $instance['number'] ) ? absint( $instance['number'] ) : 4;
 ?>
-        <p><label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Title:'); ?></label>
+        <p><label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Title:', 'cozy'); ?></label>
         <input class="widefat" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" type="text" value="<?php echo esc_attr($title); ?>" /></p>
 
-        <p><label for="<?php echo $this->get_field_id( 'number' ); ?>"><?php _e( 'Number of testimonials to show:' ); ?></label>
+        <p><label for="<?php echo $this->get_field_id( 'number' ); ?>"><?php _e( 'Number of testimonials to show:', 'cozy' ); ?></label>
         <input id="<?php echo $this->get_field_id( 'number' ); ?>" name="<?php echo $this->get_field_name( 'number' ); ?>" type="text" value="<?php echo $number; ?>" size="3" /></p>
 <?php
     }

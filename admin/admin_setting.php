@@ -620,6 +620,102 @@
                     ),
                 );
 
+
+                // Home Map Page
+
+                $this->sections[] = array(
+                    'title'  => __( 'Home Map Page', 'redux-framework-demo' ),
+                    'desc'   => __( '', 'redux-framework-demo' ),
+                    'icon'   => 'el-icon-cogs',
+                    // 'submenu' => false, // Setting submenu to false on a given section will hide it from the WordPress sidebar menu!
+                    'fields' => array(
+
+                        array(
+                            'id' => 'section_looking_for_display',
+                            'type' => 'switch',
+                            'title' => __('Display Grid Section', 'redux-framework-demo'),
+                            'default' => true,
+                        ),
+                        array(
+                            'id' => "section_looking_for_title",
+                            'type' => 'text',
+                            'title' => __('Looking For Title', 'redux-framework-demo'),
+                            'default' => "WHAT ARE YOU LOOKING FOR?",
+                        ),
+                        array(
+                            'id' => "section_looking_for_description",
+                            'type' => 'textarea',
+                            'title' => __('Looking For Description', 'redux-framework-demo'),
+                            'default' => "Curabitur dignissim tortor ut scelerisque consectetur. Praesent pulvinar placerat lorem, et ultricies urna ultrices vel. Praesent eu libero a sapien adipiscing interdum feugiat id lectus.",
+                        ),
+
+                        array(
+                            'id' => 'section_why_choose_display',
+                            'type' => 'switch',
+                            'title' => __('Display Why Choose Us Section', 'redux-framework-demo'),
+                            'default' => true,
+                        ),
+                        
+                      array(
+                            'id'       => 'section_why_choose_title',
+                            'type'     => 'text',
+                            'validate' => '',
+                            'title'    => __( 'Section Why Choose Us Heading', 'redux-framework-demo'),
+                            'desc'     => __( '' ),
+                            'default'  => 'Why Choose Us?',
+                        ),
+
+                      array(
+                            'id' => 'section_why_choose_number1',
+                            'type' => 'text',
+                            'title' => __(' ', 'redux-framework-demo'),
+                            'default' => "1281",
+                        ),
+                      array(
+                            'id' => 'section_why_choose_text1',
+                            'type' => 'text',
+                            'title' => __(' ', 'redux-framework-demo'),
+                            'default' => "Properties<br/>Rented",
+                        ),
+                      array(
+                            'id' => 'section_why_choose_number2',
+                            'type' => 'text',
+                            'title' => __(' ', 'redux-framework-demo'),
+                            'default' => "426",
+                        ),
+                      array(
+                            'id' => 'section_why_choose_text2',
+                            'type' => 'text',
+                            'title' => __(' ', 'redux-framework-demo'),
+                            'default' => "Residential<br/>Properties Sold",
+                        ),
+                      array(
+                            'id' => 'section_why_choose_number3',
+                            'type' => 'text',
+                            'title' => __(' ', 'redux-framework-demo'),
+                            'default' => "179",
+                        ),
+                      array(
+                            'id' => 'section_why_choose_text3',
+                            'type' => 'text',
+                            'title' => __(' ', 'redux-framework-demo'),
+                            'default' => "Commercial<br/>Properties Sold",
+                        ),
+                      array(
+                            'id' => 'section_why_choose_number4',
+                            'type' => 'text',
+                            'title' => __(' ', 'redux-framework-demo'),
+                            'default' => "153",
+                        ),
+                      array(
+                            'id' => 'section_why_choose_text4',
+                            'type' => 'text',
+                            'title' => __(' ', 'redux-framework-demo'),
+                            'default' => "Land<br/>Properties Sold",
+                        ),
+                    ),
+                );
+
             //Newsletter
                 
 

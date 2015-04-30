@@ -6,7 +6,8 @@ global $wt_cozy; ?>
 
 <div id="blog-listing" class="grid-style1 clearfix">
 	<div class="row">
-<?php while ( have_posts() ) : the_post(); ?>
+<?php $count = 0; 
+while ( have_posts() ) : the_post(); ?>
 
 <?php $clearFix = @( $count%3 == 0 ?  '<div class="clearfix"></div>' : ''); echo $clearFix;  ?>
 

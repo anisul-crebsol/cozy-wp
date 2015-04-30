@@ -62,9 +62,9 @@ class WT_Widget_Agents extends WP_Widget {
                     the_title( sprintf( '<a href="%s"><h3>', esc_url( get_permalink() ) ), '</h3></a>' );
                     }
                     ?>
-                    <span class="location"><?php echo $text = get_post_meta( $post->ID, '_wt_agent_address', true ); ?></span>
+                    <span class="location"><?php echo $text = get_post_meta( get_the_ID(), '_wt_agent_address', true ); ?></span>
                     <p><?php echo $text = get_post_meta( get_the_ID(), '_wt_agent_description', true ); ?></p>
-                    <a href="<?php the_permalink(); ?>">Learn More &raquo;</a>
+                    <a href="<?php the_permalink(); ?>"><?php _e('Learn More &raquo;', 'cozy'); ?></a>
                 </div>
             </li>
 
