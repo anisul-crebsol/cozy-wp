@@ -11,8 +11,8 @@ class WT_Widget_Contact_Us extends WP_Widget {
      */
 
     public function __construct() {
-        $widget_ops = array('classname' => 'widget_contact_us', 'description' => __('Arbitrary text or HTML.'));
-        parent::__construct('wt_cozy_contact_us', __('Sidebar Contact Us'), $widget_ops);
+        $widget_ops = array('classname' => 'widget_contact_us', 'description' => __('Arbitrary text or HTML.', 'cozy'));
+        parent::__construct('wt_cozy_contact_us', __('Sidebar Contact Us', 'cozy'), $widget_ops);
     }
 
     /**
@@ -86,12 +86,12 @@ class WT_Widget_Contact_Us extends WP_Widget {
         $title = strip_tags($instance['title']);
         $text = esc_textarea($instance['text']);
 ?>
-        <p><label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Title:'); ?></label>
+        <p><label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Title:','cozy'); ?></label>
         <input class="widefat" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" type="text" value="<?php echo esc_attr($title); ?>" /></p>
 
         <textarea class="widefat" rows="16" cols="20" id="<?php echo $this->get_field_id('text'); ?>" name="<?php echo $this->get_field_name('text'); ?>"><?php echo $text; ?></textarea>
 
-        <p><input id="<?php echo $this->get_field_id('filter'); ?>" name="<?php echo $this->get_field_name('filter'); ?>" type="checkbox" <?php checked(isset($instance['filter']) ? $instance['filter'] : 0); ?> />&nbsp;<label for="<?php echo $this->get_field_id('filter'); ?>"><?php _e('Automatically add paragraphs'); ?></label></p>
+        <p><input id="<?php echo $this->get_field_id('filter'); ?>" name="<?php echo $this->get_field_name('filter'); ?>" type="checkbox" <?php checked(isset($instance['filter']) ? $instance['filter'] : 0); ?> />&nbsp;<label for="<?php echo $this->get_field_id('filter'); ?>"><?php _e('Automatically add paragraphs','cozy'); ?></label></p>
 <?php
     }
 }

@@ -11,8 +11,8 @@ class WT_Widget_Cozy_Archives extends WP_Widget {
      */
 
     public function __construct() {
-        $widget_ops = array('classname' => 'widget_cozy_archives', 'description' => __('Arbitrary text or HTML.'));
-        parent::__construct('wt_cozy_archives', __('Sidebar Archives'), $widget_ops);
+        $widget_ops = array('classname' => 'widget_cozy_archives', 'description' => __('Arbitrary text or HTML.', 'cozy'));
+        parent::__construct('wt_cozy_archives', __('Sidebar Archives', 'cozy'), $widget_ops);
     }
 
     /**
@@ -59,19 +59,19 @@ class WT_Widget_Cozy_Archives extends WP_Widget {
 
             switch ( $dropdown_args['type'] ) {
                 case 'yearly':
-                    $label = __( 'Select Year' );
+                    $label = __( 'Select Year', 'cozy' );
                     break;
                 case 'monthly':
-                    $label = __( 'Select Month' );
+                    $label = __( 'Select Month', 'cozy' );
                     break;
                 case 'daily':
-                    $label = __( 'Select Day' );
+                    $label = __( 'Select Day', 'cozy' );
                     break;
                 case 'weekly':
-                    $label = __( 'Select Week' );
+                    $label = __( 'Select Week', 'cozy' );
                     break;
                 default:
-                    $label = __( 'Select Post' );
+                    $label = __( 'Select Post', 'cozy' );
                     break;
             }
             ?>
@@ -134,11 +134,11 @@ class WT_Widget_Cozy_Archives extends WP_Widget {
         $count = $instance['count'] ? 'checked="checked"' : '';
         $dropdown = $instance['dropdown'] ? 'checked="checked"' : '';
 ?>
-        <p><label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Title:'); ?></label> <input class="widefat" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" type="text" value="<?php echo esc_attr($title); ?>" /></p>
+        <p><label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Title:','cozy'); ?></label> <input class="widefat" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" type="text" value="<?php echo esc_attr($title); ?>" /></p>
         <p>
-            <input class="checkbox" type="checkbox" <?php echo $dropdown; ?> id="<?php echo $this->get_field_id('dropdown'); ?>" name="<?php echo $this->get_field_name('dropdown'); ?>" /> <label for="<?php echo $this->get_field_id('dropdown'); ?>"><?php _e('Display as dropdown'); ?></label>
+            <input class="checkbox" type="checkbox" <?php echo $dropdown; ?> id="<?php echo $this->get_field_id('dropdown'); ?>" name="<?php echo $this->get_field_name('dropdown'); ?>" /> <label for="<?php echo $this->get_field_id('dropdown'); ?>"><?php _e('Display as dropdown','cozy'); ?></label>
             <br/>
-            <input class="checkbox" type="checkbox" <?php echo $count; ?> id="<?php echo $this->get_field_id('count'); ?>" name="<?php echo $this->get_field_name('count'); ?>" /> <label for="<?php echo $this->get_field_id('count'); ?>"><?php _e('Show post counts'); ?></label>
+            <input class="checkbox" type="checkbox" <?php echo $count; ?> id="<?php echo $this->get_field_id('count'); ?>" name="<?php echo $this->get_field_name('count'); ?>" /> <label for="<?php echo $this->get_field_id('count'); ?>"><?php _e('Show post counts','cozy'); ?></label>
         </p>
 <?php
     }

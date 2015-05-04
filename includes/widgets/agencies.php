@@ -11,8 +11,8 @@ class WT_Widget_Agencies extends WP_Widget {
      */
 
     public function __construct() {
-        $widget_ops = array('classname' => 'widget_agencies', 'description' => __('Arbitrary text or HTML.'));
-        parent::__construct('wt_cozy_agencies', __('Sidebar Agencies'), $widget_ops);
+        $widget_ops = array('classname' => 'widget_agencies', 'description' => __('Arbitrary text or HTML.', 'cozy'));
+        parent::__construct('wt_cozy_agencies', __('Sidebar Agencies', 'cozy'), $widget_ops);
     }
 
     /**
@@ -83,7 +83,7 @@ class WT_Widget_Agencies extends WP_Widget {
         $title = strip_tags($instance['title']);
 
 ?>
-        <p><label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Title:'); ?></label>
+        <p><label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Title:','cozy'); ?></label>
         <input class="widefat" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" type="text" value="<?php echo esc_attr($title); ?>" /></p>
 
 <?php

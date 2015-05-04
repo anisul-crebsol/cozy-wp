@@ -11,8 +11,8 @@ class WT_Widget_Links extends WP_Widget {
      */
 
     public function __construct() {
-        $widget_ops = array('classname' => 'widget_links', 'description' => __('Arbitrary text or HTML.'));
-        parent::__construct('wt_cozy_links', __('Footer Helpful Links'), $widget_ops);
+        $widget_ops = array('classname' => 'widget_links', 'description' => __('Arbitrary text or HTML.', 'cozy'));
+        parent::__construct('wt_cozy_links', __('Footer Helpful Links', 'cozy'), $widget_ops);
     }
 
     /**

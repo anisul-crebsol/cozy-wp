@@ -12,7 +12,7 @@ function wt_cozy_breadcrumb() {
   $after = ''; // tag after the current crumb
  
   global $post;
-  $homeLink = get_bloginfo('url');
+  $homeLink = esc_url( home_url('/') );
  
   if (is_home() || is_front_page()) {
  
@@ -99,7 +99,7 @@ function wt_cozy_breadcrumb() {
  
     if ( get_query_var('paged') ) {
       if ( is_category() || is_day() || is_month() || is_year() || is_search() || is_tag() || is_author() ) echo ' (';
-      echo __('Page') . ' ' . get_query_var('paged');
+      echo __('Page', 'cozy') . ' ' . get_query_var('paged');
       if ( is_category() || is_day() || is_month() || is_year() || is_search() || is_tag() || is_author() ) echo ')';
     }
  

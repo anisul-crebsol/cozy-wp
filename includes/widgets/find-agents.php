@@ -11,8 +11,8 @@ class WT_Widget_Find_Agents extends WP_Widget {
      */
 
     public function __construct() {
-        $widget_ops = array('classname' => 'widget_find_agents', 'description' => __('Arbitrary text or HTML.'));
-        parent::__construct('wt_cozy_find_agents', __('Sidebar Find Agents'), $widget_ops);
+        $widget_ops = array('classname' => 'widget_find_agents', 'description' => __('Arbitrary text or HTML.', 'cozy'));
+        parent::__construct('wt_cozy_find_agents', __('Sidebar Find Agents', 'cozy'), $widget_ops);
     }
 
     /**
@@ -119,11 +119,11 @@ class WT_Widget_Find_Agents extends WP_Widget {
         $search = strip_tags($instance['search']);
 
 ?>
-        <p><label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Title:'); ?></label>
+        <p><label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Title:','cozy'); ?></label>
         <input class="widefat" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" type="text" value="<?php echo esc_attr($title); ?>" /></p>
-        <p><label for="<?php echo $this->get_field_id('image'); ?>"><?php _e('Image URL:'); ?></label>
+        <p><label for="<?php echo $this->get_field_id('image'); ?>"><?php _e('Image URL:','cozy'); ?></label>
         <input class="widefat" id="<?php echo $this->get_field_id('image'); ?>" name="<?php echo $this->get_field_name('image'); ?>" type="text" value="<?php echo esc_attr($image); ?>" /></p>
-        <p><label for="<?php echo $this->get_field_id('search'); ?>"><?php _e('Search Button Text:'); ?></label>
+        <p><label for="<?php echo $this->get_field_id('search'); ?>"><?php _e('Search Button Text:','cozy'); ?></label>
         <input class="widefat" id="<?php echo $this->get_field_id('search'); ?>" name="<?php echo $this->get_field_name('search'); ?>" type="text" value="<?php echo esc_attr($search); ?>" /></p>
 
 <?php

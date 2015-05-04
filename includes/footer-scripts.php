@@ -55,6 +55,31 @@
 	</script>
 <?php
     }
+	elseif ( is_page_template('page-contacts.php')) { ?>
+	<script type="text/javascript">
+		var singleMarker = [
+			{
+				"id": 0,
+				"title": "Cozy Real State",
+				"latitude": 40.727815,
+				"longitude": -73.993544,
+				"image": "http://placehold.it/700x603",
+				"description": "Lafayette St New York, NY <br> Phone: 00351 123 456 789",
+				"map_marker_icon": "images/markers/coral-marker-cozy.png"
+			}
+		];
+		
+		(function ($) {
+			"use strict";
+			
+			$(document).ready(function () {
+				//Create contacts map. Usage: Cozy.contactsMap(marker_JSON_Object, map canvas, map zoom);
+				Cozy.contactsMap(singleMarker, 'contacts_map', 14);
+			});
+		})(jQuery);
+	</script>
+<?php
+    }
 ?>
 
 <script type="text/javascript">
@@ -110,4 +135,27 @@ var adminUrl = '<?php echo admin_url(); ?>';
 	});
 	
 });
+</script>
+
+<script type="text/javascript">
+	var singleMarker = [
+		{
+			"id": 0,
+			"title": "Cozy Real State",
+			"latitude": 40.727815,
+			"longitude": -73.993544,
+			"image": "http://placehold.it/700x603",
+			"description": "Lafayette St New York, NY <br> Phone: 00351 123 456 789",
+			"map_marker_icon": "images/markers/coral-marker-cozy.png"
+		}
+	];
+	
+	(function ($) {
+		"use strict";
+		
+		$(document).ready(function () {
+			//Create contacts map. Usage: Cozy.contactsMap(marker_JSON_Object, map canvas, map zoom);
+			Cozy.contactsMap(singleMarker, 'contacts_map', 14);
+		});
+	})(jQuery);
 </script>

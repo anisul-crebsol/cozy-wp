@@ -27,7 +27,7 @@
                         <div class="form-control-small">
                             <select id="search_status" name="search_status" data-placeholder="Status">
                                 <option value=""> </option>
-                                <option value="for-sale"><?php _e( 'For Sale', 'cozy' );?>a</option>
+                                <option value="for-sale"><?php _e( 'For Sale', 'cozy' );?></option>
                                 <option value="for-rent"><?php _e( 'For Rent', 'cozy' );?></option>
                             </select>
                         </div>

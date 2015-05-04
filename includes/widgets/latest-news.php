@@ -11,8 +11,8 @@ class WT_Widget_Latest_News extends WP_Widget {
      */
 
     public function __construct() {
-        $widget_ops = array('classname' => 'widget_latest_news', 'description' => __('Arbitrary text or HTML.'));
-        parent::__construct('wt_cozy_latest_news', __('Sidebar Latest News'), $widget_ops);
+        $widget_ops = array('classname' => 'widget_latest_news', 'description' => __('Arbitrary text or HTML.', 'cozy'));
+        parent::__construct('wt_cozy_latest_news', __('Sidebar Latest News', 'cozy'), $widget_ops);
     }
 
     /**
@@ -117,7 +117,7 @@ class WT_Widget_Latest_News extends WP_Widget {
         $instance = wp_parse_args( (array) $instance, array( 'title' => '', 'text' => '' ) );
         $title = strip_tags($instance['title']);
 ?>
-        <p><label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Title:'); ?></label>
+        <p><label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Title:','cozy'); ?></label>
         <input class="widefat" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" type="text" value="<?php echo esc_attr($title); ?>" /></p>
 
 <?php

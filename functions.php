@@ -271,10 +271,10 @@ function extra_category_fields( $tag ) {    //check for existing featured ID
     $cat_meta = get_option( "category_$t_id");
 ?>
 <tr class="form-field">
-<th scope="row" valign="top"><label for="cat_icon_url"><?php _e('Property Icon'); ?></label></th>
+<th scope="row" valign="top"><label for="cat_icon_url"><?php _e('Property Icon','cozy'); ?></label></th>
 <td>
 <input type="text" name="Cat_meta[img]" id="Cat_meta[img]" size="3" style="width:60%;" value="<?php echo $cat_meta['img'] ? $cat_meta['img'] : ''; ?>"><br />
-            <span class="description"><?php _e('Please add any font awesome class ie : fa-home'); ?></span>
+            <span class="description"><?php _e('Please add any font awesome class ie : fa-home','cozy'); ?></span>
         </td>
 </tr>
 <?php
@@ -296,3 +296,5 @@ function save_extra_category_fileds( $term_id ) {
         update_option( "category_$t_id", $cat_meta );
     }
 }
+
+//function fowl_wpcf7_submit_button() { if(function_exists('wpcf7_remove_shortcode')) { wpcf7_remove_shortcode('submit'); remove_action( 'admin_init', 'wpcf7_add_tag_generator_submit', 55 ); } } add_action('init','fowl_wpcf7_submit_button');

@@ -11,8 +11,8 @@ class WT_Widget_Property_Search extends WP_Widget {
      */
 
     public function __construct() {
-        $widget_ops = array('classname' => 'widget_property_search', 'description' => __('Arbitrary text or HTML.'));
-        parent::__construct('wt_cozy_property_search', __('Sidebar Property Search'), $widget_ops);
+        $widget_ops = array('classname' => 'widget_property_search', 'description' => __('Arbitrary text or HTML.', 'cozy'));
+        parent::__construct('wt_cozy_property_search', __('Sidebar Property Search', 'cozy'), $widget_ops);
     }
 
     /**
@@ -195,7 +195,7 @@ class WT_Widget_Property_Search extends WP_Widget {
         $title = strip_tags($instance['title']);
         $text = esc_textarea($instance['text']);
 ?>
-        <p><label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Title:'); ?></label>
+        <p><label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Title:','cozy'); ?></label>
         <input class="widefat" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" type="text" value="<?php echo esc_attr($title); ?>" /></p>
 <?php
     }

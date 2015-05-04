@@ -10,7 +10,7 @@
 		die ('Please do not load this page directly. Thanks!');
 
 	if ( post_password_required() ) { ?>
-		<p class="nocomments"><?php _e('This post is password protected. Enter the password to view comments.'); ?></p>
+		<p class="nocomments"><?php _e('This post is password protected. Enter the password to view comments.','cozy'); ?></p>
 	<?php
 		return;
 	}
@@ -41,7 +41,7 @@
 
 	 <?php else : // comments are closed ?>
 		<!-- If comments are closed. -->
-		<p class="nocomments"><?php _e('Comments are closed.'); ?></p>
+		<p class="nocomments"><?php _e('Comments are closed.','cozy'); ?></p>
 
 	<?php endif; ?>
 <?php endif; ?>
@@ -51,7 +51,7 @@
 <div id="respond">
 	<h2 class="section-title">Comments</h1>
 	<div class="col-sm-12">
-	<h3><?php comment_form_title( __('Leave a Reply'), __('Leave a Reply to %s' ) ); ?></h3>
+	<h3><?php comment_form_title( __('Leave a Reply', 'cozy'), __('Leave a Reply to %s', 'cozy' ) ); ?></h3>
 	</div>
 
 	<div id="cancel-comment-reply">
@@ -59,7 +59,7 @@
 	</div>
 
 	<?php if ( get_option('comment_registration') && !is_user_logged_in() ) : ?>
-	<p><?php printf(__('You must be <a href="%s">logged in</a> to post a comment.'), wp_login_url( get_permalink() )); ?></p>
+	<p><?php printf(__('You must be <a href="%s">logged in</a> to post a comment.', 'cozy'), wp_login_url( get_permalink() )); ?></p>
 	<?php else : ?>
 
 	<form action="<?php echo site_url(); ?>/wp-comments-post.php" method="post" id="commentform" class="form-style">
@@ -67,7 +67,7 @@
 		<?php if ( is_user_logged_in() ) : ?>
 
 		<div class="col-sm-12">
-		<?php printf(__('Logged in as <a href="%1$s">%2$s</a>.'), get_edit_user_link(), $user_identity); ?> <a href="<?php echo wp_logout_url(get_permalink()); ?>" title="<?php esc_attr_e('Log out of this account'); ?>"><?php _e('Log out &raquo;'); ?></a> <br><br>
+		<?php printf(__('Logged in as <a href="%1$s">%2$s</a>.', 'cozy'), get_edit_user_link(), $user_identity); ?> <a href="<?php echo wp_logout_url(get_permalink()); ?>" title="<?php esc_attr_e('Log out of this account','cozy'); ?>"><?php _e('Log out &raquo;','cozy'); ?></a> <br><br>
 		</div>
 
 		<?php else : ?>
@@ -85,14 +85,14 @@
 
 		<?php endif; ?>
 
-		<!--<p><small><?php printf(__('<strong>XHTML:</strong> You can use these tags: <code>%s</code>'), allowed_tags()); ?></small></p>-->
+		<!--<p><small><?php printf(__('<strong>XHTML:</strong> You can use these tags: <code>%s</code>', 'cozy'), allowed_tags()); ?></small></p>-->
 
 		<div class="col-sm-12">
 			<textarea name="comment" id="comment" placeholder="Comment*" class="form-control"></textarea> 
 		</div>
 
 		<div class="center">
-			<input name="submit" type="submit" id="submit" class="btn btn-default-color btn-lg" tabindex="5" value="<?php esc_attr_e('Post Comment'); ?>" />
+			<input name="submit" type="submit" id="submit" class="btn btn-default-color btn-lg" tabindex="5" value="<?php esc_attr_e('Post Comment','cozy'); ?>" />
 			<?php comment_id_fields(); ?>
 		</div>
 

@@ -258,6 +258,13 @@
                         ),
 
                         array(
+                            'id' => "section_contact_fax",
+                            'type' => 'text',
+                            'title' => __('Contact Number', 'redux-framework-demo'),
+                            'default' => "Fax: 00351 456 789 101",
+                        ),
+
+                        array(
                             'id' => "section_contact_map",
                             'type' => 'textarea',
                             'title' => __('Google Map Link Here', 'redux-framework-demo'),
@@ -765,8 +772,6 @@
                     // 'submenu' => false, // Setting submenu to false on a given section will hide it from the WordPress sidebar menu!
                     'fields' => array(
 
-
-
                         array(
                             'id' => 'section_testimonial_info',
                             'type' => 'info',
@@ -797,6 +802,33 @@
                             'default' => "3",
                         ),
 
+                    ),
+                );
+
+
+            // 404 Not Found Page
+
+                $this->sections[] = array(
+                    'title'  => __( '404 Not Found Page', 'redux-framework-demo' ),
+                    'desc'   => __( 'Content for 404 not found page', 'redux-framework-demo' ),
+                    'icon'   => 'el-icon-tasks',
+                    // 'submenu' => false, // Setting submenu to false on a given section will hide it from the WordPress sidebar menu!
+                    'fields' => array(
+
+                      array(
+                            'id'       => 'not_found_title',
+                            'type'     => 'text',
+                            'title'    => __( '404 page title', 'cozy'),
+                            'default'  => 'Hey! Page not found.',
+                        ),
+
+                      array(
+
+                            'id'       => 'not_found_description',
+                            'type'     => 'textarea',
+                            'title'    => __( '404 page description', 'cozy'),
+                            'default'  => '<p><br/><br/>Sorry, but the page you requested could not be found. This page may have been moved, deleted or maybe you have mistyped the URL.</p> <p>Please, try again and make sure you have typed the URL correctly.</p>',
+                        ),
                     ),
                 );
 

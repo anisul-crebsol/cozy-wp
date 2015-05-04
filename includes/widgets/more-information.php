@@ -8,8 +8,8 @@ class WT_Widget_more_information extends WP_Widget {
     function __construct() {
         parent::__construct(
                 'cozy_widget_more_information', // Base ID
-                __('More Information', 'text_domain'), // Name
-                array('description' => __('', 'text_domain'),) // Args
+                __('More Information', 'cozy'), // Name
+                array('description' => __('', 'cozy'),) // Args
         );
     }
 
@@ -33,26 +33,26 @@ class WT_Widget_more_information extends WP_Widget {
      * @param array $instance Previously saved values from database.
      */
     public function form($instance) {
-        $tabname = !empty($instance['tabname']) ? $instance['tabname'] : __('Menu Name', 'text_domain');
+        $tabname = !empty($instance['tabname']) ? $instance['tabname'] : __('Menu Name', 'cozy');
 
-        $title = !empty($instance['title']) ? $instance['title'] : __('New title', 'text_domain');
-        $img_url = !empty($instance['img_url']) ? $instance['img_url'] : __('Image Url', 'text_domain');
-        $more_info_description = !empty($instance['more_info_desc']) ? $instance['more_info_desc'] : __('Description', 'text_domain');
+        $title = !empty($instance['title']) ? $instance['title'] : __('New title', 'cozy');
+        $img_url = !empty($instance['img_url']) ? $instance['img_url'] : __('Image Url', 'cozy');
+        $more_info_description = !empty($instance['more_info_desc']) ? $instance['more_info_desc'] : __('Description', 'cozy');
         ?>
         <p>
-            <label for="<?php echo $this->get_field_id('tabname'); ?>"><?php _e('Menu Name:'); ?></label> 
+            <label for="<?php echo $this->get_field_id('tabname'); ?>"><?php _e('Menu Name:','cozy'); ?></label> 
             <input class="widefat" id="<?php echo $this->get_field_id('tabname'); ?>" name="<?php echo $this->get_field_name('tabname'); ?>" type="text" value="<?php echo esc_attr($tabname); ?>">
         </p>
         <p>
-            <label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Title:'); ?></label> 
+            <label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Title:','cozy'); ?></label> 
             <input class="widefat" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" type="text" value="<?php echo esc_attr($title); ?>">
         </p>
         <p>
-            <label for="<?php echo $this->get_field_id('img_url'); ?>"><?php _e('Image Url:'); ?></label> 
+            <label for="<?php echo $this->get_field_id('img_url'); ?>"><?php _e('Image Url:','cozy'); ?></label> 
             <input class="widefat" id="<?php echo $this->get_field_id('img_url'); ?>" name="<?php echo $this->get_field_name('img_url'); ?>" type="url" value="<?php echo esc_attr($img_url); ?>">
         </p>
         <p>
-            <label for="<?php echo $this->get_field_id('more_info_desc'); ?>"><?php _e('Description:'); ?></label> 
+            <label for="<?php echo $this->get_field_id('more_info_desc'); ?>"><?php _e('Description:','cozy'); ?></label> 
             <textarea id="<?php echo $this->get_field_id('more_info_desc'); ?>" name="<?php echo $this->get_field_name('more_info_desc'); ?>"><?php echo esc_attr($more_info_description); ?></textarea>
         </p>
         <?php

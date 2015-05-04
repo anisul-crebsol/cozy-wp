@@ -11,8 +11,8 @@ class WT_Widget_Cozy_Tags extends WP_Widget {
      */
 
     public function __construct() {
-        $widget_ops = array('classname' => 'widget_cozy_tags', 'description' => __('Arbitrary text or HTML.'));
-        parent::__construct('wt_cozy_tags', __('Sidebar Tags'), $widget_ops);
+        $widget_ops = array('classname' => 'widget_cozy_tags', 'description' => __('Arbitrary text or HTML.', 'cozy'));
+        parent::__construct('wt_cozy_tags', __('Sidebar Tags', 'cozy'), $widget_ops);
     }
 
     public function widget( $args, $instance ) {
@@ -21,7 +21,7 @@ class WT_Widget_Cozy_Tags extends WP_Widget {
             $title = $instance['title'];
         } else {
             if ( 'post_tag' == $current_taxonomy ) {
-                $title = __('Tags');
+                $title = __('Tags', 'cozy');
             } else {
                 $tax = get_taxonomy($current_taxonomy);
                 $title = $tax->labels->name;
@@ -71,9 +71,9 @@ class WT_Widget_Cozy_Tags extends WP_Widget {
     public function form( $instance ) {
         $current_taxonomy = $this->_get_current_taxonomy($instance);
 ?>
-    <p><label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Title:') ?></label>
+    <p><label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Title:','cozy') ?></label>
     <input type="text" class="widefat" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" value="<?php if (isset ( $instance['title'])) {echo esc_attr( $instance['title'] );} ?>" /></p>
-    <p><label for="<?php echo $this->get_field_id('taxonomy'); ?>"><?php _e('Taxonomy:') ?></label>
+    <p><label for="<?php echo $this->get_field_id('taxonomy'); ?>"><?php _e('Taxonomy:','cozy') ?></label>
     <select class="widefat" id="<?php echo $this->get_field_id('taxonomy'); ?>" name="<?php echo $this->get_field_name('taxonomy'); ?>">
     <?php foreach ( get_taxonomies() as $taxonomy ) :
                 $tax = get_taxonomy($taxonomy);

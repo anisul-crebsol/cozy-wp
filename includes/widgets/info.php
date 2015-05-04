@@ -11,8 +11,8 @@ class WT_Widget_Info extends WP_Widget {
      */
 
     public function __construct() {
-        $widget_ops = array('classname' => 'widget_info', 'description' => __('Arbitrary text or HTML.'));
-        parent::__construct('wt_cozy_info', __('Footer Info Box'), $widget_ops);
+        $widget_ops = array('classname' => 'widget_info', 'description' => __('Arbitrary text or HTML.', 'cozy'));
+        parent::__construct('wt_cozy_info', __('Footer Info Box', 'cozy'), $widget_ops);
     }
 
     /**

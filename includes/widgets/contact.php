@@ -11,8 +11,8 @@ class WT_Widget_Contact extends WP_Widget {
      */
 
     public function __construct() {
-        $widget_ops = array('classname' => 'widget_contact', 'description' => __('Arbitrary text or HTML.'));
-        parent::__construct('wt_cozy_contact', __('Footer Contact'), $widget_ops);
+        $widget_ops = array('classname' => 'widget_contact', 'description' => __('Arbitrary text or HTML.', 'cozy'));
+        parent::__construct('wt_cozy_contact', __('Footer Contact', 'cozy'), $widget_ops);
     }
 
     /**

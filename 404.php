@@ -1,6 +1,5 @@
 <?php
 /**
- * Template Name: 404
  *
  * The template for displaying 404 pages (not found).
  *
@@ -35,8 +34,8 @@ get_header(); ?>
 						
 						<div class="e404 clearfix">
 							<div>
-								<strong>404</strong>
-								ERROR 
+								<strong><?php _e( '404', 'cozy' ); ?></strong>
+								<?php _e( 'Error', 'cozy' ); ?> 
 							</div>
 							<i class="fa fa-file-text-o"></i>
 						</div>
@@ -48,13 +47,11 @@ get_header(); ?>
 					<div class="sidebar col-sm-5 col-md-offset-1">
 						
 						<div id="e404-side">
-							<h3>Hey! Page not found.</h3>
+							<h3><?php echo $wt_cozy['not_found_title']?></h3>
+
+							<?php echo $wt_cozy['not_found_description']?>
 							
-							<p><br/><br/>Sorry, but the page you requested could not be found. This page may have been moved, deleted or maybe you have mistyped the URL.</p>
-							
-							<p>Please, try again and make sure you have typed the URL correctly.</p>
-							
-							<p class="center"><br/><a href="index.html" class="btn btn-default-color">Go to Homepage</a></p>
+							<p class="center"><br/><a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="btn btn-default-color"><?php _e( 'Go to Homepage', 'cozy' ); ?></a></p>
 						</div>
 					</div>
 					<!-- END SIDEBAR -->

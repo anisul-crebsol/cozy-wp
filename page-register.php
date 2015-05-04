@@ -31,7 +31,7 @@ get_header(); ?>
                     <div class="main col-sm-12">
 
                         <div class="login col-sm-5 col-sm-offset-1">
-                            <h1 class="center">Create New Account</h1>
+                            <h1 class="center"><?php _e( 'Create New Account', 'cozy' ); ?></h1>
                             <div class="col-sm-12">
                                 <form class="form-style" name="register_new_user">
                                     <input type="text" id="firstname" name="firstname" value="<?php echo $_POST['firstname']; ?>" placeholder="First Name*" class="form-control" />
@@ -49,7 +49,7 @@ get_header(); ?>
 
                                     <div class="checkbox">
                                         <label>
-                                            <input id="terms" type="checkbox" name="terms"> I confirm that I have read, understood and accept the <a href="#">Terms of Use</a> and the <a href="#">Privacy Policy</a>.
+                                            <input id="terms" type="checkbox" name="terms"><?php _e( 'I confirm that I have read, understood and accept the <a href="#">Terms of Use</a> and the <a href="#">Privacy Policy</a>.', 'cozy' ); ?>
                                         </label>
                                     </div>
                                     <h5 class="text-center phpmsg"></h5>
@@ -58,7 +58,7 @@ get_header(); ?>
                                         echo '<br/><h5 class="text-center">' . ucfirst($registration_error) . '*</h5>';
                                     }
                                     ?>
-                                    <button type="button" class="btn btn-fullcolor register_new_user">Create Account</button>
+                                    <button type="button" class="btn btn-fullcolor register_new_user"><?php _e( 'Create Account', 'cozy' ); ?></button>
                                 </form>
 
                             </div>
