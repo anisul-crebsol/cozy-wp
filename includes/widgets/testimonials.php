@@ -29,47 +29,47 @@ class WT_Widget_Testimonials extends WP_Widget {
         global $wt_cozy; ?>
 
 <!-- BEGIN TESTIMONIALS -->
-<div id="testimonials" class="col-sm-12" data-animation-direction="from-bottom" data-animation-delay="200">
-       <?php 
-            $title = apply_filters( 'widget_title', empty( $instance['title'] ) ? '' : $instance['title'], $instance, $this->id_base );
-            if ( ! empty( $title ) ) {
-            echo '<h2 class="section-title" data-animation-direction="from-bottom" data-animation-delay="50">' . $title . '</h2>';
-            } 
-        ?>
-	
-	<div id="testimonials-slider" class="owl-carousel testimonials">
+    <div id="testimonials" class="col-sm-12" data-animation-direction="from-bottom" data-animation-delay="200">
+           <?php 
+                $title = apply_filters( 'widget_title', empty( $instance['title'] ) ? '' : $instance['title'], $instance, $this->id_base );
+                if ( ! empty( $title ) ) {
+                echo '<h2 class="section-title" data-animation-direction="from-bottom" data-animation-delay="50">' . $title . '</h2>';
+                } 
+            ?>
+    	
+    	<div id="testimonials-slider" class="owl-carousel testimonials">
 
-        <?php 
-        $number = ( ! empty( $instance['number'] ) ) ? absint( $instance['number'] ) : 2;
-        if ( ! $number )
-            $number = 2;
-        	$args = array(
-                'post_type'         => 'testimonial',
-                'post_status'       => 'publish',
-                'posts_per_page'    => $number,
-            );
-            $testimonial_query = new WP_Query( $args );?>
+            <?php 
+            $number = ( ! empty( $instance['number'] ) ) ? absint( $instance['number'] ) : 2;
+            if ( ! $number )
+                $number = 2;
+            	$args = array(
+                    'post_type'         => 'testimonial',
+                    'post_status'       => 'publish',
+                    'posts_per_page'    => $number,
+                );
+                $testimonial_query = new WP_Query( $args );?>
 
-        <?php while($testimonial_query->have_posts()): $testimonial_query->the_post();  ?>
+            <?php while($testimonial_query->have_posts()): $testimonial_query->the_post();  ?>
 
-		<div class="item">
-			<blockquote class="text">
-				<p><?php echo $text = get_post_meta( get_the_ID(), '_wt_test_description', true ); ?></p>
-			</blockquote>
-			<div class="author">
-				<img src="<?php echo $text = get_post_meta( get_the_ID(), '_wt_test_image', true ); ?>" alt="" />
-				<div>
-					<?php echo $text = get_post_meta( get_the_ID(), '_wt_test_name', true ); ?><br>
-					<span><?php echo $text = get_post_meta( get_the_ID(), '_wt_test_designation', true ); ?></span>
-				</div>
-			</div>
-		</div>
+    		<div class="item">
+    			<blockquote class="text">
+    				<p><?php echo $text = get_post_meta( get_the_ID(), '_wt_test_description', true ); ?></p>
+    			</blockquote>
+    			<div class="author">
+    				<img src="<?php echo $text = get_post_meta( get_the_ID(), '_wt_test_image', true ); ?>" alt="" />
+    				<div>
+    					<?php echo $text = get_post_meta( get_the_ID(), '_wt_test_name', true ); ?><br>
+    					<span><?php echo $text = get_post_meta( get_the_ID(), '_wt_test_designation', true ); ?></span>
+    				</div>
+    			</div>
+    		</div>
 
-        <?php endwhile; ?>
-        <?php wp_reset_postdata(); ?>
+            <?php endwhile; ?>
+            <?php wp_reset_postdata(); ?>
 
-	</div>
-</div>
+    	</div>
+    </div>
 <!-- END TESTIMONIALS -->
 
         

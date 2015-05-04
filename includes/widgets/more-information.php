@@ -39,6 +39,7 @@ class WT_Widget_more_information extends WP_Widget {
         $img_url = !empty($instance['img_url']) ? $instance['img_url'] : __('Image Url', 'cozy');
         $more_info_description = !empty($instance['more_info_desc']) ? $instance['more_info_desc'] : __('Description', 'cozy');
         ?>
+        <div class="clearfix">
         <p>
             <label for="<?php echo $this->get_field_id('tabname'); ?>"><?php _e('Menu Name:','cozy'); ?></label> 
             <input class="widefat" id="<?php echo $this->get_field_id('tabname'); ?>" name="<?php echo $this->get_field_name('tabname'); ?>" type="text" value="<?php echo esc_attr($tabname); ?>">
@@ -55,6 +56,7 @@ class WT_Widget_more_information extends WP_Widget {
             <label for="<?php echo $this->get_field_id('more_info_desc'); ?>"><?php _e('Description:','cozy'); ?></label> 
             <textarea id="<?php echo $this->get_field_id('more_info_desc'); ?>" name="<?php echo $this->get_field_name('more_info_desc'); ?>"><?php echo esc_attr($more_info_description); ?></textarea>
         </p>
+        </div>
         <?php
     }
 

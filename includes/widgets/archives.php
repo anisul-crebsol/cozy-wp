@@ -83,35 +83,35 @@ class WT_Widget_Cozy_Archives extends WP_Widget {
 <?php
         } else {
 ?>
-<div id="accordion" class="panel-group blog-accordion">
-    <div class="panel">
-        <div class="panel-heading">
-            <div class="panel-title">
-                <div id="collapseOne" class="panel-collapse collapse in">
-                    <div class="panel-body">
-                        <ul>
-                <?php
-                        /**
-                         * Filter the arguments for the Archives widget.
-                         *
-                         * @since 2.8.0
-                         *
-                         * @see wp_get_archives()
-                         *
-                         * @param array $args An array of Archives option arguments.
-                         */
-                        wp_get_archives( apply_filters( 'widget_archives_args', array(
-                            'type'            => 'yearly',
-                            'show_post_count' => $c
-                        ) ) );
-                ?>
-                        </ul>
+        <div id="accordion" class="panel-group blog-accordion">
+            <div class="panel">
+                <div class="panel-heading">
+                    <div class="panel-title">
+                        <div id="collapseOne" class="panel-collapse collapse in">
+                            <div class="panel-body">
+                                <ul>
+                                    <?php
+                                        /**
+                                         * Filter the arguments for the Archives widget.
+                                         *
+                                         * @since 2.8.0
+                                         *
+                                         * @see wp_get_archives()
+                                         *
+                                         * @param array $args An array of Archives option arguments.
+                                         */
+                                        wp_get_archives( apply_filters( 'widget_archives_args', array(
+                                            'type'            => 'yearly',
+                                            'show_post_count' => $c
+                                        ) ) );
+                                    ?>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</div>
 <?php
         }
 

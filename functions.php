@@ -61,43 +61,43 @@ function cozy_widgets_init() {
         'name'          => __( 'Sidebar | Home Search', 'cozy' ),
         'id'            => 'sidebar-home-search',
         'description'   => 'Sidebar for Home Search',
-        'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+        'before_widget' => '<aside id="%1$s" class="clearfix">',
         'after_widget'  => '</aside>',
-        'before_title'  => '<h1 class="widget-title">',
-        'after_title'   => '</h1>',
+        'before_title'  => '<h2 class="section-title">',
+        'after_title'   => '</h2>',
     ) );
     register_sidebar( array(
         'name'          => __( 'Sidebar | Home Slider', 'cozy' ),
         'id'            => 'sidebar-home-slider',
         'description'   => 'Sidebar for Home Slider',
-        'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+        'before_widget' => '<aside id="%1$s" class="clearfix">',
         'after_widget'  => '</aside>',
-        'before_title'  => '<h1 class="widget-title">',
-        'after_title'   => '</h1>',
+        'before_title'  => '<h2 class="section-title">',
+        'after_title'   => '</h2>',
     ) );
     register_sidebar( array(
         'name'          => __( 'Sidebar | Home Map ( Top )', 'cozy' ),
         'id'            => 'sidebar-home-map-top',
         'description'   => 'Top Sidebar for Home Map',
-        'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+        'before_widget' => '<aside id="%1$s" class="clearfix">',
         'after_widget'  => '</aside>',
-        'before_title'  => '<h1 class="widget-title">',
-        'after_title'   => '</h1>',
+        'before_title'  => '<h2 class="section-title">',
+        'after_title'   => '</h2>',
     ) );
     register_sidebar( array(
         'name'          => __( 'Sidebar | Home Map ( Bottom )', 'cozy' ),
         'id'            => 'sidebar-home-map-bottom',
         'description'   => 'Bottom Sidebar for Home Map',
-        'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+        'before_widget' => '<aside id="%1$s" class="clearfix">',
         'after_widget'  => '</aside>',
-        'before_title'  => '<h1 class="widget-title">',
-        'after_title'   => '</h1>',
+        'before_title'  => '<h2 class="section-title">',
+        'after_title'   => '</h2>',
     ) );
     register_sidebar( array(
         'name'          => __( 'Sidebar | Blog', 'cozy' ),
         'id'            => 'sidebar-blog',
         'description'   => '',
-        'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+        'before_widget' => '<aside id="%1$s" class="clearfix">',
         'after_widget'  => '</aside>',
         'before_title'  => '<h2 class="section-title">',
         'after_title'   => '</h2>',
@@ -106,25 +106,25 @@ function cozy_widgets_init() {
         'name'          => __( 'Sidebar | Property, Agent, Agency..', 'cozy' ),
         'id'            => 'sidebar-custom-post',
         'description'   => 'Sidebar for All custom post ( Property, Agent, Agency etc. )',
-        'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+        'before_widget' => '<aside id="%1$s" class="clearfix">',
         'after_widget'  => '</aside>',
-        'before_title'  => '<h2 class="widget-title">',
+        'before_title'  => '<h2 class="section-title">',
         'after_title'   => '</h2>',
     ) );
     register_sidebar( array(
         'name'          => __( 'Footer', 'cozy' ),
         'id'            => 'sidebar-footer',
         'description'   => 'Sidebar for footer',
-        'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+        'before_widget' => '<aside id="%1$s" class="clearfix">',
         'after_widget'  => '</aside>',
-        'before_title'  => '<h2 class="widget-title">',
+        'before_title'  => '<h2 class="section-title">',
         'after_title'   => '</h2>',
     ) );
     register_sidebar(array(
        'name' => __('More Information Tab (Hidden)', 'cozy'),
        'id' => 'sidebar-more-information',
        'description' => 'Please add some sidebar widget for tab and use shortcode anywhere in site. Normally this sidebar will be hidden.',
-       'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+       'before_widget' => '<aside id="%1$s" class="clearfix">',
        'after_widget' => '</aside>',
        'before_title' => '<h1 class="widget-title">',
        'after_title' => '</h1>',
@@ -165,6 +165,8 @@ require get_template_directory() . '/includes/widgets/latest-news.php';
 require get_template_directory() . '/includes/widgets/categories.php';
 require get_template_directory() . '/includes/widgets/archives.php';
 require get_template_directory() . '/includes/widgets/tags.php';
+require get_template_directory() . '/includes/widgets/text.php';
+require get_template_directory() . '/includes/widgets/partners.php';
 
 // Register WT Cozy widget
 function register_cozy_widget() {
@@ -185,6 +187,8 @@ function register_cozy_widget() {
     register_widget( 'WT_Widget_Cozy_Categories' );
     register_widget( 'WT_Widget_Cozy_Archives' );
     register_widget( 'WT_Widget_Cozy_Tags' );
+    register_widget( 'WT_Widget_Cozy_Text' );
+    register_widget( 'WT_Widget_Partners' );
 
 }
 add_action( 'widgets_init', 'register_cozy_widget' );

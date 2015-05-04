@@ -28,20 +28,20 @@ class WT_Widget_Links extends WP_Widget {
 
         global $wt_cozy; ?>
         <!-- BEGIN HELPFUL LINKS -->
-                    <div class="block col-sm-3">
-                        <h3>Helpful Links</h3>
-                        <?php
-                            wp_nav_menu( array(
-                                'menu'              => 'secondery',
-                                'theme_location'    => 'secondery',
-                                'depth'             => 0,
-                                'menu_class'        => 'footer-links',
-                                'fallback_cb'       => 'wp_bootstrap_navwalker::fallback',
-                                'walker'            => new wp_bootstrap_navwalker()
-                                )
-                            );
-                        ?>
-                    </div>
+            <div class="block col-sm-3">
+                <h3>Helpful Links</h3>
+                <?php
+                    wp_nav_menu( array(
+                        'menu'              => 'secondery',
+                        'theme_location'    => 'secondery',
+                        'depth'             => 0,
+                        'menu_class'        => 'footer-links',
+                        'fallback_cb'       => 'wp_bootstrap_navwalker::fallback',
+                        'walker'            => new wp_bootstrap_navwalker()
+                        )
+                    );
+                ?>
+            </div>
         <!-- END HELPFUL LINKS -->
         
         <?php

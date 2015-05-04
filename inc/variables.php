@@ -1,3 +1,9 @@
+<?php
+/*
+* @package Cozy
+*/
+?>
+<script type="text/javascript">
 /**
  * Javascript template variables
  */
@@ -18,6 +24,7 @@ var	properties_cluster_marker = "images/markers/coral-marker.png",     	//The UR
 	
 	use_default_map_style = false,				//If true, default map style will be used
 	
-	twitter_username = "shaheenbd",				//Replace with your own Twitter username
+	twitter_username = "Envato",				//Replace with your own Twitter username
 	
 	mobileMenuTitle = "Menu";					//The title of the mobile menu
+</script>

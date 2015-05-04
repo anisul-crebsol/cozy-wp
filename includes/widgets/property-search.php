@@ -41,6 +41,7 @@ class WT_Widget_Property_Search extends WP_Widget {
         $text = apply_filters( 'widget_text', empty( $instance['text'] ) ? '' : $instance['text'], $instance );
 ?>
 <!-- BEGIN ADVANCED SEARCH -->
+<div class="clearfix">
 <h2 class="section-title">Search Property</h2>
 <form role="search" method="get" class="search-form" action="<?php echo home_url( '/' ); ?>">
     <div class="form-group">
@@ -156,6 +157,7 @@ class WT_Widget_Property_Search extends WP_Widget {
         </p>
     </div>
 </form>
+</div>
 <!-- END ADVANCED SEARCH -->
 <?php
 		

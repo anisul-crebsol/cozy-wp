@@ -202,16 +202,16 @@
                             'id'       => 'cozy_logo',
                             'type'     => 'media',
                             'url'      => true,
-                            'title'    => __( 'Logo', 'redux-framework-demo' ),
+                            'title'    => __( 'Logo', 'cozy' ),
                             'compiler' => 'true',
-                            'desc'     => __( 'Please upload .....', 'redux-framework-demo' ),
+                            'desc'     => __( 'Please upload .....', 'cozy' ),
                             'default'  => array( 'url' => get_stylesheet_directory_uri().'/images/logo/logo.png'),
                         ),
 
                         array(
                             'id' => "cozy_description",
                             'type' => 'textarea',
-                            'title' => __('Description', 'redux-framework-demo'),
+                            'title' => __('Description', 'cozy'),
                             'default' => "Cozy is a simple clean and modern WordPress Theme designed for Real Estate business. This theme has a lot of useful features and it's highly customizable so you can turn it into your own awesome website.",
                         ),
 
@@ -224,50 +224,50 @@
                 // Contact Section
 
                 $this->sections[] = array(
-                    'title'  => __( 'Contact', 'redux-framework-demo' ),
-                    'desc'   => __( '', 'redux-framework-demo' ),
+                    'title'  => __( 'Contact', 'cozy' ),
+                    'desc'   => __( '', 'cozy' ),
                     'icon'   => 'el-icon-phone-alt',
                     // 'submenu' => false, // Setting submenu to false on a given section will hide it from the WordPress sidebar menu!
                     'fields' => array(
                         array(
                             'id' => "section_contact_title",
                             'type' => 'text',
-                            'title' => __('Section Title', 'redux-framework-demo'),
+                            'title' => __('Section Title', 'cozy'),
                             'default' => "Contact Info",
                         ),
 
                         array(
                             'id' => "section_contact_address",
                             'type' => 'text',
-                            'title' => __('Address', 'redux-framework-demo'),
+                            'title' => __('Address', 'cozy'),
                             'default' => "24th Street, New York, USA",
                         ),
 
                         array(
                             'id' => "section_contact_email",
                             'type' => 'text',
-                            'title' => __('Contact Email', 'redux-framework-demo'),
+                            'title' => __('Contact Email', 'cozy'),
                             'default' => "hello@yourcompany.com",
                         ),
 
                         array(
                             'id' => "section_contact_phone",
                             'type' => 'text',
-                            'title' => __('Contact Number', 'redux-framework-demo'),
+                            'title' => __('Contact Number', 'cozy'),
                             'default' => "Phone: 800-123-4567",
                         ),
 
                         array(
                             'id' => "section_contact_fax",
                             'type' => 'text',
-                            'title' => __('Contact Number', 'redux-framework-demo'),
+                            'title' => __('Contact Number', 'cozy'),
                             'default' => "Fax: 00351 456 789 101",
                         ),
 
                         array(
                             'id' => "section_contact_map",
                             'type' => 'textarea',
-                            'title' => __('Google Map Link Here', 'redux-framework-demo'),
+                            'title' => __('Google Map Link Here', 'cozy'),
                             'default' => "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3323.5555106206834!2d-7.637222461654696!3d33.59088826069678!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x87da5314adb2dd65!2sRICHBOND!5e0!3m2!1sen!2s!4v1397056520314",
                         ),
                     ),
@@ -280,20 +280,20 @@
 
                 $this->sections[] = array(
                 'icon'   => 'el-icon-eye-open',
-                'title'  => __( 'Search Section', 'redux-framework-demo' ),
+                'title'  => __( 'Search Section', 'cozy' ),
                 'fields' => array(
 
                         array(
                             'id' => 'section_search_heading',
                             'type' => 'text',
-                            'title' => __('Section Heading', 'redux-framework-demo'),
+                            'title' => __('Section Heading', 'cozy'),
                             'default' => "Find The Perfect Home",
                         ),
 
                         array(
                             'id' => 'section_search_heading2',
                             'type' => 'text',
-                            'title' => __('Section Heading 2', 'redux-framework-demo'),
+                            'title' => __('Section Heading 2', 'cozy'),
                             'default' => "With Cozy Real Estate HTML Template",
                         ),                                     
                     ),
@@ -306,34 +306,34 @@
 
                 $this->sections[] = array(
                 'icon'   => 'el-icon-eye-open',
-                'title'  => __( 'Buy Now', 'redux-framework-demo' ),
+                'title'  => __( 'Buy Now', 'cozy' ),
                 'fields' => array(
 
                         array(
                             'id' => 'section_action_display',
                             'type' => 'switch',
-                            'title' => __('Display Section', 'redux-framework-demo'),
+                            'title' => __('Display Section', 'cozy'),
                             'default' => true,
                         ),
 
                         array(
                             'id' => 'section_action_description',
                             'type' => 'textarea',
-                            'title' => __('Section Description', 'redux-framework-demo'),
+                            'title' => __('Section Description', 'cozy'),
                             'default' => "Cozy - Real Estate Template it's Awesome!<br/>It offers you a lot of great features.",
                         ),  
 
                         array(
                             'id' => "section_action_buy",
                             'type' => 'text',
-                            'title' => __('Action Button Text', 'redux-framework-demo'),
+                            'title' => __('Action Button Text', 'cozy'),
                             'default' => "Buy Now!",
                         ),
 
                         array(
                             'id' => "section_action_link",
                             'type' => 'text',
-                            'title' => __('Action Link', 'redux-framework-demo'),
+                            'title' => __('Action Link', 'cozy'),
                             'default' => "http://themeforest.net/user/WiselyThemes",
                         ),
                                       
@@ -347,34 +347,34 @@
 
                 $this->sections[] = array(
                 'icon'   => 'el-icon-eye-open',
-                'title'  => __( 'New Properties', 'redux-framework-demo' ),
+                'title'  => __( 'New Properties', 'cozy' ),
                 'fields' => array(
                        
                        array(
                             'id' => 'section_properties_info',
                             'type' => 'info',
-                            'title' => __('Create a new post from <a href="' . site_url() . '/wp-admin/post-new.php?post_type=listing">here</a> ', 'redux-framework-demo'),
+                            'title' => __('Create a new post from <a href="' . site_url() . '/wp-admin/post-new.php?post_type=listing">here</a> ', 'cozy'),
                             'style' => 'warning'
                         ),
 
                         array(
                             'id' => 'section_properties_display',
                             'type' => 'switch',
-                            'title' => __('Display Section', 'redux-framework-demo'),
+                            'title' => __('Display Section', 'cozy'),
                             'default' => true,
                         ),
                         
                         array(
                             'id' => "section_properties_title",
                             'type' => 'text',
-                            'title' => __('Section Title', 'redux-framework-demo'),
+                            'title' => __('Section Title', 'cozy'),
                             'default' => "New Properties Available",
                         ),
 
                         array(
                             'id' => 'section_properties_number',
                             'type' => 'text',
-                            'title' => __('How many posts to display?', 'redux-framework-demo'),
+                            'title' => __('How many posts to display?', 'cozy'),
                             'default' => "9",
                         ),                                        
                     ),
@@ -385,8 +385,8 @@
                 // Property Gallery Section
 
                 $this->sections[] = array(
-                    'title'  => __( 'Property Gallery', 'redux-framework-demo' ),
-                    'desc'   => __( '', 'redux-framework-demo' ),
+                    'title'  => __( 'Property Gallery', 'cozy' ),
+                    'desc'   => __( '', 'cozy' ),
                     'icon'   => 'el-icon-cogs',
                     // 'submenu' => false, // Setting submenu to false on a given section will hide it from the WordPress sidebar menu!
                     'fields' => array(
@@ -394,53 +394,53 @@
                         array(
                             'id' => 'section_gallery_display',
                             'type' => 'switch',
-                            'title' => __('Display Gallery Section', 'redux-framework-demo'),
+                            'title' => __('Display Gallery Section', 'cozy'),
                             'default' => true,
                         ),
 
                         array(
                             'id' => "section_gallery_title",
                             'type' => 'text',
-                            'title' => __('Section Title', 'redux-framework-demo'),
+                            'title' => __('Section Title', 'cozy'),
                             'default' => "Property Gallery",
                         ),
 
                         array(
                             'id' => "section_featured_properties_title",
                             'type' => 'text',
-                            'title' => __('Featured Properties Section Title', 'redux-framework-demo'),
+                            'title' => __('Featured Properties Section Title', 'cozy'),
                             'default' => "Featured Properties",
                         ),
 
                         array(
                             'id' => "section_recent_properties_title",
                             'type' => 'text',
-                            'title' => __('Recent Properties Section Title', 'redux-framework-demo'),
+                            'title' => __('Recent Properties Section Title', 'cozy'),
                             'default' => "Recent Properties",
                         ),
 
                         array(
                             'id' => "cozy_gallery_description",
                             'type' => 'textarea',
-                            'title' => __('Description', 'redux-framework-demo'),
+                            'title' => __('Description', 'cozy'),
                             'default' => "Pellentesque elementum libero enim, eget gravida nunc laoreet et. Nullam ac enim auctor, fringilla risus at, imperdiet turpis. Pellentesque elementum libero enim, eget gravida nunc laoreet et.",
                         ),
                         array(
                             'id' => 'property_gallery_number',
                             'type' => 'text',
-                            'title' => __('How many gallery image to display?', 'redux-framework-demo'),
+                            'title' => __('How many gallery image to display?', 'cozy'),
                             'default' => "4",
                         ), 
                         array(
                             'id' => 'section_featured_properties_number',
                             'type' => 'text',
-                            'title' => __('How many featured Properties to display?', 'redux-framework-demo'),
+                            'title' => __('How many featured Properties to display?', 'cozy'),
                             'default' => "3",
                         ), 
                         array(
                             'id' => 'section_recent_properties_number',
                             'type' => 'text',
-                            'title' => __('How many Recent Property to display?', 'redux-framework-demo'),
+                            'title' => __('How many Recent Property to display?', 'cozy'),
                             'default' => "6",
                         ), 
                     ),
@@ -453,41 +453,41 @@
 
                 $this->sections[] = array(
                 'icon'   => 'el-icon-eye-open',
-                'title'  => __( 'Latest News', 'redux-framework-demo' ),
+                'title'  => __( 'Latest News', 'cozy' ),
                 'fields' => array(
                        
                        array(
                             'id' => 'section_feature_info',
                             'type' => 'info',
-                            'title' => __('Create a new post from <a href="' . site_url() . '/wp-admin/post-new.php">here</a> ', 'redux-framework-demo'),
+                            'title' => __('Create a new post from <a href="' . site_url() . '/wp-admin/post-new.php">here</a> ', 'cozy'),
                             'style' => 'warning'
                         ),
 
                         array(
                             'id' => 'section_news_display',
                             'type' => 'switch',
-                            'title' => __('Display Section', 'redux-framework-demo'),
+                            'title' => __('Display Section', 'cozy'),
                             'default' => true,
                         ),
                         
                         array(
                             'id' => "section_news_title",
                             'type' => 'text',
-                            'title' => __('Section Title', 'redux-framework-demo'),
+                            'title' => __('Section Title', 'cozy'),
                             'default' => "Latest News",
                         ),
 
                         array(
                             'id' => "section_news_description",
                             'type' => 'textarea',
-                            'title' => __('Section Description', 'redux-framework-demo'),
+                            'title' => __('Section Description', 'cozy'),
                             'default' => "Pellentesque elementum libero enim, eget gravida nunc laoreet et. Nullam ac enim auctor, fringilla risus at, imperdiet turpis. Pellentesque elementum libero enim, eget gravida nunc laoreet et. ",
                         ),
 
                         array(
                             'id' => 'section_news_number',
                             'type' => 'text',
-                            'title' => __('How many posts to display?', 'redux-framework-demo'),
+                            'title' => __('How many posts to display?', 'cozy'),
                             'default' => "3",
                         ),                                        
                     ),
@@ -500,48 +500,48 @@
 
                 $this->sections[] = array(
                 'icon'   => 'el-icon-eye-open',
-                'title'  => __( 'Feature', 'redux-framework-demo' ),
+                'title'  => __( 'Feature', 'cozy' ),
                 'fields' => array(
                        
                        array(
                             'id' => 'section_feature_info',
                             'type' => 'info',
-                            'title' => __('Create a new feature from <a href="' . site_url() . '/wp-admin/post-new.php?post_type=feature">here</a> ', 'redux-framework-demo'),
+                            'title' => __('Create a new feature from <a href="' . site_url() . '/wp-admin/post-new.php?post_type=feature">here</a> ', 'cozy'),
                             'style' => 'warning'
                         ),
 
                         array(
                             'id' => 'section_feature_display',
                             'type' => 'switch',
-                            'title' => __('Display Section', 'redux-framework-demo'),
+                            'title' => __('Display Section', 'cozy'),
                             'default' => true,
                         ),
                         
                         array(
                             'id' => "section_feature_title",
                             'type' => 'text',
-                            'title' => __('Section Title', 'redux-framework-demo'),
+                            'title' => __('Section Title', 'cozy'),
                             'default' => "Template Features",
                         ),
 
                         array(
                             'id' => 'section_feature_number',
                             'type' => 'text',
-                            'title' => __('How many posts to display?', 'redux-framework-demo'),
+                            'title' => __('How many posts to display?', 'cozy'),
                             'default' => "3",
                         ),   
 
                         array(
                             'id' => 'section_feature_number_grid',
                             'type' => 'text',
-                            'title' => __('How many posts to display in grid page?', 'redux-framework-demo'),
+                            'title' => __('How many posts to display in grid page?', 'cozy'),
                             'default' => "4",
                         ),
 
                         array(
                             'id' => 'section_feature_number_slider',
                             'type' => 'text',
-                            'title' => __('How many posts to display in slider page?', 'redux-framework-demo'),
+                            'title' => __('How many posts to display in slider page?', 'cozy'),
                             'default' => "3",
                         ),                                     
                     ),
@@ -552,31 +552,31 @@
                 // Our Partners Section
 
                 $this->sections[] = array(
-                    'title'  => __( 'Our Partners', 'redux-framework-demo' ),
-                    'desc'   => __( '', 'redux-framework-demo' ),
+                    'title'  => __( 'Our Partners', 'cozy' ),
+                    'desc'   => __( '', 'cozy' ),
                     'icon'   => 'el-icon-cogs',
                     // 'submenu' => false, // Setting submenu to false on a given section will hide it from the WordPress sidebar menu!
                     'fields' => array(
                         array(
                             'id' => 'section_partners_display',
                             'type' => 'switch',
-                            'title' => __('Display Section', 'redux-framework-demo'),
+                            'title' => __('Display Section', 'cozy'),
                             'default' => true,
                         ),
 
                         array(
                             'id' => "section_partners_title",
                             'type' => 'text',
-                            'title' => __('Section Title', 'redux-framework-demo'),
+                            'title' => __('Section Title', 'cozy'),
                             'default' => "Our Partners",
                         ),
 
                         array(
                             'id'       => 'opt_select_partners',
                             'type'     => 'select',
-                            'title'    => __('Select Partners Page', 'redux-framework-demo'), 
-                            'subtitle' => __('Select Our Partners Page to Display', 'redux-framework-demo'),
-                            'desc'     => __('Please create a page with page template "Our Partners" and add some partner image then select that page here to display in section our partners.', 'redux-framework-demo'),
+                            'title'    => __('Select Partners Page', 'cozy'), 
+                            'subtitle' => __('Select Our Partners Page to Display', 'cozy'),
+                            'desc'     => __('Please create a page with page template "Our Partners" and add some partner image then select that page here to display in section our partners.', 'cozy'),
                             // Must provide key => value pairs for select options
                             'options'  => wt_cozy_page_list( array( 'post_type' => 'page', 'numberposts' => -1 ) ),
                         ),
@@ -587,8 +587,8 @@
                 // Our Agents Section
 
                 $this->sections[] = array(
-                    'title'  => __( 'Our Agents', 'redux-framework-demo' ),
-                    'desc'   => __( '', 'redux-framework-demo' ),
+                    'title'  => __( 'Our Agents', 'cozy' ),
+                    'desc'   => __( '', 'cozy' ),
                     'icon'   => 'el-icon-cogs',
                     // 'submenu' => false, // Setting submenu to false on a given section will hide it from the WordPress sidebar menu!
                     'fields' => array(
@@ -596,7 +596,7 @@
                         array(
                             'id' => "section_agents_title",
                             'type' => 'text',
-                            'title' => __('Section Title', 'redux-framework-demo'),
+                            'title' => __('Section Title', 'cozy'),
                             'default' => "Our Agents",
                         ),
                     ),
@@ -606,8 +606,8 @@
                 // Grid Section
 
                 $this->sections[] = array(
-                    'title'  => __( 'Grid Section', 'redux-framework-demo' ),
-                    'desc'   => __( '', 'redux-framework-demo' ),
+                    'title'  => __( 'Grid Section', 'cozy' ),
+                    'desc'   => __( '', 'cozy' ),
                     'icon'   => 'el-icon-cogs',
                     // 'submenu' => false, // Setting submenu to false on a given section will hide it from the WordPress sidebar menu!
                     'fields' => array(
@@ -615,147 +615,52 @@
                         array(
                             'id' => 'section_grid_display',
                             'type' => 'switch',
-                            'title' => __('Display Grid Section', 'redux-framework-demo'),
+                            'title' => __('Display Grid Section', 'cozy'),
                             'default' => true,
                         ),
                         array(
                             'id' => 'section_grid_number',
                             'type' => 'text',
-                            'title' => __('How many posts to display in grid section?', 'redux-framework-demo'),
+                            'title' => __('How many posts to display in grid section?', 'cozy'),
                             'default' => "15",
                         ), 
                     ),
                 );
 
 
-                // Home Map Page
-
-                $this->sections[] = array(
-                    'title'  => __( 'Home Map Page', 'redux-framework-demo' ),
-                    'desc'   => __( '', 'redux-framework-demo' ),
-                    'icon'   => 'el-icon-cogs',
-                    // 'submenu' => false, // Setting submenu to false on a given section will hide it from the WordPress sidebar menu!
-                    'fields' => array(
-
-                        array(
-                            'id' => 'section_looking_for_display',
-                            'type' => 'switch',
-                            'title' => __('Display Grid Section', 'redux-framework-demo'),
-                            'default' => true,
-                        ),
-                        array(
-                            'id' => "section_looking_for_title",
-                            'type' => 'text',
-                            'title' => __('Looking For Title', 'redux-framework-demo'),
-                            'default' => "WHAT ARE YOU LOOKING FOR?",
-                        ),
-                        array(
-                            'id' => "section_looking_for_description",
-                            'type' => 'textarea',
-                            'title' => __('Looking For Description', 'redux-framework-demo'),
-                            'default' => "Curabitur dignissim tortor ut scelerisque consectetur. Praesent pulvinar placerat lorem, et ultricies urna ultrices vel. Praesent eu libero a sapien adipiscing interdum feugiat id lectus.",
-                        ),
-
-                        array(
-                            'id' => 'section_why_choose_display',
-                            'type' => 'switch',
-                            'title' => __('Display Why Choose Us Section', 'redux-framework-demo'),
-                            'default' => true,
-                        ),
-                        
-                      array(
-                            'id'       => 'section_why_choose_title',
-                            'type'     => 'text',
-                            'validate' => '',
-                            'title'    => __( 'Section Why Choose Us Heading', 'redux-framework-demo'),
-                            'desc'     => __( '' ),
-                            'default'  => 'Why Choose Us?',
-                        ),
-
-                      array(
-                            'id' => 'section_why_choose_number1',
-                            'type' => 'text',
-                            'title' => __(' ', 'redux-framework-demo'),
-                            'default' => "1281",
-                        ),
-                      array(
-                            'id' => 'section_why_choose_text1',
-                            'type' => 'text',
-                            'title' => __(' ', 'redux-framework-demo'),
-                            'default' => "Properties<br/>Rented",
-                        ),
-                      array(
-                            'id' => 'section_why_choose_number2',
-                            'type' => 'text',
-                            'title' => __(' ', 'redux-framework-demo'),
-                            'default' => "426",
-                        ),
-                      array(
-                            'id' => 'section_why_choose_text2',
-                            'type' => 'text',
-                            'title' => __(' ', 'redux-framework-demo'),
-                            'default' => "Residential<br/>Properties Sold",
-                        ),
-                      array(
-                            'id' => 'section_why_choose_number3',
-                            'type' => 'text',
-                            'title' => __(' ', 'redux-framework-demo'),
-                            'default' => "179",
-                        ),
-                      array(
-                            'id' => 'section_why_choose_text3',
-                            'type' => 'text',
-                            'title' => __(' ', 'redux-framework-demo'),
-                            'default' => "Commercial<br/>Properties Sold",
-                        ),
-                      array(
-                            'id' => 'section_why_choose_number4',
-                            'type' => 'text',
-                            'title' => __(' ', 'redux-framework-demo'),
-                            'default' => "153",
-                        ),
-                      array(
-                            'id' => 'section_why_choose_text4',
-                            'type' => 'text',
-                            'title' => __(' ', 'redux-framework-demo'),
-                            'default' => "Land<br/>Properties Sold",
-                        ),
-                    ),
-                );
-
             //Newsletter
                 
 
                 $this->sections[] = array(
                 'icon'   => 'el-icon-eye-open',
-                'title'  => __( 'Newsletter', 'redux-framework-demo' ),
+                'title'  => __( 'Newsletter', 'cozy' ),
                 'fields' => array(
 
                         array(
                             'id' => 'section_newsletter_display',
                             'type' => 'switch',
-                            'title' => __('Display Newsletter', 'redux-framework-demo'),
+                            'title' => __('Display Newsletter', 'cozy'),
                             'default' => true,
                         ),
                         
                         array(
                             'id' => "section_newsletter_title",
                             'type' => 'text',
-                            'title' => __('Newsletter Title', 'redux-framework-demo'),
+                            'title' => __('Newsletter Title', 'cozy'),
                             'default' => "NEWSLETTER",
                         ),
 
                         array(
                             'id' => "section_newsletter_title2",
                             'type' => 'text',
-                            'title' => __('Newsletter Title 2', 'redux-framework-demo'),
+                            'title' => __('Newsletter Title 2', 'cozy'),
                             'default' => "SUBSCRIBE OUR WEEKLY",
                         ),
 
                         array(
                             'id' => "section_newsletter_description",
                             'type' => 'textarea',
-                            'title' => __('Newsletter Description', 'redux-framework-demo'),
+                            'title' => __('Newsletter Description', 'cozy'),
                             'default' => "Lorem ipsum dolor sit amet, consectetur adipiscing elit lorem ipsum dolor sit amet consectetur adipiscing elit.",
                         ),
                                       
@@ -766,8 +671,8 @@
             // Testimonial Section
 
                 $this->sections[] = array(
-                    'title'  => __( 'Testimonial', 'redux-framework-demo' ),
-                    'desc'   => __( '', 'redux-framework-demo' ),
+                    'title'  => __( 'Testimonial', 'cozy' ),
+                    'desc'   => __( '', 'cozy' ),
                     'icon'   => 'el-icon-tasks',
                     // 'submenu' => false, // Setting submenu to false on a given section will hide it from the WordPress sidebar menu!
                     'fields' => array(
@@ -775,14 +680,14 @@
                         array(
                             'id' => 'section_testimonial_info',
                             'type' => 'info',
-                            'title' => __('Create a new Testimonial from <a href="' . site_url() . '/wp-admin/post-new.php?post_type=testimonial">here</a> ', 'redux-framework-demo'),
+                            'title' => __('Create a new Testimonial from <a href="' . site_url() . '/wp-admin/post-new.php?post_type=testimonial">here</a> ', 'cozy'),
                             'style' => 'warning'
                         ),
 
                         array(
                             'id' => 'section_testimonial_display',
                             'type' => 'switch',
-                            'title' => __('Display Section', 'redux-framework-demo'),
+                            'title' => __('Display Section', 'cozy'),
                             'default' => true,
                         ),
                         
@@ -790,7 +695,7 @@
                             'id'       => 'section_testimonial_title',
                             'type'     => 'text',
                             'validate' => '',
-                            'title'    => __( 'Section heading', 'redux-framework-demo'),
+                            'title'    => __( 'Section heading', 'cozy'),
                             'desc'     => __( '' ),
                             'default'  => 'Testimonials',
                         ),
@@ -798,7 +703,7 @@
                       array(
                             'id' => 'section_testimonial_number',
                             'type' => 'text',
-                            'title' => __('How many posts to display?', 'redux-framework-demo'),
+                            'title' => __('How many posts to display?', 'cozy'),
                             'default' => "3",
                         ),
 
@@ -806,11 +711,107 @@
                 );
 
 
+                // Home Map Page
+
+                $this->sections[] = array(
+                    'title'  => __( 'Home Map Page', 'cozy' ),
+                    'desc'   => __( '', 'cozy' ),
+                    'icon'   => 'el-icon-cogs',
+                    // 'submenu' => false, // Setting submenu to false on a given section will hide it from the WordPress sidebar menu!
+                    'fields' => array(
+
+                        array(
+                            'id' => 'section_looking_for_display',
+                            'type' => 'switch',
+                            'title' => __('Display Grid Section', 'cozy'),
+                            'default' => true,
+                        ),
+                        array(
+                            'id' => "section_looking_for_title",
+                            'type' => 'text',
+                            'title' => __('Looking For Title', 'cozy'),
+                            'default' => "WHAT ARE YOU LOOKING FOR?",
+                        ),
+                        array(
+                            'id' => "section_looking_for_description",
+                            'type' => 'textarea',
+                            'title' => __('Looking For Description', 'cozy'),
+                            'default' => "Curabitur dignissim tortor ut scelerisque consectetur. Praesent pulvinar placerat lorem, et ultricies urna ultrices vel. Praesent eu libero a sapien adipiscing interdum feugiat id lectus.",
+                        ),
+
+                        array(
+                            'id' => 'section_why_choose_display',
+                            'type' => 'switch',
+                            'title' => __('Display Why Choose Us Section', 'cozy'),
+                            'default' => true,
+                        ),
+                        
+                      array(
+                            'id'       => 'section_why_choose_title',
+                            'type'     => 'text',
+                            'validate' => '',
+                            'title'    => __( 'Section Why Choose Us Heading', 'cozy'),
+                            'desc'     => __( '' ),
+                            'default'  => 'Why Choose Us?',
+                        ),
+
+                      array(
+                            'id' => 'section_why_choose_number1',
+                            'type' => 'text',
+                            'title' => __(' ', 'cozy'),
+                            'default' => "1281",
+                        ),
+                      array(
+                            'id' => 'section_why_choose_text1',
+                            'type' => 'text',
+                            'title' => __(' ', 'cozy'),
+                            'default' => "Properties<br/>Rented",
+                        ),
+                      array(
+                            'id' => 'section_why_choose_number2',
+                            'type' => 'text',
+                            'title' => __(' ', 'cozy'),
+                            'default' => "426",
+                        ),
+                      array(
+                            'id' => 'section_why_choose_text2',
+                            'type' => 'text',
+                            'title' => __(' ', 'cozy'),
+                            'default' => "Residential<br/>Properties Sold",
+                        ),
+                      array(
+                            'id' => 'section_why_choose_number3',
+                            'type' => 'text',
+                            'title' => __(' ', 'cozy'),
+                            'default' => "179",
+                        ),
+                      array(
+                            'id' => 'section_why_choose_text3',
+                            'type' => 'text',
+                            'title' => __(' ', 'cozy'),
+                            'default' => "Commercial<br/>Properties Sold",
+                        ),
+                      array(
+                            'id' => 'section_why_choose_number4',
+                            'type' => 'text',
+                            'title' => __(' ', 'cozy'),
+                            'default' => "153",
+                        ),
+                      array(
+                            'id' => 'section_why_choose_text4',
+                            'type' => 'text',
+                            'title' => __(' ', 'cozy'),
+                            'default' => "Land<br/>Properties Sold",
+                        ),
+                    ),
+                );
+
+
             // 404 Not Found Page
 
                 $this->sections[] = array(
-                    'title'  => __( '404 Not Found Page', 'redux-framework-demo' ),
-                    'desc'   => __( 'Content for 404 not found page', 'redux-framework-demo' ),
+                    'title'  => __( '404 Not Found Page', 'cozy' ),
+                    'desc'   => __( 'Content for 404 not found page', 'cozy' ),
                     'icon'   => 'el-icon-tasks',
                     // 'submenu' => false, // Setting submenu to false on a given section will hide it from the WordPress sidebar menu!
                     'fields' => array(
@@ -836,8 +837,8 @@
             // Footer Section
 
                 $this->sections[] = array(
-                    'title'  => __( 'Footer', 'redux-framework-demo' ),
-                    'desc'   => __( '', 'redux-framework-demo' ),
+                    'title'  => __( 'Footer', 'cozy' ),
+                    'desc'   => __( '', 'cozy' ),
                     'icon'   => 'el-icon-edit',
                     // 'submenu' => false, // Setting submenu to false on a given section will hide it from the WordPress sidebar menu!
                     'fields' => array(
@@ -845,49 +846,49 @@
                         array(
                             'id' => "footer_copyright",
                             'type' => 'text',
-                            'title' => __('Copyright text', 'redux-framework-demo'),
+                            'title' => __('Copyright text', 'cozy'),
                             'default' => "&copy; 2014 Cozy - Real Estate WordPress Theme. All rights reserved. Developed by <a href='http://www.wiselythemes.com' target='_blank'>WiselyThemes</a>",
                         ),
 
                         array(
                             'id' => "footer_facebook_link",
                             'type' => 'text',
-                            'title' => __('Facebook Link', 'redux-framework-demo'),
+                            'title' => __('Facebook Link', 'cozy'),
                             'default' => "http://www.facebook.com/wiselythemes",
                         ),
 
                         array(
                             'id' => "footer_twitter_link",
                             'type' => 'text',
-                            'title' => __('Twitter Link', 'redux-framework-demo'),
+                            'title' => __('Twitter Link', 'cozy'),
                             'default' => "http://www.twitter.com/wiselythemes",
                         ),
 
                         array(
                             'id' => "footer_googleplus_link",
                             'type' => 'text',
-                            'title' => __('Google Plus Link', 'redux-framework-demo'),
+                            'title' => __('Google Plus Link', 'cozy'),
                             'default' => "http://plus.google.com/wiselythemes",
                         ),
 
                         array(
                             'id' => "footer_pinterest_link",
                             'type' => 'text',
-                            'title' => __('Pinterest Link', 'redux-framework-demo'),
+                            'title' => __('Pinterest Link', 'cozy'),
                             'default' => "http://www.pinterest.com/wiselythemes",
                         ),
 
                         array(
                             'id' => "footer_youtube_link",
                             'type' => 'text',
-                            'title' => __('YouTube Link', 'redux-framework-demo'),
+                            'title' => __('YouTube Link', 'cozy'),
                             'default' => "http://www.youtube.com/user/wiselythemes",
                         ),
 
                         array(
                             'id' => "footer_feed_link",
                             'type' => 'text',
-                            'title' => __('Feed Link', 'redux-framework-demo'),
+                            'title' => __('Feed Link', 'cozy'),
                             'default' => "#",
                         ),
                       

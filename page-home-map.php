@@ -42,20 +42,7 @@ get_header(); ?>
 					<!-- END MAIN CONTENT 1-->
 					
 					<!-- BEGIN SIDEBAR 1 -->
-					<div class="sidebar gray col-sm-4">
-
-<?php //get_template_part ('/includes/home-map/contact-us'); ?>	
 <?php get_sidebar(); ?>
-
-						<!-- BEGIN ACCORDION -->
-<?php //get_template_part ('/includes/home-map/accordion'); ?>
-						<!-- END ACCORDION -->
-						
-						<!-- BEGIN TABS -->
-<?php get_template_part ('/includes/home-map/tabs'); ?>
-						<!-- END TABS -->
-						
-					</div>
 					<!-- END SIDEBAR 1 -->
 				</div>
 			</div>
@@ -84,17 +71,7 @@ get_header(); ?>
 					<!-- END MAIN CONTENT -->
 					
 					<!-- BEGIN SIDEBAR -->
-					<div class="sidebar gray col-sm-4">
-					
-						
-						<!-- BEGIN FEATURES LIST -->
-<?php get_template_part ('/includes/home-map/feature-list'); ?>	
-						<!-- END FEATURES LIST -->
-						
-						
-<?php get_template_part ('/includes/home-map/our-partners'); ?>	
-						
-					</div>
+<?php get_sidebar('bottom'); ?>
 					<!-- END SIDEBAR 2 -->
 					
 				</div>

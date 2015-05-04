@@ -28,14 +28,14 @@ class WT_Widget_Contact extends WP_Widget {
 
         global $wt_cozy; ?>
         <!-- BEGIN CONTACT -->
-                    <div class="block col-sm-3">
-                        <h3><?php echo $wt_cozy['section_contact_title']?></h3>
-                        <ul class="footer-contacts">
-                            <li><i class="fa fa-map-marker"></i> <?php echo $wt_cozy['section_contact_address']?></li>
-                            <li><i class="fa fa-phone"></i> <?php echo $wt_cozy['section_contact_phone']?></li>
-                            <li><i class="fa fa-envelope"></i><a href="mailto:<?php echo $wt_cozy['section_contact_email']?>"><?php echo $wt_cozy['section_contact_email']?></a></li>
-                        </ul>
-                    </div>
+            <div class="block col-sm-3">
+                <h3><?php echo $wt_cozy['section_contact_title']?></h3>
+                <ul class="footer-contacts">
+                    <li><i class="fa fa-map-marker"></i> <?php echo $wt_cozy['section_contact_address']?></li>
+                    <li><i class="fa fa-phone"></i> <?php echo $wt_cozy['section_contact_phone']?></li>
+                    <li><i class="fa fa-envelope"></i><a href="mailto:<?php echo $wt_cozy['section_contact_email']?>"><?php echo $wt_cozy['section_contact_email']?></a></li>
+                </ul>
+            </div>
         <!-- END CONTACT -->
         
         <?php

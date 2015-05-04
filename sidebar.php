@@ -29,9 +29,11 @@ elseif ( is_page_template('page-home-slider.php')) { ?>
 
 // Sidebar Home Map
 elseif ( is_page_template('page-home-map.php')) { ?>
+<div class="sidebar gray col-sm-4">
 	<?php if ( is_active_sidebar( 'sidebar-home-map-top' ) ) : ?>
 	<?php dynamic_sidebar( 'sidebar-home-map-top' ); ?>
 	<?php endif; ?>
+</div>
 <?php }
 
 // Sidebar for all single post and archive pages of custom post types ( Single Property, Agent, Agency, Features, Testimonials, Faq and Price )
