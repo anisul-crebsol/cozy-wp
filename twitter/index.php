@@ -36,7 +36,7 @@ class ezTweet {
 	private $user_secret = 'xx5ytXBT6VOmHn18y5XlhKejvcqMp6xac0vbHJvDmidDk'; //Replace with your Twitter Access Token Secret
 
 	// Path to tmhOAuth libraries
-	private $lib =  './lib/';
+	private $lib =  'http://demo.crebsol.net/wp-content/themes/cozy/twitter/lib/';
 
 	// Enable caching
 	private $cache_enabled = true;
@@ -45,7 +45,7 @@ class ezTweet {
 	private $cache_interval = 15;
 
 	// Path to writable cache directory
-	private $cache_dir = './';
+	private $cache_dir = 'http://demo.crebsol.net/wp-content/themes/cozy/twitter/';
 
 	// Enable debugging
 	private $debug = false;

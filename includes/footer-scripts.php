@@ -1,13 +1,15 @@
-<?php if ( is_page_template('page-home-map.php')) { ?>
+<?php if ( is_page_template('page-home-map.php')) { 
+// Properties
+require get_template_directory() . '/inc/properties.php';
+	?>
 	<script type="text/javascript">
-		(function($){
-			"use strict";
-			
-			$(document).ready(function(){
-				//Create porperties map
-				Cozy.propertiesMap(properties, 'properties_map');
-			});
-		})(jQuery);
+	 	(function($){
+	 		"use strict";
+	 		$(document).ready(function(){
+	 			//Create porperties map
+	 			Cozy.propertiesMap(properties, 'properties_map');
+	 		});
+	 	})(jQuery);
 	</script>
 <?php
     }

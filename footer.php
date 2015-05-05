@@ -54,8 +54,9 @@
 <?php
 // Agency
 require get_template_directory() . '/inc/agencies.php';
-// Agency
-//require get_template_directory() . '/inc/variables.php';
+
+// Default Variables
+require get_template_directory() . '/inc/variables.php';
 ?>
 
 </body>

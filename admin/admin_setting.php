@@ -654,14 +654,14 @@
                             'id' => "section_newsletter_title2",
                             'type' => 'text',
                             'title' => __('Newsletter Title 2', 'cozy'),
-                            'default' => "SUBSCRIBE OUR WEEKLY",
+                            'default' => "SUBSCRIBE OUR",
                         ),
 
                         array(
                             'id' => "section_newsletter_description",
                             'type' => 'textarea',
                             'title' => __('Newsletter Description', 'cozy'),
-                            'default' => "Lorem ipsum dolor sit amet, consectetur adipiscing elit lorem ipsum dolor sit amet consectetur adipiscing elit.",
+                            'default' => "Lorem ipsum dolor sit amet, consectetur elit.",
                         ),
                                       
                     ),

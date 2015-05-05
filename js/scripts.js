@@ -246,7 +246,7 @@ var Cozy;
                 try {
                     $("#twitter-box").tweet({
                         username: $tis.twitter_username,
-                        modpath: 'twitter/',
+                        modpath: templeteUrl+'/twitter/',
                         count: len,
                         loading_text: 'Loading tweets...',
                         template: '<header><h3>{name}</h3><a href="http://twitter.com/{screen_name}" target="_blank">@{screen_name}</a>&nbsp;.&nbsp;<a href="http://twitter.com/{screen_name}/statuses/{tweet_id}/" target="_blank" class="time">{tweet_relative_time}</a></header><div class="text">{text}</div>'

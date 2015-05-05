@@ -40,10 +40,10 @@ class tmhOAuth {
         'use_ssl'                    => true,
         'host'                       => 'api.twitter.com',
 
-        'consumer_key'               => '',
-        'consumer_secret'            => '',
-        'user_token'                 => '',
-        'user_secret'                => '',
+        'consumer_key'               => 'z9cWWEWM3aX7DmqdC4ixg',
+        'consumer_secret'            => 'NpJ0urNjKtlzIsBDObVrBqqHem9ksY7MdfjUs9zYU',
+        'user_token'                 => '49590877-9n3OlvXtven2sB7hAPYinZYXcos84GbG21hAfk9VA',
+        'user_secret'                => 'xx5ytXBT6VOmHn18y5XlhKejvcqMp6xac0vbHJvDmidDk',
         'force_nonce'                => false,
         'nonce'                      => false, // used for checking signatures. leave as false for auto
         'force_timestamp'            => false,

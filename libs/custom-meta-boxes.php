@@ -494,11 +494,18 @@ function wt_cozy_register_metabox() {
 	$wt_cozy->add_field( array(
 		'name' => __( 'Google Map', 'cozy' ),
 		'desc' => __( 'Field description (optional)', 'cozy' ),
-		'id'   => $prefix . 'gridmap',
+		'id'   => $prefix . 'property_map',
 		'type' => 'pw_map',
 		'split_values' => true,
 		// 'repeatable' => true,
 	) );
+	$wt_cozy->add_field( array(
+			    'name' => 'Map Icon',
+			    'desc' => 'Property Map Maker Icon',
+			    'id'   => $prefix . 'property_map_maker_icon',
+			    'type' => 'file',
+			    // 'preview_size' => array( 100, 100 ), // Default: array( 50, 50 )
+			) );
 	$wt_cozy = wt_cozy_metabox( array(
 		'id'            => $prefix . 'property-author',
 		'title'         => __( 'Property Agent','cozy' ),
