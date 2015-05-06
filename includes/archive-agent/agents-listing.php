@@ -4,12 +4,12 @@
 $count = 0;
 $display_posts = 3;
 $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
-$property_args = array(
+$agent_args = array(
 	'post_type' => 'agent',
 	'posts_per_page' => $display_posts,
 	'paged' => $paged
 );
-query_posts($property_args);
+query_posts($agent_args);
 if (have_posts()) : while (have_posts()) : the_post();
 
 	$count++;

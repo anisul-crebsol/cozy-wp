@@ -39,7 +39,7 @@ get_header(); ?>
 						
 						
 						<!-- BEGIN PAGINATION -->
-<?php get_template_part ('/includes/blog-listing/pagination'); ?>
+<?php get_template_part ('/includes/pagination'); ?>
 						<!-- END PAGINATION -->
 						
 					</div>	

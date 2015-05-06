@@ -2,13 +2,13 @@
 	<div class="row">
 <?php 
 	$count = 0;
-    $limit = 8;
+	$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 	$args = array(
         'post_status'       => 'publish',
-        'posts_per_page'    => $limit,
+        'paged' => $paged,
     );
-    $blog_query = new WP_Query( $args );?>
-<?php while($blog_query->have_posts()): $blog_query->the_post(); $count++;?>
+    $wp_query = new WP_Query( $args );?>
+<?php while($wp_query->have_posts()): $wp_query->the_post(); $count++;?>
 <?php if ( 1 == $count%2 ) {
         echo '<div class="clearfix"></div>';
     } ?>

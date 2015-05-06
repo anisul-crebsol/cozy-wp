@@ -1,16 +1,19 @@
-<div class="grid-style1 clearfix">
+<div id="blog-listing" class="list-style clearfix">
 	<div class="row">
-<?php  
+<?php 
+	$count = 0;
 	$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 	$args = array(
         'post_status'       => 'publish',
         'paged' => $paged,
     );
     $wp_query = new WP_Query( $args );?>
-<?php while($wp_query->have_posts()): $wp_query->the_post(); ?>
-
-		<div class="item col-md-12"><!-- Set width to 4 columns for grid view mode only -->
-			<div class="image image-large">
+<?php while($wp_query->have_posts()): $wp_query->the_post(); $count++;?>
+<?php if ( 1 == $count%2 ) {
+        echo '<div class="clearfix"></div>';
+    } ?>
+		<div class="item col-md-6"><!-- Set width to 4 columns for grid view mode only -->
+			<div class="image">
 				<a href="<?php the_permalink(); ?>">
 					<span class="btn btn-default"><i class="fa fa-file-o"></i> <?php _e( 'Read More', 'cozy' );?></span>
 				</a>
@@ -19,7 +22,7 @@
 					the_post_thumbnail('thumbnail', array('class' => 'img-responsive'));
 				}
 				else {
-					echo '<img src="http://placehold.it/720x284" />';
+					echo '<img src="http://placehold.it/360x242" />';
 				}
 				?>
 			</div>

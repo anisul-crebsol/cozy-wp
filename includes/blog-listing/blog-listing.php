@@ -1,14 +1,14 @@
 <div id="blog-listing" class="grid-style1 clearfix">
 	<div class="row">
 <?php 
-    $limit = 9;
     $count = 0;
+	$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 	$args = array(
         'post_status'       => 'publish',
-        'posts_per_page'    => $limit,
+        'paged' => $paged,
     );
-    $blog_query = new WP_Query( $args );?>
-<?php while($blog_query->have_posts()): $blog_query->the_post(); ?>
+    $wp_query = new WP_Query( $args );?>
+<?php while($wp_query->have_posts()): $wp_query->the_post(); ?>
 
 <?php $clearFix = @( $count%3 == 0 ?  '<div class="clearfix"></div>' : ''); echo $clearFix;  ?>
 
@@ -54,7 +54,7 @@
 			</div>
 		</div>
 <?php $count++; endwhile; ?>
-<?php wp_reset_postdata(); ?>
+
 
 	</div>
 </div>
