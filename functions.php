@@ -220,13 +220,13 @@ require get_template_directory() . '/inc/customizer.php';
 require get_template_directory() . '/inc/jetpack.php';
 
 // Custom Post Types
-require get_template_directory() . '/inc/custom-post-types.php';
+require get_template_directory() . '/admin/custom-post-types.php';
 
 // Plugin Activation
 require get_template_directory() . '/inc/add-plugins.php';
 
 // Custom Metabox
-require get_template_directory() . '/libs/custom-meta-boxes.php';
+require get_template_directory() . '/admin/custom-meta-boxes.php';
 
 // Register Custom Navigation Walker
 require get_template_directory() . '/libs/google-map/cmb-field-map.php';
@@ -257,48 +257,3 @@ require get_template_directory() . '/libs/cozy-accordion/cozy_accordion.php';
 
 // Pagination
 require get_template_directory() . '/inc/registration.php';
-
-// Cozy Tab
-//require get_template_directory() . '/libs/cozy-tab/cozy_tabs.php';
-
-// Shortcode Button
-//require get_template_directory() . '/js/agencies.php';
-
-
-
-//add extra fields to property types edit form hook
-add_action('wt-property-types_edit_form_fields','extra_category_fields');
-add_action('wt-property-types_add_form_fields','extra_category_fields');
-//add extra fields to category edit form callback function
-function extra_category_fields( $tag ) {    //check for existing featured ID
-    $t_id = $tag->term_id;
-    $cat_meta = get_option( "category_$t_id");
-?>
-<tr class="form-field">
-<th scope="row" valign="top"><label for="cat_icon_url"><?php _e('Property Icon','cozy'); ?></label></th>
-<td>
-<input type="text" name="Cat_meta[img]" id="Cat_meta[img]" size="3" style="width:60%;" value="<?php echo $cat_meta['img'] ? $cat_meta['img'] : ''; ?>"><br />
-            <span class="description"><?php _e('Please add any font awesome class ie : fa-home','cozy'); ?></span>
-        </td>
-</tr>
-<?php
-}
-// save extra category extra fields hook
-add_action ( 'edited_wt-property-types', 'save_extra_category_fileds');
-   // save extra category extra fields callback function
-function save_extra_category_fileds( $term_id ) {
-    if ( isset( $_POST['Cat_meta'] ) ) {
-        $t_id = $term_id;
-        $cat_meta = get_option( "category_$t_id");
-        $cat_keys = array_keys($_POST['Cat_meta']);
-            foreach ($cat_keys as $key){
-            if (isset($_POST['Cat_meta'][$key])){
-                $cat_meta[$key] = $_POST['Cat_meta'][$key];
-            }
-        }
-        //save the option array
-        update_option( "category_$t_id", $cat_meta );
-    }
-}
-
-//function fowl_wpcf7_submit_button() { if(function_exists('wpcf7_remove_shortcode')) { wpcf7_remove_shortcode('submit'); remove_action( 'admin_init', 'wpcf7_add_tag_generator_submit', 55 ); } } add_action('init','fowl_wpcf7_submit_button');

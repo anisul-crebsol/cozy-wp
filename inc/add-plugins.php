@@ -8,7 +8,7 @@
  *
  * @package    TGM-Plugin-Activation
  * @subpackage Example
- * @version    2.4.0
+ * @version    2.4.2
  * @author     Thomas Griffin <thomasgriffinmedia.com>
  * @author     Gary Jones <gamajo.com>
  * @copyright  Copyright (c) 2014, Thomas Griffin
@@ -19,9 +19,9 @@
 /**
  * Include the TGM_Plugin_Activation class.
  */
-require_once dirname( __FILE__ ) . '/plugin-activation.php';
+require_once dirname( __FILE__ ) . '/class-plugin-activation.php';
 
-add_action( 'tgmpa_register', 'my_theme_register_required_plugins' );
+add_action( 'tgmpa_register', 'wt_cozy_register_required_plugins' );
 /**
  * Register the required plugins for this theme.
  *
@@ -34,7 +34,7 @@ add_action( 'tgmpa_register', 'my_theme_register_required_plugins' );
  * This function is hooked into tgmpa_init, which is fired within the
  * TGM_Plugin_Activation class constructor.
  */
-function my_theme_register_required_plugins() {
+function wt_cozy_register_required_plugins() {
 
     /**
      * Array of plugin arrays. Required keys are name and slug.
@@ -43,13 +43,10 @@ function my_theme_register_required_plugins() {
     $plugins = array(
         array(
             'name'               => 'Contact Form 7', // The plugin name.
-            'slug'               => 'contact-form-7', // The plugin slug (typically the folder name).
-            'source'             => get_stylesheet_directory() .'/plugins/contact-form-7.zip', // The plugin source.
+            'slug'               => 'contact-form-7', // The plugin slug.
             'required'           => true, // If false, the plugin is only 'recommended' instead of required.
-            'version'            => '', // E.g. 1.0.0. If set, the active plugin must be this version or higher.
             'force_activation'   => false, // If true, plugin is activated upon theme activation and cannot be deactivated until theme cozy.
             'force_deactivation' => false, // If true, plugin is deactivated upon theme cozy, useful for theme-specific plugins.
-            'external_url'       => '', // If set, overrides default API URL and points to an external URL.
         ),
     );
 
@@ -64,7 +61,7 @@ function my_theme_register_required_plugins() {
         'default_path' => '',                      // Default absolute path to pre-packaged plugins.
         'menu'         => 'tgmpa-install-plugins', // Menu slug.
         'has_notices'  => true,                    // Show admin notices or not.
-        'dismissable'  => true,                    // If false, a user cannot dismiss the nag message.
+        'dismissable'  => false,                    // If false, a user cannot dismiss the nag message.
         'dismiss_msg'  => '',                      // If 'dismissable' is false, this message will be output at top of nag.
         'is_automatic' => false,                   // Automatically activate plugins after installation or not.
         'message'      => '',                      // Message to output right before the plugins table.

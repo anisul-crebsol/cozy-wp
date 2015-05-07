@@ -1,6 +1,6 @@
 <?php
     /**
-     * ReduxFramework Sample Config File
+     * Framework Config File
      * For full documentation, please visit: http://docs.reduxframework.com/
      */
 
@@ -279,7 +279,7 @@
                 
 
                 $this->sections[] = array(
-                'icon'   => 'el-icon-eye-open',
+                'icon'   => 'el el-search',
                 'title'  => __( 'Search Section', 'cozy' ),
                 'fields' => array(
 
@@ -305,7 +305,7 @@
                 
 
                 $this->sections[] = array(
-                'icon'   => 'el-icon-eye-open',
+                'icon'   => 'el el-usd',
                 'title'  => __( 'Buy Now', 'cozy' ),
                 'fields' => array(
 
@@ -346,7 +346,7 @@
                 
 
                 $this->sections[] = array(
-                'icon'   => 'el-icon-eye-open',
+                'icon'   => 'el el-map-marker-alt',
                 'title'  => __( 'New Properties', 'cozy' ),
                 'fields' => array(
                        
@@ -387,7 +387,7 @@
                 $this->sections[] = array(
                     'title'  => __( 'Property Gallery', 'cozy' ),
                     'desc'   => __( '', 'cozy' ),
-                    'icon'   => 'el-icon-cogs',
+                    'icon'   => 'el el-picture',
                     // 'submenu' => false, // Setting submenu to false on a given section will hide it from the WordPress sidebar menu!
                     'fields' => array(
 
@@ -452,7 +452,7 @@
                 
 
                 $this->sections[] = array(
-                'icon'   => 'el-icon-eye-open',
+                'icon'   => 'el el-time',
                 'title'  => __( 'Latest News', 'cozy' ),
                 'fields' => array(
                        
@@ -499,7 +499,7 @@
                 
 
                 $this->sections[] = array(
-                'icon'   => 'el-icon-eye-open',
+                'icon'   => 'el el-leaf',
                 'title'  => __( 'Feature', 'cozy' ),
                 'fields' => array(
                        
@@ -554,7 +554,7 @@
                 $this->sections[] = array(
                     'title'  => __( 'Our Partners', 'cozy' ),
                     'desc'   => __( '', 'cozy' ),
-                    'icon'   => 'el-icon-cogs',
+                    'icon'   => 'el el-group-alt',
                     // 'submenu' => false, // Setting submenu to false on a given section will hide it from the WordPress sidebar menu!
                     'fields' => array(
                         array(
@@ -589,10 +589,15 @@
                 $this->sections[] = array(
                     'title'  => __( 'Our Agents', 'cozy' ),
                     'desc'   => __( '', 'cozy' ),
-                    'icon'   => 'el-icon-cogs',
+                    'icon'   => 'el el-user',
                     // 'submenu' => false, // Setting submenu to false on a given section will hide it from the WordPress sidebar menu!
                     'fields' => array(
-
+                        array(
+                            'id' => 'section_agents_display',
+                            'type' => 'switch',
+                            'title' => __('Display Section', 'cozy'),
+                            'default' => true,
+                        ),
                         array(
                             'id' => "section_agents_title",
                             'type' => 'text',
@@ -608,7 +613,7 @@
                 $this->sections[] = array(
                     'title'  => __( 'Grid Section', 'cozy' ),
                     'desc'   => __( '', 'cozy' ),
-                    'icon'   => 'el-icon-cogs',
+                    'icon'   => 'el el-th',
                     // 'submenu' => false, // Setting submenu to false on a given section will hide it from the WordPress sidebar menu!
                     'fields' => array(
 
@@ -632,7 +637,7 @@
                 
 
                 $this->sections[] = array(
-                'icon'   => 'el-icon-eye-open',
+                'icon'   => 'el el-envelope',
                 'title'  => __( 'Newsletter', 'cozy' ),
                 'fields' => array(
 
@@ -673,7 +678,7 @@
                 $this->sections[] = array(
                     'title'  => __( 'Testimonial', 'cozy' ),
                     'desc'   => __( '', 'cozy' ),
-                    'icon'   => 'el-icon-tasks',
+                    'icon'   => 'el el-quote-right',
                     // 'submenu' => false, // Setting submenu to false on a given section will hide it from the WordPress sidebar menu!
                     'fields' => array(
 
@@ -716,7 +721,7 @@
                 $this->sections[] = array(
                     'title'  => __( 'Home Map Page', 'cozy' ),
                     'desc'   => __( '', 'cozy' ),
-                    'icon'   => 'el-icon-cogs',
+                    'icon'   => 'el el-map-marker',
                     // 'submenu' => false, // Setting submenu to false on a given section will hide it from the WordPress sidebar menu!
                     'fields' => array(
 
@@ -812,7 +817,7 @@
                 $this->sections[] = array(
                     'title'  => __( '404 Not Found Page', 'cozy' ),
                     'desc'   => __( 'Content for 404 not found page', 'cozy' ),
-                    'icon'   => 'el-icon-tasks',
+                    'icon'   => 'el el-error',
                     // 'submenu' => false, // Setting submenu to false on a given section will hide it from the WordPress sidebar menu!
                     'fields' => array(
 
@@ -839,7 +844,7 @@
                 $this->sections[] = array(
                     'title'  => __( 'Footer', 'cozy' ),
                     'desc'   => __( '', 'cozy' ),
-                    'icon'   => 'el-icon-edit',
+                    'icon'   => 'el el-arrow-down',
                     // 'submenu' => false, // Setting submenu to false on a given section will hide it from the WordPress sidebar menu!
                     'fields' => array(
 
@@ -984,7 +989,7 @@
                     // TYPICAL -> Change these values as you need/desire
                     'opt_name'             => 'wt_cozy',
                     // This is where your data is stored in the database and also becomes your global variable name.
-                    'display_name'         => 'Cozy Theme Option',
+                    'display_name'         => 'Cozy Theme Options',
                     // Name that appears at the top of your panel
                     'display_version'      => $theme->get( 'Version' ),
                     // Version that appears at the top of your panel
@@ -992,8 +997,8 @@
                     //Specify if the admin menu should appear or not. Options: menu or submenu (Under appearance only)
                     'allow_sub_menu'       => true,
                     // Show the sections below the admin menu item or not
-                    'menu_title'           => __( 'Cozy Option', 'redux-framework-demo' ),
-                    'page_title'           => __( 'Redux Theme Option', 'redux-framework-demo' ),
+                    'menu_title'           => __( 'Cozy Theme Options', 'redux-framework-demo' ),
+                    'page_title'           => __( 'Cozy Theme Options', 'redux-framework-demo' ),
                     // You will need to generate a Google API key to use this feature.
                     // Please visit: https://developers.google.com/fonts/docs/developer_api#Auth
                     'google_api_key'       => '',
@@ -1021,7 +1026,7 @@
                     //'disable_save_warn' => true,                    // Disable the save warning when a user changes a field
 
                     // OPTIONAL -> Give you extra features
-                    'page_priority'        => null,
+                    'page_priority'        => 61,
                     // Order where the menu appears in the admin area. If there is any conflict, something will not show. Warning.
                     'page_parent'          => 'themes.php',
                     // For a full list of options, visit: http://codex.wordpress.org/Function_Reference/add_submenu_page#Parameters
@@ -1089,24 +1094,6 @@
                     )
                 );
 
-                // ADMIN BAR LINKS -> Setup custom links in the admin bar menu as external items.
-                $this->args['admin_bar_links'][] = array(
-                    'id'    => 'redux-docs',
-                    'href'   => 'http://docs.reduxframework.com/',
-                    'title' => __( 'Documentation', 'redux-framework-demo' ),
-                );
-
-                $this->args['admin_bar_links'][] = array(
-                    //'id'    => 'redux-support',
-                    'href'   => 'https://github.com/ReduxFramework/redux-framework/issues',
-                    'title' => __( 'Support', 'redux-framework-demo' ),
-                );
-
-                $this->args['admin_bar_links'][] = array(
-                    'id'    => 'redux-extensions',
-                    'href'   => 'reduxframework.com/extensions',
-                    'title' => __( 'Extensions', 'redux-framework-demo' ),
-                );
 
                 // SOCIAL ICONS -> Setup custom links in the footer for quick links in your panel footer icons.
                 
