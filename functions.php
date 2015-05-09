@@ -257,3 +257,6 @@ require get_template_directory() . '/libs/cozy-accordion/cozy_accordion.php';
 
 // Pagination
 require get_template_directory() . '/inc/registration.php';
+
+// Walker Comment
+require get_template_directory() . '/inc/class-walker-comment.php';

@@ -388,21 +388,6 @@ function create_cozy_taxonomies() {
     ));
 }
 
-
-add_filter( 'post_class', 'theme_t_wp_taxonomy_post_class', 10, 3 );
-function theme_t_wp_taxonomy_post_class( $classes, $class, $ID ) {
-    $taxonomy = 'filters';
-    $terms = get_the_terms( (int) $ID, $taxonomy );
-    if( !empty( $terms ) ) {
-        foreach( (array) $terms as $order => $term ) {
-            if( !in_array( $term->slug, $classes ) ) {
-                $classes[] = $term->slug;
-            }
-        }
-    }
-    return $classes;
-}
-
 //add extra fields to property types edit form hook
 add_action('wt-property-types_edit_form_fields','extra_category_fields');
 add_action('wt-property-types_add_form_fields','extra_category_fields');

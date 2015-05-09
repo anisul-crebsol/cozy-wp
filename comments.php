@@ -18,22 +18,21 @@
 
 <!-- You can start editing here. -->
 
+
 <?php if ( have_comments() ) : ?>
-	<h3 id="comments"><?php	printf( _n( 'One Response to %2$s', '%1$s Responses to %2$s', get_comments_number() ),
-									number_format_i18n( get_comments_number() ), '&#8220;' . get_the_title() . '&#8221;' ); ?></h3>
+
+	<h3 id="comments"><?php	printf( _n( 'One Response to %2$s', '%1$s Responses to %2$s', get_comments_number() ), number_format_i18n( get_comments_number() ), '&#8220;' . get_the_title() . '&#8221;' ); ?></h3>
 	<br><br>
-	<div class="comments">
 
-		<ul>
-			<?php
-				wp_list_comments( array(
-					'style'      => 'ul',
-					'short_ping' => true,
-				) );
-			?>
-		</ul>
+	<?php
+		wp_list_comments( array(
+			'style'      	=> 'ul',
+			'short_ping' 	=> true,
+			'avatar_size'  	=> 68,
+			'walker' 		=> new WT_Cozy_Walker_Comment(),
+		) );
+	?>
 
-	</div>
  <?php else : // this is displayed if there are no comments so far ?>
 
 	<?php if ( comments_open() ) : ?>
@@ -47,15 +46,14 @@
 <?php endif; ?>
 
 <?php if ( comments_open() ) : ?>
-
-<div id="respond">
-	<h2 class="section-title">Comments</h1>
+<div id="respond" class="row">
+<div class="comments-form">
 	<div class="col-sm-12">
-	<h3><?php comment_form_title( __('Leave a Reply', 'cozy'), __('Leave a Reply to %s', 'cozy' ) ); ?></h3>
-	</div>
+		<h3><?php comment_form_title( __('Leave a Reply', 'cozy'), __('Leave a Reply to %s', 'cozy' ) ); ?></h3>
 
-	<div id="cancel-comment-reply">
-		<small><?php cancel_comment_reply_link() ?></small>
+		<div id="cancel-comment-reply">
+			<small><?php cancel_comment_reply_link() ?></small>
+		</div>
 	</div>
 
 	<?php if ( get_option('comment_registration') && !is_user_logged_in() ) : ?>
@@ -85,7 +83,9 @@
 
 		<?php endif; ?>
 
-		<!--<p><small><?php printf(__('<strong>XHTML:</strong> You can use these tags: <code>%s</code>', 'cozy'), allowed_tags()); ?></small></p>-->
+		<!-- <div class="col-sm-12">
+		<p><small><?php //printf(__('<strong>XHTML:</strong> You can use these tags: <code>%s</code>', 'cozy'), allowed_tags()); ?></small></p>
+		</div> -->
 
 		<div class="col-sm-12">
 			<textarea name="comment" id="comment" placeholder="Comment*" class="form-control"></textarea> 
@@ -105,5 +105,5 @@
 
 <?php endif; // If registration required and not logged in ?>
 </div>
-
+</div>
 <?php endif; // if you delete this the sky will fall on your head ?>

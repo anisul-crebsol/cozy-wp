@@ -5,6 +5,7 @@
 global $wt_cozy; ?>
 
 <div class="main col-sm-8">
+
 <?php while ( have_posts() ) : the_post(); ?>
 
 	<h1 class="blog-title"><?php the_title(); ?></h1>
@@ -63,44 +64,15 @@ global $wt_cozy; ?>
 			<i class="fa fa-print"></i>
 		</a>
 	</div>
-	
-	<h1 class="section-title">Comments</h1>
-	
-	<div class="comments">
-		<ul>
-			<li>
-				<img src="<?php echo get_stylesheet_directory_uri(); ?>/images/comment-man.jpg" alt="" />
-				<div class="comment">
-					<a href="#" class="btn btn-default-color">Reply</a>
-					<h3>John Doe<small>30 July, 2014</small></h3>
-					<p>Etiam eget felis lacus. In hendrerit, urna in fringilla interdum, nunc mauris condimentum purus, vel ullamcorper dui risus sed tellus. Nullam lacinia porttitor velit fermentum accumsan. Etiam dui lorem, lobortis pellentesque malesuada nec, lacinia pulvinar libero.</p>
-				</div>
-				<ul>
-					<li>
-						<img src="<?php echo get_stylesheet_directory_uri(); ?>/images/comment-man.jpg" alt="" />
-						<div class="comment">
-							<a href="#" class="btn btn-default-color">Reply</a>
-							<h3>John Doe<small>30 July, 2014</small></h3>
-							<p>In hendrerit, urna in fringilla interdum, nunc mauris condimentum purus, vel ullamcorper dui risus sed tellus. Nullam lacinia porttitor velit fermentum accumsan. Etiam dui lorem, lobortis pellentesque malesuada nec, lacinia pulvinar libero.</p>
-						</div>
-					</li>
-				</ul>
-			</li>
-			<li>
-				<img src="<?php echo get_stylesheet_directory_uri(); ?>/images/comment-woman.jpg" alt="" />
-				<div class="comment">
-					<a href="#" class="btn btn-default-color">Reply</a>
-					<h3>Mary Doe<small>31 July, 2014</small></h3>
-					<p>Etiam eget felis lacus. In hendrerit, urna in fringilla interdum, nunc mauris condimentum purus, vel ullamcorper dui risus sed tellus. Nullam lacinia porttitor velit fermentum accumsan. Etiam dui lorem, lobortis pellentesque malesuada nec, lacinia pulvinar libero. Quisque pretium nunc sed nisl vehicula gravida. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-				</div>
-			</li>
-		</ul>
-		
-		<div class="comments-form">
+	<div class="row">
+		<div class="col-sm-12">
 			<?php
 				// If comments are open or we have at least one comment, load up the comment template
 				if ( comments_open() || get_comments_number() ) :
+					echo "<h1 class='section-title'>Comments</h1>";
+					echo "<div class='comments'>";
 					comments_template();
+					echo "</div>";
 				endif;
 			?>
 		</div>
