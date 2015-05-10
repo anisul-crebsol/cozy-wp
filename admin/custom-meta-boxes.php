@@ -195,6 +195,12 @@ function wt_cozy_register_metabox() {
                 'id' => $prefix . 'agent_youtube_link',
                 'type' => 'text_url'
 	) );
+	$wt_cozy->add_field( array(
+                'name' => __('Agent Contact Form','cozy'),
+                'id' => $prefix . 'agent_contact_form',
+                'desc' => __('Please insert contact form shotrcode for this agent.','cozy'),
+                'type' => 'text',
+	) );
 
 
     // Agency Meta Box
@@ -517,7 +523,7 @@ function wt_cozy_register_metabox() {
 	$wt_cozy->add_field( array(
     'name' => __('Property Author','cozy'),
     'id' => $prefix . 'property_author',
-    'desc'             => 'Select an option',    
+    'desc'             => 'Select and assign an author to this property',
     'type'             => 'select',
     'show_option_none' => true,
     'default'          => 'custom',

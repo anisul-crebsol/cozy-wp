@@ -30,7 +30,19 @@
 		<header>
 			<h2><?php the_title(); ?> <small><?php echo $agent_address ?></small></h2>
 			<ul class="assigned">
-				<li>14 Assigned Properties</li>
+				<li>
+				<?php  
+			    	$args = array(
+			            'post_type'         => 'property',
+			            'post_status'       => 'publish',
+						'meta_key'   		=> '_wt_property_author',
+						'meta_value' 		=> $post->ID,
+			        );
+			        $wp_query = new WP_Query( $args );
+					echo $wp_query->found_posts; _e( ' '.'Assigned Properties', 'cozy' ); 
+					wp_reset_query(); 
+				?>
+				</li>
 			</ul>
 		</header>
 		

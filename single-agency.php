@@ -32,23 +32,23 @@ get_header(); ?>
 						<!-- BEGIN AGENCY DETAIL -->
 <?php get_template_part ('/includes/single-agency/agency-detail'); ?>
 						<!-- END AGENCY DETAIL -->
-<?php if ( have_posts() ) : ?>
 
+<?php if ( have_posts() ) : ?>
 <?php /* Start the Loop */ ?>
-<?php while ( have_posts() ) : the_post(); ?>						
-						
-						
+<?php while ( have_posts() ) : the_post(); ?>
+
+	
 <?php echo $property_content1 = wpautop(get_post_meta( $post->ID, '_wt_agency_description1', true )); ?>
-						
+
 						<!-- BEGIN GALLERY -->
 <?php get_template_part ('/includes/single-agency/gallery'); ?>
 						<!-- END GALLERY -->
-						
+
 <?php echo $property_content2 = wpautop(get_post_meta( $post->ID, '_wt_agency_description2', true )); ?>
-						
+
 <?php endwhile; ?>
-<?php endif; ?>						
-						
+<?php endif; ?>
+
 						<!-- BEGIN AGENTS LIST -->
 <?php get_template_part ('/includes/single-agency/agents-list'); ?>
 						<!-- END AGENTS LIST -->

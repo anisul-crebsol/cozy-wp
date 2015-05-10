@@ -82,6 +82,21 @@ require get_template_directory() . '/inc/properties.php';
 	</script>
 <?php
     }
+	elseif (is_singular (array( 'property' ))) { 
+	require get_template_directory() . '/inc/property.php';
+?>
+	<script type="text/javascript">
+		(function($){
+			"use strict";
+			
+			$(document).ready(function(){
+				//Create property map centered on the marker of the property with id=0.
+				Cozy.propertiesMap(property, 'property_location', 0);
+			});
+		})(jQuery);
+	</script>
+<?php
+    }
 ?>
 
 <script type="text/javascript">

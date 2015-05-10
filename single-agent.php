@@ -38,7 +38,7 @@ global $wt_cozy; ?>
 						
 						
 						<!-- BEGIN PROPERTIES ASSIGNED -->
-<?php get_template_part ('/includes/single-agent/assigned-prperties'); ?>
+<?php get_template_part ('/includes/single-agent/assigned-properties'); ?>
 						<!-- END PROPERTIES ASSIGNED -->
 						
 						

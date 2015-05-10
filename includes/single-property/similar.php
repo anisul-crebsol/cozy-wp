@@ -1,9 +1,10 @@
-<h1 class="section-title">Similar Properties</h1>
+<h1 class="section-title"><?php _e( 'Similar Properties', 'cozy' );?></h1>
 <div id="similar-properties" class="grid-style1 clearfix">
 	<div class="row">
 
 	    <?php 
-	        $limit = 6;
+	        $limit = 8;
+	        $count = 0;
 	    	$args = array(
 	            'post_type'         => 'property',
 	            'post_status'       => 'publish',
@@ -25,7 +26,7 @@
 			$property_bathrooms = get_post_meta( $post->ID, '_wt_property_bathrooms', true );
 	    ?>
 
-		<div class="item col-md-4">
+		<div class="item col-md-4 <?php $disabled = @( $count%7 == 0 ?  'disabled' : ''); echo $disabled;  ?> ?>">
 			<div class="image">
 				<a href="<?php the_permalink(); ?>">
 					<h3><?php the_title() ?></h3>
@@ -62,33 +63,12 @@
 			</ul>
 		</div>
 
-    <?php endwhile; ?>
+    <?php $count++; endwhile; ?>
     <?php wp_reset_postdata(); ?>
-		
-
-		<!-- Item hidden (class="disabled") -->
-		<div class="item col-md-4 disabled">
-			<div class="image">
-				<a href="properties-detail.html">
-					<h3>Recent construction with 3 bedrooms.</h3>
-					<span class="location">Manhattan, New York</span>
-				</a>
-				<img src="http://placehold.it/760x670" alt="" />
-			</div>
-			<div class="price">
-				<i class="fa fa-home"></i>For Sale
-				<span>$120,000</span>
-			</div>
-			<ul class="amenities">
-				<li><i class="icon-area"></i> 3250 Sq Ft</li>
-				<li><i class="icon-bedrooms"></i> 3</li>
-				<li><i class="icon-bathrooms"></i> 2</li>
-			</ul>
-		</div>
 		
 	</div>
 </div>
 
 <p class="center">
-	<a href="#" class="btn btn-default-color" data-grid-id="similar-properties" data-load-amount="3">Load More Properties</a>
+	<a href="#" class="btn btn-default-color" data-grid-id="similar-properties" data-load-amount="3"><?php _e( 'Load More Properties', 'cozy' );?></a>
 </p>
