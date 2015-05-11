@@ -14,13 +14,8 @@ global $wt_cozy; ?>
 		<!-- BEGIN HEADER -->
 <?php get_template_part ('/includes/section-header'); ?>
 		<!-- END HEADER -->
-		
-		
-		<!-- BEGIN PAGE TITLE/BREADCRUMB -->
-<?php //get_template_part ('/includes/breadcrumb'); ?>
-		<!-- END PAGE TITLE/BREADCRUMB -->
-		
-		
+				
+				
 		<!-- BEGIN HOME ADVANCED SEARCH (class="gray" for a gray background) -->
 <?php get_template_part ('/includes/properties/advanced-search-home'); ?>
 		<!-- END HOME ADVANCED SEARCH -->

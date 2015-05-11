@@ -84,7 +84,7 @@
 							</select>
 						</div>
 						
-						<button type="submit" class="btn btn-fullcolor">Search</button>
+						<button type="submit" class="btn btn-fullcolor"><?php _e( 'Search', 'cozy' );?></button>
 					</div>
 				</form>
 

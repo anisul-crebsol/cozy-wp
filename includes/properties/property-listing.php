@@ -1,4 +1,7 @@
 <?php
+$sort_date = esc_attr($_GET['sort_date']); 
+$sort_area = esc_attr($_GET['sort_area']); 
+$sort_order = esc_attr($_GET['sort_order']); 
 $count = 0;
 $delay = 250;
 $display_posts = 3;
@@ -6,17 +9,38 @@ $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 $property_args = array(
 	'post_type' => 'property',
 	'paged' => $paged,
-	'tax_query'	=> array(
-		array(
-			'taxonomy'	=> 'property-status',
-			'field'		=> 'slug',
-			'terms'		=> array( 'featured' ),
-			'operator'	=> 'NOT IN',
-		),
-	),
-	'showposts' => $display_posts
+	'showposts' => $display_posts,
 );
-query_posts($property_args);
+$property_args2 = array(
+	'post_type' => 'property',
+	'paged' => $paged,
+	'showposts' => $display_posts,	
+	'order' => 'ASC',
+	'orderby' => 'meta_value_num',
+	'meta_key' => '_wt_property_area'
+);
+$property_args3 = array(
+	'post_type' => 'property',
+	'paged' => $paged,
+	'showposts' => $display_posts,
+ 	'orderby' => 'date',
+	'order' => 'DESC',
+);
+$property_args4 = array(
+	'post_type' => 'property',
+	'paged' => $paged,
+	'showposts' => $display_posts,
+	'orderby' => 'meta_value_num',
+	'meta_key' => '_wt_property_area',
+	'order' => 'DESC',
+);
+
+$order = $property_args;
+if($sort_order == 'asc' && $sort_area == "area") { $order = $property_args2; }
+if($sort == "desc") { $order = $property_args3; }
+if($sort == "area") { $order = $property_args4; }
+
+query_posts($order);
 if (have_posts()) : while (have_posts()) : the_post();
 
 $count++;
@@ -96,4 +120,8 @@ if ( 1 == $count%3 ) {
 		</ul>
 	</div>
 </div>
-<?php endwhile; endif; ?>
+<?php endwhile; 
+  if ( function_exists('wt_cozy_pagination') )
+    wt_cozy_pagination();
+?>
+<?php wp_reset_query(); endif; ?>

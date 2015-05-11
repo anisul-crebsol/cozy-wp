@@ -6,7 +6,7 @@
 						<div class="col-sm-12">
 							<ul id="top-info">
 								<li><?php echo $wt_cozy['section_contact_phone']?></li>
-								<li>Email: <a href="mailto:<?php echo $wt_cozy['section_contact_email']?>"><?php echo $wt_cozy['section_contact_email']?></a></li>                              
+								<li><?php _e( 'Email', 'cozy' ); ?>: <a href="mailto:<?php echo $wt_cozy['section_contact_email']?>"><?php echo $wt_cozy['section_contact_email']?></a></li>                              
 							</ul>
 							
 							<ul id="top-buttons">
