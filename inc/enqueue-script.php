@@ -32,16 +32,13 @@ function cozy_scripts() {
     wp_enqueue_script( 'cozy-infobox', get_template_directory_uri() . '/js/infobox.min.js', array(), '', true );
     }
 
-
     if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
         wp_enqueue_script( 'comment-reply' );
     }
 
-
     if ( is_page_template('page-home-grid.php')) {
     wp_enqueue_script( 'cozy-freewall', get_template_directory_uri() . '/js/freewall.js', array(), '', true );
     }
-
 
     if ( is_page_template('page-home-map.php')) {
     wp_enqueue_script( 'cozy-markerclusterer', get_template_directory_uri() . '/js/markerclusterer.min.js', array(), '', true );
@@ -63,6 +60,7 @@ function cozy_scripts() {
 
     wp_enqueue_script( 'cozy-scripts', get_template_directory_uri() . '/js/scripts.js', array(), '', true );
 
+    wp_enqueue_script( 'cozy-sorting', get_template_directory_uri() . '/js/sorting.js' );
 
 }
 add_action( 'wp_enqueue_scripts', 'cozy_scripts' );

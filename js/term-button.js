@@ -42,7 +42,7 @@ jQuery('#agents_country').change(function () {
 
             jQuery("#agents_state").trigger("liszt:updated");
 
-            console.log(data); //should print out the name since you sent it along
+            //console.log(data); //should print out the name since you sent it along
 
         }
     });

@@ -1,6 +1,5 @@
 <?php
-$sort_date = esc_attr($_GET['sort_date']); 
-$sort_area = esc_attr($_GET['sort_area']); 
+$sort_by = esc_attr($_GET['sort_by']); 
 $sort_order = esc_attr($_GET['sort_order']); 
 $count = 0;
 $delay = 250;
@@ -15,30 +14,51 @@ $property_args2 = array(
 	'post_type' => 'property',
 	'paged' => $paged,
 	'showposts' => $display_posts,	
-	'order' => 'ASC',
+	'meta_key' => '_wt_property_area',
+	'order' => strtoupper($sort_order),
 	'orderby' => 'meta_value_num',
-	'meta_key' => '_wt_property_area'
 );
 $property_args3 = array(
 	'post_type' => 'property',
 	'paged' => $paged,
 	'showposts' => $display_posts,
- 	'orderby' => 'date',
-	'order' => 'DESC',
+	'orderby' => 'date',	
+	'order' => strtoupper($sort_order)
 );
 $property_args4 = array(
 	'post_type' => 'property',
 	'paged' => $paged,
 	'showposts' => $display_posts,
+ 	'orderby' => 'date',
+	'order' => strtoupper($sort_order),
+);
+$property_args5 = array(
+	'post_type' => 'property',
+	'paged' => $paged,
+	'showposts' => $display_posts,	
+	'orderby' => 'date',
+	'order' => 'DESC'
+);
+$property_args6 = array(
+	'post_type' => 'property',
+	'paged' => $paged,
+	'showposts' => $display_posts,	
 	'orderby' => 'meta_value_num',
 	'meta_key' => '_wt_property_area',
-	'order' => 'DESC',
+	'order' => 'DESC'
 );
 
 $order = $property_args;
-if($sort_order == 'asc' && $sort_area == "area") { $order = $property_args2; }
-if($sort == "desc") { $order = $property_args3; }
-if($sort == "area") { $order = $property_args4; }
+
+if($sort_order == "asc") { $order = $property_args4; }
+if($sort_order == "desc") { $order = $property_args4; }
+if($sort_by == "date") { $order = $property_args5; }
+if($sort_by == "area") { $order = $property_args6; }
+
+if($sort_order == 'asc' && $sort_by == "area") { $order = $property_args2; }
+if($sort_order == 'desc' && $sort_by == "area") { $order = $property_args2; }
+if($sort_order == 'asc' && $sort_by == "date") { $order = $property_args3; }
+if($sort_order == 'desc' && $sort_by == "date") { $order = $property_args3; }
 
 query_posts($order);
 if (have_posts()) : while (have_posts()) : the_post();
