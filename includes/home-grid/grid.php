@@ -38,14 +38,7 @@
 				<h3><?php the_title() ?></h3>
 				<span class="location"><?php echo $property_address; ?></span>
 			</a>
-			<?php
-			if ( has_post_thumbnail() ) {
-				the_post_thumbnail('thumbnail', array('class' => 'img-responsive'));
-			}
-			else {
-				echo '<img src="http://placehold.it/760x670" />';
-			}
-			?>
+			<?php echo wt_cozy_thumbnail('760x670'); ?>
 		</div>
 
     <?php endwhile; ?>

@@ -35,7 +35,7 @@
 					<div class="item">
 						<div class="image">
 							<a href="<?php the_permalink(); ?>"></a>
-							<img src="http://placehold.it/760x670" alt="" />
+							<?php echo wt_cozy_thumbnail('760x670'); ?>
 						</div>
 						<div class="price">
 							<i class="fa fa-home"></i>

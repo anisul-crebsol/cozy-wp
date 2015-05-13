@@ -1,5 +1,7 @@
 <ul id="agencies-results" class="agencies-list">
 <?php
+$sort_by = esc_attr($_GET['agency_sort_by']); 
+$counter = 1;
 $display_posts = 3;
 $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 $property_args = array(
@@ -15,7 +17,7 @@ if (have_posts()) : while (have_posts()) : the_post();
 	$agency_email = get_post_meta( $post->ID, '_wt_agency_email', true );
 ?>
 	<li class="col-md-6"><!-- Set width to 6 columns for grid view mode only -->
-		<div id="agency_map1" class="map"></div>
+		<div id="agency_map<?php echo $counter; ?>" class="map"></div>
 		<div class="info">
 			<h2><?php the_title(); ?> <small><?php echo $agency_state ?></small></h2>
 			
@@ -34,8 +36,8 @@ if (have_posts()) : while (have_posts()) : the_post();
 				<li><a href="mailto:<?php echo $agency_email ?>"><i class="fa fa-envelope"></i> <?php echo $agency_email ?></a></li>
 			</ul>
 			
-			<a href="<?php the_permalink(); ?>" class="btn btn-default-color">More Details</a>
+			<a href="<?php the_permalink(); ?>" class="btn btn-default-color"><?php _e('More Details', 'cozy'); ?></a>
 		</div>
 	</li>
-<?php endwhile; endif; ?>
+<?php $counter++; endwhile; endif; ?>
 </ul>

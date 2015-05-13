@@ -42,7 +42,7 @@ $clearFix = @( $count%3 == 0 ?  '<div class="clearfix"></div>' : ''); echo $clea
 			</h3>
 			<?php if($property_address) echo "<span class='location'>$property_address</span>"; ?>
 		</a>
-		<img src="http://placehold.it/760x670" alt="" />
+		<?php echo wt_cozy_thumbnail('760x670'); ?>
 	</div>
 	<div class="price">
 		<i class="fa fa-home"></i>

@@ -42,10 +42,26 @@ function wt_cozy_register_required_plugins() {
      */
     $plugins = array(
         array(
+            'name'               => 'Revolution Slider', // The plugin name.
+            'slug'               => 'contact-form-7', // The plugin slug (typically the folder name).
+            'source'             => get_stylesheet_directory() .'/plugins/revslider.zip', // The plugin source.
+            'required'           => true, // If false, the plugin is only 'recommended' instead of required.
+            'force_activation'   => true, // If true, plugin is activated upon theme activation and cannot be deactivated until theme switch.
+            'force_deactivation' => false, // If true, plugin is deactivated upon theme switch, useful for theme-specific plugins.
+            'external_url'       => '', // If set, overrides default API URL and points to an external URL.
+        ),
+        array(
             'name'               => 'Contact Form 7', // The plugin name.
             'slug'               => 'contact-form-7', // The plugin slug.
             'required'           => true, // If false, the plugin is only 'recommended' instead of required.
-            'force_activation'   => false, // If true, plugin is activated upon theme activation and cannot be deactivated until theme cozy.
+            'force_activation'   => true, // If true, plugin is activated upon theme activation and cannot be deactivated until theme cozy.
+            'force_deactivation' => false, // If true, plugin is deactivated upon theme cozy, useful for theme-specific plugins.
+        ),
+        array(
+            'name'               => 'Widget Importer & Exporter', // The plugin name.
+            'slug'               => 'widget-importer-exporter', // The plugin slug.
+            'required'           => true, // If false, the plugin is only 'recommended' instead of required.
+            'force_activation'   => true, // If true, plugin is activated upon theme activation and cannot be deactivated until theme cozy.
             'force_deactivation' => false, // If true, plugin is deactivated upon theme cozy, useful for theme-specific plugins.
         ),
     );

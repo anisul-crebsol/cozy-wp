@@ -8,16 +8,18 @@ $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 $property_args = array(
 	'post_type' => 'property',
 	'paged' => $paged,
-	'showposts' => $display_posts,
+	'showposts' => $display_posts
 );
+
 $property_args2 = array(
 	'post_type' => 'property',
 	'paged' => $paged,
 	'showposts' => $display_posts,	
 	'meta_key' => '_wt_property_area',
 	'order' => strtoupper($sort_order),
-	'orderby' => 'meta_value_num',
+	'orderby' => 'meta_value_num'
 );
+
 $property_args3 = array(
 	'post_type' => 'property',
 	'paged' => $paged,
@@ -30,7 +32,7 @@ $property_args4 = array(
 	'paged' => $paged,
 	'showposts' => $display_posts,
  	'orderby' => 'date',
-	'order' => strtoupper($sort_order),
+	'order' => strtoupper($sort_order)
 );
 $property_args5 = array(
 	'post_type' => 'property',
@@ -83,16 +85,9 @@ if ( 1 == $count%3 ) {
 <div class="item col-md-4"><!-- Set width to 4 columns for grid view mode only -->
 	<div class="image">
 		<a href="<?php the_permalink(); ?>">
-			<span class="btn btn-default"><i class="fa fa-file-o"></i> Details</span>
+			<span class="btn btn-default"><i class="fa fa-file-o"></i> <?php _e('Details', 'cozy'); ?></span>
 		</a>
-		<?php
-		if ( has_post_thumbnail() ) {
-			the_post_thumbnail('thumbnail', array('class' => 'img-responsive'));
-		}
-		else {
-			echo '<img class="img-responsive" src="http://placehold.it/230x203" />';
-		}
-		?>
+		<?php echo wt_cozy_thumbnail('230x203'); ?>
 	</div>
 	<div class="price">
 		<i class="fa fa-home"></i>

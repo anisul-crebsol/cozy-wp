@@ -27,14 +27,7 @@ $property_bathrooms = get_post_meta( $post->ID, '_wt_property_bathrooms', true )
 			</h3>
 			<?php if($property_address) echo "<span class='location'>$property_address</span>"; ?>
 		</a>
-		<?php
-		if ( has_post_thumbnail() ) {
-			the_post_thumbnail('thumbnail', array('class' => 'img-responsive'));
-		}
-		else {
-			echo '<img src="http://placehold.it/270x238" />';
-		}
-		?>
+		<?php echo wt_cozy_thumbnail('270x238'); ?>
 	</div>
 	<div class="price">
 		<i class="fa fa-home"></i>

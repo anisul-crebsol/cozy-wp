@@ -33,14 +33,7 @@
 					<h3><?php the_title() ?></h3>
 					<?php if ($property_price !='') { ?><span class="location"><?php echo $property_address; ?></span><?php } ?>
 				</a>
-				<?php
-				if ( has_post_thumbnail() ) {
-					the_post_thumbnail('thumbnail', array('class' => 'img-responsive'));
-				}
-				else {
-					echo '<img src="http://placehold.it/760x670" />';
-				}
-				?>
+				<?php echo wt_cozy_thumbnail('760x670'); ?>
 			</div>
 			<div class="price">
 				<i class="fa fa-home"></i>

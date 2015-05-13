@@ -36,9 +36,9 @@ $clearFix = @( $count%3 == 0 ?  '<div class="clearfix"></div>' : ''); echo $clea
 <div class="item col-md-4"><!-- Set width to 4 columns for grid view mode only -->
 	<div class="image">
 		<a href="<?php the_permalink(); ?>">
-			<span class="btn btn-default"><i class="fa fa-file-o"></i> Details</span>
+			<span class="btn btn-default"><i class="fa fa-file-o"></i> <?php _e('Details', 'cozy'); ?></span>
 		</a>
-		<img src="http://placehold.it/760x670" alt="" />
+		<?php echo wt_cozy_thumbnail('760x670'); ?>
 	</div>
 	<div class="price">
 		<i class="fa fa-home"></i>

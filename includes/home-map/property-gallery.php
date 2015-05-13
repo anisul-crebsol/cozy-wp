@@ -28,14 +28,7 @@
 			<h3><?php the_title() ?></h3>
 			<?php if($property_address) echo "<span class='location'>$property_address</span>"; ?>
 		</a>
-			<?php
-			if ( has_post_thumbnail() ) {
-				the_post_thumbnail('thumbnail', array('class' => 'img-responsive'));
-			}
-			else {
-				echo '<img src="http://placehold.it/246x236" />';
-			}
-			?>
+		<?php echo wt_cozy_thumbnail('246x236'); ?>
 	</div>
 	<?php endwhile; endif; wp_reset_query(); ?>
 </div>

@@ -15,14 +15,7 @@
 			<a href="<?php the_permalink(); ?>">
 				<span class="btn btn-default"><i class="fa fa-file-o"></i> <?php _e( 'Read More', 'cozy' );?></span>
 			</a>
-			<?php
-			if ( has_post_thumbnail() ) {
-				the_post_thumbnail('thumbnail', array('class' => 'img-responsive'));
-			}
-			else {
-				echo '<img src="http://placehold.it/760x670" />';
-			}
-			?>
+			<?php echo wt_cozy_thumbnail('760x670'); ?>
 		</div>
 		<div class="tag"><i class="fa fa-file-text"></i></div>
 		<div class="info-blog">

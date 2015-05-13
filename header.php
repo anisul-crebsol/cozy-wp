@@ -41,6 +41,8 @@ global $wt_cozy;
 var templeteUrl = '<?php echo get_stylesheet_directory_uri(); ?>';
 var homeUrl = '<?php echo home_url(); ?>';
 var adminUrl = '<?php echo admin_url(); ?>';
+var $url = '<?php echo "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]"; ?>';
+
 </script>
 <script type="text/javascript">
     jQuery(document).ready(function(){

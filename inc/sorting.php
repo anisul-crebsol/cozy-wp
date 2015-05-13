@@ -64,3 +64,30 @@ function get_agency_states() {
 }
 add_action('wp_ajax_get_agency_states', 'get_agency_states');
 add_action('wp_ajax_nopriv_get_agency_states', 'get_agency_states');
+
+function get_agency_city_state() {
+
+    $selectVal = @$_GET['sorted_by'];
+
+    if (empty($selectVal)){
+        $selectVal = 'state';
+    }
+
+    $agency_args = array(
+        'post_type' => 'agency',
+        'posts_per_page' => -1
+    );
+    
+    query_posts($agency_args);
+    if (have_posts()) : while (have_posts()) : the_post(); 
+        if($selectVal == 'state'):       
+            $res[] = get_post_meta( get_the_id(), '_wt_agency_state', true); 
+        endif;
+        if($selectVal == 'city'):       
+            $res[] = get_post_meta( get_the_id(), '_wt_agency_city', true); 
+        endif; 
+    endwhile; endif;   
+
+    return $res;
+    
+}

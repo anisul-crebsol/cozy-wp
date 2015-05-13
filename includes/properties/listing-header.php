@@ -1,18 +1,11 @@
 <?php 
 $sort_by = esc_attr($_GET['sort_by']); 
-$sort_order = esc_attr($_GET['sort_order']);
- ?>
-<script>
-jQuery(function () {
-    jQuery("#sort_by").change(function () {
-        location.href = jQuery(this).val();
-    })
-})
-</script>
-<?php $url = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]"; ?>
+$sort_order = esc_attr($_GET['sort_order']); 
+$url = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+?>
 <div id="listing-header" class="clearfix">
 	<div class="form-control-small">
-		<select id="sort_by" onchange="this.form.submit()" name="sort_by" data-placeholder="Sort">
+		<select id="sort_by" onchange="this.form.submit()" name="sort_by" data-placeholder="<?php _e( 'Sort', 'cozy' ); ?>">
 			<option value="<?php echo addURLParameter($url, 'sort_by',''); ?>"> </option>
 			<option <?php if ($sort_by == 'date'){ echo $selected = 'selected'; } ?> value="<?php echo addURLParameter($url, 'sort_by','date'); ?>"><?php _e( 'Sort by Date', 'cozy' ); ?></option>
 			<option <?php if ($sort_by == 'area'){ echo $selected = 'selected'; } ?> value="<?php echo addURLParameter($url, 'sort_by','area'); ?>"><?php _e( 'Sort by Area', 'cozy' ); ?></option>
@@ -21,9 +14,9 @@ jQuery(function () {
 	
 	<div class="sort">
 		<ul>
-			<li class="<?php if ($sort_order == "desc" || $sort_order == ""){ echo $active_class = 'active'; } ?>"><a  href="<?php echo addURLParameter($url, 'sort_order','desc'); ?>"><i data-toggle="tooltip" data-placement="top" title="Sort Descending" class="fa fa-chevron-down"></i></a></li>
+			<li class="<?php if ($sort_order == "desc" || $sort_order == ""){ echo $active_class = 'active'; } ?>"><a  href="<?php echo addURLParameter($url, 'sort_order','desc'); ?>"><i data-toggle="tooltip" data-placement="top" title="<?php _e('Sort Descending', 'cozy'); ?>" class="fa fa-chevron-down"></i></a></li>
 
-			<li class="<?php if ($sort_order == "asc"){ echo $active_class = 'active'; } ?>"><a href="<?php echo addURLParameter($url, 'sort_order','asc'); ?>"><i data-toggle="tooltip" data-placement="top" title="Sort Ascending" class="fa fa-chevron-up"></i></a></li>
+			<li class="<?php if ($sort_order == "asc"){ echo $active_class = 'active'; } ?>"><a href="<?php echo addURLParameter($url, 'sort_order','asc'); ?>"><i data-toggle="tooltip" data-placement="top" title="<?php _e('Sort Ascending', 'cozy'); ?>" class="fa fa-chevron-up"></i></a></li>
 		</ul>
 	</div>
 	

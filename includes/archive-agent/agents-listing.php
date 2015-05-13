@@ -13,7 +13,7 @@ query_posts($agent_args);
 if (have_posts()) : while (have_posts()) : the_post();
 
 	$count++;
-	$agent_description = get_post_meta( $post->ID, '_wt_agent_description', true );
+	$agent_description = do_shortcode(wpautop(get_post_meta( $post->ID, '_wt_agent_description', true )));
 	$agent_address = get_post_meta( $post->ID, '_wt_agent_address', true );
 	$agent_email = get_post_meta( $post->ID, '_wt_agent_email', true );
 	$agent_image = get_post_meta( $post->ID, '_wt_agent_img', true );
@@ -43,7 +43,6 @@ if ( 1 == $count%3 ) {
 	<div class="info">
 		<h2><?php the_title(); ?> <small><?php echo $agent_address; ?></small></h2>
 		
-		<p>
 		<?php 
 			$description_limit = 190;
 			if(strlen($agent_description) <= $description_limit) {
@@ -51,8 +50,7 @@ if ( 1 == $count%3 ) {
 			} else {
 				echo substr($agent_description, 0, $description_limit);
 			}
-		?>	
-		</p>
+		?>
 		
 		<ul class="contact-us">
 			<li><a href="mailto:<?php echo $agent_email ?>"><i class="fa fa-envelope"></i> <?php echo $agent_email ?></a></li>
