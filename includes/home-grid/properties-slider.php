@@ -12,14 +12,6 @@
 					$display_posts = $wt_cozy['section_properties_number'];
 					$property_args = array(
 						'post_type' => 'property',
-						'tax_query'	=> array(
-							array(
-								'taxonomy'	=> 'property-status',
-								'field'		=> 'slug',
-								'terms'		=> array( 'featured' ),
-								'operator'	=> 'NOT IN',
-							),
-						),
 						'showposts' => $display_posts
 					);
 					query_posts($property_args);

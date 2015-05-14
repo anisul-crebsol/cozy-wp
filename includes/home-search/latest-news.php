@@ -12,9 +12,7 @@
     <?php while($blog_query->have_posts()): $blog_query->the_post(); ?>
 	<div class="item col-sm-12" data-animation-direction="from-bottom" data-animation-delay="250">
 		<div class="image">
-			<a href="<?php the_permalink(); ?>">
-				<span class="btn btn-default"><i class="fa fa-file-o"></i> <?php _e( 'Read More', 'cozy' );?></span>
-			</a>
+			<a href="<?php the_permalink(); ?>"><span class="btn btn-default"><i class="fa fa-file-o"></i> <?php _e( 'Read More', 'cozy' );?></span></a>
 			<?php echo wt_cozy_thumbnail('766x515'); ?>
 		</div>
 		<div class="tag"><i class="fa fa-file-text"></i></div>

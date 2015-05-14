@@ -1,5 +1,5 @@
 <?php global $wt_cozy; ?>
-<h1 class="section-title" data-animation-direction="from-bottom" data-animation-delay="50">Latest News</h1>
+<h1 class="section-title" data-animation-direction="from-bottom" data-animation-delay="50"><?php echo $wt_cozy['section_news_title']?></h1>
 <div id="latest-news-slider" class="owl-carousel latest-news-slider" data-animation-direction="from-bottom" data-animation-delay="250">
 <?php 
     $limit = $wt_cozy['section_news_number'];

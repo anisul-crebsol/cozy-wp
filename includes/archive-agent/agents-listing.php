@@ -30,7 +30,7 @@ if ( 1 == $count%3 ) {
 ?>
 <div class="item col-md-4"><!-- Set width to 4 columns for grid view mode only -->
 	<div class="image">
-		<a href="<?php the_permalink(); ?>"><span class="btn btn-default"><i class="fa fa-plus"></i> Details</span></a>
+		<a href="<?php the_permalink(); ?>"><span class="btn btn-default"><i class="fa fa-plus"></i> <?php _e('Details','cozy'); ?></span></a>
 		<?php
 		if ($agent_image) {
 			echo '<img alt="" src="'. $agent_image .' " />';
@@ -53,7 +53,7 @@ if ( 1 == $count%3 ) {
 		?>
 		
 		<ul class="contact-us">
-			<li><a href="mailto:<?php echo $agent_email ?>"><i class="fa fa-envelope"></i> <?php echo $agent_email ?></a></li>
+			<li><a href="<?php _e('mailto','cozy'); ?>:<?php echo $agent_email ?>"><i class="fa fa-envelope"></i> <?php echo $agent_email ?></a></li>
 		</ul>
 		
 		<ul class="social-networks">

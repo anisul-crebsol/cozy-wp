@@ -20,7 +20,7 @@
                     $limit = $wt_cozy['section_news_number'];
                 	$args = array(
                         'post_status'       => 'publish',
-                        'posts_per_page'    => $limit,
+                        'posts_per_page'    => $limit
                     );
                     $blog_query = new WP_Query( $args );?>
                 <?php while($blog_query->have_posts()): $blog_query->the_post(); ?>

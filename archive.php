@@ -35,12 +35,12 @@ get_header(); ?>
 						<!-- BEGIN BLOG LISTING -->
 <?php get_template_part ('/includes/blog-listing/content'); ?>
 						<!-- END BLOG LISTING -->
-						
-						
+
+
 						<!-- BEGIN PAGINATION -->
 <?php get_template_part ('/includes/pagination'); ?>
 						<!-- END PAGINATION -->
-						
+												
 					</div>	
 					<!-- END MAIN CONTENT -->
 					

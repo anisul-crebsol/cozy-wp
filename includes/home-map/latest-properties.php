@@ -1,18 +1,10 @@
 <?php global $wt_cozy; ?>
-<h1 class="section-title" data-animation-direction="from-bottom" data-animation-delay="50">Latest Properties</h1>
+<h1 class="section-title" data-animation-direction="from-bottom" data-animation-delay="50"><?php echo $wt_cozy['section_properties_title']?></h1>
 <div id="latest-properties-slider" class="owl-carousel fullwidthsingle2" data-animation-direction="from-bottom" data-animation-delay="250">
 	<?php
 	$display_posts = 3;
 	$property_args = array(
 		'post_type' => 'property',
-		'tax_query'	=> array(
-			array(
-				'taxonomy'	=> 'property-status',
-				'field'		=> 'slug',
-				'terms'		=> array( 'featured' ),
-				'operator'	=> 'NOT IN',
-			),
-		),
 		'showposts' => $display_posts
 	);
 	query_posts($property_args);

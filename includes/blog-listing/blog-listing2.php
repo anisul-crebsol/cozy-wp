@@ -4,12 +4,12 @@
 	$count = 0;
 	$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 	$args = array(
-        'post_status'       => 'publish',
-        'paged' => $paged,
+        'post_status'	=> 'publish',
+        'paged' 		=> $paged,
     );
-    $wp_query = new WP_Query( $args );?>
-<?php while($wp_query->have_posts()): $wp_query->the_post(); $count++;?>
-<?php if ( 1 == $count%2 ) {
+    $wp_query = new WP_Query( $args );
+	while($wp_query->have_posts()): $wp_query->the_post(); $count++;
+	if ( 1 == $count%2 ) {
         echo '<div class="clearfix"></div>';
     } 
 ?>
@@ -48,7 +48,6 @@
 		</div>
 	</div>
 <?php endwhile; ?>
-<?php wp_reset_postdata(); ?>
 
 	</div>
 </div>

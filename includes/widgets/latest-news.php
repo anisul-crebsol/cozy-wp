@@ -48,6 +48,7 @@ class WT_Widget_Latest_News extends WP_Widget {
 
         ?>
 <!-- BEGIN LATEST NEWS -->
+<ul class="latest-news">
 <?php 
     $limit = 3;
     $count = 0;
@@ -57,7 +58,6 @@ class WT_Widget_Latest_News extends WP_Widget {
     );
     $blog_query = new WP_Query( $args );?>
 <?php while($blog_query->have_posts()): $blog_query->the_post(); ?>
-<ul class="latest-news">
     <li class="col-md-12">
         <div class="image">
             <a href="<?php the_permalink(); ?>"></a>
@@ -70,8 +70,8 @@ class WT_Widget_Latest_News extends WP_Widget {
             
         <h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
     </li>
-</ul>
 <?php $count++; endwhile; ?>
+</ul>
 <!-- END LATEST NEWS -->
 <?php
 		

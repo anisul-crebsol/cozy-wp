@@ -33,12 +33,12 @@ get_header(); ?>
 <?php get_template_part ('/includes/archive-agency/listing-header'); ?>
 						
 						<!-- BEGIN AGENCIES LISTING -->
-<?php get_template_part ('/includes/archive-agency/archive-listing'); ?>
+<?php get_template_part ('/includes/archive-agency/agency-listing'); ?>
 						<!-- END AGENCIES LISTING -->
 						
 						
 						<!-- BEGIN PAGINATION -->
-<?php get_template_part ('/includes/pagination'); ?>
+<?php //get_template_part ('/includes/pagination'); ?>
 						<!-- END PAGINATION -->
 						
 					</div>	

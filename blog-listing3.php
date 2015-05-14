@@ -30,7 +30,7 @@ global $wt_cozy; ?>
 					<!-- BEGIN MAIN CONTENT -->
 					<div class="main col-sm-8">
 
-<?php get_template_part ('/includes/blog-listing/listing-header3'); ?>					
+<?php get_template_part ('/includes/blog-listing/listing-header2'); ?>					
 
 						
 						<!-- BEGIN BLOG LISTING -->

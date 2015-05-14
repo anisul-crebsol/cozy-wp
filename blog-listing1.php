@@ -37,11 +37,11 @@ get_header(); ?>
 <?php get_template_part ('/includes/blog-listing/blog-listing'); ?>
 						<!-- END BLOG LISTING -->
 						
-						
+
 						<!-- BEGIN PAGINATION -->
 <?php get_template_part ('/includes/pagination'); ?>
 						<!-- END PAGINATION -->
-						
+												
 					</div>	
 					<!-- END MAIN CONTENT -->
 					

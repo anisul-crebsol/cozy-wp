@@ -10,12 +10,4 @@ $url = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 			<li class="<?php if ($sort_order == "asc"){ echo $active_class = 'active'; } ?>"><a href="<?php echo addURLParameter($url, 'sort_order','asc'); ?>"><i data-toggle="tooltip" data-placement="top" title="<?php _e('Sort Ascending', 'cozy'); ?>" class="fa fa-chevron-up"></i></a></li>
 		</ul>
 	</div>
-	
-	<div class="view-mode">
-		<span><?php _e('View Mode:', 'cozy'); ?></span>
-		<ul>
-			<li data-view="grid-style1" data-target="property-listing"><i class="fa fa-th"></i></li>
-			<li data-view="list-style" data-target="property-listing" class="active"><i class="fa fa-th-list"></i></li>
-		</ul>
-	</div>
 </div>
