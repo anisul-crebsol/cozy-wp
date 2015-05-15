@@ -114,7 +114,7 @@ function faq_shortcode() {
                                     the_title();
                                     if ($price_table_featured == 'on') {
                                         ?>
-                                        <i class="fa fa-question-circle" data-toggle="tooltip" data-placement="top" title="<?php echo get_post_meta(get_the_id(), '_wt_tooltrip_description', true); ?>"></i>
+                                        <i class="fa fa-question-circle" data-toggle="tooltip" data-placement="top" title="<?php echo get_post_meta(get_the_id(), '_wt_tooltip_description', true); ?>"></i>
                                         <?php
                                     }
                                     ?></h2>
@@ -184,7 +184,7 @@ function faq_shortcode() {
                                     the_title();
                                     if ($price_table_featured == 'on') {
                                         ?>
-                                        <i class="fa fa-question-circle" data-toggle="tooltip" data-placement="right" title="<?php echo get_post_meta(get_the_id(), '_wt_tooltrip_description', true); ?>"></i>                                          
+                                        <i class="fa fa-question-circle" data-toggle="tooltip" data-placement="right" title="<?php echo get_post_meta(get_the_id(), '_wt_tooltip_description', true); ?>"></i>                                          
                                         <?php
                                     }
                                     ?></h2>
@@ -253,7 +253,7 @@ function faq_shortcode() {
                                     the_title();
                                     if ($price_table_featured == 'on') {
                                         ?>
-                                        <i class="fa fa-question-circle" data-toggle="tooltip" data-placement="top" title="<?php echo get_post_meta(get_the_id(), '_wt_tooltrip_description', true); ?>"></i>                                          
+                                        <i class="fa fa-question-circle" data-toggle="tooltip" data-placement="top" title="<?php echo get_post_meta(get_the_id(), '_wt_tooltip_description', true); ?>"></i>                                          
                                         <?php
                                     }
                                     ?></h2>
@@ -343,7 +343,7 @@ function faq_shortcode() {
                                             the_title();
                                             if ($price_table_featured == 'on') {
                                                 ?>
-                                                <i class="fa fa-question-circle" data-toggle="tooltip" data-placement="top" title="<?php echo get_post_meta(get_the_id(), '_wt_tooltrip_description', true); ?>"></i>
+                                                <i class="fa fa-question-circle" data-toggle="tooltip" data-placement="top" title="<?php echo get_post_meta(get_the_id(), '_wt_tooltip_description', true); ?>"></i>
                                             <?php } ?></h2>
                                         <span class="price">
                                             <?php echo get_post_meta(get_the_id(), '_wt_package_price', true); ?>

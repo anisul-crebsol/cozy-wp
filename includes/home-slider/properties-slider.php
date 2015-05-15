@@ -30,7 +30,7 @@
 					if ($property_price) : $property_price = $property_price; else : $property_price = 0; endif;
 					$property_price_eng = number_format($property_price);
 					$property_price_symble = get_post_meta( $post->ID, '_wt_property_price_symble', true);
-					$property_description = get_post_meta( $post->ID, '_wt_property_description', true );
+					$property_description = do_shortcode(wpautop(get_post_meta( $post->ID, '_wt_property_description', true )));
 					?>
 					<div class="item">
 						<div class="image">

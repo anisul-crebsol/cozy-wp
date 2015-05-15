@@ -1,5 +1,6 @@
 <?php
-$sort_order = esc_attr($_GET['sort_order']); 
+$sort_order = '';
+if(isset($_GET['sort_order'])){ $sort_order = esc_attr($_GET['sort_order']); }
 $url = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 ?>
 <div id="listing-header" class="clearfix">

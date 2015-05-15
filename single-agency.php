@@ -38,13 +38,13 @@ get_header(); ?>
 <?php while ( have_posts() ) : the_post(); ?>
 
 	
-<?php echo $property_content1 = wpautop(get_post_meta( $post->ID, '_wt_agency_description1', true )); ?>
+<?php echo $property_content1 = do_shortcode(wpautop(get_post_meta( $post->ID, '_wt_agency_description1', true ))); ?>
 
 						<!-- BEGIN GALLERY -->
 <?php get_template_part ('/includes/single-agency/gallery'); ?>
 						<!-- END GALLERY -->
 
-<?php echo $property_content2 = wpautop(get_post_meta( $post->ID, '_wt_agency_description2', true )); ?>
+<?php echo $property_content2 = do_shortcode(wpautop(get_post_meta( $post->ID, '_wt_agency_description2', true ))); ?>
 
 <?php endwhile; ?>
 <?php endif; ?>

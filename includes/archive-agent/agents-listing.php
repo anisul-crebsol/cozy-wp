@@ -24,9 +24,7 @@ if (have_posts()) : while (have_posts()) : the_post();
 	$agent_twitter_link = get_post_meta( $post->ID, '_wt_agent_twitter_link', true );
 	$agent_youtube_link = get_post_meta( $post->ID, '_wt_agent_youtube_link', true );
 
-if ( 1 == $count%3 ) {
-        echo '<div class="clearfix"></div>';
-    }
+	if ( 1 == $count%3 ) { echo '<div class="clearfix"></div>'; }
 ?>
 <div class="item col-md-4"><!-- Set width to 4 columns for grid view mode only -->
 	<div class="image">

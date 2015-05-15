@@ -1,6 +1,7 @@
 <ul id="agencies-results" class="agencies-list">
 <?php
-if(isset($_GET['agency_sort_by'])){ $sort_by = esc_attr($_GET['agency_sort_by']); } 
+$agency_sort_by = '';
+if(isset($_GET['agency_sort_by'])){ $agency_sort_by = esc_attr($_GET['agency_sort_by']); } 
 $count = 1;
 $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 $args = array(
@@ -10,7 +11,7 @@ $args = array(
 	$wp_query = new WP_Query( $args );
 	while($wp_query->have_posts()): $wp_query->the_post();
 
-	$agency_description = get_post_meta( $post->ID, '_wt_agency_description1', true );
+	$agency_description = do_shortcode(wpautop(get_post_meta( $post->ID, '_wt_agency_description1', true )));
 	$agency_state = get_post_meta( $post->ID, '_wt_agency_state', true );
 	$agency_email = get_post_meta( $post->ID, '_wt_agency_email', true );
 ?>

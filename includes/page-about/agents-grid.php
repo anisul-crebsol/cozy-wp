@@ -1,8 +1,9 @@
-<h1 class="section-title" data-animation-direction="from-bottom" data-animation-delay="50">Our Agents</h1>
+<?php global $wt_cozy; ?>
+<h1 class="section-title" data-animation-direction="from-bottom" data-animation-delay="50"><?php echo $wt_cozy['section_agents_title']?></h1>
 <ul class="agents-grid">
 <?php
 $count = 0;
-$display_posts = 4;
+$display_posts = $wt_cozy['section_grid_number'];
 $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 $property_args = array(
 	'post_type' => 'agent',
@@ -13,7 +14,7 @@ query_posts($property_args);
 if (have_posts()) : while (have_posts()) : the_post();
 
 	$count++;
-	$agent_description = get_post_meta( $post->ID, '_wt_agent_description', true );
+	$agent_description = do_shortcode(wpautop(get_post_meta( $post->ID, '_wt_agent_description', true )));
 	$agent_email = get_post_meta( $post->ID, '_wt_agent_email', true );
 	$agent_image = get_post_meta( $post->ID, '_wt_agent_img', true );
 	$agent_address = get_post_meta( $post->ID, '_wt_agent_address', true );
@@ -22,13 +23,11 @@ if (have_posts()) : while (have_posts()) : the_post();
 	$agent_twitter_link = get_post_meta( $post->ID, '_wt_agent_twitter_link', true );
 	$agent_youtube_link = get_post_meta( $post->ID, '_wt_agent_youtube_link', true );
 
-if ( 1 == $count%4 ) {
-        echo '<div class="clearfix"></div>';
-    }
+	if ( 1 == $count%4 ) { echo '<div class="clearfix"></div>'; }
 ?>
 	<li class="col-sm-3" data-animation-direction="from-bottom" data-animation-delay="250">
 		<div class="image">
-			<a href="<?php the_permalink(); ?>"><span class="btn btn-default"><i class="fa fa-comment-o"></i> Contact</span></a>
+			<a href="<?php the_permalink(); ?>"><span class="btn btn-default"><i class="fa fa-comment-o"></i> <?php _e('Contact', 'cozy'); ?></span></a>
 			<?php
 			if ($agent_image) {
 				echo '<img alt="" src="'. $agent_image .' " />';
@@ -40,10 +39,9 @@ if ( 1 == $count%4 ) {
 		</div>
 		<div class="info">
 			<h2><?php the_title(); ?> <small><?php echo $agent_address; ?></small></h2>
-			
 			<p>
 			<?php 
-				$description_limit = 190;
+				$description_limit = 80;
 				if(strlen($agent_description) <= $description_limit) {
 					echo $agent_description;
 				} else {

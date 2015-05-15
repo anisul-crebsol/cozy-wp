@@ -64,7 +64,7 @@ class WT_Widget_Agents extends WP_Widget {
                     ?>
                     <span class="location"><?php echo $text = get_post_meta( get_the_ID(), '_wt_agent_address', true ); ?></span>
                     <?php 
-                        $agent_description = get_post_meta( get_the_ID(), '_wt_agent_description', true );
+                        $agent_description = do_shortcode(wpautop(get_post_meta( get_the_ID(), '_wt_agent_description', true )));
                         $description_limit = 100;
                         if(strlen($agent_description) <= $description_limit) {
                             echo $agent_description;

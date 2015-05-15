@@ -26,7 +26,7 @@
 			$property_bathrooms = get_post_meta( $post->ID, '_wt_property_bathrooms', true );
 	    ?>
 
-		<div class="item col-md-4 <?php $disabled = @( $count%7 == 0 ?  'disabled' : ''); echo $disabled;  ?> ?>">
+		<div class="item col-md-4 <?php if ( $count > 5 ) { echo 'disabled'; } ?>">
 			<div class="image">
 				<a href="<?php the_permalink(); ?>">
 					<h3><?php the_title() ?></h3>

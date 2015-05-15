@@ -281,3 +281,24 @@ function wt_cozy_thumbnail($placeholderImge = '') {
         echo '<img src="http://placehold.it/'.$placeholderImge.'" />';
     }
 }
+
+function wt_cozy_single_property_slider( $file_list_meta_key) {
+
+    // Get the list of files
+    $files = get_post_meta( get_the_ID(), $file_list_meta_key, true );
+
+    // Loop through them and output an image
+    foreach ( (array) $files as $attachment_id => $attachment_url ) {
+        if (!isset($img_size)) {
+                $img_size = '';
+             }
+        if (!isset($attach)) {
+            $attach = '';
+        }
+        $attachment_image = wp_get_attachment_url( $attachment_id, $img_size );
+        if($attachment_image) :                                 
+        $attach .= '<div class="item"><img src="'.$attachment_image.'" class="img-responsive" alt=""></div>';                                   
+        endif;
+    }
+    return $attach;
+}

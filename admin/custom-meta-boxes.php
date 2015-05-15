@@ -440,6 +440,8 @@ function wt_cozy_register_metabox() {
 					'pattern' => '\d*',
 				), 
 	) );
+
+
 	$wt_cozy = wt_cozy_metabox( array(
 		'id'            => $prefix . 'property-slider',
 		'title'         => __( 'Property Slider','cozy' ),
@@ -449,12 +451,13 @@ function wt_cozy_register_metabox() {
 		'show_names'    => true, // Show field names on the left
 	) );
 	$wt_cozy->add_field( array(
-			    'name' => 'Property Slider',
+			    'name' => 'Slider images',
 			    'desc' => '',
 			    'id'   => $prefix . 'property_slider',
 			    'type' => 'file_list',
 			    // 'preview_size' => array( 100, 100 ), // Default: array( 50, 50 )
 			) );
+
 
 	$wt_cozy = wt_cozy_metabox( array(
 		'id'            => $prefix . 'property-features',
@@ -489,6 +492,7 @@ function wt_cozy_register_metabox() {
 		    'type' => 'text_medium',
 		) );
 
+
 	$wt_cozy = wt_cozy_metabox( array(
 		'id'            => $prefix . 'property-map',
 		'title'         => __( 'Property Map','cozy' ),
@@ -512,6 +516,8 @@ function wt_cozy_register_metabox() {
 			    'type' => 'file',
 			    // 'preview_size' => array( 100, 100 ), // Default: array( 50, 50 )
 			) );
+
+
 	$wt_cozy = wt_cozy_metabox( array(
 		'id'            => $prefix . 'property-author',
 		'title'         => __( 'Property Agent','cozy' ),
@@ -521,7 +527,7 @@ function wt_cozy_register_metabox() {
 		'show_names'    => true, // Show field names on the left
 	) );
 	$wt_cozy->add_field( array(
-    'name' => __('Property Author','cozy'),
+    'name' => __('Agent','cozy'),
     'id' => $prefix . 'property_author',
     'desc'             => 'Select and assign an author to this property',
     'type'             => 'select',
@@ -529,45 +535,26 @@ function wt_cozy_register_metabox() {
     'default'          => 'custom',
     'options'          => wt_cozy_agent_list( array( 'post_type' => 'agent', 'numberposts' => -1 ) ),
 	) );
-		
+
+
 	$wt_cozy = wt_cozy_metabox( array(
-		'id'            => $prefix . 'property-social',
-		'title'         => __( 'Social Icons','cozy' ),
+		'id'            => $prefix . 'property-agency',
+		'title'         => __( 'Property Agency','cozy' ),
 		'object_types'  => array( 'property', ), // Post type
 		'context'       => 'normal',
 		'priority'      => 'high',
 		'show_names'    => true, // Show field names on the left
 	) );
 	$wt_cozy->add_field( array(
-                'name' => __('Google Plus','cozy'),
-                'id' => $prefix . 'property_gplus',
-                'type' => 'text_url'
+    'name' => __('Agency','cozy'),
+    'id' => $prefix . 'property_agency',
+    'desc'             => 'Select and assign an agency to this property',
+    'type'             => 'select',
+    'show_option_none' => true,
+    'default'          => 'custom',
+    'options'          => wt_cozy_agent_list( array( 'post_type' => 'agency', 'numberposts' => -1 ) ),
 	) );
-	$wt_cozy->add_field( array(
-                'name' => __('Facebook','cozy'),
-                'id' => $prefix . 'property_facebook',
-                'type' => 'text_url'
-	) );
-	$wt_cozy->add_field( array(
-                'name' => __('Twitter','cozy'),
-                'id' => $prefix . 'property_twitter',
-                'type' => 'text_url'
-	) );
-	$wt_cozy->add_field( array(
-                'name' => __('YouTube','cozy'),
-                'id' => $prefix . 'property_youtube',
-                'type' => 'text_url'
-	) );
-	$wt_cozy->add_field( array(
-                'name' => __('Pinterest','cozy'),
-                'id' => $prefix . 'property_pinterest',
-                'type' => 'text_url'
-	) );
-	$wt_cozy->add_field( array(
-                'name' => __('Mail','cozy'),
-                'id' => $prefix . 'property_mail',
-                'type' => 'text_url'
-	) );
+
 
 
 	// Our Partners Meta Box
@@ -610,7 +597,6 @@ function wt_cozy_register_metabox() {
 	    'id'   => 'partner_link',
 	    'type' => 'text_medium',
 	) );
-
 	
 
     // User Meta Box
@@ -716,8 +702,8 @@ function wt_cozy_register_metabox() {
         'type' => 'checkbox'
     ));
     $wt_cozy->add_field(array(
-        'name' => __('Tooltrip Description', 'cozy'),
-        'id' => $prefix . 'tooltrip_description',
+        'name' => __('Tooltip Description', 'cozy'),
+        'id' => $prefix . 'tooltip_description',
         'type' => 'text'
     ));
 
@@ -752,6 +738,25 @@ function wt_cozy_agent_list( $query_args ) {
 
     $args = wp_parse_args( $query_args, array(
         'post_type'   => 'agent',
+        'numberposts' => -1,
+    ) );
+
+    $posts = get_posts( $args );
+
+    $post_options = array();
+    if ( $posts ) {
+        foreach ( $posts as $post ) {
+          $post_options[ $post->ID ] = $post->post_title;
+        }
+    }
+
+    return $post_options;
+}
+
+function wt_cozy_agency_list( $query_args ) {
+
+    $args = wp_parse_args( $query_args, array(
+        'post_type'   => 'agency',
         'numberposts' => -1,
     ) );
 

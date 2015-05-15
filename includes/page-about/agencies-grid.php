@@ -1,34 +1,25 @@
-<h1 class="section-title" data-animation-direction="from-bottom" data-animation-delay="50">Our Agencies</h1>
+<?php global $wt_cozy; ?>
+<h1 class="section-title" data-animation-direction="from-bottom" data-animation-delay="50"><?php echo $wt_cozy['section_partners_title']?></h1>
 <ul class="agencies-grid">
+	<?php
+		$count = 0;
+		$display_posts = $wt_cozy['section_grid_number'];
+		$args = array(
+			'post_type' => 'agency',
+			'posts_per_page' => 4,
+			'paged' => $paged
+		);
+	$agency_query = new WP_Query( $args );
+	while($agency_query->have_posts()): $agency_query->the_post();
+
+	$agency_city = get_post_meta( $post->ID, '_wt_agency_city', true );
+	?>
 	<li class="col-md-3" data-animation-direction="from-bottom" data-animation-delay="250">
 		<div id="agency_map1" class="map"></div>
 		<div class="info">
-			<h2>Agency 1 <small>New York</small></h2>
-			<a href="agency-detail.html" class="btn btn-default-color">More Details</a>
+			<h2><?php echo get_the_title(); ?><small><?php echo $agency_city; ?></small></h2>
+			<a href="<?php echo get_the_permalink(); ?>" class="btn btn-default-color"><?php _e ('More Details', 'cozy') ?></a>
 		</div>
 	</li>
-	
-	<li class="col-md-3" data-animation-direction="from-bottom" data-animation-delay="450">
-		<div id="agency_map2" class="map"></div>
-		<div class="info">
-			<h2>Agency 2 <small>California</small></h2>
-			<a href="agency-detail.html" class="btn btn-default-color">More Details</a>
-		</div>
-	</li>
-	
-	<li class="col-md-3" data-animation-direction="from-bottom" data-animation-delay="650">
-		<div id="agency_map3" class="map"></div>
-		<div class="info">
-			<h2>Agency 3 <small>New York</small></h2>
-			<a href="agency-detail.html" class="btn btn-default-color">More Details</a>
-		</div>
-	</li>
-	
-	<li class="col-md-3" data-animation-direction="from-bottom" data-animation-delay="850">
-		<div id="agency_map4" class="map"></div>
-		<div class="info">
-			<h2>Agency 4 <small>New York</small></h2>
-			<a href="agency-detail.html" class="btn btn-default-color">More Details</a>
-		</div>
-	</li>
+	<?php endwhile; $count++; ?>
 </ul>

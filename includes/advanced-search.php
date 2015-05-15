@@ -6,7 +6,7 @@
                     <div class="form-group">
                         <div class="form-control-large">
                             <input type="hidden" value="" id="s" name="s">  
-                            <input type="text" class="form-control" value="<?php echo $_GET['location']; ?>" name="location" placeholder="City, State, Country, etc...">
+                            <input type="text" class="form-control" value="<?php if(isset($_GET['location'])){ echo esc_attr($_GET['location']); } ?>" name="location" placeholder="<?php _e( 'City, State, Country, etc...', 'cozy' );?>">
                         </div>
                         <?php
                         $property_type_term = get_terms_by_post_type(array('wt-property-types'), array('property'));

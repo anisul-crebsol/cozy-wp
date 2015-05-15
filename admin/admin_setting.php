@@ -604,6 +604,12 @@
                             'title' => __('Section Title', 'cozy'),
                             'default' => "Our Agents",
                         ),
+                        array(
+                            'id' => 'section_agents_number',
+                            'type' => 'text',
+                            'title' => __('How many agents to display?', 'cozy'),
+                            'default' => "4",
+                        ),  
                     ),
                 );
 

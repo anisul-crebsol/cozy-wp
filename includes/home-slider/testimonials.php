@@ -17,18 +17,26 @@
 			            );
 			            $testimonial_query = new WP_Query( $args );?>
 
-			        <?php while($testimonial_query->have_posts()): $testimonial_query->the_post();  ?>
+			        <?php 
+
+			        	while($testimonial_query->have_posts()): $testimonial_query->the_post();  
+
+					    $test_description = do_shortcode(wpautop(get_post_meta( $post->ID, '_wt_test_description', true )));
+					    $test_image = get_post_meta( $post->ID, '_wt_test_image', true );
+					    $test_name = get_post_meta( $post->ID, '_wt_test_name', true );
+					    $test_designation = get_post_meta( $post->ID, '_wt_test_designation', true );
+			        ?>
 
 					<div class="item">
 						<blockquote class="text">
-							<p><?php echo $text = get_post_meta( $post->ID, '_wt_test_description', true ); ?></p>
+							<p><?php echo $test_description; ?></p>
 						</blockquote>
 						<div class="col-md-5 center">
 							<div class="author">
-								<img src="<?php echo $text = get_post_meta( $post->ID, '_wt_test_image', true ); ?>" alt="" />
+								<img src="<?php echo $test_image; ?>" alt="" />
 								<div>
-									<?php echo $text = get_post_meta( $post->ID, '_wt_test_name', true ); ?><br>
-									<span><?php echo $text = get_post_meta( $post->ID, '_wt_test_designation', true ); ?></span>
+									<?php echo $test_name; ?><br>
+									<span><?php echo $test_designation; ?></span>
 								</div>
 							</div>
 						</div>

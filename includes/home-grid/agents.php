@@ -17,7 +17,7 @@
 	    $agent_image = get_post_meta( $post->ID, '_wt_agent_img', true );
 		$agent_address = get_post_meta( $post->ID, '_wt_agent_address', true );
 		$agent_description = do_shortcode(wpautop(get_post_meta( $post->ID, '_wt_agent_description', true )));
-		$clearFix = @( $count%2 == 0 ?  '<div class="clearfix"></div>' : ''); echo $clearFix;
+		if ( 0 == $count%2 ) { echo '<div class="clearfix"></div>'; }
     ?>
 		<li class="col-lg-6" data-animation-direction="from-left" data-animation-delay="250">
 			<a href="<?php the_permalink(); ?>">							

@@ -7,7 +7,6 @@ jQuery(function ($) {
         var validation_flag = 1;
         var jserrormsg = '';
 
-
         var firstname = $('#firstname').val();
         var lastname = $('#lastname').val();
         var address = $('#address').val();

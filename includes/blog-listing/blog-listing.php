@@ -9,7 +9,9 @@
 	);
 	$wp_query = new WP_Query( $args );
 	while($wp_query->have_posts()): $wp_query->the_post();
-	$clearFix = @( $count%3 == 0 ?  '<div class="clearfix"></div>' : ''); echo $clearFix;  
+	if ( 0 == $count%3 ) {
+        echo '<div class="clearfix"></div>';
+    }
 ?>
 
 	<div class="item col-md-4"><!-- Set width to 4 columns for grid view mode only -->

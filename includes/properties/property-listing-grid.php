@@ -20,7 +20,7 @@ query_posts($property_args);
 if (have_posts()) : while (have_posts()) : the_post();
 
 $property_status = get_the_terms($post->ID, 'property-status', true);
-$property_description = get_post_meta( $post->ID, '_wt_property_description', true );
+$property_description = do_shortcode(wpautop(get_post_meta( $post->ID, '_wt_property_description', true )));
 $property_price = get_post_meta( $post->ID, '_wt_property_price', true);
 if ($property_price) : $property_price = $property_price; else : $property_price = 0; endif;
 $property_price_eng = number_format($property_price);
@@ -31,7 +31,9 @@ $property_area_measurement = get_post_meta( $post->ID, '_wt_property_area_measur
 $property_bedrooms = get_post_meta( $post->ID, '_wt_property_bedrooms', true );
 $property_bathrooms = get_post_meta( $post->ID, '_wt_property_bathrooms', true );
 
-$clearFix = @( $count%3 == 0 ?  '<div class="clearfix"></div>' : ''); echo $clearFix;  ?>
+if ( 0 == $count%3 ) { echo '<div class="clearfix"></div>'; } 
+
+?>
 
 <div class="item col-md-4"><!-- Set width to 4 columns for grid view mode only -->
 	<div class="image">

@@ -54,7 +54,7 @@ class WT_Widget_Testimonials extends WP_Widget {
 
     		<div class="item">
     			<blockquote class="text">
-    				<p><?php echo $text = get_post_meta( get_the_ID(), '_wt_test_description', true ); ?></p>
+    			 <?php echo $text = do_shortcode(wpautop(get_post_meta( get_the_ID(), '_wt_test_description', true ))); ?>
     			</blockquote>
     			<div class="author">
     				<img src="<?php echo $text = get_post_meta( get_the_ID(), '_wt_test_image', true ); ?>" alt="" />

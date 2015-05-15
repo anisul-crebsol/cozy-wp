@@ -1,6 +1,6 @@
 <?php 
-$sort_by = esc_attr($_GET['agency_sort_by']);
-if(isset($_GET['agency_sort_by'])){ $sort_by = esc_attr($_GET['agency_sort_by']); } 
+$agency_sort_by = '';
+if(isset($_GET['agency_sort_by'])){ $agency_sort_by = esc_attr($_GET['agency_sort_by']); }
 $url = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 ?>
 <div id="listing-header" class="clearfix">
