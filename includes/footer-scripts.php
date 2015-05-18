@@ -39,7 +39,9 @@ require get_template_directory() . '/inc/properties.php';
 	</script>
 <?php
     }
-	elseif ( is_page_template('archive-agency.php')) { ?>
+	elseif ( is_page_template('archive-agency.php') || is_archive('agency')) { 
+	require get_template_directory() . '/inc/agencies.php';
+		?>
 	<script type="text/javascript">
 		(function($){
 			"use strict";
@@ -92,6 +94,21 @@ require get_template_directory() . '/inc/properties.php';
 			$(document).ready(function(){
 				//Create property map centered on the marker of the property with id=0.
 				Cozy.propertiesMap(property, 'property_location', 0);
+			});
+		})(jQuery);
+	</script>
+<?php
+    }
+	elseif (is_singular (array( 'agency' ))) { 
+	require get_template_directory() . '/inc/agency.php';
+?>
+	<script type="text/javascript">
+		(function($){
+			"use strict";
+			
+			$(document).ready(function(){
+				//Create agency map centered on the marker of the agency with id=0.
+				Cozy.agencyMap(agency, 'agency_map', 0);
 			});
 		})(jQuery);
 	</script>

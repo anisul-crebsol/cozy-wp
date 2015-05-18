@@ -12,7 +12,7 @@ class WT_Widget_Cozy_Archives extends WP_Widget {
 
     public function __construct() {
         $widget_ops = array('classname' => 'widget_cozy_archives', 'description' => __('Arbitrary text or HTML.', 'cozy'));
-        parent::__construct('wt_cozy_archives', __('Sidebar Archives', 'cozy'), $widget_ops);
+        parent::__construct('wt_cozy_archives', __('Cozy Sidebar Archives', 'cozy'), $widget_ops);
     }
 
     /**

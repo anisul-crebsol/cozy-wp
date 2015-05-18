@@ -4,7 +4,7 @@
  * Property Search widget class
  */
 
-class WT_Widget_Property_Search extends WP_Widget {
+class WT_Cozy_Widget_Property_Search extends WP_Widget {
 
     /**
      * Register widget with WordPress.
@@ -12,7 +12,7 @@ class WT_Widget_Property_Search extends WP_Widget {
 
     public function __construct() {
         $widget_ops = array('classname' => 'widget_property_search', 'description' => __('Arbitrary text or HTML.', 'cozy'));
-        parent::__construct('wt_cozy_property_search', __('Sidebar Property Search', 'cozy'), $widget_ops);
+        parent::__construct('wt_cozy_property_search', __('Cozy Sidebar Property Search', 'cozy'), $widget_ops);
     }
 
     /**

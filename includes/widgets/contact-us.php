@@ -4,7 +4,7 @@
  * Contact Us widget class
  */
 
-class WT_Widget_Contact_Us extends WP_Widget {
+class WT_Cozy_Widget_Contact_Us extends WP_Widget {
 
     /**
      * Register widget with WordPress.
@@ -12,7 +12,7 @@ class WT_Widget_Contact_Us extends WP_Widget {
 
     public function __construct() {
         $widget_ops = array('classname' => 'widget_contact_us', 'description' => __('Arbitrary text or HTML.', 'cozy'));
-        parent::__construct('wt_cozy_contact_us', __('Sidebar Contact Us', 'cozy'), $widget_ops);
+        parent::__construct('wt_cozy_contact_us', __('Cozy Sidebar Contact Us', 'cozy'), $widget_ops);
     }
 
     /**

@@ -12,7 +12,7 @@
 	$agency_youtube = get_post_meta( $post->ID, '_wt_agency_youtube', true );
 ?>
 <div class="agency-detail clearfix">
-	<div id="agency_map1" class="map col-md-6"></div>
+	<div id="agency_map" class="map col-md-6"></div>
 	
 	<div class="info col-md-6">
 		<header>

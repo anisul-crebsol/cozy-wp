@@ -4,7 +4,7 @@
  * Agencies widget class
  */
 
-class WT_Widget_Agencies extends WP_Widget {
+class WT_Cozy_Widget_Agencies extends WP_Widget {
 
     /**
      * Register widget with WordPress.
@@ -12,7 +12,7 @@ class WT_Widget_Agencies extends WP_Widget {
 
     public function __construct() {
         $widget_ops = array('classname' => 'widget_agencies', 'description' => __('Arbitrary text or HTML.', 'cozy'));
-        parent::__construct('wt_cozy_agencies', __('Sidebar Agencies', 'cozy'), $widget_ops);
+        parent::__construct('wt_cozy_agencies', __('Cozy Sidebar Agencies', 'cozy'), $widget_ops);
     }
 
     /**

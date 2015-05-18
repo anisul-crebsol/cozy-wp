@@ -4,7 +4,7 @@
  * Info widget class
  */
 
-class WT_Widget_Listings extends WP_Widget {
+class WT_Cozy_Widget_Listings extends WP_Widget {
 
     /**
      * Register widget with WordPress.
@@ -12,7 +12,7 @@ class WT_Widget_Listings extends WP_Widget {
 
     public function __construct() {
         $widget_ops = array('classname' => 'widget_listings', 'description' => __('Arbitrary text or HTML.', 'cozy'));
-        parent::__construct('wt_cozy_listings', __('Footer Latest Listings', 'cozy'), $widget_ops);
+        parent::__construct('wt_cozy_listings', __('Cozy Footer Latest Listings', 'cozy'), $widget_ops);
     }
 
     /**

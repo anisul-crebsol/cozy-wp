@@ -4,7 +4,7 @@
  * Agents widget class
  */
 
-class WT_Widget_Find_Agents extends WP_Widget {
+class WT_Cozy_Widget_Find_Agents extends WP_Widget {
 
     /**
      * Register widget with WordPress.
@@ -12,7 +12,7 @@ class WT_Widget_Find_Agents extends WP_Widget {
 
     public function __construct() {
         $widget_ops = array('classname' => 'widget_find_agents', 'description' => __('Arbitrary text or HTML.', 'cozy'));
-        parent::__construct('wt_cozy_find_agents', __('Sidebar Find Agents', 'cozy'), $widget_ops);
+        parent::__construct('wt_cozy_find_agents', __('Cozy Sidebar Find Agents', 'cozy'), $widget_ops);
     }
 
     /**
@@ -27,7 +27,7 @@ class WT_Widget_Find_Agents extends WP_Widget {
     public function widget( $args, $instance ) {
 
         global $wt_cozy; 
-		
+
 		$title = apply_filters( 'widget_title', empty( $instance['title'] ) ? '' : $instance['title'], $instance, $this->id_base );
         $image = apply_filters( 'widget_image', empty( $instance['image'] ) ? '' : $instance['image'], $instance, $this->id_base );
         $search = apply_filters( 'widget_search', empty( $instance['search'] ) ? '' : $instance['search'], $instance, $this->id_base );
@@ -97,6 +97,7 @@ class WT_Widget_Find_Agents extends WP_Widget {
 
     public function update( $new_instance, $old_instance ) {
         $instance = $old_instance;
+        if (!isset($image)){ $image = ""; }
         $instance['title'] = strip_tags($new_instance['title']);
         $instance['image'] = strip_tags($new_instance['image']);
         $instance['search'] = strip_tags($new_instance['search']);

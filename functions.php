@@ -13,7 +13,6 @@ if ( ! function_exists( 'cozy_setup' ) ) :
 
 function cozy_setup() {
 
-
     load_theme_textdomain( 'cozy', get_template_directory() . '/languages' );
 
     add_theme_support( 'automatic-feed-links' );
@@ -121,13 +120,13 @@ function cozy_widgets_init() {
         'after_title'   => '</h2>',
     ) );
     register_sidebar(array(
-       'name' => __('More Information Tab (Hidden)', 'cozy'),
-       'id' => 'sidebar-more-information',
-       'description' => 'Please add some sidebar widget for tab and use shortcode anywhere in site. Normally this sidebar will be hidden.',
-       'before_widget' => '<aside id="%1$s" class="clearfix">',
-       'after_widget' => '</aside>',
-       'before_title' => '<h1 class="widget-title">',
-       'after_title' => '</h1>',
+       'name'           => __('More Information Tab (Hidden)', 'cozy'),
+       'id'             => 'sidebar-more-information',
+       'description'    => 'Please add some sidebar widget for tab and use shortcode anywhere in site. Normally this sidebar will be hidden.',
+       'before_widget'  => '<aside id="%1$s" class="clearfix">',
+       'after_widget'   => '</aside>',
+       'before_title'   => '<h1 class="widget-title">',
+       'after_title'    => '</h1>',
    ));
   
 }
@@ -170,26 +169,30 @@ require get_template_directory() . '/includes/widgets/partners.php';
 
 // Register WT Cozy widget
 function register_cozy_widget() {
-    register_widget( 'WT_Widget_About' );
-    register_widget( 'WT_Widget_Agents' );    
-    register_widget( 'WT_Widget_Agencies' );
-    register_widget( 'WT_Widget_Find_Agents' );
-    register_widget( 'WT_Widget_Newsletter' );
-    register_widget( 'WT_Widget_Testimonials' );
-    register_widget( 'WT_Widget_Info' );
-    register_widget( 'WT_Widget_Contact' );
-    register_widget( 'WT_Widget_Links' );
-    register_widget( 'WT_Widget_Listings' );
-    register_widget( 'WT_Widget_more_information' );
-    register_widget( 'WT_Widget_Property_Search' );
-    register_widget( 'WT_Widget_Contact_Us' );
-    register_widget( 'WT_Widget_Latest_News' );
+    register_widget( 'WT_Cozy_Widget_About' );
+    register_widget( 'WT_Cozy_Widget_Agencies' );
+    register_widget( 'WT_Cozy_Widget_Agents' );    
+    register_widget( 'WT_Cozy_Widget_Find_Agents' );
+    register_widget( 'WT_Cozy_Widget_Newsletter' );
+    register_widget( 'WT_Cozy_Widget_Testimonials' );
+    register_widget( 'WT_Cozy_Widget_Info' );
+    register_widget( 'WT_Cozy_Widget_Contact' );
+    register_widget( 'WT_Cozy_Widget_Links' );
+    register_widget( 'WT_Cozy_Widget_Listings' );
+    register_widget( 'WT_Cozy_Widget_More_Information' );
+    register_widget( 'WT_Cozy_Widget_Property_Search' );
+    register_widget( 'WT_Cozy_Widget_Contact_Us' );
+    unregister_widget('WP_Widget_Recent_Posts');
+    register_widget( 'WT_Cozy_Widget_Latest_News' );
+    unregister_widget('WP_Widget_Categories');
     register_widget( 'WT_Widget_Cozy_Categories' );
+    unregister_widget('WP_Widget_Archives');
     register_widget( 'WT_Widget_Cozy_Archives' );
+    unregister_widget('WP_Widget_Tag_Cloud');
     register_widget( 'WT_Widget_Cozy_Tags' );
+    unregister_widget('WP_Widget_Text');
     register_widget( 'WT_Widget_Cozy_Text' );
-    register_widget( 'WT_Widget_Partners' );
-
+    register_widget( 'WT_Cozy_Widget_Partners' );
 }
 add_action( 'widgets_init', 'register_cozy_widget' );
 
@@ -207,6 +210,12 @@ add_filter('widget_text', 'do_shortcode');
 // Implement the Custom Header feature.
 //require get_template_directory() . '/inc/custom-header.php';
 
+// Custom Post Types
+require get_template_directory() . '/admin/custom-post-types.php';
+
+// Custom Metabox
+require get_template_directory() . '/admin/custom-meta-boxes.php';
+
 // Custom template tags for this theme.
 require get_template_directory() . '/inc/template-tags.php';
 
@@ -219,17 +228,8 @@ require get_template_directory() . '/inc/customizer.php';
 // Load Jetpack compatibility file.
 require get_template_directory() . '/inc/jetpack.php';
 
-// Custom Post Types
-require get_template_directory() . '/admin/custom-post-types.php';
-
 // Plugin Activation
 require get_template_directory() . '/inc/add-plugins.php';
-
-// Custom Metabox
-require get_template_directory() . '/admin/custom-meta-boxes.php';
-
-// Register Custom Navigation Walker
-require get_template_directory() . '/libs/google-map/cmb-field-map.php';
 
 // Register Custom Navigation Walker
 require get_template_directory() . '/inc/navwalker.php';
@@ -249,12 +249,6 @@ require get_template_directory() . '/inc/pagination.php';
 // Shortcode Button
 require get_template_directory() . '/inc/shortcode-button.php';
 
-// add shortcode
-require get_template_directory() . '/libs/wt-cozy-shortcode.php';
-
-// Cozy Accordion
-require get_template_directory() . '/libs/cozy-accordion/cozy_accordion.php';
-
 // Pagination
 require get_template_directory() . '/inc/registration.php';
 
@@ -264,41 +258,14 @@ require get_template_directory() . '/inc/class-walker-comment.php';
 // Sorting
 require get_template_directory() . '/inc/sorting.php';
 
-function wt_cozy_thumbnail($placeholderImge = '') {
-    $uploads_dir = wp_upload_dir();
-    $upload_url = $uploads_dir['baseurl']."/";
-    $upload_dir = $uploads_dir['basedir']."/";
-    $thumb_url = wp_get_attachment_url( get_post_thumbnail_id( get_the_ID(), array('class' => 'img-responsive') ) );            
-    $check_image_dir = str_replace($upload_url, $upload_dir, $thumb_url);
-    if ( has_post_thumbnail() ) {
-        if(@file_exists($check_image_dir)){                
-         the_post_thumbnail('thumbnail', array('class' => 'img-responsive'));
-        } else {
-            echo '<img src="http://placehold.it/'.$placeholderImge.'" />';
-        }
-    }
-    else {
-        echo '<img src="http://placehold.it/'.$placeholderImge.'" />';
-    }
-}
+// Other Cozy Functions
+require get_template_directory() . '/inc/cozy-functions.php';
 
-function wt_cozy_single_property_slider( $file_list_meta_key) {
+// Register Custom Navigation Walker
+require get_template_directory() . '/libs/google-map/cmb-field-map.php';
 
-    // Get the list of files
-    $files = get_post_meta( get_the_ID(), $file_list_meta_key, true );
+// add shortcode
+require get_template_directory() . '/libs/wt-cozy-shortcode.php';
 
-    // Loop through them and output an image
-    foreach ( (array) $files as $attachment_id => $attachment_url ) {
-        if (!isset($img_size)) {
-                $img_size = '';
-             }
-        if (!isset($attach)) {
-            $attach = '';
-        }
-        $attachment_image = wp_get_attachment_url( $attachment_id, $img_size );
-        if($attachment_image) :                                 
-        $attach .= '<div class="item"><img src="'.$attachment_image.'" class="img-responsive" alt=""></div>';                                   
-        endif;
-    }
-    return $attach;
-}
+// Cozy Accordion
+//require get_template_directory() . '/libs/cozy-accordion/cozy-accordion.php';

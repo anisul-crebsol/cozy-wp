@@ -1,16 +1,10 @@
-<?php
-$agencies_args = array(
-	'post_type' 	=> 'agency',
-);
-?>
 <script type="text/javascript">
-	var agencies = [
+	var agency = [
 	<?php
 		$count = 0;
-		query_posts($agencies_args);
 		if (have_posts()) : while (have_posts()) : the_post();
 		$agency_latitude = get_post_meta( $post->ID, '_wt_agency_map_latitude', true );
-		$agency_longitude = get_post_meta( $post->ID, '_wt_agency_map_longitude', true );	
+		$agency_longitude = get_post_meta( $post->ID, '_wt_agency_map_longitude', true );
 		$agency_street = get_post_meta( $post->ID, '_wt_agency_street', true );
 		$agency_city = get_post_meta( $post->ID, '_wt_agency_city', true );
 		$agency_state = get_post_meta( $post->ID, '_wt_agency_state', true );
@@ -23,7 +17,7 @@ $agencies_args = array(
 		$description_agency = $agency_street.$agency_city.$agency_state.$agency_country.$agency_email;
 		$agency_map_maker_icon = get_post_meta( $post->ID, '_wt_agency_map_maker_icon', true );
 	?>
-		{				
+		{
 			"id": <?php echo $count; ?>,
 			"title": "<?php echo get_the_title($post->ID); ?>",
 			"latitude":"<?php echo $agency_latitude; ?>",

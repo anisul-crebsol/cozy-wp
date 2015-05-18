@@ -4,7 +4,7 @@
  * About widget class
  */
 
-class WT_Widget_Agents extends WP_Widget {
+class WT_Cozy_Widget_Agents extends WP_Widget {
 
 
     /**
@@ -13,7 +13,7 @@ class WT_Widget_Agents extends WP_Widget {
 
     public function __construct() {
         $widget_ops = array('classname' => 'widget_agents', 'description' => __('Arbitrary text or HTML.', 'cozy'));
-        parent::__construct('wt_cozy_agents', __('Sidebar Agents', 'cozy'), $widget_ops);
+        parent::__construct('wt_cozy_agents', __('Cozy Sidebar Agents', 'cozy'), $widget_ops);
     }
 
     /**

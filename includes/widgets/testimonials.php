@@ -4,7 +4,7 @@
  * Testimonials widget class
  */
 
-class WT_Widget_Testimonials extends WP_Widget {
+class WT_Cozy_Widget_Testimonials extends WP_Widget {
 
     /**
      * Register widget with WordPress.
@@ -12,7 +12,7 @@ class WT_Widget_Testimonials extends WP_Widget {
 
     public function __construct() {
         $widget_ops = array('classname' => 'widget_testimonials', 'description' => __('Arbitrary text or HTML.', 'cozy'));
-        parent::__construct('wt_cozy_Testimonials', __('Sidebar Testimonials', 'cozy'), $widget_ops);
+        parent::__construct('wt_cozy_Testimonials', __('Cozy Sidebar Testimonials', 'cozy'), $widget_ops);
     }
 
     /**

@@ -337,6 +337,13 @@ function wt_cozy_register_metabox() {
 		'split_values' => true,
 		// 'repeatable' => true,
 	) );
+	$wt_cozy->add_field( array(
+			    'name' => 'Map Icon',
+			    'desc' => 'Agency Map Maker Icon',
+			    'id'   => $prefix . 'agency_map_maker_icon',
+			    'type' => 'file',
+			    // 'preview_size' => array( 100, 100 ), // Default: array( 50, 50 )
+	) );
 
 
     // Property Meta Box
@@ -515,7 +522,7 @@ function wt_cozy_register_metabox() {
 			    'id'   => $prefix . 'property_map_maker_icon',
 			    'type' => 'file',
 			    // 'preview_size' => array( 100, 100 ), // Default: array( 50, 50 )
-			) );
+	) );
 
 
 	$wt_cozy = wt_cozy_metabox( array(

@@ -1,6 +1,6 @@
 <?php
 
-class WT_Widget_more_information extends WP_Widget {
+class WT_Cozy_Widget_More_Information extends WP_Widget {
 
     /**
      * Register widget with WordPress.
@@ -8,7 +8,7 @@ class WT_Widget_more_information extends WP_Widget {
     function __construct() {
         parent::__construct(
                 'cozy_widget_more_information', // Base ID
-                __('More Information', 'cozy'), // Name
+                __('Cozy More Information', 'cozy'), // Name
                 array('description' => __('', 'cozy'),) // Args
         );
     }

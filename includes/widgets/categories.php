@@ -12,7 +12,7 @@ class WT_Widget_Cozy_Categories extends WP_Widget {
 
     public function __construct() {
         $widget_ops = array('classname' => 'widget_cozy_categories', 'description' => __('Arbitrary text or HTML.', 'cozy'));
-        parent::__construct('wt_cozy_categories', __('Sidebar Categories', 'cozy'), $widget_ops);
+        parent::__construct('wt_cozy_categories', __('Cozy Sidebar Categories', 'cozy'), $widget_ops);
     }
 
     /**

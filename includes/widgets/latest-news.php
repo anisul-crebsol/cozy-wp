@@ -4,7 +4,7 @@
  * Latest News widget class
  */
 
-class WT_Widget_Latest_News extends WP_Widget {
+class WT_Cozy_Widget_Latest_News extends WP_Widget {
 
     /**
      * Register widget with WordPress.
@@ -12,7 +12,7 @@ class WT_Widget_Latest_News extends WP_Widget {
 
     public function __construct() {
         $widget_ops = array('classname' => 'widget_latest_news', 'description' => __('Arbitrary text or HTML.', 'cozy'));
-        parent::__construct('wt_cozy_latest_news', __('Sidebar Latest News', 'cozy'), $widget_ops);
+        parent::__construct('wt_cozy_latest_news', __('Cozy Sidebar Latest News', 'cozy'), $widget_ops);
     }
 
     /**

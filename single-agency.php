@@ -29,13 +29,11 @@ get_header(); ?>
 					<!-- BEGIN MAIN CONTENT -->
 					<div class="main col-sm-8">
 						
+<?php while ( have_posts() ) : the_post(); ?>
+	
 						<!-- BEGIN AGENCY DETAIL -->
 <?php get_template_part ('/includes/single-agency/agency-detail'); ?>
 						<!-- END AGENCY DETAIL -->
-
-<?php if ( have_posts() ) : ?>
-<?php /* Start the Loop */ ?>
-<?php while ( have_posts() ) : the_post(); ?>
 
 	
 <?php echo $property_content1 = do_shortcode(wpautop(get_post_meta( $post->ID, '_wt_agency_description1', true ))); ?>
@@ -47,7 +45,6 @@ get_header(); ?>
 <?php echo $property_content2 = do_shortcode(wpautop(get_post_meta( $post->ID, '_wt_agency_description2', true ))); ?>
 
 <?php endwhile; ?>
-<?php endif; ?>
 
 						<!-- BEGIN AGENTS LIST -->
 <?php get_template_part ('/includes/single-agency/agents-list'); ?>

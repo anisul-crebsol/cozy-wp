@@ -12,7 +12,7 @@ class WT_Widget_Cozy_Tags extends WP_Widget {
 
     public function __construct() {
         $widget_ops = array('classname' => 'widget_cozy_tags', 'description' => __('Arbitrary text or HTML.', 'cozy'));
-        parent::__construct('wt_cozy_tags', __('Sidebar Tags', 'cozy'), $widget_ops);
+        parent::__construct('wt_cozy_tags', __('Cozy Sidebar Tags', 'cozy'), $widget_ops);
     }
 
     public function widget( $args, $instance ) {
