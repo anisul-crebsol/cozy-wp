@@ -12,12 +12,12 @@ global $wt_cozy; ?>
 	<div id="wrapper">
 	
 		<!-- BEGIN HEADER -->
-<?php get_template_part ('/includes/section-header'); ?>
+<?php get_template_part ('/template-parts/section-header'); ?>
 		<!-- END HEADER -->
 				
 				
 		<!-- BEGIN HOME ADVANCED SEARCH (class="gray" for a gray background) -->
-<?php get_template_part ('/includes/properties/advanced-search-home'); ?>
+<?php get_template_part ('/template-parts/properties/advanced-search-home'); ?>
 		<!-- END HOME ADVANCED SEARCH -->
 		
 		
@@ -46,7 +46,7 @@ global $wt_cozy; ?>
 						
 						
 						<!-- BEGIN PAGINATION -->
-<?php get_template_part ('/includes/pagination'); ?>
+<?php get_template_part ('/template-parts/pagination'); ?>
 						<!-- END PAGINATION -->
 						
 					</div>	

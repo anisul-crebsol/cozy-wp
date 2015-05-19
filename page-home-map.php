@@ -13,16 +13,16 @@ get_header(); ?>
 	<div id="wrapper">
 	
 		<!-- BEGIN HEADER -->
-<?php get_template_part ('/includes/section-header'); ?>
+<?php get_template_part ('/template-parts/section-header'); ?>
 		<!-- END HEADER -->	
 		
 		
 		<!-- BEGIN HOME MAP -->
-<?php get_template_part ('/includes/home-map/map'); ?>
+<?php get_template_part ('/template-parts/home-map/map'); ?>
 		<!-- END HOME MAP -->
 		
 		<!-- BEGIN ACTION BOX -->
-<?php get_template_part ('/includes/home-map/action'); ?>
+<?php get_template_part ('/template-parts/home-map/action'); ?>
 		<!-- END ACTION BOX -->
 		
 		<!-- BEGIN CONTENT 1 WRAPPER -->
@@ -34,10 +34,10 @@ get_header(); ?>
 					<div class="main col-sm-8">
 						
 						<!-- BEGIN LATEST PROPERTIES SLIDER -->
-<?php get_template_part ('/includes/home-map/latest-properties'); ?>
+<?php get_template_part ('/template-parts/home-map/latest-properties'); ?>
 						<!-- END LATEST PROPERTIES SLIDER -->
 						
-<?php get_template_part ('/includes/home-map/looking-for'); ?>
+<?php get_template_part ('/template-parts/home-map/looking-for'); ?>
 					</div>	
 					<!-- END MAIN CONTENT 1-->
 					
@@ -51,7 +51,7 @@ get_header(); ?>
 		
 		
 		<!-- BEGIN PROPERTIES SLIDER WRAPPER-->
-<?php get_template_part ('/includes/home-map/why-choose'); ?>
+<?php get_template_part ('/template-parts/home-map/why-choose'); ?>
 		<!-- END PROPERTIES SLIDER WRAPPER -->
 		
 						
@@ -64,9 +64,9 @@ get_header(); ?>
 					<div class="main col-sm-8">
 					
 
-<?php get_template_part ('/includes/home-map/property-gallery'); ?>					
+<?php get_template_part ('/template-parts/home-map/property-gallery'); ?>					
 					
-<?php get_template_part ('/includes/home-map/latest-news'); ?>		
+<?php get_template_part ('/template-parts/home-map/latest-news'); ?>		
 					</div>
 					<!-- END MAIN CONTENT -->
 					
@@ -81,7 +81,7 @@ get_header(); ?>
 		
 		
 		<!-- BEGIN TWITTER WRAPPER WITH COLORED BACKGROUND-->
-<?php get_template_part ('/includes/home-map/twitter'); ?>	
+<?php get_template_part ('/template-parts/home-map/twitter'); ?>	
 		<!-- END TWITTER WRAPPER WITH COLORED BACKGROUND-->
 		
 		

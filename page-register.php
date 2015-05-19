@@ -13,12 +13,12 @@ get_header(); ?>
     <div id="wrapper">
 
         <!-- BEGIN HEADER -->
-        <?php get_template_part('/includes/section-header'); ?>
+        <?php get_template_part('/template-parts/section-header'); ?>
         <!-- END HEADER -->
 
 
         <!-- BEGIN PAGE TITLE/BREADCRUMB -->
-        <?php get_template_part('/includes/breadcrumb'); ?>
+        <?php get_template_part('/template-parts/breadcrumb'); ?>
         <!-- END PAGE TITLE/BREADCRUMB -->
 
 

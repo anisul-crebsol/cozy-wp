@@ -12,12 +12,12 @@ get_header(); ?>
 	<div id="wrapper">
 	
 		<!-- BEGIN HEADER -->
-<?php get_template_part ('/includes/section-header'); ?>
+<?php get_template_part ('/template-parts/section-header'); ?>
 		<!-- END HEADER -->
 		
 		
 		<!-- BEGIN PAGE TITLE/BREADCRUMB -->
-<?php get_template_part ('/includes/breadcrumb'); ?>
+<?php get_template_part ('/template-parts/breadcrumb'); ?>
 		<!-- END PAGE TITLE/BREADCRUMB -->
 		
 		
@@ -31,20 +31,20 @@ get_header(); ?>
 					<?php while ( have_posts() ) : the_post(); ?>
 
 
-<?php get_template_part ('/includes/single-property/topinfo'); ?>
+<?php get_template_part ('/template-parts/single-property/topinfo'); ?>
 
 						<!-- BEGIN PROPERTY DETAIL SLIDERS WRAPPER -->
 						<div id="property-detail-wrapper" class="style1">
 
-<?php get_template_part ('/includes/single-property/price'); ?>
+<?php get_template_part ('/template-parts/single-property/price'); ?>
 									
 							<!-- BEGIN PROPERTY DETAIL LARGE IMAGE SLIDER -->
-<?php get_template_part ('/includes/single-property/slider'); ?>
+<?php get_template_part ('/template-parts/single-property/slider'); ?>
 							<!-- END PROPERTY DETAIL LARGE IMAGE SLIDER -->
 							
 
 							<!-- BEGIN PROPERTY DETAIL THUMBNAILS SLIDER -->
-<?php get_template_part ('/includes/single-property/thumbnail'); ?>
+<?php get_template_part ('/template-parts/single-property/thumbnail'); ?>
 							<!-- END PROPERTY DETAIL THUMBNAILS SLIDER -->
 						
 						</div>
@@ -58,12 +58,12 @@ get_header(); ?>
 						<!-- END PROPERTY DESCRIPTION -->	
 
 						<!-- BEGIN PROPERTY AMENITIES LIST -->
-<?php get_template_part ('/includes/single-property/amenities'); ?>
+<?php get_template_part ('/template-parts/single-property/amenities'); ?>
 						<!-- END PROPERTY AMENITIES LIST -->
 						
 
 						<!-- BEGIN PROPERTY FEATURES LIST -->
-<?php get_template_part ('/includes/single-property/feature-list'); ?>
+<?php get_template_part ('/template-parts/single-property/feature-list'); ?>
 						<!-- END PROPERTY FEATURES LIST -->
 						
 						
@@ -72,15 +72,15 @@ get_header(); ?>
 						<div id="property_location" class="map col-sm-12"></div>
 						
 
-<?php get_template_part ('/includes/single-property/share'); ?>						
+<?php get_template_part ('/template-parts/single-property/share'); ?>						
 						
 						<!-- BEING AGENT INFORMATION -->
-<?php get_template_part ('/includes/single-property/agent-info'); ?>
+<?php get_template_part ('/template-parts/single-property/agent-info'); ?>
 						<!-- END AGENT INFORMATION -->
 						
 						
 						<!-- BEGIN SIMILAR PROPERTIES -->
-<?php get_template_part ('/includes/single-property/similar'); ?>
+<?php get_template_part ('/template-parts/single-property/similar'); ?>
 						<!-- END PROPERTIES ASSIGNED -->
 
 

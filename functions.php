@@ -147,25 +147,25 @@ add_filter('excerpt_more', 'wt_cozy_excerpt_more');
 
 
 // Widgets
-require get_template_directory() . '/includes/widgets/about.php';
-require get_template_directory() . '/includes/widgets/agents.php';
-require get_template_directory() . '/includes/widgets/agencies.php';
-require get_template_directory() . '/includes/widgets/find-agents.php'; 
-require get_template_directory() . '/includes/widgets/newsletter.php'; 
-require get_template_directory() . '/includes/widgets/testimonials.php';
-require get_template_directory() . '/includes/widgets/info.php';
-require get_template_directory() . '/includes/widgets/contact.php'; 
-require get_template_directory() . '/includes/widgets/links.php'; 
-require get_template_directory() . '/includes/widgets/listings.php'; 
-require get_template_directory() . '/includes/widgets/more-information.php';
-require get_template_directory() . '/includes/widgets/property-search.php';
-require get_template_directory() . '/includes/widgets/contact-us.php';
-require get_template_directory() . '/includes/widgets/latest-news.php';
-require get_template_directory() . '/includes/widgets/categories.php';
-require get_template_directory() . '/includes/widgets/archives.php';
-require get_template_directory() . '/includes/widgets/tags.php';
-require get_template_directory() . '/includes/widgets/text.php';
-require get_template_directory() . '/includes/widgets/partners.php';
+require get_template_directory() . '/template-parts/widgets/about.php';
+require get_template_directory() . '/template-parts/widgets/agents.php';
+require get_template_directory() . '/template-parts/widgets/agencies.php';
+require get_template_directory() . '/template-parts/widgets/find-agents.php'; 
+require get_template_directory() . '/template-parts/widgets/newsletter.php'; 
+require get_template_directory() . '/template-parts/widgets/testimonials.php';
+require get_template_directory() . '/template-parts/widgets/info.php';
+require get_template_directory() . '/template-parts/widgets/contact.php'; 
+require get_template_directory() . '/template-parts/widgets/links.php'; 
+require get_template_directory() . '/template-parts/widgets/listings.php'; 
+require get_template_directory() . '/template-parts/widgets/more-information.php';
+require get_template_directory() . '/template-parts/widgets/property-search.php';
+require get_template_directory() . '/template-parts/widgets/contact-us.php';
+require get_template_directory() . '/template-parts/widgets/latest-news.php';
+require get_template_directory() . '/template-parts/widgets/categories.php';
+require get_template_directory() . '/template-parts/widgets/archives.php';
+require get_template_directory() . '/template-parts/widgets/tags.php';
+require get_template_directory() . '/template-parts/widgets/text.php';
+require get_template_directory() . '/template-parts/widgets/partners.php';
 
 // Register WT Cozy widget
 function register_cozy_widget() {
@@ -261,11 +261,11 @@ require get_template_directory() . '/inc/sorting.php';
 // Other Cozy Functions
 require get_template_directory() . '/inc/cozy-functions.php';
 
+// add shortcode
+require get_template_directory() . '/inc/cozy-shortcodes.php';
+
 // Register Custom Navigation Walker
 require get_template_directory() . '/libs/google-map/cmb-field-map.php';
-
-// add shortcode
-require get_template_directory() . '/libs/wt-cozy-shortcode.php';
 
 // Cozy Accordion
 //require get_template_directory() . '/libs/cozy-accordion/cozy-accordion.php';

@@ -36,7 +36,7 @@ class WT_Cozy_Widget_More_Information extends WP_Widget {
         $tabname = !empty($instance['tabname']) ? $instance['tabname'] : __('Menu Name', 'cozy');
 
         $title = !empty($instance['title']) ? $instance['title'] : __('New title', 'cozy');
-        $img_url = !empty($instance['img_url']) ? $instance['img_url'] : __('Image Url', 'cozy');
+        $img_url = !empty($instance['img_url']) ? $instance['img_url'] : 'http://placehold.it/505x157';
         $more_info_description = !empty($instance['more_info_desc']) ? $instance['more_info_desc'] : __('Description', 'cozy');
         ?>
         <div class="clearfix">

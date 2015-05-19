@@ -13,23 +13,23 @@ get_header(); ?>
 	<div id="wrapper">
 	
 		<!-- BEGIN HEADER -->
-<?php get_template_part ('/includes/section-header'); ?>
+<?php get_template_part ('/template-parts/section-header'); ?>
 		<!-- END HEADER -->		
 		
 		<!-- BEGIN HOME GRID -->
-<?php get_template_part ('/includes/home-grid/grid'); ?>
+<?php get_template_part ('/template-parts/home-grid/grid'); ?>
 		<!-- END HOME GRID -->
 		
 		<!-- BEGIN HOME ADVANCED SEARCH (class="gray" for a gray background) -->
-<?php get_template_part ('/includes/advanced-search'); ?>
+<?php get_template_part ('/template-parts/advanced-search'); ?>
 		<!-- END HOME ADVANCED SEARCH -->
 		
 		<!-- BEGIN HOME HERO UNIT -->
-<?php get_template_part ('/includes/home-grid/hero'); ?>
+<?php get_template_part ('/template-parts/home-grid/hero'); ?>
 		<!-- END HOME HERO UNIT  -->
 		
 		<!-- BEGIN PROPERTIES SLIDER WRAPPER-->
-<?php get_template_part ('/includes/home-grid/properties-slider'); ?>
+<?php get_template_part ('/template-parts/home-grid/properties-slider'); ?>
 		<!-- END PROPERTIES SLIDER WRAPPER -->
 		
 		<!-- BEGIN CONTENT WRAPPER -->
@@ -40,17 +40,17 @@ get_header(); ?>
 					<div class="main">
 
 		<!-- BEGIN FEATURES SECTION -->
-<?php get_template_part ('/includes/home-grid/features'); ?>
+<?php get_template_part ('/template-parts/home-grid/features'); ?>
 		<!-- END FEATURES SECTION -->
 
 						<div class="content-divider col-sm-12"></div>
 
 		<!-- BEGIN FEATURES SECTION -->
-<?php get_template_part ('/includes/home-grid/agents'); ?>
+<?php get_template_part ('/template-parts/home-grid/agents'); ?>
 		<!-- END FEATURES SECTION -->
 					
 						<!-- BEGIN TESTIMONIALS -->
-<?php get_template_part ('/includes/home-grid/testimonials'); ?>
+<?php get_template_part ('/template-parts/home-grid/testimonials'); ?>
 						<!-- END TESTIMONIALS -->
 					</div>
 				</div>
@@ -59,11 +59,11 @@ get_header(); ?>
 		<!-- END CONTENT WRAPPER -->
 		
 		<!-- BEGIN LATEST NEWS WRAPPER WITH GRAY BACKGROUND-->
-<?php get_template_part ('/includes/home-grid/latest-news'); ?>
+<?php get_template_part ('/template-parts/home-grid/latest-news'); ?>
 		<!-- END LATEST NEWS WRAPPER WITH GRAY BACKGROUND-->
 
 		<!-- BEGIN NEWSLETTER SECTION-->
-<?php get_template_part ('/includes/section-newsletter'); ?>
+<?php get_template_part ('/template-parts/section-newsletter'); ?>
 		<!-- END NEWSLETTER SECTION-->
 
 <?php get_footer(); ?>

@@ -12,12 +12,12 @@ global $wt_cozy; ?>
 	<div id="wrapper">
 	
 		<!-- BEGIN HEADER -->
-<?php get_template_part ('/includes/section-header'); ?>
+<?php get_template_part ('/template-parts/section-header'); ?>
 		<!-- END HEADER -->
 		
 		
 		<!-- BEGIN PAGE TITLE/BREADCRUMB -->
-<?php get_template_part ('/includes/breadcrumb'); ?>
+<?php get_template_part ('/template-parts/breadcrumb'); ?>
 		<!-- END PAGE TITLE/BREADCRUMB -->
 		
 		
@@ -30,20 +30,20 @@ global $wt_cozy; ?>
 					<div class="main col-sm-8">
 						
 						<!-- BEGIN AGENT DETAIL -->
-<?php get_template_part ('/includes/single-agent/agent-detail'); ?>
+<?php get_template_part ('/template-parts/single-agent/agent-detail'); ?>
 						<!-- END AGENT DETAIL -->
 						
 						
-<?php get_template_part ('/includes/single-agent/content'); ?>
+<?php get_template_part ('/template-parts/single-agent/content'); ?>
 						
 						
 						<!-- BEGIN PROPERTIES ASSIGNED -->
-<?php get_template_part ('/includes/single-agent/assigned-properties'); ?>
+<?php get_template_part ('/template-parts/single-agent/assigned-properties'); ?>
 						<!-- END PROPERTIES ASSIGNED -->
 						
 						
 						<!-- BEGIN CONTACT FORM -->
-<?php get_template_part ('/includes/single-agent/contact-form'); ?>
+<?php get_template_part ('/template-parts/single-agent/contact-form'); ?>
 						<!-- END CONTACT FORM -->
 						
 					</div>	

@@ -13,20 +13,20 @@ get_header(); ?>
 	<div id="wrapper">
 	
 		<!-- BEGIN HEADER -->
-<?php get_template_part ('/includes/section-header'); ?>
+<?php get_template_part ('/template-parts/section-header'); ?>
 		<!-- END HEADER -->
 		
 		
 		<!-- BEGIN HOME SLIDER SECTION -->
-<?php get_template_part ('/includes/home-slider/slider'); ?>
+<?php get_template_part ('/template-parts/home-slider/slider'); ?>
 		<!-- END HOME SLIDER SECTION -->
 		
 		<!-- BEGIN HOME ADVANCED SEARCH -->
-<?php get_template_part ('/includes/advanced-search'); ?>
+<?php get_template_part ('/template-parts/advanced-search'); ?>
 		<!-- END HOME ADVANCED SEARCH -->
 		
 		<!-- BEGIN PROPERTIES SLIDER WRAPPER-->
-<?php get_template_part ('/includes/home-slider/properties-slider'); ?>
+<?php get_template_part ('/template-parts/home-slider/properties-slider'); ?>
 		<!-- END PROPERTIES SLIDER WRAPPER -->
 		
 		<!-- BEGIN CONTENT WRAPPER -->
@@ -38,11 +38,11 @@ get_header(); ?>
 					<div class="main col-sm-8">
 
 		<!-- BEGIN RECENT PROPERTIES SLIDER-->
-<?php get_template_part ('/includes/home-slider/recent-properties'); ?>
+<?php get_template_part ('/template-parts/home-slider/recent-properties'); ?>
 		<!-- END RECENT PROPERTIES SLIDER -->						
 						
 		<!-- BEGIN LATEST NEWS-->
-<?php get_template_part ('/includes/home-slider/latest-news'); ?>
+<?php get_template_part ('/template-parts/home-slider/latest-news'); ?>
 		<!-- END LATEST NEWS -->	
 					</div>
 					<!-- END MAIN CONTENT -->
@@ -57,7 +57,7 @@ get_header(); ?>
 		<!-- END CONTENT WRAPPER -->
 		
 		<!-- BEGIN TESTIMONIALS -->
-<?php get_template_part ('/includes/home-slider/testimonials'); ?>
+<?php get_template_part ('/template-parts/home-slider/testimonials'); ?>
 		<!-- END TESTIMONIALS -->
 		
 <?php get_footer(); ?>

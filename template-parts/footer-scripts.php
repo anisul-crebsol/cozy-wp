@@ -13,7 +13,9 @@ require get_template_directory() . '/inc/properties.php';
 	</script>
 <?php
     }
- 	elseif ( is_page_template('page-home-grid.php')) { ?>
+ 	elseif ( is_page_template('page-home-grid.php')) { 
+	require get_template_directory() . '/inc/agencies.php';
+ 		?>
 	<script type="text/javascript">
 		(function($){
 			"use strict";
@@ -26,7 +28,9 @@ require get_template_directory() . '/inc/properties.php';
 	</script>
 <?php
     }
-	elseif ( is_page_template('page-home-search.php') || is_page_template('page-home-slider.php')) { ?>
+	elseif ( is_page_template('page-home-search.php') || is_page_template('page-home-slider.php')) { 
+	require get_template_directory() . '/inc/agencies.php';
+		?>
 	<script type="text/javascript">
 		(function($){
 			"use strict";
@@ -34,6 +38,21 @@ require get_template_directory() . '/inc/properties.php';
 			$(document).ready(function(){
 				//Create agencies map with markers and populate dropdown agencies list.
 				Cozy.agencyMap(agencies, "map_agency");
+			});
+		})(jQuery);
+	</script>
+	<script type="text/javascript">
+		(function($){
+			"use strict";
+			
+			$(document).ready(function(){
+				//Create agencies maps
+				Cozy.agencyMap(agencies, 'agency_map1', 0);
+				Cozy.agencyMap(agencies, 'agency_map2', 1);
+				Cozy.agencyMap(agencies, 'agency_map3', 2);
+				Cozy.agencyMap(agencies, 'agency_map4', 3);
+				Cozy.agencyMap(agencies, 'agency_map5', 4);
+				Cozy.agencyMap(agencies, 'agency_map6', 5);
 			});
 		})(jQuery);
 	</script>

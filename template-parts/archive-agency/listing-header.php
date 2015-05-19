@@ -16,7 +16,7 @@ $url = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 		<select id="sort_by_agency" name="sort_by_agency" data-placeholder="<?php _e('Choose', 'cozy'); ?>">
 			<option value=""></option>
 			<?php foreach(get_agency_city_state() as $state_city){ ?>
-			<option value="?sorted_by=<?php //if(@$_GET['sorted_by']): echo @$_GET['sorted_by']; else: echo 'state'; endif;  ?>&sort_by_agency=<?php echo $state_city; ?>"><?php echo $state_city; ?></option>
+			<option value="?sorted_by=<?php if(@$_GET['sorted_by']): echo @$_GET['sorted_by']; else: echo 'state'; endif;  ?>&sort_by_agency=<?php echo $state_city; ?>"><?php echo $state_city; ?></option>
 		<?php }  ?>
 		</select>
 	</div>

@@ -6,7 +6,8 @@ $count = 1;
 $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 $args = array(
 	'post_type' => 'agency',
-	'paged' => $paged
+	'paged' => $paged,
+	'posts_per_page' => 3
 );
 	$wp_query = new WP_Query( $args );
 	while($wp_query->have_posts()): $wp_query->the_post();

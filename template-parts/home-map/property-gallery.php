@@ -24,7 +24,7 @@
 	$property_address = get_post_meta( $post->ID, '_wt_property_address', true);
 	?>					
 	<div class="item" data-animation-direction="from-bottom" data-animation-delay="450">
-		<a href="http://placehold.it/760x670" data-gal="prettyPhoto[gallery]" title="Lorem ipsum">
+		<a href="<?php if(has_post_thumbnail()) { $thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'thumbnail_large' ); echo $url = $thumb['0']; } else {echo 'http://placehold.it/760x670';} ?>" data-gal="prettyPhoto[gallery]" title="Lorem ipsum">
 			<h3><?php the_title() ?></h3>
 			<?php if($property_address) echo "<span class='location'>$property_address</span>"; ?>
 		</a>

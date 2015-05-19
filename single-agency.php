@@ -12,12 +12,12 @@ get_header(); ?>
 	<div id="wrapper">
 	
 		<!-- BEGIN HEADER -->
-<?php get_template_part ('/includes/section-header'); ?>
+<?php get_template_part ('/template-parts/section-header'); ?>
 		<!-- END HEADER -->
 		
 		
 		<!-- BEGIN PAGE TITLE/BREADCRUMB -->
-<?php get_template_part ('/includes/breadcrumb'); ?>
+<?php get_template_part ('/template-parts/breadcrumb'); ?>
 		<!-- END PAGE TITLE/BREADCRUMB -->
 		
 		
@@ -32,14 +32,14 @@ get_header(); ?>
 <?php while ( have_posts() ) : the_post(); ?>
 	
 						<!-- BEGIN AGENCY DETAIL -->
-<?php get_template_part ('/includes/single-agency/agency-detail'); ?>
+<?php get_template_part ('/template-parts/single-agency/agency-detail'); ?>
 						<!-- END AGENCY DETAIL -->
 
 	
 <?php echo $property_content1 = do_shortcode(wpautop(get_post_meta( $post->ID, '_wt_agency_description1', true ))); ?>
 
 						<!-- BEGIN GALLERY -->
-<?php get_template_part ('/includes/single-agency/gallery'); ?>
+<?php get_template_part ('/template-parts/single-agency/gallery'); ?>
 						<!-- END GALLERY -->
 
 <?php echo $property_content2 = do_shortcode(wpautop(get_post_meta( $post->ID, '_wt_agency_description2', true ))); ?>
@@ -47,17 +47,17 @@ get_header(); ?>
 <?php endwhile; ?>
 
 						<!-- BEGIN AGENTS LIST -->
-<?php get_template_part ('/includes/single-agency/agents-list'); ?>
+<?php get_template_part ('/template-parts/single-agency/agents-list'); ?>
 						<!-- END AGENTS LIST -->
 						
 						
 						<!-- BEGIN PROPERTIES ASSIGNED -->
-<?php get_template_part ('/includes/single-agency/properties-assigned'); ?>	
+<?php get_template_part ('/template-parts/single-agency/properties-assigned'); ?>	
 						<!-- END PROPERTIES ASSIGNED -->
 						
 						
 						<!-- BEGIN CONTACT FORM -->
-<?php get_template_part ('/includes/single-agency/contact-form'); ?>	
+<?php get_template_part ('/template-parts/single-agency/contact-form'); ?>	
 						<!-- END CONTACT FORM -->
 						
 					</div>	

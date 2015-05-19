@@ -13,12 +13,12 @@ global $wt_cozy; ?>
 	<div id="wrapper">
 	
 		<!-- BEGIN HEADER -->
-<?php get_template_part ('/includes/section-header'); ?>
+<?php get_template_part ('/template-parts/section-header'); ?>
 		<!-- END HEADER -->
 		
 		
 		<!-- BEGIN PAGE TITLE/BREADCRUMB -->
-<?php get_template_part ('/includes/breadcrumb'); ?>
+<?php get_template_part ('/template-parts/breadcrumb'); ?>
 		<!-- END PAGE TITLE/BREADCRUMB -->
 		
 		
@@ -30,16 +30,16 @@ global $wt_cozy; ?>
 					<!-- BEGIN MAIN CONTENT -->
 					<div class="main col-sm-8">
 
-<?php get_template_part ('/includes/blog-listing/listing-header2'); ?>					
+<?php get_template_part ('/template-parts/blog-listing/listing-header2'); ?>					
 
 						
 						<!-- BEGIN BLOG LISTING -->
-<?php get_template_part ('/includes/blog-listing/blog-listing3'); ?>
+<?php get_template_part ('/template-parts/blog-listing/blog-listing3'); ?>
 						<!-- END BLOG LISTING -->
 						
 						
 						<!-- BEGIN PAGINATION -->
-<?php get_template_part ('/includes/pagination'); ?>
+<?php get_template_part ('/template-parts/pagination'); ?>
 						<!-- END PAGINATION -->
 						
 					</div>	

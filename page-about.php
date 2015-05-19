@@ -13,27 +13,27 @@ get_header(); ?>
 	<div id="wrapper">
 	
 		<!-- BEGIN HEADER -->
-<?php get_template_part ('/includes/section-header'); ?>
+<?php get_template_part ('/template-parts/section-header'); ?>
 		<!-- END HEADER -->
 		
 		
 		<!-- BEGIN PAGE TITLE/BREADCRUMB -->
-<?php get_template_part ('/includes/breadcrumb'); ?>
+<?php get_template_part ('/template-parts/breadcrumb'); ?>
 		<!-- END PAGE TITLE/BREADCRUMB -->
 		
 		
 		<!-- BEGIN HIGHLIGHT -->
-<?php get_template_part ('/includes/page-about/highlight'); ?>
+<?php get_template_part ('/template-parts/page-about/highlight'); ?>
 		<!-- END HIGHLIGHT -->
 		
 		
 		<!-- BEGIN SERVICES -->
-<?php get_template_part ('/includes/page-about/services'); ?>
+<?php get_template_part ('/template-parts/page-about/services'); ?>
 		<!-- END SERVICES -->
 		
 		
 		<!-- BEGIN PROPERTY TYPE BUTTONS -->
-<?php get_template_part ('/includes/page-about/property-type'); ?>
+<?php get_template_part ('/template-parts/page-about/property-type'); ?>
 		<!-- END PROPERTY TYPE BUTTONS -->
 		
 		
@@ -46,11 +46,11 @@ get_header(); ?>
 					<div class="main col-sm-12">
 					
 						<!-- BEGIN AGENTS GRID -->
-<?php get_template_part ('/includes/page-about/agents-grid'); ?>
+<?php get_template_part ('/template-parts/page-about/agents-grid'); ?>
 						<!-- END AGENTS GRID -->
 						
 						<!-- BEGIN AGENCIES GRID -->
-<?php get_template_part ('/includes/page-about/agencies-grid'); ?>
+<?php get_template_part ('/template-parts/page-about/agencies-grid'); ?>
 						<!-- END AGENCIES GRID -->
 						
 					</div>	
@@ -63,7 +63,7 @@ get_header(); ?>
 		
 		
 		<!-- BEGIN PARTNERS WRAPPER -->
-<?php get_template_part ('/includes/page-about/partners'); ?>
+<?php get_template_part ('/template-parts/page-about/partners'); ?>
 		<!-- END PARTNERS WRAPPER -->
 		
 		

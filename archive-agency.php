@@ -13,12 +13,12 @@ get_header(); ?>
 	<div id="wrapper">
 	
 		<!-- BEGIN HEADER -->
-<?php get_template_part ('/includes/section-header'); ?>
+<?php get_template_part ('/template-parts/section-header'); ?>
 		<!-- END HEADER -->
 		
 		
 		<!-- BEGIN PAGE TITLE/BREADCRUMB -->
-<?php get_template_part ('/includes/breadcrumb'); ?>
+<?php get_template_part ('/template-parts/breadcrumb'); ?>
 		<!-- END PAGE TITLE/BREADCRUMB -->
 		
 		
@@ -30,29 +30,24 @@ get_header(); ?>
 					<!-- BEGIN MAIN CONTENT -->
 					<div class="main col-sm-8">
 						
-<?php get_template_part ('/includes/archive-agency/listing-header'); ?>
+<?php get_template_part ('/template-parts/archive-agency/listing-header'); ?>
 						
 						<!-- BEGIN AGENCIES LISTING -->
-<?php get_template_part ('/includes/archive-agency/agency-listing'); ?>
+<?php get_template_part ('/template-parts/archive-agency/agency-listing'); ?>
 						<!-- END AGENCIES LISTING -->
-						
-						
-						<!-- BEGIN PAGINATION -->
-<?php //get_template_part ('/includes/pagination'); ?>
-						<!-- END PAGINATION -->
 						
 					</div>	
 					<!-- END MAIN CONTENT -->
 					
 					
 					<!-- BEGIN SIDEBAR -->
-<?php get_sidebar(); ?>		
+<?php get_sidebar(); ?>
 					<!-- END SIDEBAR -->
 					
 				</div>
 			</div>
 		</div>
 		<!-- END CONTENT WRAPPER -->
-		
-		
+
+
 <?php get_footer(); ?>

@@ -8,7 +8,7 @@
  * Javascript template variables
  */
 
-var	properties_cluster_marker = "images/markers/coral-marker.png",     	//The URL of the cluster icon image file
+var	properties_cluster_marker = templeteUrl+'/images/markers/coral-marker.png',     	//The URL of the cluster icon image file
 	properties_cluster_textcolor = "#ffffff",					        //The color of the label text shown on the cluster icon
 	properties_initialZoom = 4,	  							    		//The initial zoom when properties map load	
 	properties_selectedZoom = 14,								        //The zoom to apply when an property is selected

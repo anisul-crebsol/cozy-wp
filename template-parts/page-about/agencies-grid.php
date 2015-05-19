@@ -2,7 +2,7 @@
 <h1 class="section-title" data-animation-direction="from-bottom" data-animation-delay="50"><?php echo $wt_cozy['section_partners_title']?></h1>
 <ul class="agencies-grid">
 	<?php
-		$count = 0;
+		$count = 1;
 		$display_posts = $wt_cozy['section_grid_number'];
 		$args = array(
 			'post_type' => 'agency',
@@ -15,11 +15,11 @@
 	$agency_city = get_post_meta( $post->ID, '_wt_agency_city', true );
 	?>
 	<li class="col-md-3" data-animation-direction="from-bottom" data-animation-delay="250">
-		<div id="agency_map1" class="map"></div>
+		<div id="agency_map<?php echo $count; ?>" class="map"></div>
 		<div class="info">
 			<h2><?php echo get_the_title(); ?><small><?php echo $agency_city; ?></small></h2>
 			<a href="<?php echo get_the_permalink(); ?>" class="btn btn-default-color"><?php _e ('More Details', 'cozy') ?></a>
 		</div>
 	</li>
-	<?php endwhile; $count++; ?>
+	<?php $count++; endwhile; ?>
 </ul>

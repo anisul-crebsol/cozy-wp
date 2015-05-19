@@ -1,6 +1,8 @@
 <?php
-$sort_by = esc_attr(@$_GET['sort_by']); 
-$sort_order = esc_attr(@$_GET['sort_order']); 
+$sort_by = '';
+$sort_order = '';
+if(isset($_GET['sort_by'])){ $sort_by = esc_attr($_GET['sort_by']); }
+if(isset($_GET['sort_order'])){ $sort_order = esc_attr($_GET['sort_order']); }
 $count = 0;
 $delay = 250;
 $display_posts = 3;
