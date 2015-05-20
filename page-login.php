@@ -81,4 +81,4 @@ if ($_POST) {
         <!--END CONTENT WRAPPER -->
 
 
-        <?php get_footer(); ?>
+<?php get_footer(); ?>

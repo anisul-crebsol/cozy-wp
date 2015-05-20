@@ -1,6 +1,8 @@
 <?php 
-$agency_sort_by = '';
-if(isset($_GET['agency_sort_by'])){ $agency_sort_by = esc_attr($_GET['agency_sort_by']); }
+$sorted_by = '';
+$sort_by_agency = '';
+if(isset($_GET['sorted_by'])){ $sorted_by = esc_attr($_GET['sorted_by']); } 
+if(isset($_GET['sort_by_agency'])){ $sort_by_agency = esc_attr($_GET['sort_by_agency']); }
 $url = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 ?>
 <div id="listing-header" class="clearfix">
@@ -16,8 +18,8 @@ $url = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 		<select id="sort_by_agency" name="sort_by_agency" data-placeholder="<?php _e('Choose', 'cozy'); ?>">
 			<option value=""></option>
 			<?php foreach(get_agency_city_state() as $state_city){ ?>
-			<option value="?sorted_by=<?php if(@$_GET['sorted_by']): echo @$_GET['sorted_by']; else: echo 'state'; endif;  ?>&sort_by_agency=<?php echo $state_city; ?>"><?php echo $state_city; ?></option>
-		<?php }  ?>
+			<option value="<?php if (addURLParameter($url, 'sorted_by','city')) : echo addURLParameter($url, 'sorted_by','city'); else: echo addURLParameter($url, 'sorted_by','state'); endif;  ?>&<?php echo addURLParameter($url, 'sorted_by', $sort_by_agency); echo $state_city; ?>"><?php echo $state_city; ?></option>
+		<?php }  wp_reset_query(); ?>
 		</select>
 	</div>
 	

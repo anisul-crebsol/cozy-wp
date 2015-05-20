@@ -41,10 +41,6 @@ get_header(); ?>
 						<!-- END PROPERTY LISTING -->
 						
 						
-						<!-- BEGIN PAGINATION -->
-<?php get_template_part ('/template-parts/blog-listing/pagination'); ?>
-						<!-- END PAGINATION -->
-						
 					</div>	
 					<!-- END MAIN CONTENT -->
 					

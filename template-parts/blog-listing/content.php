@@ -47,5 +47,9 @@ while ( have_posts() ) : the_post(); ?>
 	</div>
 	
 <?php $count++; endwhile; ?>
+<?php
+  if ( function_exists('wt_cozy_pagination') )
+    wt_cozy_pagination();
+?>
 	</div>
 </div>

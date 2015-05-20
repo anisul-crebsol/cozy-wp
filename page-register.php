@@ -92,4 +92,4 @@ get_header(); ?>
             var ajaxHomeUrl = '<?php echo get_site_url(); ?>';
         </script>
 
-        <?php get_footer(); ?>
+<?php get_footer(); ?>

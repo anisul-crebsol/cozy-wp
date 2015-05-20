@@ -36,11 +36,6 @@ get_header(); ?>
 <?php get_template_part ('/template-parts/archive-agent/agents-listing'); ?>
 						<!-- END AGENTS LISTING -->
 						
-						
-						<!-- BEGIN PAGINATION -->
-<?php get_template_part ('/template-parts/pagination'); ?>
-						<!-- END PAGINATION -->
-						
 					</div>	
 					<!-- END MAIN CONTENT -->
 					

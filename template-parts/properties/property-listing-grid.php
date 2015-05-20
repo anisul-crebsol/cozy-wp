@@ -88,4 +88,12 @@ if ( 0 == $count%3 ) { echo '<div class="clearfix"></div>'; }
 		</ul>
 	</div>
 </div>
-<?php $count++; endwhile; endif; ?>
+<?php 
+	$count++; endwhile; 
+
+  	if ( function_exists('wt_cozy_pagination') )
+    wt_cozy_pagination();
+
+	endif; 
+	wp_reset_query();
+?>

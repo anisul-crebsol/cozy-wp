@@ -40,11 +40,6 @@ get_header(); ?>
 						</div>
 						<!-- END PROPERTY LISTING -->
 						
-						
-						<!-- BEGIN PAGINATION -->
-<?php get_template_part ('/template-parts/pagination'); ?>
-						<!-- END PAGINATION -->
-						
 					</div>	
 					<!-- END MAIN CONTENT -->
 					

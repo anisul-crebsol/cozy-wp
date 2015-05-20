@@ -37,10 +37,6 @@ get_header(); ?>
 						<!-- END BLOG LISTING -->
 						
 						
-						<!-- BEGIN PAGINATION -->
-<?php get_template_part ('/template-parts/pagination'); ?>
-						<!-- END PAGINATION -->
-						
 					</div>	
 					<!-- END MAIN CONTENT -->
 					

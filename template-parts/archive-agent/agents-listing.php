@@ -10,7 +10,7 @@ $agent_args = array(
 	'paged' => $paged
 );
 query_posts($agent_args);
-if (have_posts()) : while (have_posts()) : the_post();
+while (have_posts()) : the_post();
 
 	$count++;
 	$agent_description = do_shortcode(wpautop(get_post_meta( $post->ID, '_wt_agent_description', true )));
@@ -62,6 +62,10 @@ if (have_posts()) : while (have_posts()) : the_post();
 		</ul>
 	</div>
 </div>	
-<?php endwhile; endif; ?>
+<?php endwhile; ?>
+<?php
+  if ( function_exists('wt_cozy_pagination') )
+    wt_cozy_pagination();
+?>
 	</div>
 </div>

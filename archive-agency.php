@@ -11,12 +11,12 @@ get_header(); ?>
 <body>
 	<!-- BEGIN WRAPPER -->
 	<div id="wrapper">
-	
+
 		<!-- BEGIN HEADER -->
 <?php get_template_part ('/template-parts/section-header'); ?>
 		<!-- END HEADER -->
-		
-		
+
+			
 		<!-- BEGIN PAGE TITLE/BREADCRUMB -->
 <?php get_template_part ('/template-parts/breadcrumb'); ?>
 		<!-- END PAGE TITLE/BREADCRUMB -->

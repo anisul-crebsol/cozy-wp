@@ -1,20 +1,43 @@
 <ul id="agencies-results" class="agencies-list">
 <?php
-$agency_sort_by = '';
-if(isset($_GET['agency_sort_by'])){ $agency_sort_by = esc_attr($_GET['agency_sort_by']); } 
+$sorted_by = '';
+$sort_by_agency = '';
+if(isset($_GET['sorted_by'])){ $sorted_by = esc_attr($_GET['sorted_by']); } 
+if(isset($_GET['sort_by_agency'])){ $sort_by_agency = esc_attr($_GET['sort_by_agency']); }
 $count = 1;
 $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
-$args = array(
+$agency_args = array(
 	'post_type' => 'agency',
 	'paged' => $paged,
-	'posts_per_page' => 3
+	'posts_per_page' => 3,
 );
-	$wp_query = new WP_Query( $args );
+$agency_args2 = array(
+	'post_type' => 'agency',
+	'paged' => $paged,
+	'posts_per_page' => 3,
+	'tax_query' => array(
+		'relation' => 'OR',
+		array(
+			'meta_key' => '_wt_agency_city',
+			),
+		array(
+			'meta_key' => '_wt_agency_state',
+			),
+	),
+	'meta_value' => $sort_by_agency,
+);
+
+$order = $agency_args;
+if($sort_by_agency == "$sort_by_agency") { $order = $agency_args2; }
+
+	$wp_query = new WP_Query( $order );
 	while($wp_query->have_posts()): $wp_query->the_post();
 
 	$agency_description = do_shortcode(wpautop(get_post_meta( $post->ID, '_wt_agency_description1', true )));
 	$agency_state = get_post_meta( $post->ID, '_wt_agency_state', true );
 	$agency_email = get_post_meta( $post->ID, '_wt_agency_email', true );
+
+	if ( 0 == $count%3 ) { echo '<div class="clearfix"></div>'; }
 ?>
 	<li class="col-md-6"><!-- Set width to 6 columns for grid view mode only -->
 		<div id="agency_map<?php echo $count; ?>" class="map"></div>

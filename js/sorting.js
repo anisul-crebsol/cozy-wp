@@ -4,12 +4,7 @@ jQuery(function () {
         location.href = jQuery(this).val();
     })
 });
-// Sort By Agency
-jQuery(function () {
-jQuery("#agency_sort_by").change(function () {
-    //location.href = jQuery(this).val();
-})
-});
+
 // Sorting
 jQuery(document).ready(function(){
 
@@ -49,4 +44,42 @@ jQuery.ajax({
 
 	});
 });
+
+jQuery('#sort_by_agent').change(function () {
+    var selectCityOrstate = jQuery(this).val();
+    location.href = jQuery(this).val();
+});
+
+jQuery('#agent_sort_by').change(function () {
+var selectedVal = jQuery(this).val();
+    
+jQuery.ajax({
+    data: {action: 'get_agent_states', selectVal: selectedVal},
+    type: 'post',
+    dataType: 'json',
+    url: ajax_object.ajaxurl,
+    success: function (data) {        
+    	//alert(data);        	
+    	jQuery("#sort_by_agent").attr("data-placeholder", 'Choose '+selectedVal);
+        jQuery('#sort_by_agent a.chzn-single span').html('Choose '+selectedVal);
+
+    	var coo = data.length + 1;
+        var value_dum = '';
+        jQuery('#sort_by_agent').html('');
+
+        jQuery('#sort_by_agent').append('<option value="' + value_dum + '"> </option>');
+
+    	for (var i = 0; i < data.length; i++) {                
+            jQuery('#sort_by_agent').append('<option value="?sorted_by='+selectedVal+'&sort_by_agent=' + data[i] + '">' + data[i] + '</option>');
+            jQuery('#sort_by_agent ul.chzn-results').append('<li id="sort_by_agent_chzn_o_'+coo+'" class="active-result" style="">' + data[i] + '</li>');
+            coo++;
+        }
+        jQuery('#sort_by_agent a.chzn-single').append('<abbr class="search-choice-close">::before</abbr>');
+
+        jQuery("#sort_by_agent").trigger("liszt:updated");
+    }
+
+	});
+});
+
 });
