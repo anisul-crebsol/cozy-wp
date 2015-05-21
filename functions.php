@@ -132,9 +132,9 @@ function cozy_widgets_init() {
 }
 add_action( 'widgets_init', 'cozy_widgets_init' );
 
-
-// Excerpt Length
-
+/**
+ * Excerpt Length
+ */
 function wt_cozy_excerpt( $length ) {
     return 20;
 }
@@ -145,8 +145,9 @@ function wt_cozy_excerpt_more( $more ) {
 }
 add_filter('excerpt_more', 'wt_cozy_excerpt_more');
 
-
-// Widgets
+/**
+ * Widgets
+ */
 require get_template_directory() . '/template-parts/widgets/about.php';
 require get_template_directory() . '/template-parts/widgets/agents.php';
 require get_template_directory() . '/template-parts/widgets/agencies.php';
@@ -167,7 +168,9 @@ require get_template_directory() . '/template-parts/widgets/tags.php';
 require get_template_directory() . '/template-parts/widgets/text.php';
 require get_template_directory() . '/template-parts/widgets/partners.php';
 
-// Register WT Cozy widget
+/**
+ * Register WT Cozy widget
+ */
 function register_cozy_widget() {
     register_widget( 'WT_Cozy_Widget_About' );
     register_widget( 'WT_Cozy_Widget_Agencies' );
@@ -207,65 +210,102 @@ if ( !isset( $redux_demo ) ) {
 
 add_filter('widget_text', 'do_shortcode');
 
-// Implement the Custom Header feature.
+/**
+ * Implement the Custom Header feature.
+ */
 //require get_template_directory() . '/inc/custom-header.php';
 
-// Custom Post Types
+/**
+ * Custom Post Types
+ */
 require get_template_directory() . '/admin/custom-post-types.php';
 
-// Custom Metabox
+/**
+ * Custom Metabox
+ */
 require get_template_directory() . '/admin/custom-meta-boxes.php';
 
-// Custom template tags for this theme.
+/**
+ * Custom template tags for this theme.
+ */
 require get_template_directory() . '/inc/template-tags.php';
 
-// Custom functions that act independently of the theme templates.
+/**
+ * Custom functions that act independently of the theme templates.
+ */
 require get_template_directory() . '/inc/extras.php';
 
-// Customizer additions.
+/**
+ * Customizer additions.
+ */
 require get_template_directory() . '/inc/customizer.php';
 
-// Load Jetpack compatibility file.
+/**
+ * Load Jetpack compatibility file.
+ */
 require get_template_directory() . '/inc/jetpack.php';
 
-// Plugin Activation
+/**
+ * Plugin Activation
+ */
 require get_template_directory() . '/inc/add-plugins.php';
 
-// Register Custom Navigation Walker
+/**
+ * Register Custom Navigation Walker
+ */
 require get_template_directory() . '/inc/navwalker.php';
 
-// Breadcrumb
+/**
+ * Breadcrumb
+ */
 require get_template_directory() . '/inc/breadcrumb.php';
 
-// Enqueue Scripts
+/**
+ * Enqueue Scripts
+ */
 require get_template_directory() . '/inc/enqueue-script.php';
 
-// Advanced Search
+/**
+ * Advanced Search
+ */
 require get_template_directory() . '/inc/advanced-search.php';
 
-// Pagination
+/**
+ * Pagination
+ */
 require get_template_directory() . '/inc/pagination.php';
 
-// Shortcode Button
+/**
+ * Shortcode Button
+ */
 require get_template_directory() . '/inc/shortcode-button.php';
 
-// Pagination
+/**
+ * Pagination
+ */
 require get_template_directory() . '/inc/registration.php';
 
-// Walker Comment
+/**
+ * Walker Comment
+ */
 require get_template_directory() . '/inc/class-walker-comment.php';
 
-// Sorting
+/**
+ * Sorting
+ */
 require get_template_directory() . '/inc/sorting.php';
 
-// Other Cozy Functions
+/**
+ * Other Cozy Functions
+ */
 require get_template_directory() . '/inc/cozy-functions.php';
 
-// add shortcode
+/**
+ * Add Shortcode
+ */
 require get_template_directory() . '/inc/cozy-shortcodes.php';
 
-// Register Custom Navigation Walker
+/**
+ * Register Custom Navigation Walker
+ */
 require get_template_directory() . '/libs/google-map/cmb-field-map.php';
-
-// Cozy Accordion
-//require get_template_directory() . '/libs/cozy-accordion/cozy-accordion.php';

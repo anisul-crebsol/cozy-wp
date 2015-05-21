@@ -9,50 +9,49 @@ global $wt_cozy; ?>
 
 </head>
 <body>
-	<!-- BEGIN WRAPPER -->
-	<div id="wrapper">
-	
-		<!-- BEGIN HEADER -->
+    <!-- BEGIN WRAPPER -->
+    <div id="wrapper">
+
+        <!-- BEGIN HEADER -->
 <?php get_template_part ('/template-parts/section-header'); ?>
-		<!-- END HEADER -->
-		
-		
-		<!-- BEGIN PAGE TITLE/BREADCRUMB -->
+        <!-- END HEADER -->
+
+
+        <!-- BEGIN PAGE TITLE/BREADCRUMB -->
 <?php get_template_part ('/template-parts/breadcrumb'); ?>
-		<!-- END PAGE TITLE/BREADCRUMB -->
-		
-		
-		<!-- BEGIN HOME ADVANCED SEARCH (class="gray" for a gray background) -->
+        <!-- END PAGE TITLE/BREADCRUMB -->
+
+
+        <!-- BEGIN HOME ADVANCED SEARCH (class="gray" for a gray background) -->
 <?php get_template_part ('/template-parts/properties/advanced-search-home'); ?>
-		<!-- END HOME ADVANCED SEARCH -->
-		
-		
-		<!-- BEGIN CONTENT WRAPPER -->
-		<div class="content">
-			<div class="container">
-				<div class="row">
-				
-					<!-- BEGIN MAIN CONTENT -->
-					<div class="main col-sm-12">
+        <!-- END HOME ADVANCED SEARCH -->
 
-<?php get_template_part ('/template-parts/properties/searched-parameters'); ?>	
-							
-						<!-- BEGIN PROPERTY LISTING -->
+
+        <!-- BEGIN CONTENT WRAPPER -->
+        <div class="content">
+            <div class="container">
+                <div class="row">
+
+                    <!-- BEGIN MAIN CONTENT -->
+                    <div class="main col-sm-12">
+
+<?php get_template_part ('/template-parts/properties/searched-parameters'); ?>
+
+                        <!-- BEGIN PROPERTY LISTING -->
 <?php get_template_part ('/template-parts/properties/property-listing-grid2'); ?>
-						<!-- END PROPERTY LISTING -->
-						
-						
-						<!-- BEGIN PAGINATION -->
-<?php get_template_part ('/template-parts/pagination'); ?>
-						<!-- END PAGINATION -->
-						
-					</div>	
-					<!-- END MAIN CONTENT -->
+                        <!-- END PROPERTY LISTING -->
 
-				</div>
-			</div>
-		</div>
-		<!-- END CONTENT WRAPPER -->
-		
-		
+
+                        <!-- BEGIN PAGINATION -->
+<?php get_template_part ('/template-parts/pagination'); ?>
+                        <!-- END PAGINATION -->
+
+                    </div>
+                    <!-- END MAIN CONTENT -->
+
+                </div>
+            </div>
+        </div>
+        <!-- END CONTENT WRAPPER -->
+
 <?php get_footer(); ?>

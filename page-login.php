@@ -14,11 +14,10 @@ if ($_POST) {
 
     if (is_wp_error($user_verify)) {
         if (headers_sent()) {
-            die("Redirect failed. Please click on this link: <a href=...>");
+            die("Redirect failed. Please click on this link: <a href='#'>");
         } else {
             exit(header("Location: /user.php"));
         }
-        // Note, I have created a page called "Error" that is a child of the login page to handle errors. This can be anything, but it seemed a good way to me to handle errors.
     } else {
         echo "<script type='text/javascript'>window.location='" . home_url() . "'</script>";
         exit();
@@ -48,7 +47,7 @@ if ($_POST) {
 
                     <!-- BEGIN MAIN CONTENT -->
                     <div class="main col-sm-12">
-                    <?php 
+                    <?php
                     if ( have_posts() ) :
                         while ( have_posts() ) : the_post();
                     ?>
@@ -79,6 +78,5 @@ if ($_POST) {
             </div>
         </div>
         <!--END CONTENT WRAPPER -->
-
 
 <?php get_footer(); ?>

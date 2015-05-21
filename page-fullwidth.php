@@ -11,47 +11,47 @@ get_header(); ?>
 
 </head>
 <body>
-	<!-- BEGIN WRAPPER -->
-	<div id="wrapper">
-	
-		<!-- BEGIN HEADER -->
+    <!-- BEGIN WRAPPER -->
+    <div id="wrapper">
+
+        <!-- BEGIN HEADER -->
 <?php get_template_part ('/template-parts/section-header'); ?>
-		<!-- END HEADER -->
-		
-		
-		<!-- BEGIN PAGE TITLE/BREADCRUMB -->
+        <!-- END HEADER -->
+
+
+        <!-- BEGIN PAGE TITLE/BREADCRUMB -->
 <?php get_template_part ('/template-parts/breadcrumb'); ?>
-		<!-- END PAGE TITLE/BREADCRUMB -->
-		
-		
-		<!-- BEGIN CONTENT WRAPPER -->
-		<div class="content">
-			<div class="container-fluid">
-				<div class="row">
-				
-					<!-- BEGIN MAIN CONTENT -->
-					<div class="main">
+        <!-- END PAGE TITLE/BREADCRUMB -->
 
-					<?php while ( have_posts() ) : the_post(); ?>
 
-						<?php get_template_part( 'content', 'page' ); ?>
+        <!-- BEGIN CONTENT WRAPPER -->
+        <div class="content">
+            <div class="container-fluid">
+                <div class="row">
 
-						<?php
-							// If comments are open or we have at least one comment, load up the comment template
-							if ( comments_open() || get_comments_number() ) :
-								comments_template();
-							endif;
-						?>
+                    <!-- BEGIN MAIN CONTENT -->
+                    <div class="main">
 
-					<?php endwhile; // end of the loop. ?>					
+                    <?php while ( have_posts() ) : the_post(); ?>
 
-					</div>	
-					<!-- END MAIN CONTENT -->
+                        <?php get_template_part( 'content', 'page' ); ?>
 
-				</div>
-			</div>
-		</div>
-		<!-- END CONTENT WRAPPER -->
-		
-		
+                        <?php
+                        // If comments are open or we have at least one comment, load up the comment template
+                        if ( comments_open() || get_comments_number() ) :
+                            comments_template();
+                        endif;
+                        ?>
+
+                    <?php endwhile; // end of the loop. ?>
+
+
+                </div>
+                    <!-- END MAIN CONTENT -->
+
+                </div>
+            </div>
+        </div>
+        <!-- END CONTENT WRAPPER -->
+
 <?php get_footer(); ?>

@@ -8,51 +8,50 @@ get_header(); ?>
 
 </head>
 <body>
-	<!-- BEGIN WRAPPER -->
-	<div id="wrapper">
-	
-		<!-- BEGIN HEADER -->
+    <!-- BEGIN WRAPPER -->
+    <div id="wrapper">
+
+        <!-- BEGIN HEADER -->
 <?php get_template_part ('/template-parts/section-header'); ?>
-		<!-- END HEADER -->
-		
-		
-		<!-- BEGIN PAGE TITLE/BREADCRUMB -->
+        <!-- END HEADER -->
+
+
+        <!-- BEGIN PAGE TITLE/BREADCRUMB -->
 <?php get_template_part ('/template-parts/breadcrumb'); ?>
-		<!-- END PAGE TITLE/BREADCRUMB -->
-		
-		
-		<!-- BEGIN CONTENT WRAPPER -->
-		<div class="content">
-			<div class="container">
-				<div class="row">
-				
-					<!-- BEGIN MAIN CONTENT -->
-					<div class="main col-sm-8">
+        <!-- END PAGE TITLE/BREADCRUMB -->
 
-<?php get_template_part ('/template-parts/properties/listing-header'); ?>					
 
-						
-						<!-- BEGIN PROPERTY LISTING -->
-						<div id="property-listing" class="list-style clearfix">
-							<div class="row">
+        <!-- BEGIN CONTENT WRAPPER -->
+        <div class="content">
+            <div class="container">
+                <div class="row">
+
+                    <!-- BEGIN MAIN CONTENT -->
+                    <div class="main col-sm-8">
+
+<?php get_template_part ('/template-parts/properties/listing-header'); ?>
+
+
+                        <!-- BEGIN PROPERTY LISTING -->
+                        <div id="property-listing" class="list-style clearfix">
+                            <div class="row">
 <?php get_template_part ('/template-parts/properties/property-listing'); ?>
-							</div>
-						</div>
-						<!-- END PROPERTY LISTING -->
-						
-						
-					</div>	
-					<!-- END MAIN CONTENT -->
-					
-					
-					<!-- BEGIN SIDEBAR -->
-<?php get_sidebar(); ?>		
-					<!-- END SIDEBAR -->
+                            </div>
+                        </div>
+                        <!-- END PROPERTY LISTING -->
 
-				</div>
-			</div>
-		</div>
-		<!-- END CONTENT WRAPPER -->
-		
-		
+
+                    </div>
+                    <!-- END MAIN CONTENT -->
+
+
+                    <!-- BEGIN SIDEBAR -->
+<?php get_sidebar(); ?>
+                    <!-- END SIDEBAR -->
+
+                </div>
+            </div>
+        </div>
+        <!-- END CONTENT WRAPPER -->
+
 <?php get_footer(); ?>

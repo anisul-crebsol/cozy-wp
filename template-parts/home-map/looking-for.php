@@ -1,31 +1,26 @@
 <?php global $wt_cozy; ?>
-<?php if ($wt_cozy['section_news_display']) : ?>
 <h1 class="section-title" data-animation-direction="from-bottom" data-animation-delay="50"><?php echo $wt_cozy['section_looking_for_title']?></h1>
 <p class="center" data-animation-direction="from-bottom" data-animation-delay="150"><?php echo $wt_cozy['section_looking_for_description']?></p>
 <ul class="property-large-buttons clearfix">
-<?php  
+<?php
 $terms = get_terms( 'wt-property-types' );
  if ( ! empty( $terms ) && ! is_wp_error( $terms ) ){
      $count = 0;
      $limit = 3;
-     foreach ( $terms as $term ) { 
-     	if($count<$limit):
+     foreach ( $terms as $term ) {
+        if($count<$limit):
 $icon = get_option("category_$term->term_id");
-     	?>
-	<li id="residential" data-animation-direction="from-bottom" data-animation-delay="250">
-		<i class="fa <?php echo $icon['img']; ?>"></i><br>
-		<h4><?php echo $term->name; ?></h4>
-		<a href="<?php echo esc_url( home_url( '/wt-property-types/'.$term->slug ) ); ?>" class="btn btn-default"><?php _e( 'View All', 'cozy' );?></a>
-	</li> 
+        ?>
+    <li id="residential" data-animation-direction="from-bottom" data-animation-delay="250">
+        <i class="fa <?php echo $icon['img']; ?>"></i><br>
+        <h4><?php echo $term->name; ?></h4>
+        <a href="<?php echo esc_url( home_url( '/wt-property-types/'.$term->slug ) ); ?>" class="btn btn-default"><?php _e( 'View All', 'cozy' );?></a>
+    </li>
 
-	<?php
-	$count++;
-	endif;
+    <?php
+    $count++;
+    endif;
      }
  }
 ?>
 </ul>
-<p>
-</p>
-<?php $icon = get_option('category_61') ;?>
-<?php endif; ?>

@@ -31,15 +31,15 @@ class WT_Cozy_Widget_Agents extends WP_Widget {
 ?>
     <!-- BEGIN SIDEBAR AGENTS -->
     <div class="col-sm-12">
-       <?php 
+       <?php
             $title = apply_filters( 'widget_title', empty( $instance['title'] ) ? '' : $instance['title'], $instance, $this->id_base );
             if ( ! empty( $title ) ) {
             echo '<h2 class="section-title" data-animation-direction="from-bottom" data-animation-delay="50">' . $title . '</h2>';
-            } 
+            }
         ?>
         <ul class="agency-detail-agents">
 
-        <?php 
+        <?php
         $number = ( ! empty( $instance['number'] ) ) ? absint( $instance['number'] ) : 4;
         if ( ! $number )
             $number = 4;
@@ -57,13 +57,13 @@ class WT_Cozy_Widget_Agents extends WP_Widget {
 
                     <?php if ( is_page_template('page-home-search.php')) {
                          the_title( sprintf( '<h3><a href="%s">', esc_url( get_permalink() ) ), '</a></h3>' );
-                    } 
+                    }
                     else {
                     the_title( sprintf( '<a href="%s"><h3>', esc_url( get_permalink() ) ), '</h3></a>' );
                     }
                     ?>
                     <span class="location"><?php echo $text = get_post_meta( get_the_ID(), '_wt_agent_address', true ); ?></span>
-                    <?php 
+                    <?php
                         $agent_description = do_shortcode(wpautop(get_post_meta( get_the_ID(), '_wt_agent_description', true )));
                         $description_limit = 100;
                         if(strlen($agent_description) <= $description_limit) {
@@ -83,7 +83,7 @@ class WT_Cozy_Widget_Agents extends WP_Widget {
         </ul>
     </div>
     <!-- END SIDEBAR AGENTS -->
-    
+
 <?php
     }
 

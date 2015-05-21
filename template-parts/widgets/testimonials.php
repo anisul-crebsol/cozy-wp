@@ -30,20 +30,20 @@ class WT_Cozy_Widget_Testimonials extends WP_Widget {
 
 <!-- BEGIN TESTIMONIALS -->
     <div id="testimonials" class="col-sm-12" data-animation-direction="from-bottom" data-animation-delay="200">
-           <?php 
+           <?php
                 $title = apply_filters( 'widget_title', empty( $instance['title'] ) ? '' : $instance['title'], $instance, $this->id_base );
                 if ( ! empty( $title ) ) {
                 echo '<h2 class="section-title" data-animation-direction="from-bottom" data-animation-delay="50">' . $title . '</h2>';
-                } 
+                }
             ?>
-    	
-    	<div id="testimonials-slider" class="owl-carousel testimonials">
 
-            <?php 
+        <div id="testimonials-slider" class="owl-carousel testimonials">
+
+            <?php
             $number = ( ! empty( $instance['number'] ) ) ? absint( $instance['number'] ) : 2;
             if ( ! $number )
                 $number = 2;
-            	$args = array(
+                $args = array(
                     'post_type'         => 'testimonial',
                     'post_status'       => 'publish',
                     'posts_per_page'    => $number,
@@ -52,27 +52,27 @@ class WT_Cozy_Widget_Testimonials extends WP_Widget {
 
             <?php while($testimonial_query->have_posts()): $testimonial_query->the_post();  ?>
 
-    		<div class="item">
-    			<blockquote class="text">
-    			 <?php echo $text = do_shortcode(wpautop(get_post_meta( get_the_ID(), '_wt_test_description', true ))); ?>
-    			</blockquote>
-    			<div class="author">
-    				<img src="<?php echo $text = get_post_meta( get_the_ID(), '_wt_test_image', true ); ?>" alt="" />
-    				<div>
-    					<?php echo $text = get_post_meta( get_the_ID(), '_wt_test_name', true ); ?><br>
-    					<span><?php echo $text = get_post_meta( get_the_ID(), '_wt_test_designation', true ); ?></span>
-    				</div>
-    			</div>
-    		</div>
+            <div class="item">
+                <blockquote class="text">
+                 <?php echo $text = do_shortcode(wpautop(get_post_meta( get_the_ID(), '_wt_test_description', true ))); ?>
+                </blockquote>
+                <div class="author">
+                    <img src="<?php echo $text = get_post_meta( get_the_ID(), '_wt_test_image', true ); ?>" alt="" />
+                    <div>
+                        <?php echo $text = get_post_meta( get_the_ID(), '_wt_test_name', true ); ?><br>
+                        <span><?php echo $text = get_post_meta( get_the_ID(), '_wt_test_designation', true ); ?></span>
+                    </div>
+                </div>
+            </div>
 
             <?php endwhile; ?>
             <?php wp_reset_postdata(); ?>
 
-    	</div>
+        </div>
     </div>
 <!-- END TESTIMONIALS -->
 
-        
+
         <?php
     }
 

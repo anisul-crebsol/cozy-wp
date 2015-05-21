@@ -8,51 +8,50 @@ get_header(); ?>
 
 </head>
 <body>
-	<!-- BEGIN WRAPPER -->
-	<div id="wrapper">
-	
-		<!-- BEGIN HEADER -->
+    <!-- BEGIN WRAPPER -->
+    <div id="wrapper">
+
+        <!-- BEGIN HEADER -->
 <?php get_template_part ('/template-parts/section-header'); ?>
-		<!-- END HEADER -->
-		
-		
-		<!-- BEGIN PAGE TITLE/BREADCRUMB -->
+        <!-- END HEADER -->
+
+
+        <!-- BEGIN PAGE TITLE/BREADCRUMB -->
 <?php get_template_part ('/template-parts/breadcrumb'); ?>
-		<!-- END PAGE TITLE/BREADCRUMB -->
-		
-		
-		<!-- BEGIN CONTENT WRAPPER -->
-		<div class="content">
-			<div class="container">
-				<div class="row">
-				
-					<!-- BEGIN MAIN CONTENT -->
-					<div class="main col-sm-8">
+        <!-- END PAGE TITLE/BREADCRUMB -->
 
-<?php get_template_part ('/template-parts/blog-listing/listing-header'); ?>					
 
-						
-						<!-- BEGIN BLOG LISTING -->
+        <!-- BEGIN CONTENT WRAPPER -->
+        <div class="content">
+            <div class="container">
+                <div class="row">
+
+                    <!-- BEGIN MAIN CONTENT -->
+                    <div class="main col-sm-8">
+
+<?php get_template_part ('/template-parts/blog-listing/listing-header'); ?>
+
+
+                        <!-- BEGIN BLOG LISTING -->
 <?php get_template_part ('/template-parts/blog-listing/content'); ?>
-						<!-- END BLOG LISTING -->
+                        <!-- END BLOG LISTING -->
 
 
-						<!-- BEGIN PAGINATION -->
+                        <!-- BEGIN PAGINATION -->
 <?php get_template_part ('/template-parts/pagination'); ?>
-						<!-- END PAGINATION -->
-												
-					</div>	
-					<!-- END MAIN CONTENT -->
-					
-					
-					<!-- BEGIN SIDEBAR -->
+                        <!-- END PAGINATION -->
+
+                    </div>
+                    <!-- END MAIN CONTENT -->
+
+
+                    <!-- BEGIN SIDEBAR -->
 <?php get_sidebar(); ?>
-					<!-- END SIDEBAR -->
+                    <!-- END SIDEBAR -->
 
-				</div>
-			</div>
-		</div>
-		<!-- END CONTENT WRAPPER -->
-
+                </div>
+            </div>
+        </div>
+        <!-- END CONTENT WRAPPER -->
 
 <?php get_footer(); ?>

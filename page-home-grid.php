@@ -9,61 +9,61 @@ get_header(); ?>
 
 </head>
 <body>
-	<!-- BEGIN WRAPPER -->
-	<div id="wrapper">
-	
-		<!-- BEGIN HEADER -->
+    <!-- BEGIN WRAPPER -->
+    <div id="wrapper">
+
+        <!-- BEGIN HEADER -->
 <?php get_template_part ('/template-parts/section-header'); ?>
-		<!-- END HEADER -->		
-		
-		<!-- BEGIN HOME GRID -->
+        <!-- END HEADER -->
+
+        <!-- BEGIN HOME GRID -->
 <?php get_template_part ('/template-parts/home-grid/grid'); ?>
-		<!-- END HOME GRID -->
-		
-		<!-- BEGIN HOME ADVANCED SEARCH (class="gray" for a gray background) -->
+        <!-- END HOME GRID -->
+
+        <!-- BEGIN HOME ADVANCED SEARCH (class="gray" for a gray background) -->
 <?php get_template_part ('/template-parts/advanced-search'); ?>
-		<!-- END HOME ADVANCED SEARCH -->
-		
-		<!-- BEGIN HOME HERO UNIT -->
+        <!-- END HOME ADVANCED SEARCH -->
+
+        <!-- BEGIN HOME HERO UNIT -->
 <?php get_template_part ('/template-parts/home-grid/hero'); ?>
-		<!-- END HOME HERO UNIT  -->
-		
-		<!-- BEGIN PROPERTIES SLIDER WRAPPER-->
+        <!-- END HOME HERO UNIT  -->
+
+        <!-- BEGIN PROPERTIES SLIDER WRAPPER-->
 <?php get_template_part ('/template-parts/home-grid/properties-slider'); ?>
-		<!-- END PROPERTIES SLIDER WRAPPER -->
-		
-		<!-- BEGIN CONTENT WRAPPER -->
-		<div class="content">
-			<div class="container">
-				<div class="row">
-				
-					<div class="main">
+        <!-- END PROPERTIES SLIDER WRAPPER -->
 
-		<!-- BEGIN FEATURES SECTION -->
+        <!-- BEGIN CONTENT WRAPPER -->
+        <div class="content">
+            <div class="container">
+                <div class="row">
+
+                <div class="main">
+
+        <!-- BEGIN FEATURES SECTION -->
 <?php get_template_part ('/template-parts/home-grid/features'); ?>
-		<!-- END FEATURES SECTION -->
+        <!-- END FEATURES SECTION -->
 
-						<div class="content-divider col-sm-12"></div>
+                <div class="content-divider col-sm-12"></div>
 
-		<!-- BEGIN FEATURES SECTION -->
+        <!-- BEGIN FEATURES SECTION -->
 <?php get_template_part ('/template-parts/home-grid/agents'); ?>
-		<!-- END FEATURES SECTION -->
-					
-						<!-- BEGIN TESTIMONIALS -->
-<?php get_template_part ('/template-parts/home-grid/testimonials'); ?>
-						<!-- END TESTIMONIALS -->
-					</div>
-				</div>
-			</div>
-		</div>
-		<!-- END CONTENT WRAPPER -->
-		
-		<!-- BEGIN LATEST NEWS WRAPPER WITH GRAY BACKGROUND-->
-<?php get_template_part ('/template-parts/home-grid/latest-news'); ?>
-		<!-- END LATEST NEWS WRAPPER WITH GRAY BACKGROUND-->
+        <!-- END FEATURES SECTION -->
 
-		<!-- BEGIN NEWSLETTER SECTION-->
+                        <!-- BEGIN TESTIMONIALS -->
+<?php get_template_part ('/template-parts/home-grid/testimonials'); ?>
+                        <!-- END TESTIMONIALS -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- END CONTENT WRAPPER -->
+
+        <!-- BEGIN LATEST NEWS WRAPPER WITH GRAY BACKGROUND-->
+<?php get_template_part ('/template-parts/home-grid/latest-news'); ?>
+        <!-- END LATEST NEWS WRAPPER WITH GRAY BACKGROUND-->
+
+        <!-- BEGIN NEWSLETTER SECTION-->
 <?php get_template_part ('/template-parts/section-newsletter'); ?>
-		<!-- END NEWSLETTER SECTION-->
+        <!-- END NEWSLETTER SECTION-->
 
 <?php get_footer(); ?>

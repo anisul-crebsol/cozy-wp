@@ -1,132 +1,137 @@
 <?php
 function pricing_table_1_shortcode() {
+    ob_start();
 ?>
 <!-- BEGIN PRICING TABLES STYLE 1 -->
 <div class="container">
-	<div class="pricing clearfix">
-		<?php
-		$pricing_table_args = array(
-			'post_type' => 'price-table',
-			'post_status' => 'publish',
-			'order' => 'ASC',
-			'posts_per_page' => 3
-		);
-		$pricing_table = new WP_Query($pricing_table_args);
+    <div class="pricing clearfix">
+        <?php
+        $pricing_table_args = array(
+            'post_type' => 'price-table',
+            'post_status' => 'publish',
+            'order' => 'ASC',
+            'posts_per_page' => 3
+        );
+        $pricing_table = new WP_Query($pricing_table_args);
 
-			while ($pricing_table->have_posts()) : $pricing_table->the_post();
+        while ($pricing_table->have_posts()) : $pricing_table->the_post();
 
-			$price_table_featured = get_post_meta(get_the_id(), '_wt_featured_checkbox', true);
-			$tooltip_description = get_post_meta(get_the_id(), '_wt_tooltip_description', true);
-			$package_price = get_post_meta(get_the_id(), '_wt_package_price', true);
-			$package_time = get_post_meta(get_the_id(), '_wt_package_time', true);
-			$price_table_group = get_post_meta(get_the_id(), '_wt_repeat_group', true);
-		?>
-		<div class="item col-sm-4 <?php if ($price_table_featured == 'on') { echo 'featured'; }; ?>" data-animation-direction="from-left" data-animation-delay="350">
-			<header>
-				<h2><?php
-					the_title();
-					if ($price_table_featured == 'on') {
-						?>
-						<i class="fa fa-question-circle" data-toggle="tooltip" data-placement="top" title="<?php echo $tooltip_description; ?>"></i>
-						<?php
-					}
-					?>
-				</h2>
-				<div class="price">
-					<?php echo $package_price; ?>
-					<small> <?php echo $package_time; ?></small>
-				</div>
-			</header>
-			<ul>
-				<?php
-				foreach ($price_table_group as $key => $value) {
-					if ($value['price_feature_disable'] == 'on') {
-						echo '<li class="disabled">' . $value['price_feature_text'] . '</li>';
-					} else {
-						echo '<li>' . $value['price_feature_text'] . '</li>';
-					}
-				}
-				?>
-			</ul>
-			<a href="<?php echo esc_url( home_url( '/register/' ) ); ?>" class="btn btn-default-color"><?php _e('Sign Up', 'cozy'); ?></a>
-		</div>
-		<?php endwhile; wp_reset_postdata(); ?>
-	</div>
+            $price_table_featured = get_post_meta(get_the_id(), '_wt_featured_checkbox', true);
+            $tooltip_description = get_post_meta(get_the_id(), '_wt_tooltip_description', true);
+            $package_price = get_post_meta(get_the_id(), '_wt_package_price', true);
+            $package_time = get_post_meta(get_the_id(), '_wt_package_time', true);
+            $price_table_group = get_post_meta(get_the_id(), '_wt_repeat_group', true);
+            ?>
+            <div class="item col-sm-4 <?php if ($price_table_featured == 'on') { echo 'featured'; }; ?>" data-animation-direction="from-left" data-animation-delay="350">
+                <header>
+                    <h2><?php
+                        the_title();
+                        if ($price_table_featured == 'on') {
+                            ?>
+                            <i class="fa fa-question-circle" data-toggle="tooltip" data-placement="top" title="<?php echo $tooltip_description; ?>"></i>
+                        <?php
+                    }
+                    ?>
+                    </h2>
+                    <div class="price">
+                        <?php echo $package_price; ?>
+                        <small> <?php echo $package_time; ?></small>
+                    </div>
+                </header>
+            <ul>
+                <?php
+                foreach ($price_table_group as $key => $value) {
+                    if ($value['price_feature_disable'] == 'on') {
+                        echo '<li class="disabled">' . $value['price_feature_text'] . '</li>';
+                    } else {
+                        echo '<li>' . $value['price_feature_text'] . '</li>';
+                    }
+                }
+                ?>
+            </ul>
+            <a href="<?php echo esc_url( home_url( '/register/' ) ); ?>" class="btn btn-default-color"><?php _e('Sign Up', 'cozy'); ?></a>
+            </div>
+        <?php endwhile; wp_reset_postdata(); ?>
+    </div>
 </div>
 <!-- END PRICING TABLES -->
 <?php
+    return ob_get_clean();
     }
 add_shortcode('price_table_1', 'pricing_table_1_shortcode');
 
 
 
 function pricing_table_2_shortcode() {
+    ob_start();
 ?>
 <!-- BEGIN PRICING TABLES STYLE 2 -->
 <div class="gray-bg content clearfix">
-	<div class="container">
-		<div class="row">
-			<div class="col-sm-12">
-				<?php
-				$price_table_args = array(
-					'post_type' => 'price-table',
-					'post_status' => 'publish',
-					'order' => 'ASC',
-					'posts_per_page' => 4
-				);
-				$price_table_data2 = new WP_Query($price_table_args);
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <?php
+                $price_table_args = array(
+                    'post_type' => 'price-table',
+                    'post_status' => 'publish',
+                    'order' => 'ASC',
+                    'posts_per_page' => 4
+                );
+                $price_table_data2 = new WP_Query($price_table_args);
 
-				while ($price_table_data2->have_posts()) : $price_table_data2->the_post();
+                while ($price_table_data2->have_posts()) : $price_table_data2->the_post();
 
-					$price_table_featured = get_post_meta(get_the_id(), '_wt_featured_checkbox', true);
-					$tooltip_description = get_post_meta(get_the_id(), '_wt_tooltip_description', true);
-					$package_price = get_post_meta(get_the_id(), '_wt_package_price', true);
-					$package_time = get_post_meta(get_the_id(), '_wt_package_time', true);
-					$price_table_group = get_post_meta(get_the_id(), '_wt_repeat_group', true);
-				?>
-				<div class="pricing style2">
-					<div class="item col-md-3 <?php if ($price_table_featured == 'on') { echo 'featured'; } ?>" data-animation-direction="from-left" data-animation-delay="250">
-						<header>
-							<h2>
-							<?php
-								the_title();
-								if ($price_table_featured == 'on') {
-							?>
-								<i class="fa fa-question-circle" data-toggle="tooltip" data-placement="right" title="<?php echo $tooltip_description; ?>"></i> 
-							<?php } ?>
-							</h2>
-							<div class="price">
-								<?php echo $package_price; ?>
-								<small> <?php echo $package_time; ?></small>
-							</div>
-						</header>
-						<ul>
-							<?php
-							foreach ($price_table_group as $key => $value) {
-								if ($value['price_feature_disable'] == 'on') {
-									echo '<li class="disabled">' . $value['price_feature_text'] . '</li>';
-								} else {
-									echo '<li>' . $value['price_feature_text'] . '</li>';
-								}
-							}
-							?>
-						</ul>
-						<a href="<?php echo esc_url( home_url( '/register/' ) ); ?>" class="btn btn-default-color"><?php _e('Sign Up', 'cozy'); ?></a>
-					</div>
-				</div>
-				<?php endwhile; wp_reset_postdata(); ?>
-			</div>
-		</div>
-	</div>
+                    $price_table_featured = get_post_meta(get_the_id(), '_wt_featured_checkbox', true);
+                    $tooltip_description = get_post_meta(get_the_id(), '_wt_tooltip_description', true);
+                    $package_price = get_post_meta(get_the_id(), '_wt_package_price', true);
+                    $package_time = get_post_meta(get_the_id(), '_wt_package_time', true);
+                    $price_table_group = get_post_meta(get_the_id(), '_wt_repeat_group', true);
+                    ?>
+                <div class="pricing style2">
+                    <div class="item col-md-3 <?php if ($price_table_featured == 'on') { echo 'featured'; } ?>" data-animation-direction="from-left" data-animation-delay="250">
+                        <header>
+                            <h2>
+                                <?php
+                                the_title();
+                                if ($price_table_featured == 'on') {
+                                ?>
+                                <i class="fa fa-question-circle" data-toggle="tooltip" data-placement="right" title="<?php echo $tooltip_description; ?>"></i>
+                                <?php } ?>
+                            </h2>
+                            <div class="price">
+                                <?php echo $package_price; ?>
+                                <small> <?php echo $package_time; ?></small>
+                            </div>
+                        </header>
+                        <ul>
+                            <?php
+                            foreach ($price_table_group as $key => $value) {
+                                if ($value['price_feature_disable'] == 'on') {
+                                    echo '<li class="disabled">' . $value['price_feature_text'] . '</li>';
+                                } else {
+                                    echo '<li>' . $value['price_feature_text'] . '</li>';
+                                }
+                            }
+                            ?>
+                        </ul>
+                        <a href="<?php echo esc_url( home_url( '/register/' ) ); ?>" class="btn btn-default-color"><?php _e('Sign Up', 'cozy'); ?></a>
+                    </div>
+                </div>
+                <?php endwhile; wp_reset_postdata(); ?>
+            </div>
+        </div>
+    </div>
 </div>
 <!-- END PRICING TABLES STYLE 2 -->
 <?php
+    return ob_get_clean();
 }
 add_shortcode('price_table_2', 'pricing_table_2_shortcode');
 
 
 
 function pricing_table_3_shortcode() {
+    ob_start();
 ?>
 
 <!-- BEGIN PRICING TABLES STYLE 3 -->
@@ -182,6 +187,7 @@ function pricing_table_3_shortcode() {
 </div>
 <!-- END PRICING TABLES STYLE 3-->
 <?php
+    return ob_get_clean();
 }
 
 add_shortcode('price_table_3', 'pricing_table_3_shortcode');
@@ -189,6 +195,7 @@ add_shortcode('price_table_3', 'pricing_table_3_shortcode');
 
 
 function pricing_table_4_shortcode() {
+    ob_start();
 ?>
 <!-- BEGIN PRICING TABLES STYLE 4 -->
 <?php
@@ -213,9 +220,9 @@ if ($price_table_data2->have_posts()) :
 
         $price_table_featured = get_post_meta(get_the_id(), '_wt_featured_checkbox', true);
         $image = get_post_meta(get_the_id(), '_wt_price_image', true);
-		$tooltip_description = get_post_meta(get_the_id(), '_wt_tooltip_description', true);
-		$package_price = get_post_meta(get_the_id(), '_wt_package_price', true);
-		$package_time = get_post_meta(get_the_id(), '_wt_package_time', true);
+        $tooltip_description = get_post_meta(get_the_id(), '_wt_tooltip_description', true);
+        $package_price = get_post_meta(get_the_id(), '_wt_package_price', true);
+        $package_time = get_post_meta(get_the_id(), '_wt_package_time', true);
         ?>
 
         <style>
@@ -254,6 +261,7 @@ if ($price_table_data2->have_posts()) :
             </div>
         </div>
         <?php $price_feature_count++; endwhile; wp_reset_postdata(); endif;
+    return ob_get_clean();
 }
 add_shortcode('price_table_4', 'pricing_table_4_shortcode');
 
@@ -261,6 +269,7 @@ add_shortcode('price_table_4', 'pricing_table_4_shortcode');
 
 // Add FAQ Shortcode
 function faq_shortcode() {
+    ob_start();
     ?>
     <?php
     $terms = get_terms_by_post_type(array('faq_category'), array('faq'));
@@ -325,125 +334,128 @@ function faq_shortcode() {
         ?>
 
         <?php
+    return ob_get_clean();
     }
-
 add_shortcode('faq', 'faq_shortcode');
 
 
 
-    add_shortcode('more_info_2', 'more_information_style2');
+add_shortcode('more_info_2', 'more_information_style2');
 
-    function more_information_style2() {
+function more_information_style2() {
+    ob_start();
+    // Sidebar widgets
+    $widget_more_information = get_option('widget_cozy_widget_more_information');
+    $total_count = count($widget_more_information);
+    ?>
+    <div class="col-md-6">
+        <ul class="nav nav-justified nav-tabs">
+            <?php
+            $count_tab = 1;
 
-        // sidebars_widgets
-        $widget_more_information = get_option('widget_cozy_widget_more_information');
-        $total_count = count($widget_more_information);
-        ?>
-        <div class="col-md-6">
-            <ul class="nav nav-justified nav-tabs">
-                <?php
-                $count_tab = 1;
-
-                foreach ($widget_more_information as $data) {
-                    if ($count_tab < $total_count) {
-                        if ($count_tab == 1) {
-                            $active = 'active';
-                        } else {
-                            $active = '';
-                        }
-                        echo '<li class="' . $active . '"><a href="#s2tab' . $count_tab . '" data-toggle="tab">' . $data['tabname'] . '</a></li>';
-                        //   var_dump($data);
-                        $count_tab++;
-                    }
-                }
-                ?>     
-            </ul>
-
-            <div class="tab-content"> 
-
-                <?php
-                $count_tab1 = 1;
-                foreach ($widget_more_information as $data) {
-                    if ($count_tab1 == 1) {
-                        $active = 'active';
-                    } else {
-                        $active = '';
-                    }
-                    if ($count_tab1 < $total_count) {
-                        ?>
-                        <div class="tab-pane <?php echo $active; ?>" id="s2tab<?php echo $count_tab1; ?>">
-                            <h4><?php echo $data['title']; ?></h4>
-                            <img src="<?php echo $data['img_url']; ?>" alt="" />
-                            <?php echo $data['more_info_desc']; ?>    
-                        </div>
-                        <?php
-                    }
-                    $count_tab1++;
-                }
-                ?>
-            </div>
-
-        </div>
-
-        <?php
-    }
-
-    add_shortcode('more_info_1', 'more_information_style1');
-
-    function more_information_style1() {
-
-        // sidebars_widgets
-        $widget_more_information = get_option('widget_cozy_widget_more_information');
-        $total_count = count($widget_more_information);
-        ?>
-        <div class="col-md-6">
-            <ul class="nav nav-tabs tabs-left">
-                <?php
-                $count_tab = 1;
-
-                foreach ($widget_more_information as $data) {
+            foreach ($widget_more_information as $data) {
+                if ($count_tab < $total_count) {
                     if ($count_tab == 1) {
                         $active = 'active';
                     } else {
                         $active = '';
                     }
-                    if ($count_tab < $total_count) {
-                        echo '<li class="' . $active . '"><a href="#s1tab' . $count_tab . '" data-toggle="tab">' . $data['tabname'] . '</a></li>';
-                    }
+                    echo '<li class="' . $active . '"><a href="#s2tab' . $count_tab . '" data-toggle="tab">' . $data['tabname'] . '</a></li>';
+                    //   var_dump($data);
                     $count_tab++;
                 }
-                ?>  
+            }
+            ?>
+        </ul>
 
-            </ul>
+        <div class="tab-content">
 
-            <div class = "tab-content tabs-left">
-                <?php
-                $count_tab1 = 1;
-                foreach ($widget_more_information as $data) {
-                    if ($count_tab1 == 1) {
-                        $active = 'active';
-                    } else {
-                        $active = '';
-                    }
-                    if ($count_tab1 < $total_count) {
-                        ?>
-
-                        <div class = "tab-pane <?php echo $active; ?>" id = "s1tab<?php echo $count_tab1; ?>">
-                            <h4><?php echo $data['title']; ?></h4>
-                            <img src="<?php echo $data['img_url']; ?>" alt="" />
-                            <?php echo $data['more_info_desc']; ?>    
-                        </div>
-                        <?php
-                    }
-                    $count_tab1++;
+            <?php
+            $count_tab1 = 1;
+            foreach ($widget_more_information as $data) {
+                if ($count_tab1 == 1) {
+                    $active = 'active';
+                } else {
+                    $active = '';
                 }
-                ?>
-
-            </div>
+                if ($count_tab1 < $total_count) {
+                    ?>
+                    <div class="tab-pane <?php echo $active; ?>" id="s2tab<?php echo $count_tab1; ?>">
+                        <h4><?php echo $data['title']; ?></h4>
+                        <img src="<?php echo $data['img_url']; ?>" alt="" />
+                        <?php echo $data['more_info_desc']; ?>
+                    </div>
+                    <?php
+                }
+                $count_tab1++;
+            }
+            ?>
         </div>
 
-        <?php
-    }
+    </div>
+<?php
+    return ob_get_clean();
+}
+
+
+
+add_shortcode('more_info_1', 'more_information_style1');
+
+function more_information_style1() {
+    ob_start();
+    // sidebars_widgets
+    $widget_more_information = get_option('widget_cozy_widget_more_information');
+    $total_count = count($widget_more_information);
+    ?>
+    <div class="col-md-6">
+        <ul class="nav nav-tabs tabs-left">
+            <?php
+            $count_tab = 1;
+
+            foreach ($widget_more_information as $data) {
+                if ($count_tab == 1) {
+                    $active = 'active';
+                } else {
+                    $active = '';
+                }
+                if ($count_tab < $total_count) {
+                    echo '<li class="' . $active . '"><a href="#s1tab' . $count_tab . '" data-toggle="tab">' . $data['tabname'] . '</a></li>';
+                }
+                $count_tab++;
+            }
+            ?>
+
+        </ul>
+
+        <div class = "tab-content tabs-left">
+            <?php
+            $count_tab1 = 1;
+            foreach ($widget_more_information as $data) {
+                if ($count_tab1 == 1) {
+                    $active = 'active';
+                } else {
+                    $active = '';
+                }
+                if ($count_tab1 < $total_count) {
+                    ?>
+
+                    <div class = "tab-pane <?php echo $active; ?>" id = "s1tab<?php echo $count_tab1; ?>">
+                        <h4><?php echo $data['title']; ?></h4>
+                        <img src="<?php echo $data['img_url']; ?>" alt="" />
+                        <?php echo $data['more_info_desc']; ?>
+                    </div>
+                    <?php
+                }
+                $count_tab1++;
+            }
+            ?>
+
+        </div>
+    </div>
+
+    <?php
+    return ob_get_clean();
+}
 
 add_shortcode('cozy_icon_pack', 'cozy_icon_pack_shortcode');
 
@@ -451,7 +463,7 @@ function cozy_icon_pack_shortcode() {
     ?>
     <!-- BEGIN REAL ESTATE CUSTOM ICON PACK -->
     
-    <?php return'
+    <?php $output = '
     <ul class="icon-list">
         <li><i class="icon-house"></i></li>
         <li><i class="icon-house2"></i></li>
@@ -507,10 +519,12 @@ function cozy_icon_pack_shortcode() {
         <li><i class="icon-store-percent"></i></li>
         <li><i class="icon-land-percent"></i></li>
         <li><i class="icon-factory-percent"></i></li>
-    </ul>' ?>
+    </ul>'
+    ?>
     <!-- END REAL ESTATE CUSTOM ICON PACK -->
 
     <?php
+    return $output;
 }
 
 

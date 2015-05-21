@@ -8,95 +8,94 @@ get_header(); ?>
 
 </head>
 <body>
-	<!-- BEGIN WRAPPER -->
-	<div id="wrapper">
-	
-		<!-- BEGIN HEADER -->
+    <!-- BEGIN WRAPPER -->
+    <div id="wrapper">
+
+        <!-- BEGIN HEADER -->
 <?php get_template_part ('/template-parts/section-header'); ?>
-		<!-- END HEADER -->
-		
-		
-		<!-- BEGIN PAGE TITLE/BREADCRUMB -->
+        <!-- END HEADER -->
+
+
+        <!-- BEGIN PAGE TITLE/BREADCRUMB -->
 <?php get_template_part ('/template-parts/breadcrumb'); ?>
-		<!-- END PAGE TITLE/BREADCRUMB -->
-		
-		
-		<!-- BEGIN CONTENT WRAPPER -->
-		<div class="content">
-			<div class="container">
-				<div class="row">
-				
-					<!-- BEGIN MAIN CONTENT -->
-					<div class="main col-sm-8">
-					<?php while ( have_posts() ) : the_post(); ?>
+        <!-- END PAGE TITLE/BREADCRUMB -->
+
+
+        <!-- BEGIN CONTENT WRAPPER -->
+        <div class="content">
+            <div class="container">
+                <div class="row">
+
+                    <!-- BEGIN MAIN CONTENT -->
+                    <div class="main col-sm-8">
+                    <?php while ( have_posts() ) : the_post(); ?>
 
 
 <?php get_template_part ('/template-parts/single-property/topinfo'); ?>
 
-						<!-- BEGIN PROPERTY DETAIL SLIDERS WRAPPER -->
-						<div id="property-detail-wrapper" class="style1">
+                        <!-- BEGIN PROPERTY DETAIL SLIDERS WRAPPER -->
+                        <div id="property-detail-wrapper" class="style1">
 
 <?php get_template_part ('/template-parts/single-property/price'); ?>
-									
-							<!-- BEGIN PROPERTY DETAIL LARGE IMAGE SLIDER -->
+
+                            <!-- BEGIN PROPERTY DETAIL LARGE IMAGE SLIDER -->
 <?php get_template_part ('/template-parts/single-property/slider'); ?>
-							<!-- END PROPERTY DETAIL LARGE IMAGE SLIDER -->
-							
+                            <!-- END PROPERTY DETAIL LARGE IMAGE SLIDER -->
 
-							<!-- BEGIN PROPERTY DETAIL THUMBNAILS SLIDER -->
+                            <!-- BEGIN PROPERTY DETAIL THUMBNAILS SLIDER -->
 <?php get_template_part ('/template-parts/single-property/thumbnail'); ?>
-							<!-- END PROPERTY DETAIL THUMBNAILS SLIDER -->
-						
-						</div>
-						<!-- END PROPERTY DETAIL SLIDERS WRAPPER -->
+                            <!-- END PROPERTY DETAIL THUMBNAILS SLIDER -->
 
-						<!-- BEGIN PROPERTY DESCRIPTION -->
-<?php 
-	$property_description = do_shortcode(wpautop(get_post_meta( $post->ID, '_wt_property_description', true ))); 
-	echo $property_description;
+                        </div>
+                        <!-- END PROPERTY DETAIL SLIDERS WRAPPER -->
+
+                        <!-- BEGIN PROPERTY DESCRIPTION -->
+<?php
+    $property_description = do_shortcode(wpautop(get_post_meta( $post->ID, '_wt_property_description', true )));
+    echo $property_description;
 ?>
-						<!-- END PROPERTY DESCRIPTION -->	
+                        <!-- END PROPERTY DESCRIPTION -->
 
-						<!-- BEGIN PROPERTY AMENITIES LIST -->
+                        <!-- BEGIN PROPERTY AMENITIES LIST -->
 <?php get_template_part ('/template-parts/single-property/amenities'); ?>
-						<!-- END PROPERTY AMENITIES LIST -->
-						
+                        <!-- END PROPERTY AMENITIES LIST -->
 
-						<!-- BEGIN PROPERTY FEATURES LIST -->
+
+                        <!-- BEGIN PROPERTY FEATURES LIST -->
 <?php get_template_part ('/template-parts/single-property/feature-list'); ?>
-						<!-- END PROPERTY FEATURES LIST -->
-						
-						
-						<h1 class="section-title"><?php _e( 'Property Location', 'cozy' );?></h1>
-						<!-- PROPERTY MAP HOLDER -->
-						<div id="property_location" class="map col-sm-12"></div>
-						
+                        <!-- END PROPERTY FEATURES LIST -->
 
-<?php get_template_part ('/template-parts/single-property/share'); ?>						
-						
-						<!-- BEING AGENT INFORMATION -->
+
+                        <h1 class="section-title"><?php _e( 'Property Location', 'cozy' );?></h1>
+                        <!-- PROPERTY MAP HOLDER -->
+                        <div id="property_location" class="map col-sm-12"></div>
+
+
+<?php get_template_part ('/template-parts/single-property/share'); ?>
+
+                        <!-- BEING AGENT INFORMATION -->
 <?php get_template_part ('/template-parts/single-property/agent-info'); ?>
-						<!-- END AGENT INFORMATION -->
-						
-						
-						<!-- BEGIN SIMILAR PROPERTIES -->
+                        <!-- END AGENT INFORMATION -->
+
+
+                        <!-- BEGIN SIMILAR PROPERTIES -->
 <?php get_template_part ('/template-parts/single-property/similar'); ?>
-						<!-- END PROPERTIES ASSIGNED -->
+                        <!-- END PROPERTIES ASSIGNED -->
 
 
-					<?php endwhile; ?>						
-					</div>	
+                <?php endwhile; ?>
+                    </div>
 
-					<!-- END MAIN CONTENT -->
-					
-					
-					<!-- BEGIN SIDEBAR -->
-<?php get_sidebar(); ?>								
-					<!-- END SIDEBAR -->
+                    <!-- END MAIN CONTENT -->
 
-				</div>
-			</div>
-		</div>
-		<!-- END CONTENT WRAPPER -->
-	
+
+                    <!-- BEGIN SIDEBAR -->
+<?php get_sidebar(); ?>
+                    <!-- END SIDEBAR -->
+
+                </div>
+            </div>
+        </div>
+    <!-- END CONTENT WRAPPER -->
+
 <?php get_footer(); ?>

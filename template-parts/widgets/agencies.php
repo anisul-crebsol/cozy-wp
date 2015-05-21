@@ -26,29 +26,29 @@ class WT_Cozy_Widget_Agencies extends WP_Widget {
 
     public function widget( $args, $instance ) {
 
-        global $wt_cozy; 
+        global $wt_cozy;
 
         $title = apply_filters( 'widget_title', empty( $instance['title'] ) ? '' : $instance['title'], $instance, $this->id_base );
         ?>
-		<!-- BEGIN AGENCIES -->
-		<div id="agencies" class="col-sm-12" data-animation-direction="fade" data-animation-delay="250">
+        <!-- BEGIN AGENCIES -->
+        <div id="agencies" class="col-sm-12" data-animation-direction="fade" data-animation-delay="250">
         <?php
             if ( ! empty( $title ) ) {
             echo '<h2 class="section-title" data-animation-direction="from-bottom" data-animation-delay="50">' . $title . '</h2>';
         }
         ?>
-			
-			<div class="mapborder">
-				<div id="map_agency" class="gmap"></div>
-			</div>
-			<select id="agency" name="agency" data-placeholder="Choose an agency">
-				<option value=""> </option>
-				<!-- The list of agencies will be automatically created. 
-					Set the list of agencies in the file js/agencies.js -->
-			</select>
-		</div>
-		<!-- END AGENCIES -->
-        
+
+            <div class="mapborder">
+                <div id="map_agency" class="gmap"></div>
+            </div>
+            <select id="agency" name="agency" data-placeholder="Choose an agency">
+                <option value=""> </option>
+                <!-- The list of agencies will be automatically created.
+                    Set the list of agencies in the file js/agencies.js -->
+            </select>
+        </div>
+        <!-- END AGENCIES -->
+
         <?php
     }
 

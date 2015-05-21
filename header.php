@@ -36,7 +36,7 @@ global $wt_cozy;
     <link rel="apple-touch-icon" sizes="114x114" href="<?php echo get_stylesheet_directory_uri(); ?>/images/fav_touch_icons/apple-touch-icon-114x114.png" />
     
     <?php wp_head(); ?>
-	
+
 <script type="text/javascript">
 var templeteUrl = '<?php echo get_stylesheet_directory_uri(); ?>';
 var homeUrl = '<?php echo home_url(); ?>';
@@ -46,50 +46,49 @@ var $url = '<?php echo "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]"; ?>';
 </script>
 <script type="text/javascript">
     jQuery(document).ready(function(){
-		
+
     jQuery.ajaxSetup({cache:false});
-    jQuery(".sort .sortBy").click(function(){	
-		var thisEl = jQuery(this);
+    jQuery(".sort .sortBy").click(function(){
+        var thisEl = jQuery(this);
         var sortById = thisEl.attr("data-sort");
-		
-		jQuery.ajax({
+
+        jQuery.ajax({
                 type: "post",                
                 url: ajax_object.ajaxurl,
                 data: {
                     action: "sortByAscNDesc",
                     sortById: sortById                    
                 },
-                success: function (response) {					
-					jQuery("#ajax-content").html("loading...");
-					jQuery("#ajax-content").html(response);     
-					
-					jQuery('.sortBy').removeClass("active");					
-					thisEl.addClass('active');					
+                success: function (response) {
+                    jQuery("#ajax-content").html("loading...");
+                    jQuery("#ajax-content").html(response);
+
+                    jQuery('.sortBy').removeClass("active");
+                    thisEl.addClass('active');
                 }
             })
-		
+
         //jQuery("#ajax-content").html("loading...");
         //jQuery("#ajax-content").load("<?php '/ajaxpageloader' ?>/",{sortById:sortById});
         return false;
     });
-	
-	
-	jQuery( "#sort_by" ).change(function() {	  		
-        var sortBy = jQuery(this).val();		
-		jQuery.ajax({
+
+
+        jQuery( "#sort_by" ).change(function() {
+        var sortBy = jQuery(this).val();
+            jQuery.ajax({
                 type: "post",                
                 url: ajax_object.ajaxurl,
                 data: {
                     action: "sortByAscNDesc",
                     sortBy: sortBy                    
                 },
-                success: function (response) {					
-					jQuery("#ajax-content").html("loading...");
-					jQuery("#ajax-content").html(response);                    
+                success: function (response) {
+                    jQuery("#ajax-content").html("loading...");
+                    jQuery("#ajax-content").html(response);
                 }
             });        
-        return false;    
-	});
-	
+        return false;
+        });
 });
 </script>

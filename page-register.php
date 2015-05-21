@@ -48,7 +48,7 @@ get_header(); ?>
                                     if(isset($_POST['country'])){ echo $_POST['country']; } ?>" placeholder="Country" class="form-control" />
                                     <input type="text" id="phone" name="phone" value="<?php 
                                     if(isset($_POST['phone'])){ echo $_POST['phone']; } ?>" placeholder="Phone*" class="form-control" />
-									<input type="text" id="username"  name="username" value="<?php 
+                                    <input type="text" id="username"  name="username" value="<?php
                                     if(isset($_POST['username'])){ echo $_POST['username']; } ?>" placeholder="Username*" class="form-control" />
                                     <input type="email" id="email"  name="email" value="<?php 
                                     if(isset($_POST['email'])){ echo $_POST['email']; } ?>" placeholder="Email Address*" class="form-control" />

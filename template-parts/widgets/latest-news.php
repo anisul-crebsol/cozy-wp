@@ -25,7 +25,7 @@ class WT_Cozy_Widget_Latest_News extends WP_Widget {
      */
 
     public function widget( $args, $instance ) {
-        
+
         /** BEGIN SIDEBAR ABOUT WIDGET */
 
         $title = apply_filters( 'widget_title', empty( $instance['title'] ) ? '' : $instance['title'], $instance, $this->id_base );
@@ -42,14 +42,14 @@ class WT_Cozy_Widget_Latest_News extends WP_Widget {
         echo '<div class="col-sm-12">';
         if ( ! empty( $title ) ) {
             echo '<h2 class="section-title" data-animation-direction="from-bottom" data-animation-delay="50">' . $title . '</h2>';
-        } 
-        
+        }
+
         echo '</div>';
 
         ?>
 <!-- BEGIN LATEST NEWS -->
 <ul class="latest-news">
-<?php 
+<?php
     $limit = 3;
     $count = 0;
     $args = array(
@@ -63,20 +63,20 @@ class WT_Cozy_Widget_Latest_News extends WP_Widget {
             <a href="<?php the_permalink(); ?>"></a>
             <?php echo wt_cozy_thumbnail('100x100'); ?>
         </div>
-        
+
         <ul class="top-info">
             <li><i class="fa fa-calendar"></i> <?php echo get_post_time('F j, Y'); ?></li>
         </ul>
-            
+
         <h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
     </li>
 <?php $count++; endwhile; ?>
 </ul>
 <!-- END LATEST NEWS -->
 <?php
-		
+
     }
-	
+
     /** END SIDEBAR ABOUT WIDGET */
 
 

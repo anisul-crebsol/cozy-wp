@@ -25,7 +25,7 @@ class WT_Cozy_Widget_Property_Search extends WP_Widget {
      */
 
     public function widget( $args, $instance ) {
-        
+
         /** BEGIN SIDEBAR ABOUT WIDGET */
 
         $title = apply_filters( 'widget_title', empty( $instance['title'] ) ? '' : $instance['title'], $instance, $this->id_base );
@@ -160,9 +160,9 @@ class WT_Cozy_Widget_Property_Search extends WP_Widget {
 </div>
 <!-- END ADVANCED SEARCH -->
 <?php
-		
+
     }
-	
+
     /** END SIDEBAR ABOUT WIDGET */
 
 

@@ -26,22 +26,22 @@ class WT_Cozy_Widget_Find_Agents extends WP_Widget {
 
     public function widget( $args, $instance ) {
 
-        global $wt_cozy; 
+        global $wt_cozy;
 
-		$title = apply_filters( 'widget_title', empty( $instance['title'] ) ? '' : $instance['title'], $instance, $this->id_base );
+        $title = apply_filters( 'widget_title', empty( $instance['title'] ) ? '' : $instance['title'], $instance, $this->id_base );
         $image = apply_filters( 'widget_image', empty( $instance['image'] ) ? '' : $instance['image'], $instance, $this->id_base );
         $search = apply_filters( 'widget_search', empty( $instance['search'] ) ? '' : $instance['search'], $instance, $this->id_base );
-		?>
+        ?>
 <!-- BEGIN FIND AGENTS -->
 <div id="find_agents" class="col-sm-12" data-animation-direction="fade" data-animation-delay="250">
 
     <form role="search" method="get" class="search-form" id="search-form" action="<?php echo home_url( '/' ); ?>">
         <?php
-			if ( ! empty( $title ) ) {
+            if ( ! empty( $title ) ) {
             echo '<h2 class="section-title" data-animation-direction="from-bottom" data-animation-delay="50">' . $title . '</h2>';
         }
-		?>
-        
+        ?>
+
         <img src="<?php echo $image ?>" alt="" id="agents-img"/>
         <select id="agents_country" name="s" data-placeholder="Choose a country">
             <option value=""> </option>
@@ -51,7 +51,7 @@ class WT_Cozy_Widget_Find_Agents extends WP_Widget {
             if($count){
                 foreach( $count as $country){ ?>
                     <option value="<?php echo $country ?>"><?php echo $country ?></option>
-         	<?php
+            <?php
                 }
             }
             ?>
@@ -67,7 +67,7 @@ class WT_Cozy_Widget_Find_Agents extends WP_Widget {
         <input type="hidden" name="agent_search" value="agent_search" />
         <div class="form-actions">
             <button type="submit" class="btn btn-default">
-            <?php 
+            <?php
                 if ($search) {
                     echo $search;
                 }
@@ -80,7 +80,7 @@ class WT_Cozy_Widget_Find_Agents extends WP_Widget {
     </form>
 </div>
 <!-- END FIND AGENTS -->
-        
+
         <?php
     }
 

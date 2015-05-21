@@ -5,7 +5,7 @@
                 <form method="get" action="<?php echo esc_url( home_url( '/' ) ); ?>">
                     <div class="form-group">
                         <div class="form-control-large">
-                            <input type="hidden" value="" id="s" name="s">  
+                            <input type="hidden" value="" id="s" name="s">
                             <input type="text" class="form-control" value="<?php if(isset($_GET['location'])){ echo esc_attr($_GET['location']); } ?>" name="location" placeholder="<?php _e( 'City, State, Country, etc...', 'cozy' );?>">
                         </div>
                         <?php
@@ -90,7 +90,7 @@
                                 <option value="1000000plus">>$1000000</option>
                             </select>
                         </div>
-                        <input type="hidden" value="advancedSearch" id="advancedSearch" name="advancedSearch">  
+                        <input type="hidden" value="advancedSearch" id="advancedSearch" name="advancedSearch">
 
                         <button type="submit" class="btn btn-fullcolor"><?php _e( 'Search', 'cozy' );?></button>
                     </div>
