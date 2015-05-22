@@ -1,6 +1,6 @@
 <?php global $wt_cozy; ?>
 <?php
-    $agent_address = do_shortcode(wpautop(get_post_meta( $post->ID, '_wt_agent_description', true )));
+    $agent_address = do_shortcode(wpautop(get_post_meta( get_the_ID(), '_wt_agent_description', true )));
     echo $agent_address
 ?>
 <p class="center">

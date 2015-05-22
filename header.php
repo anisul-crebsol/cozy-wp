@@ -92,3 +92,4 @@ var $url = '<?php echo "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]"; ?>';
         });
 });
 </script>
+    </head>

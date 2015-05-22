@@ -59,6 +59,27 @@ function wt_cozy_register_metabox() {
     ) );
 
 
+    // Service Meta Box
+
+    $wt_cozy = wt_cozy_metabox( array(
+        'id'            => $prefix . 'service',
+        'title'         => __( 'Service Details (Latest Service will be displayed on top)','wt_cozy' ),
+        'object_types'  => array( 'service', ), // Post type
+        'context'       => 'normal',
+        'priority'      => 'high',
+        'show_names'    => true, // Show field names on the left
+    ) );
+    $wt_cozy->add_field( array(
+        'name' => __('Service Fontawesome Icon','cozy'),
+        'id' => $prefix . 'service_icon_text',
+        'type' => 'text_small'
+    ) );
+    $wt_cozy->add_field( array(
+        'name' => __('Description','cozy'),
+        'id' => $prefix . 'service_description',
+        'type' => 'textarea'
+    ) );
+
      // Testimonial Meta Box
 
     $wt_cozy = wt_cozy_metabox( array(

@@ -4,8 +4,8 @@
         <div class="row">
         <?php if ( have_posts() ) : while ( have_posts() ) : the_post();
 
-            $grid_title = get_post_meta( $post->ID, '_wt_grid_title', true );
-            $grid_description = do_shortcode(wpautop(get_post_meta( $post->ID, '_wt_grid_description', true )));
+            $grid_title = get_post_meta( get_the_ID(), '_wt_grid_title', true );
+            $grid_description = do_shortcode(wpautop(get_post_meta( get_the_ID(), '_wt_grid_description', true )));
             $agents_link = get_post_type_archive_link('agent');
         ?>
             <div class="col-sm-7">

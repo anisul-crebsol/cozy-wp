@@ -13,16 +13,16 @@ query_posts($agent_args);
 while (have_posts()) : the_post();
 
     $count++;
-    $agent_description = do_shortcode(wpautop(get_post_meta( $post->ID, '_wt_agent_description', true )));
-    $agent_address = get_post_meta( $post->ID, '_wt_agent_address', true );
-    $agent_email = get_post_meta( $post->ID, '_wt_agent_email', true );
-    $agent_image = get_post_meta( $post->ID, '_wt_agent_img', true );
-    $agent_country = get_post_meta( $post->ID, '_wt_agent_country', true );
-    $agent_telephone = get_post_meta( $post->ID, '_wt_agent_telephone', true );
-    $agent_linkedin_link = get_post_meta( $post->ID, '_wt_agent_linkedin_link', true );
-    $agent_facebook_link = get_post_meta( $post->ID, '_wt_agent_facebook_link', true );
-    $agent_twitter_link = get_post_meta( $post->ID, '_wt_agent_twitter_link', true );
-    $agent_youtube_link = get_post_meta( $post->ID, '_wt_agent_youtube_link', true );
+    $agent_description = do_shortcode(wpautop(get_post_meta( get_the_ID(), '_wt_agent_description', true )));
+    $agent_address = get_post_meta( get_the_ID(), '_wt_agent_address', true );
+    $agent_email = get_post_meta( get_the_ID(), '_wt_agent_email', true );
+    $agent_image = get_post_meta( get_the_ID(), '_wt_agent_img', true );
+    $agent_country = get_post_meta( get_the_ID(), '_wt_agent_country', true );
+    $agent_telephone = get_post_meta( get_the_ID(), '_wt_agent_telephone', true );
+    $agent_linkedin_link = get_post_meta( get_the_ID(), '_wt_agent_linkedin_link', true );
+    $agent_facebook_link = get_post_meta( get_the_ID(), '_wt_agent_facebook_link', true );
+    $agent_twitter_link = get_post_meta( get_the_ID(), '_wt_agent_twitter_link', true );
+    $agent_youtube_link = get_post_meta( get_the_ID(), '_wt_agent_youtube_link', true );
 
     if ( 1 == $count%3 ) { echo '<div class="clearfix"></div>'; }
 ?>

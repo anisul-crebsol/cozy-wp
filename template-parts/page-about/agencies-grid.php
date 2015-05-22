@@ -12,7 +12,7 @@
     $agency_query = new WP_Query( $args );
     while($agency_query->have_posts()): $agency_query->the_post();
 
-    $agency_city = get_post_meta( $post->ID, '_wt_agency_city', true );
+    $agency_city = get_post_meta( get_the_ID(), '_wt_agency_city', true );
     ?>
     <li class="col-md-3" data-animation-direction="from-bottom" data-animation-delay="250">
         <div id="agency_map<?php echo $count; ?>" class="map"></div>

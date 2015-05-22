@@ -22,7 +22,7 @@
             </div>
 
             <div class="col-sm-6">
-                <img id="about-img" src="<?php $thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'thumbnail_large' ); echo $url = $thumb['0']; ?>" alt="" data-animation-direction="from-right" data-animation-delay="200" />
+                <img id="about-img" src="<?php $thumb = wp_get_attachment_image_src( get_post_thumbnail_id(get_the_ID()), 'thumbnail_large' ); echo $url = $thumb['0']; ?>" alt="" data-animation-direction="from-right" data-animation-delay="200" />
             </div>
         </div>
     </div>

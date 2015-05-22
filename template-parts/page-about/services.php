@@ -1,32 +1,41 @@
+<?php global $wt_cozy; ?>
+<?php if ($wt_cozy['section_service_display']) : ?>
 <div class="gray-bg">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <h1 class="section-title" data-animation-direction="from-bottom" data-animation-delay="50">Work With Cozy Real-Estate</h1>
+                <h1 class="section-title" data-animation-direction="from-bottom" data-animation-delay="50"><?php echo $wt_cozy['section_service_title']?></h1>
+
+                <?php
+                $limit = $wt_cozy['section_service_number'];
+                $args = array(
+                    'post_type'         => 'service',
+                    'post_status'       => 'publish',
+                    'posts_per_page'    => $limit,
+                );
+                $service_query = new WP_Query( $args );?>
 
                 <ul class="services">
+                    <?php while($service_query->have_posts()): $service_query->the_post();
+
+                    $service_icon_text = get_post_meta( get_the_ID(), '_wt_service_icon_text', true );
+                    $service_description = do_shortcode(wpautop(get_post_meta( get_the_ID(), '_wt_service_description', true )));
+                    $archive_url = get_post_type_archive_link('service');
+                    ?>
                     <li class="col-md-3" data-animation-direction="from-bottom" data-animation-delay="250">
-                        <h3><i class="fa fa-tags"></i> Sell or rent a property</h3>
-                        <p>Quisque dictum, erat molestie vehicula pellentesque, enim elit sodales leo id pharetra. <a href="#">Learn more</a></p>
+                        <h3><i class="fa <?php echo $service_icon_text; ?>"></i> <?php the_title() ?></h3>
+                        <p><?php echo $service_description; ?> <a href="<?php the_permalink(); ?>"><?php _e( 'Learn more', 'cozy' );?></a></p>
                     </li>
-                    <li class="col-md-3" data-animation-direction="from-bottom" data-animation-delay="450">
-                        <h3><i class="fa fa-search"></i> Find a property</h3>
-                        <p>Quisque dictum, erat molestie vehicula pellentesque, enim elit sodales leo id pharetra. <a href="#">Learn more</a></p>
-                    </li>
-                    <li class="col-md-3" data-animation-direction="from-bottom" data-animation-delay="650">
-                        <h3><i class="fa fa-building"></i> Work with our team</h3>
-                        <p>Quisque dictum, erat molestie vehicula pellentesque, enim elit sodales leo id pharetra. <a href="#">Learn more</a></p>
-                    </li>
-                    <li class="col-md-3" data-animation-direction="from-bottom" data-animation-delay="850">
-                        <h3><i class="fa fa-group"></i> Become a partner</h3>
-                        <p>Quisque dictum, erat molestie vehicula pellentesque, enim elit sodales leo id pharetra. <a href="#">Learn more</a></p>
-                    </li>
+                    <?php endwhile; ?>
                 </ul>
 
+
                 <div class="center">
-                    <a href="register.html" class="btn btn-default-color" data-animation-direction="from-bottom" data-animation-delay="1050">Register Now!</a>
+                    <a href="<?php echo $archive_url; ?>" class="btn btn-default-color" data-animation-direction="from-bottom" data-animation-delay="1050">Register Now!</a>
                 </div>
+                <?php wp_reset_postdata(); ?>
             </div>
         </div>
     </div>
 </div>
+<?php endif; ?>

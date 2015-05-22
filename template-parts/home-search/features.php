@@ -11,8 +11,8 @@
     $feature_query = new WP_Query( $args );?>
 <?php while($feature_query->have_posts()): $feature_query->the_post();
 
-$feature_icon_text = get_post_meta( $post->ID, '_wt_feature_icon_text', true );
-$feature_description = do_shortcode(wpautop(get_post_meta( $post->ID, '_wt_feature_description', true )));
+$feature_icon_text = get_post_meta( get_the_ID(), '_wt_feature_icon_text', true );
+$feature_description = do_shortcode(wpautop(get_post_meta( get_the_ID(), '_wt_feature_description', true )));
 ?>
     <div class="feature col-sm-4" data-animation-direction="from-bottom" data-animation-delay="250">
         <i class="fa <?php echo $feature_icon_text; ?>"></i>

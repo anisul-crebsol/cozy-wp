@@ -4,15 +4,15 @@
 <?php /* Start the Loop */ ?>
 <?php while ( have_posts() ) : the_post();
 
-    $agent_address = get_post_meta( $post->ID, '_wt_agent_address', true );
-    $agent_email = get_post_meta( $post->ID, '_wt_agent_email', true );
-    $agent_image = get_post_meta( $post->ID, '_wt_agent_img', true );
-    $agent_country = get_post_meta( $post->ID, '_wt_agent_country', true );
-    $agent_telephone = get_post_meta( $post->ID, '_wt_agent_telephone', true );
-    $agent_linkedin_link = get_post_meta( $post->ID, '_wt_agent_linkedin_link', true );
-    $agent_facebook_link = get_post_meta( $post->ID, '_wt_agent_facebook_link', true );
-    $agent_twitter_link = get_post_meta( $post->ID, '_wt_agent_twitter_link', true );
-    $agent_youtube_link = get_post_meta( $post->ID, '_wt_agent_youtube_link', true );
+    $agent_address = get_post_meta( get_the_ID(), '_wt_agent_address', true );
+    $agent_email = get_post_meta( get_the_ID(), '_wt_agent_email', true );
+    $agent_image = get_post_meta( get_the_ID(), '_wt_agent_img', true );
+    $agent_country = get_post_meta( get_the_ID(), '_wt_agent_country', true );
+    $agent_telephone = get_post_meta( get_the_ID(), '_wt_agent_telephone', true );
+    $agent_linkedin_link = get_post_meta( get_the_ID(), '_wt_agent_linkedin_link', true );
+    $agent_facebook_link = get_post_meta( get_the_ID(), '_wt_agent_facebook_link', true );
+    $agent_twitter_link = get_post_meta( get_the_ID(), '_wt_agent_twitter_link', true );
+    $agent_youtube_link = get_post_meta( get_the_ID(), '_wt_agent_youtube_link', true );
 ?>
 <div class="agent-detail clearfix">
     <div class="image col-md-5">
@@ -36,7 +36,7 @@
                         'post_type'         => 'property',
                         'post_status'       => 'publish',
                         'meta_key'   		=> '_wt_property_author',
-                        'meta_value' 		=> $post->ID,
+                        'meta_value' 		=> get_the_ID(),
                     );
                     $wp_query = new WP_Query( $args );
                     echo $wp_query->found_posts; _e( ' '.'Assigned Properties', 'cozy' );

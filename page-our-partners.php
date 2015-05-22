@@ -8,7 +8,6 @@ global $wt_cozy;
 
 get_header(); ?>
 
-</head>
 <body>
     <!-- BEGIN WRAPPER -->
     <div id="wrapper">

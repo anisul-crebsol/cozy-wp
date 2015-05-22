@@ -33,9 +33,9 @@ if($sort_by_agency == "$sort_by_agency") { $order = $agency_args2; }
     $wp_query = new WP_Query( $order );
     while($wp_query->have_posts()): $wp_query->the_post();
 
-    $agency_description = do_shortcode(wpautop(get_post_meta( $post->ID, '_wt_agency_description1', true )));
-    $agency_state = get_post_meta( $post->ID, '_wt_agency_state', true );
-    $agency_email = get_post_meta( $post->ID, '_wt_agency_email', true );
+    $agency_description = do_shortcode(wpautop(get_post_meta( get_the_ID(), '_wt_agency_description1', true )));
+    $agency_state = get_post_meta( get_the_ID(), '_wt_agency_state', true );
+    $agency_email = get_post_meta( get_the_ID(), '_wt_agency_email', true );
 
     if ( 0 == $count%3 ) { echo '<div class="clearfix"></div>'; }
 ?>

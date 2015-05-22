@@ -9,21 +9,21 @@
                 'post_type'         => 'property',
                 'post_status'       => 'publish',
                 'posts_per_page'    => $limit,
-                'post__not_in' 		=> array($post->ID)
+                'post__not_in' 		=> array(get_the_ID())
             );
             $property_query = new WP_Query( $args );
             ?>
         <?php while($property_query->have_posts()): $property_query->the_post();
 
-            $property_address = get_post_meta( $post->ID, '_wt_property_address', true );
-            $property_price = get_post_meta( $post->ID, '_wt_property_price', true);
+            $property_address = get_post_meta( get_the_ID(), '_wt_property_address', true );
+            $property_price = get_post_meta( get_the_ID(), '_wt_property_price', true);
             if ($property_price) : $property_price = $property_price; else : $property_price = 0; endif;
             $property_price_eng = number_format($property_price);
-            $property_price_symble = get_post_meta( $post->ID, '_wt_property_price_symble', true);
-            $property_area = get_post_meta( $post->ID, '_wt_property_area', true );
-            $property_area_measurement = get_post_meta( $post->ID, '_wt_property_area_measurement', true );
-            $property_bedrooms = get_post_meta( $post->ID, '_wt_property_bedrooms', true );
-            $property_bathrooms = get_post_meta( $post->ID, '_wt_property_bathrooms', true );
+            $property_price_symble = get_post_meta( get_the_ID(), '_wt_property_price_symble', true);
+            $property_area = get_post_meta( get_the_ID(), '_wt_property_area', true );
+            $property_area_measurement = get_post_meta( get_the_ID(), '_wt_property_area_measurement', true );
+            $property_bedrooms = get_post_meta( get_the_ID(), '_wt_property_bedrooms', true );
+            $property_bathrooms = get_post_meta( get_the_ID(), '_wt_property_bathrooms', true );
         ?>
 
         <div class="item col-md-4 <?php if ( $count > 5 ) { echo 'disabled'; } ?>">
@@ -36,7 +36,7 @@
             </div>
             <div class="price">
                 <i class="fa fa-home"></i>
-                    <?php $terms = wp_get_post_terms($post->ID, 'property-status', array("fields" => "names"));
+                    <?php $terms = wp_get_post_terms(get_the_ID(), 'property-status', array("fields" => "names"));
                         $i=0;
                         foreach($terms as $term):
                             if (count($terms) - $i < 2):

@@ -6,7 +6,6 @@ global $wt_cozy; ?>
 
 <?php get_header(); ?>
 
-</head>
 <body>
     <!-- BEGIN WRAPPER -->
     <div id="wrapper">

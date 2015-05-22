@@ -7,7 +7,6 @@ global $wt_cozy; ?>
 
 <?php get_header(); ?>
 
-</head>
 <body>
     <!-- BEGIN WRAPPER -->
     <div id="wrapper">
@@ -35,7 +34,6 @@ global $wt_cozy; ?>
                     <!-- BEGIN MAIN CONTENT -->
                     <div class="main col-sm-12">
 
-<?php get_template_part ('/template-parts/properties/searched-parameters'); ?>
 
                         <!-- BEGIN PROPERTY LISTING -->
 <?php get_template_part ('/template-parts/properties/property-listing-grid2'); ?>

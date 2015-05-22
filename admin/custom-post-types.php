@@ -58,7 +58,7 @@ function wt_cozy_custom_post_type()
         'label'                 => __('Agent', 'cozy'),
         'description'           => __('Agent', 'cozy'),
         'labels'                => $labels2,
-        'supports'              => array('title'),
+        'supports'              => array('title','thumbnail'),
         'hierarchical'          => false,
         'public'                => true,
         'show_ui'               => true,
@@ -95,7 +95,7 @@ function wt_cozy_custom_post_type()
         'label'                 => __('Agency', 'cozy'),
         'description'           => __('Agency', 'cozy'),
         'labels'                => $labels3,
-        'supports'              => array('title'),
+        'supports'              => array('title','thumbnail'),
         'hierarchical'          => false,
         'public'                => true,
         'show_ui'               => true,
@@ -133,7 +133,7 @@ function wt_cozy_custom_post_type()
         'label'                 => __('Features', 'cozy'),
         'description'           => __('Features', 'cozy'),
         'labels'                => $labels4,
-        'supports'              => array('title'),
+        'supports'              => array('title','thumbnail'),
         'hierarchical'          => false,
         'public'                => true,
         'show_ui'               => true,
@@ -170,7 +170,7 @@ function wt_cozy_custom_post_type()
         'label'                 => __('Testimonial', 'cozy'),
         'description'           => __('Testimonial', 'cozy'),
         'labels'                => $labels5,
-        'supports'              => array('title'),
+        'supports'              => array('title','thumbnail'),
         'hierarchical'          => false,
         'public'                => true,
         'show_ui'               => true,
@@ -262,6 +262,43 @@ function wt_cozy_custom_post_type()
     );
 
     register_post_type('price-table', $args7);
+
+    // Services
+    $labels8 = array(
+        'name'                  => _x('Services', 'Post Type General Name', 'cozy'),
+        'singular_name'         => _x('Service', 'Post Type Singular Name', 'cozy'),
+        'menu_name'             => __('Services', 'cozy'),
+        'parent_item_colon'     => __('Parent Service:', 'cozy'),
+        'all_items'             => __('All Services', 'cozy'),
+        'view_item'             => __('View Service', 'cozy'),
+        'add_new_item'          => __('Add New Service', 'cozy'),
+        'add_new'               => __('Add New Service', 'cozy'),
+        'edit_item'             => __('Edit Service', 'cozy'),
+        'update_item'           => __('Update Service', 'cozy'),
+        'search_items'          => __('Search Services', 'cozy'),
+        'not_found'             => __('No Service found', 'cozy'),
+        'not_found_in_trash'    => __('No Services found in Trash', 'cozy'),
+    );
+    $args8 = array(
+        'label'                 => __('Services', 'cozy'),
+        'description'           => __('Services', 'cozy'),
+        'labels'                => $labels8,
+        'supports'              => array('title','thumbnail'),
+        'hierarchical'          => false,
+        'public'                => true,
+        'show_ui'               => true,
+        'show_in_menu'          => true,
+        'show_in_nav_menus'     => true,
+        'show_in_admin_bar'     => true,
+        'menu_position'         => 31,
+        'menu_icon'             => 'dashicons-clipboard',
+        'can_export'            => true,
+        'has_archive'           => true,
+        'exclude_from_search'   => false,
+        'publicly_queryable'    => true,
+        'capability_type'       => 'page',
+    );
+    register_post_type('service', $args8);
 }
 
 add_action('init', 'wt_cozy_custom_post_type', 0);
@@ -392,7 +429,7 @@ function create_cozy_taxonomies() {
 add_action('wt-property-types_edit_form_fields','extra_category_fields');
 add_action('wt-property-types_add_form_fields','extra_category_fields');
 //add extra fields to category edit form callback function
-function extra_category_fields( $tag ) {    //check for existing featured ID
+function extra_category_fields( $tag ) {    //check for existing Serviced ID
     $t_id = $tag->term_id;
     $cat_meta = get_option( "category_$t_id");
 ?>

@@ -15,9 +15,9 @@
     <?php
         if (have_posts()) : while($agent_query->have_posts()): $agent_query->the_post();
 
-        $agent_image = get_post_meta( $post->ID, '_wt_agent_img', true );
-        $agent_address = get_post_meta( $post->ID, '_wt_agent_address', true );
-        $agent_description = do_shortcode(wpautop(get_post_meta( $post->ID, '_wt_agent_description', true )));
+        $agent_image = get_post_meta( get_the_ID(), '_wt_agent_img', true );
+        $agent_address = get_post_meta( get_the_ID(), '_wt_agent_address', true );
+        $agent_description = do_shortcode(wpautop(get_post_meta( get_the_ID(), '_wt_agent_description', true )));
 
         if ( 0 == $count%2 ) { echo '<div class="clearfix"></div>'; }
     ?>

@@ -6,7 +6,6 @@ global $wt_cozy;
 
 get_header(); ?>
 
-</head>
 <body>
     <!-- BEGIN WRAPPER -->
     <div id="wrapper">
@@ -51,7 +50,7 @@ get_header(); ?>
 
                         <!-- BEGIN PROPERTY DESCRIPTION -->
 <?php
-    $property_description = do_shortcode(wpautop(get_post_meta( $post->ID, '_wt_property_description', true )));
+    $property_description = do_shortcode(wpautop(get_post_meta( get_the_ID(), '_wt_property_description', true )));
     echo $property_description;
 ?>
                         <!-- END PROPERTY DESCRIPTION -->

@@ -13,12 +13,12 @@
         $listing_query = new WP_Query( $args );?>
     <?php while($listing_query->have_posts()): $listing_query->the_post();
 
-        $property_status = get_the_terms($post->ID, 'property-status', true);
-        $property_price = get_post_meta( $post->ID, '_wt_property_price', true);
+        $property_status = get_the_terms(get_the_ID(), 'property-status', true);
+        $property_price = get_post_meta( get_the_ID(), '_wt_property_price', true);
         if ($property_price) : $property_price = $property_price; else : $property_price = 0; endif;
         $property_price_eng = number_format($property_price);
-        $property_price_symble = get_post_meta( $post->ID, '_wt_property_price_symble', true);
-        $property_address = get_post_meta( $post->ID, '_wt_property_address', true);
+        $property_price_symble = get_post_meta( get_the_ID(), '_wt_property_price_symble', true);
+        $property_address = get_post_meta( get_the_ID(), '_wt_property_address', true);
     ?>
         <div class="item">
             <a class="info" href="<?php the_permalink(); ?>">

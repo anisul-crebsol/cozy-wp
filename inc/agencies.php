@@ -1,6 +1,7 @@
 <?php
 $agencies_args = array(
-    'post_type' 	=> 'agency',
+    'post_type'     => 'agency',
+    'posts_per_page' => -1
 );
 ?>
 <script type="text/javascript">

@@ -1,4 +1,21 @@
-<?php if ( is_page_template('page-home-map.php')) { 
+<?php require get_template_directory() . '/inc/agencies.php'; ?>
+
+<script type="text/javascript">
+    (function($){
+        "use strict";
+
+        $(document).ready(function(){
+            //Create agencies maps
+            Cozy.agencyMap(agencies, 'agency_map1', 0);
+            Cozy.agencyMap(agencies, 'agency_map2', 1);
+            Cozy.agencyMap(agencies, 'agency_map3', 2);
+            Cozy.agencyMap(agencies, 'agency_map4', 3);
+            Cozy.agencyMap(agencies, 'agency_map5', 4);
+            Cozy.agencyMap(agencies, 'agency_map6', 5);
+        });
+    })(jQuery);
+</script>
+<?php if ( is_page_template('page-home-map.php')) {
 // Properties
 require get_template_directory() . '/inc/properties.php';
     ?>

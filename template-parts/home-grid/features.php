@@ -13,11 +13,11 @@
 
     <?php while($feature_query->have_posts()): $feature_query->the_post();
 
-        $feature_icon_text = get_post_meta( $post->ID, '_wt_feature_icon_text', true );
-        $feature_description = do_shortcode(wpautop(get_post_meta( $post->ID, '_wt_feature_description', true )));
+        $service_icon_text = get_post_meta( get_the_ID(), '_wt_feature_icon_text', true );
+        $feature_description = do_shortcode(wpautop(get_post_meta( get_the_ID(), '_wt_feature_description', true )));
     ?>
     <div class="feature col-sm-3" data-animation-direction="from-bottom" data-animation-delay="250">
-        <i class="fa <?php echo $feature_icon_text; ?>"></i>
+        <i class="fa <?php echo $service_icon_text; ?>"></i>
         <h3><?php the_title() ?></h3>
         <p><?php echo $feature_description; ?></p>
         <a href="<?php the_permalink(); ?>" class="btn btn-default-color"><?php _e( 'Read More', 'cozy' );?></a>

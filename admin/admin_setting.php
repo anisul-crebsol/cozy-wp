@@ -495,7 +495,7 @@
 
 
 
-            //Template Features Section
+            // Features Section
                 
 
                 $this->sections[] = array(
@@ -548,6 +548,44 @@
                 );
 
 
+
+                // Service Section
+
+
+                $this->sections[] = array(
+                    'icon'   => 'el el-leaf',
+                    'title'  => __( 'Service', 'cozy' ),
+                    'fields' => array(
+
+                        array(
+                            'id' => 'section_service_info',
+                            'type' => 'info',
+                            'title' => __('Create a new service from <a href="' . site_url() . '/wp-admin/post-new.php?post_type=service">here</a> ', 'cozy'),
+                            'style' => 'warning'
+                        ),
+
+                        array(
+                            'id' => 'section_service_display',
+                            'type' => 'switch',
+                            'title' => __('Display Section', 'cozy'),
+                            'default' => true,
+                        ),
+
+                        array(
+                            'id' => "section_service_title",
+                            'type' => 'text',
+                            'title' => __('Section Title', 'cozy'),
+                            'default' => "WORK WITH COZY REAL-ESTATE",
+                        ),
+
+                        array(
+                            'id' => 'section_service_number',
+                            'type' => 'text',
+                            'title' => __('How many posts to display?', 'cozy'),
+                            'default' => "3",
+                        ),
+                    ),
+                );
 
                 // Our Partners Section
 

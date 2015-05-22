@@ -1,6 +1,6 @@
 <?php global $wt_cozy; ?>
 <?php
-    $property_agent_id = get_post_meta( $post->ID, '_wt_property_author', true );
+    $property_agent_id = get_post_meta( get_the_ID(), '_wt_property_author', true );
     $property_agent_address = get_post_meta( $property_agent_id, '_wt_agent_address', true );
     $property_agent_email = get_post_meta( $property_agent_id, '_wt_agent_email', true );
     $property_agent_image = get_post_meta( $property_agent_id, '_wt_agent_img', true );

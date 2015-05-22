@@ -9,7 +9,7 @@ global $wt_cozy; ?>
 <?php $count = 0;
 while ( have_posts() ) : the_post(); ?>
 
-<?php if ( 1 == $count%3 ) { echo '<div class="clearfix"></div>'; } ?>
+<?php if ( 0 == $count%3 ) { echo '<div class="clearfix"></div>'; } ?>
 
     <div class="item col-md-4"><!-- Set width to 4 columns for grid view mode only -->
         <div class="image">

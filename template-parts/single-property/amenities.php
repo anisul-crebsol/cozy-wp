@@ -9,10 +9,10 @@
         );
 
         $property_query = new WP_Query( $args );
-        $thisPostID = $post->ID;
+        $thisPostID = get_the_ID();
 
         while($property_query->have_posts()): $property_query->the_post();
-        $postID = $post->ID;
+        $postID = get_the_ID();
 
         if($postID == $thisPostID): $className = 'enabled'; else : $className = 'disabled'; endif;
 

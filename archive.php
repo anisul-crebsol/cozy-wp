@@ -6,7 +6,6 @@ global $wt_cozy;
 
 get_header(); ?>
 
-</head>
 <body>
     <!-- BEGIN WRAPPER -->
     <div id="wrapper">
@@ -36,10 +35,6 @@ get_header(); ?>
 <?php get_template_part ('/template-parts/blog-listing/content'); ?>
                         <!-- END BLOG LISTING -->
 
-
-                        <!-- BEGIN PAGINATION -->
-<?php get_template_part ('/template-parts/pagination'); ?>
-                        <!-- END PAGINATION -->
 
                     </div>
                     <!-- END MAIN CONTENT -->
