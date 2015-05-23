@@ -18,8 +18,19 @@
         <header>
             <h2><?php the_title(); ?> <small><?php echo $agency_city ?></small></h2>
             <ul class="assigned">
-                <li>14 Assigned Properties</li>
-                <li>4 Agents</li>
+                <li>
+                <?php
+                    $args = array(
+                        'post_type'         => 'property',
+                        'post_status'       => 'publish',
+                        'meta_key'          => '_wt_property_agency',
+                        'meta_value'        => get_the_ID(),
+                    );
+                    $wp_query = new WP_Query( $args );
+                    echo $wp_query->found_posts; _e( ' '.'Assigned Properties', 'cozy' );
+                    wp_reset_query();
+                ?>
+                </li>
             </ul>
         </header>
 

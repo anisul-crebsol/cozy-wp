@@ -71,7 +71,7 @@
         <?php else : ?>
 
         <div class="col-sm-12">
-            <p>Your email address will no be published. Required fields are marked* <br><br></p>
+            <p><?php __('Your email address will no be published. Required fields are marked','') ?>* <br><br></p>
         </div>
         <div class="col-sm-6">
             <input class="form-control" placeholder="Name*" type="text" name="author" id="author" value="<?php echo esc_attr($comment_author); ?>" size="22" tabindex="1" <?php if ($req) echo "aria-required='true'"; ?> />

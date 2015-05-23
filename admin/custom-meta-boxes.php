@@ -341,7 +341,12 @@ function wt_cozy_register_metabox() {
                     'quicktags' => true // load Quicktags, can be used to pass settings directly to Quicktags using an array()
                 ),
     ) );
-
+    $wt_cozy->add_field( array(
+                'name' => __('Agency Contact Form','cozy'),
+                'id' => $prefix . 'agency_contact_form',
+                'desc' => __('Please insert contact form shotrcode for this agency.','cozy'),
+                'type' => 'text',
+    ) );
     $wt_cozy = wt_cozy_metabox( array(
         'id'            => $prefix . 'agency-mapbox',
         'title'         => __( 'Agency Map','cozy' ),
@@ -365,6 +370,7 @@ function wt_cozy_register_metabox() {
                 'type' => 'file',
                 // 'preview_size' => array( 100, 100 ), // Default: array( 50, 50 )
     ) );
+
 
 
     // Property Meta Box

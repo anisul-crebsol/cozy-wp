@@ -51,10 +51,6 @@
     <!-- END WRAPPER -->
 
 <?php wp_footer(); ?>
-<?php get_template_part ('/template-parts/footer-scripts');
-
-// Default Variables
-require get_template_directory() . '/inc/variables.php';
-?>
+<?php get_template_part ('/template-parts/footer-scripts'); ?>
 </body>
 </html>

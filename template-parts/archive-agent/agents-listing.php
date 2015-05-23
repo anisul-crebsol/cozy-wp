@@ -42,7 +42,7 @@ while (have_posts()) : the_post();
         <h2><?php the_title(); ?> <small><?php echo $agent_address; ?></small></h2>
 
         <?php
-            $description_limit = 190;
+            $description_limit = 100;
             if(strlen($agent_description) <= $description_limit) {
                 echo $agent_description;
             } else {

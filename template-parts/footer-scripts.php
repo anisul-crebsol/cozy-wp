@@ -1,164 +1,31 @@
-<?php require get_template_directory() . '/inc/agencies.php'; ?>
-
-<script type="text/javascript">
-    (function($){
-        "use strict";
-
-        $(document).ready(function(){
-            //Create agencies maps
-            Cozy.agencyMap(agencies, 'agency_map1', 0);
-            Cozy.agencyMap(agencies, 'agency_map2', 1);
-            Cozy.agencyMap(agencies, 'agency_map3', 2);
-            Cozy.agencyMap(agencies, 'agency_map4', 3);
-            Cozy.agencyMap(agencies, 'agency_map5', 4);
-            Cozy.agencyMap(agencies, 'agency_map6', 5);
-        });
-    })(jQuery);
-</script>
-<?php if ( is_page_template('page-home-map.php')) {
-// Properties
+<?php
+require get_template_directory() . '/inc/variables.php';
+require get_template_directory() . '/inc/agencies.php'; 
+require get_template_directory() . '/inc/agency.php';
+require get_template_directory() . '/inc/property.php';
 require get_template_directory() . '/inc/properties.php';
-    ?>
-    <script type="text/javascript">
-        (function($){
-            "use strict";
-            $(document).ready(function(){
-            //Create porperties map
-            Cozy.propertiesMap(properties, 'properties_map');
-            });
-        })(jQuery);
-    </script>
-<?php
-    }
-    elseif ( is_page_template('page-home-grid.php')) {
-        require get_template_directory() . '/inc/agencies.php';
-        ?>
-        <script type="text/javascript">
-            (function($){
-                "use strict";
-
-                $(document).ready(function(){
-                //Create agency map centered on the marker of the agency with id=1.
-                Cozy.agencyMap(agencies, "map_agency");
-                });
-            })(jQuery);
-        </script>
-<?php
-    }
-    elseif ( is_page_template('page-home-search.php') || is_page_template('page-home-slider.php')) {
-    require get_template_directory() . '/inc/agencies.php';
-        ?>
-        <script type="text/javascript">
-            (function($){
-                "use strict";
-
-                $(document).ready(function(){
-                //Create agencies map with markers and populate dropdown agencies list.
-                Cozy.agencyMap(agencies, "map_agency");
-                });
-            })(jQuery);
-        </script>
-        <script type="text/javascript">
-            (function($){
-                "use strict";
-
-                $(document).ready(function(){
-                //Create agencies maps
-                    Cozy.agencyMap(agencies, 'agency_map1', 0);
-                    Cozy.agencyMap(agencies, 'agency_map2', 1);
-                    Cozy.agencyMap(agencies, 'agency_map3', 2);
-                    Cozy.agencyMap(agencies, 'agency_map4', 3);
-                    Cozy.agencyMap(agencies, 'agency_map5', 4);
-                    Cozy.agencyMap(agencies, 'agency_map6', 5);
-                });
-            })(jQuery);
-        </script>
-<?php
-    }
-    elseif ( is_page_template('archive-agency.php') || is_archive('agency')) {
-    require get_template_directory() . '/inc/agencies.php';
-        ?>
-        <script type="text/javascript">
-            (function($){
-                "use strict";
-
-                $(document).ready(function(){
-                //Create agencies maps
-                    Cozy.agencyMap(agencies, 'agency_map1', 0);
-                    Cozy.agencyMap(agencies, 'agency_map2', 1);
-                    Cozy.agencyMap(agencies, 'agency_map3', 2);
-                    Cozy.agencyMap(agencies, 'agency_map4', 3);
-                    Cozy.agencyMap(agencies, 'agency_map5', 4);
-                    Cozy.agencyMap(agencies, 'agency_map6', 5);
-                });
-            })(jQuery);
-        </script>
-<?php
-    }
-    elseif ( is_page_template('page-contacts.php')) { ?>
-        <script type="text/javascript">
-            var singleMarker = [
-                {
-                    "id": 0,
-                    "title": "Cozy Real State",
-                    "latitude": 40.727815,
-                    "longitude": -73.993544,
-                    "image": "http://placehold.it/700x603",
-                    "description": "Lafayette St New York, NY <br> Phone: 00351 123 456 789",
-                    "map_marker_icon": "images/markers/coral-marker-cozy.png"
-                }
-            ];
-
-            (function ($) {
-                "use strict";
-
-                $(document).ready(function () {
-                //Create contacts map. Usage: Cozy.contactsMap(marker_JSON_Object, map canvas, map zoom);
-
-                    Cozy.contactsMap(singleMarker, 'contacts_map', 14);
-                });
-            })(jQuery);
-	</script>
-<?php
-    }
-    elseif (is_singular (array( 'property' ))) {
-        require get_template_directory() . '/inc/property.php';
 ?>
-        <script type="text/javascript">
-            (function($){
-                "use strict";
-
-                $(document).ready(function(){
-                //Create property map centered on the marker of the property with id=0.
-                    Cozy.propertiesMap(property, 'property_location', 0);
-                });
-            })(jQuery);
-        </script>
-<?php
-    }
-    elseif (is_singular (array( 'agency' ))) {
-        require get_template_directory() . '/inc/agency.php';
-?>
-        <script type="text/javascript">
-            (function($){
-                "use strict";
-
-                $(document).ready(function(){
-                //Create agency map centered on the marker of the agency with id=0.
-
-                    Cozy.agencyMap(agency, 'agency_map', 0);
-                });
-            })(jQuery);
-        </script>
-<?php
-    }
-?>
-
 <script type="text/javascript">
 var templeteUrl = '<?php echo get_stylesheet_directory_uri(); ?>';
 var homeUrl = '<?php echo home_url(); ?>';
 var adminUrl = '<?php echo admin_url(); ?>';
 </script>
+
+
+<script type="text/javascript">
+    var singleMarker = [
+        {
+            "id": 0,
+            "title": "Cozy Real State",
+            "latitude": 40.727815,
+            "longitude": -73.993544,
+            "image": "http://placehold.it/700x603",
+            "description": "Lafayette St New York, NY <br> Phone: 00351 123 456 789",
+            "map_marker_icon": templeteUrl+"images/markers/coral-marker-cozy.png"
+        }
+    ];
+</script>
+
 <script type="text/javascript">
     jQuery(document).ready(function(){
 
@@ -182,9 +49,6 @@ var adminUrl = '<?php echo admin_url(); ?>';
                     thisEl.addClass('active');
                 }
             })
-
-        //jQuery("#ajax-content").html("loading...");
-        //jQuery("#ajax-content").load("<?php '/ajaxpageloader' ?>/",{sortById:sortById});
         return false;
     });
 
@@ -208,24 +72,39 @@ var adminUrl = '<?php echo admin_url(); ?>';
 </script>
 
 <script type="text/javascript">
-    var singleMarker = [
-        {
-            "id": 0,
-            "title": "Cozy Real State",
-            "latitude": 40.727815,
-            "longitude": -73.993544,
-            "image": "http://placehold.it/700x603",
-            "description": "Lafayette St New York, NY <br> Phone: 00351 123 456 789",
-            "map_marker_icon": "images/markers/coral-marker-cozy.png"
-        }
-    ];
+	(function($){
+		"use strict";
+		
+		$(document).ready(function(){			
 
-    (function ($) {
-        "use strict";
+			//Create agencies map with markers and populate dropdown agencies list.
+			if (document.getElementById("agency_map1")) {
+				Cozy.agencyMap(agencies, 'agency_map1', 0);
+				Cozy.agencyMap(agencies, 'agency_map2', 1);
+				Cozy.agencyMap(agencies, 'agency_map3', 2);
+				Cozy.agencyMap(agencies, 'agency_map4', 3);
+				Cozy.agencyMap(agencies, 'agency_map5', 4);
+				Cozy.agencyMap(agencies, 'agency_map6', 5);
+			}
+			if (document.getElementById("properties_map")) {
+				Cozy.propertiesMap(properties, 'properties_map');
+			}
+			if (document.getElementById("map_agency")) {
+				Cozy.agencyMap(agency, "map_agency");
+			}
+			if (document.getElementById("agency_map")) {
+				Cozy.agencyMap(agency, 'agency_map', 0);
+			}
+			if (document.getElementById("property_location")) {				
+				Cozy.propertiesMap(property, 'property_location', 0);
+			}
+			if (document.getElementById("contacts_map")) {
+				Cozy.contactsMap(singleMarker, 'contacts_map', 14);
+			}
+			if (document.getElementById("contacts_map")) {
+				Cozy.contactsMap(singleMarker, 'contacts_map', 14);
+			}
+		});		
 
-        $(document).ready(function () {
-            //Create contacts map. Usage: Cozy.contactsMap(marker_JSON_Object, map canvas, map zoom);
-            Cozy.contactsMap(singleMarker, 'contacts_map', 14);
-        });
-    })(jQuery);
+	})(jQuery);
 </script>

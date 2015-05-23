@@ -1,5 +1,6 @@
 <?php 
 function wt_cozy_thumbnail($placeholderImge = '') {
+    $width_height = explode('x',$placeholderImge);
     $uploads_dir = wp_upload_dir();
     $upload_url = $uploads_dir['baseurl']."/";
     $upload_dir = $uploads_dir['basedir']."/";
@@ -7,7 +8,8 @@ function wt_cozy_thumbnail($placeholderImge = '') {
     $check_image_dir = str_replace($upload_url, $upload_dir, $thumb_url);
     if ( has_post_thumbnail() ) {
         if(@file_exists($check_image_dir)){                
-         the_post_thumbnail('thumbnail', array('class' => 'img-responsive'));
+         //the_post_thumbnail('thumbnail', array('class' => 'img-responsive'));
+         echo '<img src="'.$thumb_url.'" />';
         } else {
             echo '<img src="http://placehold.it/'.$placeholderImge.'" />';
         }
