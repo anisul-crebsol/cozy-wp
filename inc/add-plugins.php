@@ -43,6 +43,7 @@ function wt_cozy_register_required_plugins() {
     $plugins = array(
         array(
             'name'               => 'Revolution Slider', // The plugin name.
+            'slug'               => 'revslider', // The plugin slug.
             'source'             => get_stylesheet_directory() .'/plugins/revslider.zip', // The plugin source.
             'required'           => true, // If false, the plugin is only 'recommended' instead of required.
             'force_activation'   => true, // If true, plugin is activated upon theme activation and cannot be deactivated until theme switch.

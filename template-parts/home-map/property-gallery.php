@@ -8,14 +8,6 @@
     $display_posts = 5;
     $listing_args = array(
         'post_type' => 'property',
-        'tax_query' => array(
-            array(
-                'taxonomy'  => 'property-status',
-                'field'     => 'slug',
-                'terms'     => array( 'featured' ),
-                'operator'  => 'NOT IN',
-            ),
-        ),
         'showposts' => $display_posts
     );
     query_posts($listing_args);

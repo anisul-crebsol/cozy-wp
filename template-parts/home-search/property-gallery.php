@@ -14,7 +14,7 @@
     <?php while($property_query->have_posts()): $property_query->the_post();
     ?>
     <div class="item" data-animation-direction="from-bottom" data-animation-delay="350">
-        <a href="<?php $thumb = wp_get_attachment_image_src( get_post_thumbnail_id(get_the_ID()), 'thumbnail_large' ); echo $url = $thumb['0']; ?>" data-gal="prettyPhoto[gallery]" title="<?php echo $title = get_post(get_post_thumbnail_id())->post_title;?>"><span class="btn btn-default">+</span>
+        <a href="<?php if(has_post_thumbnail()) { $thumb = wp_get_attachment_image_src( get_post_thumbnail_id(get_the_ID()), 'thumbnail_large' ); echo $url = $thumb['0']; } else {echo 'http://placehold.it/760x670';} ?>"" data-gal="prettyPhoto[gallery]" title="<?php echo $title = get_post(get_post_thumbnail_id())->post_title;?>"><span class="btn btn-default">+</span>
         </a>
         <?php echo wt_cozy_thumbnail('246x216'); ?>
     </div>

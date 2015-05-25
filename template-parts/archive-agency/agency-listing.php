@@ -9,12 +9,10 @@ $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 $agency_args = array(
     'post_type' => 'agency',
     'paged' => $paged,
-    'posts_per_page' => 3,
 );
 $agency_args2 = array(
     'post_type' => 'agency',
     'paged' => $paged,
-    'posts_per_page' => 3,
     'tax_query' => array(
         'relation' => 'OR',
         array(

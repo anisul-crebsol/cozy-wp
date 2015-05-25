@@ -265,10 +265,17 @@
                         ),
 
                         array(
-                            'id' => "section_contact_map",
-                            'type' => 'textarea',
-                            'title' => __('Google Map Link Here', 'cozy'),
-                            'default' => "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3323.5555106206834!2d-7.637222461654696!3d33.59088826069678!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x87da5314adb2dd65!2sRICHBOND!5e0!3m2!1sen!2s!4v1397056520314",
+                            'id' => "contact_map_lat",
+                            'type' => 'text',
+                            'title' => __('Google Map Latitude', 'cozy'),
+                            'default' => "26.596433",
+                        ),
+
+                        array(
+                            'id' => "contact_map_long",
+                            'type' => 'text',
+                            'title' => __('Google Map Longitude', 'cozy'),
+                            'default' => "-98.451481",
                         ),
                     ),
                 );
@@ -280,7 +287,7 @@
 
                 $this->sections[] = array(
                 'icon'   => 'el el-search',
-                'title'  => __( 'Search Section', 'cozy' ),
+                'title'  => __( 'Home Search Section', 'cozy' ),
                 'fields' => array(
 
                         array(
@@ -295,14 +302,21 @@
                             'type' => 'text',
                             'title' => __('Section Heading 2', 'cozy'),
                             'default' => "With Cozy Real Estate HTML Template",
-                        ),                                     
+                        ),
+                        array(
+                            'id'       => 'section_search_bg',
+                            'type'     => 'media',
+                            'url'      => true,
+                            'title'    => __( 'Search Background', 'cozy' ),
+                            'compiler' => 'true',
+                            'desc'     => __( 'Please upload .....', 'cozy' ),
+                            'default'  => array( 'url' => 'http://placehold.it/1920x800'),
+                        ),
                     ),
                 );
 
 
-
             //Action (Buy Now) Section
-                
 
                 $this->sections[] = array(
                 'icon'   => 'el el-usd',
@@ -553,7 +567,7 @@
 
 
                 $this->sections[] = array(
-                    'icon'   => 'el el-leaf',
+                    'icon'   => 'el el-list-alt',
                     'title'  => __( 'Service', 'cozy' ),
                     'fields' => array(
 
@@ -691,7 +705,7 @@
                             'title' => __('Display Newsletter', 'cozy'),
                             'default' => true,
                         ),
-                        
+
                         array(
                             'id' => "section_newsletter_title",
                             'type' => 'text',
@@ -711,6 +725,16 @@
                             'type' => 'textarea',
                             'title' => __('Newsletter Description', 'cozy'),
                             'default' => "Lorem ipsum dolor sit amet, consectetur elit.",
+                        ),
+
+                        array(
+                            'id'       => 'newsletter_bg',
+                            'type'     => 'media',
+                            'url'      => true,
+                            'title'    => __( 'Newsletter Background', 'cozy' ),
+                            'compiler' => 'true',
+                            'desc'     => __( 'Please upload .....', 'cozy' ),
+                            'default'  => array( 'url' => 'http://placehold.it/1920x800'),
                         ),
                                       
                     ),
@@ -888,7 +912,7 @@
                 $this->sections[] = array(
                     'title'  => __( 'Footer', 'cozy' ),
                     'desc'   => __( '', 'cozy' ),
-                    'icon'   => 'el el-arrow-down',
+                    'icon'   => 'el el-chevron-down',
                     // 'submenu' => false, // Setting submenu to false on a given section will hide it from the WordPress sidebar menu!
                     'fields' => array(
 

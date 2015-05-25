@@ -1,12 +1,11 @@
 <?php
 /**
- * The header for our theme.
+ * The header for Cozy theme.
  *
  * Displays all of the <head> section and everything up till <div id="content">
  *
  * @package Cozy
  */
-// Get Redux option
 global $wt_cozy;
 ?><!DOCTYPE html>
 <html <?php language_attributes(); ?>>

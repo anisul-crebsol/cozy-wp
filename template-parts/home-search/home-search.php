@@ -1,5 +1,5 @@
 <?php global $wt_cozy; ?>
-<section id="home-search-section" data-stellar-background-ratio="0.5">
+<section id="home-search-section" style="background-image:url(<?php echo $wt_cozy['section_search_bg']['url']?>);" data-stellar-background-ratio="0.5">
     <div class="container">
         <div class="row">
             <div class="col-sm-12" data-animation-direction="from-top" data-animation-delay="50">

@@ -2,7 +2,6 @@
     <div class="row">
 <?php
 $count = 0;
-$display_posts = 3;
 $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 $agent_args = array(
     'post_type' => 'agent',

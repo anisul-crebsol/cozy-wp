@@ -1,6 +1,5 @@
 <?php
 $delay = 250;
-$display_posts = 6;
 $count = 0;
 $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 $property_args = array(
@@ -14,7 +13,6 @@ $property_args = array(
             'operator'	=> 'NOT IN',
         ),
     ),
-    'showposts' => $display_posts
 );
 query_posts($property_args);
 if (have_posts()) : while (have_posts()) : the_post();

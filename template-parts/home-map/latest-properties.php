@@ -11,7 +11,7 @@
     if (have_posts()) : while (have_posts()) : the_post();
 
     $property_status = get_the_terms(get_the_ID(), 'property-status', true);
-    $property_description = do_shortcode(wpautop(get_post_meta( get_the_ID(), '_wt_property_description', true)));
+    $property_description = do_shortcode(get_post_meta( get_the_ID(), '_wt_property_description', true));
     $property_price = get_post_meta( get_the_ID(), '_wt_property_price', true);
     if ($property_price) : $property_price = $property_price; else : $property_price = 0; endif;
     $property_price_eng = number_format($property_price);
@@ -65,7 +65,7 @@
             <div class="description">
                 <p class="col-md-9">
                 <?php
-                    $description_limit = 120;
+                    $description_limit = 220;
                     $dots = " ...";
                     if(strlen($property_description) <= $description_limit) {
                         echo $property_description;

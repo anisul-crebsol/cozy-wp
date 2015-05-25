@@ -3,8 +3,8 @@
 <?php
     $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
     $args = array(
-        'post_status'       => 'publish',
-        'paged' => $paged,
+        'post_status'   => 'publish',
+        'paged'         => $paged,
     );
     $wp_query = new WP_Query( $args );
     while($wp_query->have_posts()): $wp_query->the_post();

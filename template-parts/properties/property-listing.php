@@ -5,12 +5,10 @@ if(isset($_GET['sort_by'])){ $sort_by = esc_attr($_GET['sort_by']); }
 if(isset($_GET['sort_order'])){ $sort_order = esc_attr($_GET['sort_order']); }
 $count = 0;
 $delay = 250;
-$display_posts = 3;
 $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 $property_args = array(
     'post_type' => 'property',
     'paged' => $paged,
-    'showposts' => $display_posts
 );
 
 $property_args2 = array(

@@ -62,7 +62,7 @@ get_header(); ?>
         <!-- END LATEST NEWS WRAPPER WITH GRAY BACKGROUND-->
 
         <!-- BEGIN NEWSLETTER SECTION-->
-<?php get_template_part ('/template-parts/section-newsletter'); ?>
+<?php get_template_part ('/template-parts/home-grid/section-newsletter'); ?>
         <!-- END NEWSLETTER SECTION-->
 
 <?php get_footer(); ?>
