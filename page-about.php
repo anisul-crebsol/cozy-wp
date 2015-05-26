@@ -7,62 +7,58 @@ global $wt_cozy;
 
 get_header(); ?>
 
-<body>
-    <!-- BEGIN WRAPPER -->
-    <div id="wrapper">
-
-        <!-- BEGIN HEADER -->
+<!-- BEGIN HEADER -->
 <?php get_template_part ('/template-parts/section-header'); ?>
-        <!-- END HEADER -->
+<!-- END HEADER -->
 
 
-        <!-- BEGIN PAGE TITLE/BREADCRUMB -->
+<!-- BEGIN PAGE TITLE/BREADCRUMB -->
 <?php get_template_part ('/template-parts/breadcrumb'); ?>
-        <!-- END PAGE TITLE/BREADCRUMB -->
+<!-- END PAGE TITLE/BREADCRUMB -->
 
 
-        <!-- BEGIN HIGHLIGHT -->
+<!-- BEGIN HIGHLIGHT -->
 <?php get_template_part ('/template-parts/page-about/highlight'); ?>
-        <!-- END HIGHLIGHT -->
+<!-- END HIGHLIGHT -->
 
 
-        <!-- BEGIN SERVICES -->
+<!-- BEGIN SERVICES -->
 <?php get_template_part ('/template-parts/page-about/services'); ?>
-        <!-- END SERVICES -->
+<!-- END SERVICES -->
 
 
-        <!-- BEGIN PROPERTY TYPE BUTTONS -->
+<!-- BEGIN PROPERTY TYPE BUTTONS -->
 <?php get_template_part ('/template-parts/page-about/property-type'); ?>
-        <!-- END PROPERTY TYPE BUTTONS -->
+<!-- END PROPERTY TYPE BUTTONS -->
 
 
-        <!-- BEGIN CONTENT WRAPPER -->
-        <div class="content">
-            <div class="container">
-                <div class="row">
+<!-- BEGIN CONTENT WRAPPER -->
+<div class="content">
+    <div class="container">
+        <div class="row">
 
-                <!-- BEGIN MAIN CONTENT -->
-                    <div class="main col-sm-12">
+        <!-- BEGIN MAIN CONTENT -->
+            <div class="main col-sm-12">
 
-                    <!-- BEGIN AGENTS GRID -->
-<?php get_template_part ('/template-parts/page-about/agents-grid'); ?>
-                <!-- END AGENTS GRID -->
+            <!-- BEGIN AGENTS GRID -->
+            <?php get_template_part ('/template-parts/page-about/agents-grid'); ?>
+            <!-- END AGENTS GRID -->
 
-                    <!-- BEGIN AGENCIES GRID -->
-<?php get_template_part ('/template-parts/page-about/agencies-grid'); ?>
-                    <!-- END AGENCIES GRID -->
+            <!-- BEGIN AGENCIES GRID -->
+            <?php get_template_part ('/template-parts/page-about/agencies-grid'); ?>
+            <!-- END AGENCIES GRID -->
 
-                    </div>
-                    <!-- END MAIN CONTENT -->
-
-                </div>
             </div>
+            <!-- END MAIN CONTENT -->
+
         </div>
-        <!-- END CONTENT WRAPPER -->
+    </div>
+</div>
+<!-- END CONTENT WRAPPER -->
 
 
-        <!-- BEGIN PARTNERS WRAPPER -->
+<!-- BEGIN PARTNERS WRAPPER -->
 <?php get_template_part ('/template-parts/page-about/partners'); ?>
-        <!-- END PARTNERS WRAPPER -->
+<!-- END PARTNERS WRAPPER -->
 
 <?php get_footer(); ?>

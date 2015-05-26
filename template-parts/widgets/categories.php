@@ -27,7 +27,7 @@ class WT_Widget_Cozy_Categories extends WP_Widget {
     public function widget( $args, $instance ) {
 
         /** This filter is documented in wp-includes/default-widgets.php */
-        $title = apply_filters( 'widget_title', empty( $instance['title'] ) ? __( 'Categories' ) : $instance['title'], $instance, $this->id_base );
+        $title = apply_filters( 'widget_title', empty( $instance['title'] ) ? __( 'Categories', 'cozy' ) : $instance['title'], $instance, $this->id_base );
 
         $c = ! empty( $instance['count'] ) ? '1' : '0';
         $h = ! empty( $instance['hierarchical'] ) ? '1' : '0';

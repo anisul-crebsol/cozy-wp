@@ -204,17 +204,56 @@
                             'url'      => true,
                             'title'    => __( 'Logo', 'cozy' ),
                             'compiler' => 'true',
-                            'desc'     => __( 'Please upload .....', 'cozy' ),
+                            'desc'     => __( 'Please upload logo.', 'cozy' ),
                             'default'  => array( 'url' => get_stylesheet_directory_uri().'/images/logo/logo.png'),
                         ),
-
+                        array(
+                            'id'       => 'cozy_favicon',
+                            'type'     => 'media',
+                            'url'      => true,
+                            'title'    => __( 'Favicon', 'cozy' ),
+                            'compiler' => 'true',
+                            'desc'     => __( 'Please upload favicon', 'cozy' ),
+                            'default'  => array( 'url' => get_stylesheet_directory_uri().'/images/fav_touch_icons/favicon.ico'),
+                        ),
+                        array(
+                            'id'       => 'cozy_apple_tc_icon',
+                            'type'     => 'media',
+                            'url'      => true,
+                            'title'    => __( 'Apple Touch Icon', 'cozy' ),
+                            'compiler' => 'true',
+                            'desc'     => __( 'Please upload Apple Touch Icon', 'cozy' ),
+                            'default'  => array( 'url' => get_stylesheet_directory_uri().'/images/fav_touch_icons/apple-touch-icon.png'),
+                        ),
+                        array(
+                            'id'       => 'cozy_apple_tc_icon_md',
+                            'type'     => 'media',
+                            'url'      => true,
+                            'title'    => __( 'Apple Touch Icon ( medium )', 'cozy' ),
+                            'compiler' => 'true',
+                            'desc'     => __( 'Please upload Apple Touch Icon (72x72)', 'cozy' ),
+                            'default'  => array( 'url' => get_stylesheet_directory_uri().'/images/fav_touch_icons/apple-touch-icon-72x72.png'),
+                        ),
+                        array(
+                            'id'       => 'cozy_apple_tc_icon_lg',
+                            'type'     => 'media',
+                            'url'      => true,
+                            'title'    => __( 'Apple Touch Icon ( large )', 'cozy' ),
+                            'compiler' => 'true',
+                            'desc'     => __( 'Please upload Apple Touch Icon (114x114)', 'cozy' ),
+                            'default'  => array( 'url' => get_stylesheet_directory_uri().'/images/fav_touch_icons/apple-touch-icon-114x114.png'),
+                        ),
                         array(
                             'id' => "cozy_description",
                             'type' => 'textarea',
                             'title' => __('Description', 'cozy'),
                             'default' => "Cozy is a simple clean and modern WordPress Theme designed for Real Estate business. This theme has a lot of useful features and it's highly customizable so you can turn it into your own awesome website.",
                         ),
-
+                        array(
+                            'id' => "cozy_tracking_code",
+                            'type' => 'textarea',
+                            'title' => __('Tracking Code', 'cozy'),
+                        ),
                         
                     ),
                 );
@@ -769,7 +808,6 @@
                             'type'     => 'text',
                             'validate' => '',
                             'title'    => __( 'Section heading', 'cozy'),
-                            'desc'     => __( '' ),
                             'default'  => 'Testimonials',
                         ),
 
@@ -824,7 +862,6 @@
                             'type'     => 'text',
                             'validate' => '',
                             'title'    => __( 'Section Why Choose Us Heading', 'cozy'),
-                            'desc'     => __( '' ),
                             'default'  => 'Why Choose Us?',
                         ),
 

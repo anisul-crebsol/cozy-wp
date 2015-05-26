@@ -6,9 +6,9 @@
 class WT_Cozy_Widget_Partners extends WP_Widget {
 
     public function __construct() {
-        $widget_ops = array('classname' => 'widget_partners', 'description' => __('Arbitrary text or HTML.'));
+        $widget_ops = array('classname' => 'widget_partners', 'description' => __('Arbitrary text or HTML.', 'cozy'));
         $control_ops = array('width' => 400, 'height' => 350);
-        parent::__construct('wt_cozy_partners', __('Cozy Sidebar Partners'), $widget_ops, $control_ops);
+        parent::__construct('wt_cozy_partners', __('Cozy Sidebar Partners', 'cozy'), $widget_ops, $control_ops);
     }
 
     public function widget( $args, $instance ) {

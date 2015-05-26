@@ -29,7 +29,7 @@ class WT_Widget_Cozy_Archives extends WP_Widget {
         $d = ! empty( $instance['dropdown'] ) ? '1' : '0';
 
         /** This filter is documented in wp-includes/default-widgets.php */
-        $title = apply_filters( 'widget_title', empty( $instance['title'] ) ? __( 'Archives' ) : $instance['title'], $instance, $this->id_base );
+        $title = apply_filters( 'widget_title', empty( $instance['title'] ) ? __( 'Archives', 'cozy' ) : $instance['title'], $instance, $this->id_base );
 
         echo $args['before_widget'];
         if ( $title ) {

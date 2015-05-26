@@ -2,60 +2,56 @@
 /**
  * @package Cozy
  */
-global $wt_cozy; ?>
+global $wt_cozy;
 
-<?php get_header(); ?>
+get_header(); ?>
 
-<body>
-    <!-- BEGIN WRAPPER -->
-    <div id="wrapper">
-
-        <!-- BEGIN HEADER -->
+<!-- BEGIN HEADER -->
 <?php get_template_part ('/template-parts/section-header'); ?>
-        <!-- END HEADER -->
+<!-- END HEADER -->
 
 
-        <!-- BEGIN PAGE TITLE/BREADCRUMB -->
+<!-- BEGIN PAGE TITLE/BREADCRUMB -->
 <?php get_template_part ('/template-parts/breadcrumb'); ?>
-        <!-- END PAGE TITLE/BREADCRUMB -->
+<!-- END PAGE TITLE/BREADCRUMB -->
 
 
-        <!-- BEGIN CONTENT WRAPPER -->
-        <div class="content">
-            <div class="container">
-                <div class="row">
+<!-- BEGIN CONTENT WRAPPER -->
+<div class="content">
+    <div class="container">
+        <div class="row">
 
-                    <!-- BEGIN MAIN CONTENT -->
-                    <div class="main col-sm-8">
+            <!-- BEGIN MAIN CONTENT -->
+            <div class="main col-sm-8">
 
-                        <!-- BEGIN AGENT DETAIL -->
-<?php get_template_part ('/template-parts/single-agent/agent-detail'); ?>
-                        <!-- END AGENT DETAIL -->
-
-
-<?php get_template_part ('/template-parts/single-agent/content'); ?>
+                <!-- BEGIN AGENT DETAIL -->
+                <?php get_template_part ('/template-parts/single-agent/agent-detail'); ?>
+                <!-- END AGENT DETAIL -->
 
 
-                        <!-- BEGIN PROPERTIES ASSIGNED -->
-<?php get_template_part ('/template-parts/single-agent/assigned-properties'); ?>
-                        <!-- END PROPERTIES ASSIGNED -->
+                <?php get_template_part ('/template-parts/single-agent/content'); ?>
 
 
-                        <!-- BEGIN CONTACT FORM -->
-<?php get_template_part ('/template-parts/single-agent/contact-form'); ?>
-                        <!-- END CONTACT FORM -->
-
-                    </div>
-                    <!-- END MAIN CONTENT -->
+                <!-- BEGIN PROPERTIES ASSIGNED -->
+                <?php get_template_part ('/template-parts/single-agent/assigned-properties'); ?>
+                <!-- END PROPERTIES ASSIGNED -->
 
 
-                    <!-- BEGIN SIDEBAR -->
-<?php get_sidebar(); ?>
-                    <!-- END SIDEBAR -->
+                <!-- BEGIN CONTACT FORM -->
+                <?php get_template_part ('/template-parts/single-agent/contact-form'); ?>
+                <!-- END CONTACT FORM -->
 
-                </div>
             </div>
+            <!-- END MAIN CONTENT -->
+
+
+            <!-- BEGIN SIDEBAR -->
+            <?php get_sidebar(); ?>
+            <!-- END SIDEBAR -->
+
         </div>
-        <!-- END CONTENT WRAPPER -->
+    </div>
+</div>
+<!-- END CONTENT WRAPPER -->
 
 <?php get_footer(); ?>

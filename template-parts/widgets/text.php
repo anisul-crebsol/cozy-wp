@@ -6,9 +6,9 @@
 class WT_Widget_Cozy_Text extends WP_Widget {
 
     public function __construct() {
-        $widget_ops = array('classname' => 'widget_cozy_text', 'description' => __('Arbitrary text or HTML.'));
+        $widget_ops = array('classname' => 'widget_cozy_text', 'description' => __('Arbitrary text or HTML.', 'cozy'));
         $control_ops = array('width' => 400, 'height' => 350);
-        parent::__construct('wt_cozy_text', __('Cozy Text'), $widget_ops, $control_ops);
+        parent::__construct('wt_cozy_text', __('Cozy Text','cozy'), $widget_ops, $control_ops);
     }
 
     public function widget( $args, $instance ) {
@@ -45,12 +45,12 @@ class WT_Widget_Cozy_Text extends WP_Widget {
         $title = strip_tags($instance['title']);
         $text = esc_textarea($instance['text']);
 ?>
-        <p><label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Title:'); ?></label>
+        <p><label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Title:','cozy'); ?></label>
         <input class="widefat" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" type="text" value="<?php echo esc_attr($title); ?>" /></p>
 
         <textarea class="widefat" rows="16" id="<?php echo $this->get_field_id('text'); ?>" name="<?php echo $this->get_field_name('text'); ?>"><?php echo $text; ?></textarea>
 
-        <p><input id="<?php echo $this->get_field_id('filter'); ?>" name="<?php echo $this->get_field_name('filter'); ?>" type="checkbox" <?php checked(isset($instance['filter']) ? $instance['filter'] : 0); ?> />&nbsp;<label for="<?php echo $this->get_field_id('filter'); ?>"><?php _e('Automatically add paragraphs'); ?></label></p>
+        <p><input id="<?php echo $this->get_field_id('filter'); ?>" name="<?php echo $this->get_field_name('filter'); ?>" type="checkbox" <?php checked(isset($instance['filter']) ? $instance['filter'] : 0); ?> />&nbsp;<label for="<?php echo $this->get_field_id('filter'); ?>"><?php _e('Automatically add paragraphs', 'cozy'); ?></label></p>
 <?php
     }
 }

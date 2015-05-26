@@ -313,8 +313,8 @@ add_action( 'init', 'create_cozy_taxonomies', 0 );
 function create_cozy_taxonomies() {
     // Status - Custom Taxonomy for Properties
     $labels = array(
-        'name'              => _x( 'Status', 'taxonomy general name' ),
-        'singular_name'     => _x( 'Status', 'taxonomy singular name' ),
+        'name'              => _x( 'Status', 'taxonomy general name', 'cozy' ),
+        'singular_name'     => _x( 'Status', 'taxonomy singular name', 'cozy' ),
         'search_items'      => __( 'Search Status', 'cozy' ),
         'all_items'         => __( 'All Status', 'cozy' ),
         'parent_item'       => __( 'Parent Status', 'cozy' ),
@@ -340,8 +340,8 @@ function create_cozy_taxonomies() {
 
     // Property Types - Custom Taxonomy for Properties
     $labels = array(
-        'name'              => _x( 'Property Types', 'taxonomy general name' ),
-        'singular_name'     => _x( 'Property Type', 'taxonomy singular name' ),
+        'name'              => _x( 'Property Types', 'taxonomy general name', 'cozy' ),
+        'singular_name'     => _x( 'Property Type', 'taxonomy singular name', 'cozy' ),
         'search_items'      => __( 'Search Property Types', 'cozy' ),
         'all_items'         => __( 'All Property Types', 'cozy' ),
         'parent_item'       => __( 'Parent Property Types', 'cozy' ),
@@ -367,8 +367,8 @@ function create_cozy_taxonomies() {
 
     // Amenities - Custom Taxonomy for Properties
     $labels = array(
-        'name'                       => _x( 'Amenities', 'taxonomy general name' ),
-        'singular_name'              => _x( 'Amenity', 'taxonomy singular name' ),
+        'name'                       => _x( 'Amenities', 'taxonomy general name','cozy' ),
+        'singular_name'              => _x( 'Amenity', 'taxonomy singular name','cozy' ),
         'search_items'               => __( 'Search Amenities', 'cozy' ),
         'popular_items'              => __( 'Popular Amenities', 'cozy' ),
         'all_items'                  => __( 'All Amenities', 'cozy' ),
@@ -404,8 +404,8 @@ function create_cozy_taxonomies() {
         'hierarchical' => true,
         // This array of options controls the labels displayed in the WordPress Admin UI
         'labels' => array(
-            'name'              => _x('FAQ Category', 'taxonomy general name'),
-            'singular_name'     => _x('FAQ-Category', 'taxonomy singular name'),
+            'name'              => _x('FAQ Category', 'taxonomy general name', 'cozy'),
+            'singular_name'     => _x('FAQ-Category', 'taxonomy singular name', 'cozy'),
             'search_items'      => __('Search FAQ-Categories', 'cozy'),
             'all_items'         => __('All FAQ-Categories', 'cozy'),
             'parent_item'       => __('Parent FAQ-Category', 'cozy'),

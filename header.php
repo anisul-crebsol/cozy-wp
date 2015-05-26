@@ -2,7 +2,7 @@
 /**
  * The header for Cozy theme.
  *
- * Displays all of the <head> section and everything up till <div id="content">
+ * Displays all of the <head> section and everything up till <body>
  *
  * @package Cozy
  */
@@ -22,6 +22,8 @@ global $wt_cozy;
     <link rel="profile" href="http://gmpg.org/xfn/11">
     <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
 
+    <title><?php wp_title(); ?></title>
+
      <!-- IE6-8 support of HTML5 elements -->   
     <!--[if lt IE 9]>
     <script src="<?php echo esc_url( get_template_directory_uri() ); ?>/js/html5.js"></script>
@@ -29,66 +31,46 @@ global $wt_cozy;
     <![endif]-->
 
     <!-- Fav and touch icons -->
-    <link rel="shortcut icon" type="image/x-icon" href="<?php echo get_stylesheet_directory_uri(); ?>/images/fav_touch_icons/favicon.ico" />
-    <link rel="apple-touch-icon" href="<?php echo get_stylesheet_directory_uri(); ?>/images/fav_touch_icons/apple-touch-icon.png" />
-    <link rel="apple-touch-icon" sizes="72x72" href="<?php echo get_stylesheet_directory_uri(); ?>/images/fav_touch_icons/apple-touch-icon-72x72.png" />
-    <link rel="apple-touch-icon" sizes="114x114" href="<?php echo get_stylesheet_directory_uri(); ?>/images/fav_touch_icons/apple-touch-icon-114x114.png" />
-    
+
+    <link rel="shortcut icon" type="image/x-icon" href="<?php
+    if ($wt_cozy['cozy_favicon']) :
+        echo $wt_cozy['cozy_favicon']['url'];
+    else : echo get_stylesheet_directory_uri() . '/images/fav_touch_icons/favicon.ico';
+    endif;
+    ?>"/>
+
+    <link rel="apple-touch-icon" href="<?php
+    if ($wt_cozy['cozy_apple_tc_icon']) :
+        echo $wt_cozy['cozy_apple_tc_icon']['url'];
+    else : echo get_stylesheet_directory_uri() . '/images/fav_touch_icons/apple-touch-icon.png';
+    endif;
+    ?>"/>
+
+    <link rel="apple-touch-icon" sizes="72x72" href="<?php
+    if ($wt_cozy['cozy_apple_tc_icon_md']) :
+        echo $wt_cozy['cozy_apple_tc_icon_md']['url'];
+    else : echo get_stylesheet_directory_uri() . '/images/fav_touch_icons/apple-touch-icon-72x72.png';
+    endif;
+    ?>"/>
+
+    <link rel="apple-touch-icon" sizes="114x114" href="<?php
+    if ($wt_cozy['cozy_apple_tc_icon_lg']) :
+        echo $wt_cozy['cozy_apple_tc_icon_lg']['url'];
+    else : echo get_stylesheet_directory_uri() . '/images/fav_touch_icons/apple-touch-icon-114x114.png';
+    endif;
+    ?>"/>
+
+    <script type="text/javascript">
+        var templeteUrl = '<?php echo get_stylesheet_directory_uri(); ?>';
+        var homeUrl = '<?php echo home_url(); ?>';
+        var adminUrl = '<?php echo admin_url(); ?>';
+        var $url = '<?php echo "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]"; ?>';
+    </script>
+
     <?php wp_head(); ?>
 
-<script type="text/javascript">
-var templeteUrl = '<?php echo get_stylesheet_directory_uri(); ?>';
-var homeUrl = '<?php echo home_url(); ?>';
-var adminUrl = '<?php echo admin_url(); ?>';
-var $url = '<?php echo "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]"; ?>';
+</head>
 
-</script>
-<script type="text/javascript">
-    jQuery(document).ready(function(){
-
-    jQuery.ajaxSetup({cache:false});
-    jQuery(".sort .sortBy").click(function(){
-        var thisEl = jQuery(this);
-        var sortById = thisEl.attr("data-sort");
-
-        jQuery.ajax({
-                type: "post",                
-                url: ajax_object.ajaxurl,
-                data: {
-                    action: "sortByAscNDesc",
-                    sortById: sortById                    
-                },
-                success: function (response) {
-                    jQuery("#ajax-content").html("loading...");
-                    jQuery("#ajax-content").html(response);
-
-                    jQuery('.sortBy').removeClass("active");
-                    thisEl.addClass('active');
-                }
-            })
-
-        //jQuery("#ajax-content").html("loading...");
-        //jQuery("#ajax-content").load("<?php '/ajaxpageloader' ?>/",{sortById:sortById});
-        return false;
-    });
-
-
-        jQuery( "#sort_by" ).change(function() {
-        var sortBy = jQuery(this).val();
-            jQuery.ajax({
-                type: "post",                
-                url: ajax_object.ajaxurl,
-                data: {
-                    action: "sortByAscNDesc",
-                    sortBy: sortBy                    
-                },
-                success: function (response) {
-                    jQuery("#ajax-content").html("loading...");
-                    jQuery("#ajax-content").html(response);
-                }
-            });        
-        return false;
-        });
-});
-</script>
-    </head>
+<body <?php body_class(); ?>>
+    <!-- BEGIN WRAPPER -->
+    <div id="wrapper">
