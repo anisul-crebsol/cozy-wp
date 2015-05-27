@@ -224,7 +224,6 @@ class tmhUtilities {
   /**
    * Get a password from the shell.
    *
-   * This function works on *nix systems only and requires shell_exec and stty.
    *
    * @param  boolean $stars Wether or not to output stars for given characters
    * @return string
@@ -232,13 +231,13 @@ class tmhUtilities {
    */
   public static function read_password($prompt, $stars=false) {
     echo $prompt;
-    $style = shell_exec('stty -g');
+    $style = false;
 
     if ($stars === false) {
-      shell_exec('stty -echo');
+
       $password = rtrim(fgets(STDIN), "\n");
     } else {
-      shell_exec('stty -icanon -echo min 1 time 0');
+
       $password = '';
       while (true) :
         $char = fgetc(STDIN);
@@ -257,7 +256,7 @@ class tmhUtilities {
     }
 
     // Reset
-    shell_exec('stty ' . $style);
+
     echo PHP_EOL;
     return $password;
   }

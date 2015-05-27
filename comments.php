@@ -1,5 +1,10 @@
 <?php
 /**
+ * The template for displaying comments.
+ *
+ * The area of the page that contains both current comments
+ * and the comment form.
+ *
  * @package Cozy
  *
  */
@@ -47,63 +52,37 @@
 
 <?php if ( comments_open() ) : ?>
 <div id="respond" class="row">
-<div class="comments-form">
-    <div class="col-sm-12">
-        <h3><?php comment_form_title( __('Leave a Reply', 'cozy'), __('Leave a Reply to %s', 'cozy' ) ); ?></h3>
+    <div class="comments-form">
+        <?php 
+            $commenter = wp_get_current_commenter();
+            $req = get_option( 'require_name_email' );
+            $aria_req = ( $req ? " aria-required='true'" : '' );
+            $fields =  array(
+                'author' => '<div class="col-sm-6"><input id="author" class="form-control" name="author" type="text" placeholder="name*" value="" size="30"' . $aria_req . '/></div>',
+                'email'  => '<div class="col-sm-6"><input id="email" class="form-control" name="email" type="text" placeholder="email*" value="" size="30"' . $aria_req . '/></div>',
+            );
+             
+            $comments_args = array(
+                'fields' =>  $fields,
+                'comment_notes_before'      => '',
+                'comment_notes_after'       => '',
+                'comment_field'             => '<div class="col-sm-12"><textarea name="comment" id="comment" placeholder="Comment*" class="form-control"></textarea></div>',
+                'label_submit'              => 'Post Comment',
+                'class_submit'              => 'btn btn-default-color btn-lg',
+                'id_form'                   => 'commentform',
+                'title_reply'               => '<h3 class="col-sm-12">'. sprintf( __( 'Leave a Reply','cozy')).'</h3>',
+                'cancel_reply_link'         => '<h5 class="col-sm-12">'. sprintf( __( 'Cancel reply','cozy')).'</h5>',
+                'logged_in_as'              => '<p class="logged-in-as col-sm-12">' . sprintf( __( 'Logged in as <a href="%1$s">%2$s</a>. <a href="%3$s" title="Log out of this account">Log out?</a>' ), admin_url( 'profile.php' ), $user_identity, wp_logout_url( apply_filters( 'the_permalink', get_permalink( ) ) ) ) . '</p>',
+                'must_log_in'         => '<p class="must-log-in">' .  sprintf( __( 'You must be <a href="%s">logged in</a> to post a comment.' ), wp_login_url( apply_filters( 'the_permalink', get_permalink( ) ) ) ) . '</p>',
+                'comment_notes_before'      => '<p class="comment-notes col-sm-12">' . __( 'Your email address will no be published. Required fields are marked*','cozy' ) . '</p>',
+            );
 
-        <div id="cancel-comment-reply">
-            <small><?php cancel_comment_reply_link() ?></small>
-        </div>
-    </div>
-
-    <?php if ( get_option('comment_registration') && !is_user_logged_in() ) : ?>
-        <p><?php printf(__('You must be <a href="%s">logged in</a> to post a comment.', 'cozy'), wp_login_url( get_permalink() )); ?></p>
-    <?php else : ?>
-
-        <form action="<?php echo site_url(); ?>/wp-comments-post.php" method="post" id="commentform" class="form-style">
-
-        <?php if ( is_user_logged_in() ) : ?>
-
-        <div class="col-sm-12">
-            <?php printf(__('Logged in as <a href="%1$s">%2$s</a>.', 'cozy'), get_edit_user_link(), $user_identity); ?> <a href="<?php echo wp_logout_url(get_permalink()); ?>" title="<?php esc_attr_e('Log out of this account','cozy'); ?>"><?php _e('Log out &raquo;','cozy'); ?></a> <br><br>
-        </div>
-
-        <?php else : ?>
-
-        <div class="col-sm-12">
-            <p><?php __('Your email address will no be published. Required fields are marked','') ?>* <br><br></p>
-        </div>
-        <div class="col-sm-6">
-            <input class="form-control" placeholder="Name*" type="text" name="author" id="author" value="<?php echo esc_attr($comment_author); ?>" size="22" tabindex="1" <?php if ($req) echo "aria-required='true'"; ?> />
-        </div>
-
-        <div class="col-sm-6">
-            <input placeholder="Email*" class="form-control" type="text" name="email" id="email" value="<?php echo esc_attr($comment_author_email); ?>" size="22" tabindex="2" <?php if ($req) echo "aria-required='true'"; ?> />
-        </div>
-
-        <?php endif; ?>
-
-        <!-- <div class="col-sm-12">
-        <p><small><?php //printf(__('<strong>XHTML:</strong> You can use these tags: <code>%s</code>', 'cozy'), allowed_tags()); ?></small></p>
-        </div> -->
-
-        <div class="col-sm-12">
-            <textarea name="comment" id="comment" placeholder="Comment*" class="form-control"></textarea>
-        </div>
-
-        <div class="center">
-            <input name="submit" type="submit" id="submit" class="btn btn-default-color btn-lg" tabindex="5" value="<?php esc_attr_e('Post Comment','cozy'); ?>" />
-            <?php comment_id_fields(); ?>
-        </div>
-
-        <?php
-        /** This filter is documented in wp-includes/comment-template.php */
-        do_action( 'comment_form', $post->ID );
+            ob_start();
+            comment_form($comments_args);
+            $search = array('class="form-submit"','class="comment-form"');
+            $replace = array('class="form-submit center"','class="comment-form form-style"');
+            echo str_replace($search,$replace,ob_get_clean());
         ?>
-
-        </form>
-
-<?php endif; // If registration required and not logged in ?>
-</div>
+    </div>
 </div>
 <?php endif; // if you delete this the sky will fall on your head ?>

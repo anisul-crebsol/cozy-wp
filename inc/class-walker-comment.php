@@ -88,6 +88,9 @@ class WT_Cozy_Walker_Comment extends Walker_Comment {
     function __destruct() { ?>
     
     </ul><!-- /#comment-list -->
+    <div class="comments-pagination">
+        <?php paginate_comments_links(); ?>
+    </div>
 
     <?php }
 }

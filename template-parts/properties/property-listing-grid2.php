@@ -6,13 +6,13 @@ $count = 0;
 $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 $property_args = array(
     'post_type' => 'property',
-    'paged' => $paged,
-    'tax_query'	=> array(
+    'paged'     => $paged,
+    'tax_query' => array(
         array(
-            'taxonomy'	=> 'property-status',
-            'field'		=> 'slug',
-            'terms'		=> array( 'featured' ),
-            'operator'	=> 'NOT IN',
+            'taxonomy'  => 'property-status',
+            'field'     => 'slug',
+            'terms'     => array( 'featured' ),
+            'operator'  => 'NOT IN',
         ),
     ),
 );

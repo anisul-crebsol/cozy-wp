@@ -5,7 +5,6 @@ $count = 0;
 $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 $agent_args = array(
     'post_type' => 'agent',
-    'posts_per_page' => $display_posts,
     'paged' => $paged
 );
 query_posts($agent_args);

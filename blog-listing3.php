@@ -25,8 +25,6 @@ get_header(); ?>
                 <!-- BEGIN MAIN CONTENT -->
                 <div class="main col-sm-8">
 
-                    <?php get_template_part ('/template-parts/blog-listing/listing-header2'); ?>
-
 
                     <!-- BEGIN BLOG LISTING -->
                     <?php get_template_part ('/template-parts/blog-listing/blog-listing3'); ?>

@@ -14,7 +14,6 @@ $property_args = array(
 $property_args2 = array(
     'post_type' => 'property',
     'paged' => $paged,
-    'showposts' => $display_posts,
     'meta_key' => '_wt_property_area',
     'order' => strtoupper($sort_order),
     'orderby' => 'meta_value_num'
@@ -23,28 +22,24 @@ $property_args2 = array(
 $property_args3 = array(
     'post_type' => 'property',
     'paged' => $paged,
-    'showposts' => $display_posts,
     'orderby' => 'date',
     'order' => strtoupper($sort_order)
 );
 $property_args4 = array(
     'post_type' => 'property',
     'paged' => $paged,
-    'showposts' => $display_posts,
     'orderby' => 'date',
     'order' => strtoupper($sort_order)
 );
 $property_args5 = array(
     'post_type' => 'property',
     'paged' => $paged,
-    'showposts' => $display_posts,
     'orderby' => 'date',
     'order' => 'DESC'
 );
 $property_args6 = array(
     'post_type' => 'property',
     'paged' => $paged,
-    'showposts' => $display_posts,
     'orderby' => 'meta_value_num',
     'meta_key' => '_wt_property_area',
     'order' => 'DESC'
