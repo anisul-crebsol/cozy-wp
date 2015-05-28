@@ -6,7 +6,6 @@
 
     $agent_address = get_post_meta( get_the_ID(), '_wt_agent_address', true );
     $agent_email = get_post_meta( get_the_ID(), '_wt_agent_email', true );
-    $agent_image = get_post_meta( get_the_ID(), '_wt_agent_img', true );
     $agent_country = get_post_meta( get_the_ID(), '_wt_agent_country', true );
     $agent_telephone = get_post_meta( get_the_ID(), '_wt_agent_telephone', true );
     $agent_linkedin_link = get_post_meta( get_the_ID(), '_wt_agent_linkedin_link', true );
@@ -17,11 +16,11 @@
 <div class="agent-detail clearfix">
     <div class="image col-md-5">
         <?php
-        if ($agent_image) {
-            echo '<img alt="" src="'. $agent_image .' " />';
+        if ( has_post_thumbnail() ) {
+            the_post_thumbnail('agent', array('class' => 'img-responsive'));
         }
         else {
-            echo '<img alt="" src="http://placehold.it/307x307" />';
+            echo '<img src="http://placehold.it/307x307" />';
         }
         ?>
     </div>

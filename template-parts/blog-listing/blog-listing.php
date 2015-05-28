@@ -19,7 +19,15 @@
             <a href="<?php the_permalink(); ?>">
                 <span class="btn btn-default"><i class="fa fa-file-o"></i> <?php _e( 'Read More', 'cozy' );?></span>
             </a>
-            <?php echo wt_cozy_thumbnail('230x155'); ?>
+            <a href="<?php the_permalink(); ?>"></a>
+            <?php
+            if ( has_post_thumbnail() ) {
+                the_post_thumbnail('blog-listing', array('class' => 'img-responsive'));
+            }
+            else {
+                echo '<img src="http://placehold.it/766x515" />';
+            }
+            ?>
         </div>
         <div class="tag"><i class="fa fa-file-text"></i></div>
         <div class="info-blog">

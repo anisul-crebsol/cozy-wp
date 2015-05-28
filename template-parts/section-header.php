@@ -10,8 +10,8 @@
                         </ul>
 
                         <ul id="top-buttons">
-                            <li><a href="<?php echo esc_url( home_url( '/login/' ) ); ?>"><i class="fa fa-sign-in"></i> Login</a></li>
-                            <li><a href="<?php echo esc_url( home_url( '/register/' ) ); ?>"><i class="fa fa-pencil-square-o"></i> Register</a></li>
+                            <li><a href="<?php echo esc_url( home_url( '/login/' ) ); ?>"><i class="fa fa-sign-in"></i> <?php _e( 'Login', 'cozy' ); ?></a></li>
+                            <li><a href="<?php echo esc_url( home_url( '/register/' ) ); ?>"><i class="fa fa-pencil-square-o"></i> <?php _e( 'Register', 'cozy' ); ?></a></li>
                         </ul>
                     </div>
                 </div>

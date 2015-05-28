@@ -11,7 +11,14 @@ global $wt_cozy; ?>
     <h1 class="blog-title"><?php the_title(); ?></h1>
 
     <div class="blog-main-image">
-        <?php echo wt_cozy_thumbnail('765x362'); ?>
+        <?php
+        if ( has_post_thumbnail() ) {
+            the_post_thumbnail('blog-detail', array('class' => 'img-responsive'));
+        }
+        else {
+            echo '<img src="http://placehold.it/764x423" />';
+        }
+        ?>
         <div class="tag"><i class="fa fa-file-text"></i></div>
     </div>
 

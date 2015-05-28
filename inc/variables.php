@@ -24,7 +24,7 @@ var properties_cluster_marker = templeteUrl+'/images/markers/coral-marker.png', 
 
     use_default_map_style = false, //If true, default map style will be used
 
-    twitter_username = "Envato", //Replace with your own Twitter username
+    twitter_username = "<?php global $wt_cozy; echo $wt_cozy['twitter_username']?>", //Replace with your own Twitter username
 
     mobileMenuTitle = "Menu"; //The title of the mobile menu
 </script>

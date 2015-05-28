@@ -14,7 +14,6 @@ while (have_posts()) : the_post();
     $agent_description = do_shortcode(wpautop(get_post_meta( get_the_ID(), '_wt_agent_description', true )));
     $agent_address = get_post_meta( get_the_ID(), '_wt_agent_address', true );
     $agent_email = get_post_meta( get_the_ID(), '_wt_agent_email', true );
-    $agent_image = get_post_meta( get_the_ID(), '_wt_agent_img', true );
     $agent_country = get_post_meta( get_the_ID(), '_wt_agent_country', true );
     $agent_telephone = get_post_meta( get_the_ID(), '_wt_agent_telephone', true );
     $agent_linkedin_link = get_post_meta( get_the_ID(), '_wt_agent_linkedin_link', true );
@@ -27,12 +26,13 @@ while (have_posts()) : the_post();
 <div class="item col-md-4"><!-- Set width to 4 columns for grid view mode only -->
     <div class="image">
         <a href="<?php the_permalink(); ?>"><span class="btn btn-default"><i class="fa fa-plus"></i> <?php _e('Details','cozy'); ?></span></a>
+        <a href="<?php the_permalink(); ?>"></a>
         <?php
-        if ($agent_image) {
-            echo '<img alt="" src="'. $agent_image .' " />';
+        if ( has_post_thumbnail() ) {
+            the_post_thumbnail('agent', array('class' => 'img-responsive'));
         }
         else {
-            echo '<img alt="" src="http://placehold.it/307x307" />';
+            echo '<img src="http://placehold.it/307x307" />';
         }
         ?>
     </div>

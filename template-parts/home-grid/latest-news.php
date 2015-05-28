@@ -9,7 +9,7 @@
                 <p class="center" data-animation-direction="from-left" data-animation-delay="250">
                     <?php echo $wt_cozy['section_news_description']?>
                     <br><br>
-                    <a href="<?php echo get_home_url(); ?>/blog/" class="btn btn-default-color" data-animation-direction="from-left" data-animation-delay="450"><?php _e( 'View All', 'cozy' );?></a>
+                    <a href="<?php echo esc_url( home_url( '/blog/' ) ); ?>" class="btn btn-default-color" data-animation-direction="from-left" data-animation-delay="450"><?php _e( 'View All', 'cozy' );?></a>
                     <br><br>
                 </p>
             </div>

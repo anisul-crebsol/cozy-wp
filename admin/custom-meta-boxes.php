@@ -135,11 +135,6 @@ function wt_cozy_register_metabox() {
         'show_names'    => true, // Show field names on the left
     ) );
     $wt_cozy->add_field( array(
-                'name' => __('Agent Image ','cozy'),
-                'id' => $prefix . 'agent_img',
-                'type' => 'file'
-    ) );
-    $wt_cozy->add_field( array(
                 'name' => __('Agent Name','cozy'),
                 'id' => $prefix . 'agent_name',
                 'type' => 'text_medium'
@@ -588,7 +583,6 @@ function wt_cozy_register_metabox() {
     'default'          => 'custom',
     'options'          => wt_cozy_agent_list( array( 'post_type' => 'agency', 'numberposts' => -1 ) ),
     ) );
-
 
 
     // Our Partners Meta Box

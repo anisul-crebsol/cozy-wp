@@ -22,7 +22,7 @@ var adminUrl = '<?php echo admin_url(); ?>';
             "longitude": <?php global $wt_cozy; echo $wt_cozy['contact_map_long']?>,
             "image": "http://placehold.it/700x603",
             "description": "<?php global $wt_cozy; echo $wt_cozy['section_contact_address']?> <br> <?php global $wt_cozy; echo $wt_cozy['section_contact_phone']?>",
-            "map_marker_icon": templeteUrl+"images/markers/coral-marker-cozy.png"
+            "map_marker_icon": templeteUrl+"/images/markers/coral-marker-cozy.png"
         }
     ];
 </script>

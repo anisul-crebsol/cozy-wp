@@ -6,22 +6,26 @@ function wt_cozy_thumbnail($placeholderImge = '') {
     $upload_dir = $uploads_dir['basedir']."/";
     $thumb_url = wp_get_attachment_url( get_post_thumbnail_id( get_the_ID(), array('class' => 'img-responsive') ) );            
     $check_image_dir = str_replace($upload_url, $upload_dir, $thumb_url);
+    $attachment_id = get_post_thumbnail_id( get_the_ID() );
+    $alt_text = trim(strip_tags( get_post_meta($attachment_id, '_wp_attachment_image_alt', true) ));
     if ( has_post_thumbnail() ) {
         if(@file_exists($check_image_dir)){                
          //the_post_thumbnail('thumbnail', array('class' => 'img-responsive'));
-         echo '<img src="'.$thumb_url.'" />';
+            $output = '<img src="'.$thumb_url.'" alt="'.$alt_text.'"/>';
         } else {
-            echo '<img src="http://placehold.it/'.$placeholderImge.'" />';
+            $output = '<img src="http://placehold.it/'.$placeholderImge.'" alt="placeholder"/>';
         }
     }
     else {
-        echo '<img src="http://placehold.it/'.$placeholderImge.'" />';
+        $output = '<img src="http://placehold.it/'.$placeholderImge.'"  alt="placeholder"/>';
     }
+    return $output;
 }
 
 function wt_cozy_single_property_slider( $file_list_meta_key) {
 
     // Get the list of files
+    $attach = '';
     $files = get_post_meta( get_the_ID(), $file_list_meta_key, true );
 
     // Loop through them and output an image
@@ -42,6 +46,7 @@ function wt_cozy_single_property_slider( $file_list_meta_key) {
 
 function wt_cozy_single_agency_slider( $file_list_meta_key) {
 
+    $attach = '';
     // Get the list of files
     $files = get_post_meta( get_the_ID(), $file_list_meta_key, true );
 

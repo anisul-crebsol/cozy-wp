@@ -61,7 +61,14 @@ class WT_Cozy_Widget_Latest_News extends WP_Widget {
     <li class="col-md-12">
         <div class="image">
             <a href="<?php the_permalink(); ?>"></a>
-            <?php echo wt_cozy_thumbnail('100x100'); ?>
+            <?php
+            if ( has_post_thumbnail() ) {
+                the_post_thumbnail('sidebar-thumb', array('class' => 'img-responsive'));
+            }
+            else {
+                echo '<img src="http://placehold.it/100x100" />';
+            }
+            ?>
         </div>
 
         <ul class="top-info">

@@ -265,7 +265,7 @@
                 $this->sections[] = array(
                     'title'  => __( 'Contact', 'cozy' ),
                     'desc'   => __( '', 'cozy' ),
-                    'icon'   => 'el-icon-phone-alt',
+                    'icon'   => 'el-icon-phone',
                     // 'submenu' => false, // Setting submenu to false on a given section will hide it from the WordPress sidebar menu!
                     'fields' => array(
                         array(
@@ -587,16 +587,9 @@
                         array(
                             'id' => 'section_feature_number_grid',
                             'type' => 'text',
-                            'title' => __('How many posts to display in grid page?', 'cozy'),
+                            'title' => __('How many posts to display in home grid page?', 'cozy'),
                             'default' => "4",
                         ),
-
-                        array(
-                            'id' => 'section_feature_number_slider',
-                            'type' => 'text',
-                            'title' => __('How many posts to display in slider page?', 'cozy'),
-                            'default' => "3",
-                        ),                                     
                     ),
                 );
 
@@ -912,6 +905,12 @@
                             'type' => 'text',
                             'title' => __(' ', 'cozy'),
                             'default' => "Land<br/>Properties Sold",
+                        ),
+                      array(
+                            'id' => 'twitter_username',
+                            'type' => 'text',
+                            'title' => __('Twitter Username', 'cozy'),
+                            'default' => "Envato",
                         ),
                     ),
                 );
