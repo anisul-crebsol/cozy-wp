@@ -10,7 +10,7 @@
         ?>
             <div class="col-sm-7">
                 <h2 data-animation-direction="from-left" data-animation-delay="100"><?php echo $grid_title; ?></h2>
-                <p data-animation-direction="from-left" data-animation-delay="300"><?php echo $grid_description ?></p>
+                <?php echo $grid_description ?>
                 <a href="<?php echo $agents_link; ?>" class="btn btn-default-color" data-animation-direction="from-left" data-animation-delay="500"><?php _e( 'Find an Agent', 'cozy' );?></a>
             </div>
 

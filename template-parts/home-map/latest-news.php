@@ -12,7 +12,13 @@
     <div class="item">
         <div class="image">
             <a href="<?php the_permalink(); ?>"><span class="btn btn-default"><i class="fa fa-file-o"></i> <?php _e( 'Read More', 'cozy' );?></span></a>
-            <?php echo wt_cozy_thumbnail('760x670'); ?>
+            <?php
+            if ( has_post_thumbnail() ) {
+                the_post_thumbnail('blog-listing', array('class' => 'img-responsive'));
+            }
+            else {
+                echo '<img src="http://placehold.it/766x515" alt="placeholder" />';
+            }
             ?>
         </div>
 

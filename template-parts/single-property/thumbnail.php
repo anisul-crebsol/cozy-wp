@@ -8,7 +8,7 @@
             the_post_thumbnail('blog-detail', array('class' => 'img-responsive'));
         }
         else {
-            echo '<img src="http://placehold.it/148x131" />';
+            echo '<img src="http://placehold.it/148x131" alt="placeholder"/>';
         }
     }
     ?>

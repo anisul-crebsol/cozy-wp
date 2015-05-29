@@ -8,7 +8,7 @@
                 <div class="slider-subtitle"><?php echo $wt_cozy['section_search_heading2']?></div>
             </div>
 
-            <form role="search" method="get" class="search-form" id="search-form" action="<?php echo home_url( '/' ); ?>">
+            <form role="search" method="get" class="search-form" id="search-form-home" action="<?php echo home_url( '/' ); ?>">
                 <div id="home-search-buttons" class="col-sm-6 col-sm-offset-3" data-animation-direction="from-bottom" data-animation-delay="250" >
                     <input type="button" class="btn btn-default active" id="for-sale" name="for-sale" value="<?php _e( 'for sale', 'cozy' );?>" />
                     <input type="button" class="btn btn-default" id="for-rent" name="for-rent" value="<?php _e( 'for rent', 'cozy' );?>" />
@@ -24,7 +24,7 @@
                         </span>
                     </div>
 
-                    <a href="<?php echo home_url( '/?s=&post_type=property' ); ?>" class="advanced-search"><?php _e( 'Advanced Search', 'cozy' );?></a>
+                    <a href="<?php echo home_url( '/?s=&amp;post_type=property' ); ?>" class="advanced-search"><?php _e( 'Advanced Search', 'cozy' );?></a>
                 </div>
             </form>
         </div>

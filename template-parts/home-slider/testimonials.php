@@ -29,11 +29,18 @@
 
                     <div class="item">
                         <blockquote class="text">
-                            <p><?php echo $test_description; ?></p>
+                            <?php echo $test_description; ?>
                         </blockquote>
                         <div class="col-md-5 center">
                             <div class="author">
-                                <img src="<?php echo $test_image; ?>" alt="" />
+                                <?php
+                                if ( has_post_thumbnail() ) {
+                                    the_post_thumbnail('sidebar-thumb', array('class' => 'img-responsive'));
+                                }
+                                else {
+                                    echo '<img src="http://placehold.it/100x100" alt="placeholder" />';
+                                }
+                                ?>
                                 <div>
                                     <?php echo $test_name; ?><br>
                                     <span><?php echo $test_designation; ?></span>

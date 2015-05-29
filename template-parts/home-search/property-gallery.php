@@ -19,7 +19,14 @@
     <div class="item" data-animation-direction="from-bottom" data-animation-delay="350">
         <a href="<?php if(has_post_thumbnail()) { echo $url = $thumb['0']; } else {echo 'http://placehold.it/760x670';} ?>" data-gal="prettyPhoto[gallery]" title="<?php echo $title; ?>"><span class="btn btn-default">+</span>
         </a>
-        <?php echo wt_cozy_thumbnail('246x216'); ?>
+        <?php
+        if ( has_post_thumbnail() ) {
+            the_post_thumbnail('property-gallery', array('class' => 'img-responsive'));
+        }
+        else {
+            echo '<img src="http://placehold.it/246x217" alt="placeholder" />';
+        }
+        ?>
     </div>
     <?php endwhile; ?>
     <?php wp_reset_postdata(); ?>

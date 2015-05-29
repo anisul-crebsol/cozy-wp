@@ -9,7 +9,7 @@
                 'post_type'         => 'property',
                 'post_status'       => 'publish',
                 'posts_per_page'    => $limit,
-                'post__not_in' 		=> array(get_the_ID())
+                'post__not_in'      => array(get_the_ID())
             );
             $property_query = new WP_Query( $args );
             ?>

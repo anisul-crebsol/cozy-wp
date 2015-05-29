@@ -9,12 +9,12 @@
                 'post_type'         => 'property',
                 'post_status'       => 'publish',
                 'posts_per_page'    => $limit,
-                'meta_key'   		=> '_wt_property_author',
-                'meta_value' 		=> get_the_ID(),
+                'meta_key'          => '_wt_property_author',
+                'meta_value'        => get_the_ID(),
             );
             $property_query = new WP_Query( $args );
-            ?>
-        <?php while($property_query->have_posts()): $property_query->the_post();
+
+        while($property_query->have_posts()): $property_query->the_post();
 
             $property_address = get_post_meta( get_the_ID(), '_wt_property_address', true );
             $property_price = get_post_meta( get_the_ID(), '_wt_property_price', true);
@@ -33,7 +33,14 @@
                     <h3><?php the_title() ?></h3>
                     <?php if ($property_price !='') { ?><span class="location"><?php echo $property_address; ?></span><?php } ?>
                 </a>
-                <?php echo wt_cozy_thumbnail('760x670'); ?>
+                <?php
+                if ( has_post_thumbnail() ) {
+                    the_post_thumbnail('properties-list', array('class' => 'img-responsive'));
+                }
+                else {
+                    echo '<img src="http://placehold.it/760x670" alt="placeholder" />';
+                }
+                ?>
             </div>
             <div class="price">
                 <i class="fa fa-home"></i>

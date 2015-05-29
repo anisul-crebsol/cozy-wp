@@ -20,7 +20,7 @@
             the_post_thumbnail('agent', array('class' => 'img-responsive'));
         }
         else {
-            echo '<img src="http://placehold.it/307x307" />';
+            echo '<img src="http://placehold.it/307x307" alt="placeholder" />';
         }
         ?>
     </div>
@@ -32,10 +32,10 @@
                 <li>
                 <?php
                     $args = array(
-                        'post_type'         => 'property',
-                        'post_status'       => 'publish',
-                        'meta_key'   		=> '_wt_property_author',
-                        'meta_value' 		=> get_the_ID(),
+                        'post_type'     => 'property',
+                        'post_status'   => 'publish',
+                        'meta_key'      => '_wt_property_author',
+                        'meta_value'    => get_the_ID(),
                     );
                     $wp_query = new WP_Query( $args );
                     echo $wp_query->found_posts; _e( ' '.'Assigned Properties', 'cozy' );

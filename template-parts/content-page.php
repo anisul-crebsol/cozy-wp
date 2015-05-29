@@ -24,7 +24,7 @@ global $wt_cozy; ?>
     ?>
 
             <div class="item" data-animation-direction="from-bottom" data-animation-delay="250">
-                <a href="<?php echo $entry['partner_link']; ?>"><img src="<?php echo $partners_image; ?>" alt='' <?php if($mouseOverImg): echo $mouseOverImage = "onmouseover=\"this.src='$mouseOverImg';\"  onmouseout=\"this.src='$partners_image';\""; endif; ?> ></img></a>
+                <a href="<?php echo $entry['partner_link']; ?>"><img src="<?php echo $partners_image; ?>" alt='partner' <?php if($mouseOverImg): echo $mouseOverImage = "onmouseover=\"this.src='$mouseOverImg';\"  onmouseout=\"this.src='$partners_image';\""; endif; ?> ></a>
             </div>
         <?php }
         echo "</div>";

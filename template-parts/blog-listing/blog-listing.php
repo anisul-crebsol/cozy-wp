@@ -25,7 +25,7 @@
                 the_post_thumbnail('blog-listing', array('class' => 'img-responsive'));
             }
             else {
-                echo '<img src="http://placehold.it/766x515" />';
+                echo '<img src="http://placehold.it/766x515" alt="placeholder" />';
             }
             ?>
         </div>

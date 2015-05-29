@@ -1,15 +1,15 @@
 <?php global $wt_cozy; ?>
 <?php
-    $agency_street = get_post_meta( $post->ID, '_wt_agency_street', true );
-    $agency_city = get_post_meta( $post->ID, '_wt_agency_city', true );
-    $agency_state = get_post_meta( $post->ID, '_wt_agency_state', true );
-    $agency_country = get_post_meta( $post->ID, '_wt_agency_country', true );
-    $agency_email = get_post_meta( $post->ID, '_wt_agency_email', true );
-    $agency_telephone = get_post_meta( $post->ID, '_wt_agency_telephone', true );
-    $agency_gplus = get_post_meta( $post->ID, '_wt_agency_youtube', true );
-    $agency_facebook = get_post_meta( $post->ID, '_wt_agency_facebook', true );
-    $agency_twitter = get_post_meta( $post->ID, '_wt_agency_twitter', true );
-    $agency_youtube = get_post_meta( $post->ID, '_wt_agency_youtube', true );
+    $agency_street = get_post_meta( get_the_ID(), '_wt_agency_street', true );
+    $agency_city = get_post_meta( get_the_ID(), '_wt_agency_city', true );
+    $agency_state = get_post_meta( get_the_ID(), '_wt_agency_state', true );
+    $agency_country = get_post_meta( get_the_ID(), '_wt_agency_country', true );
+    $agency_email = get_post_meta( get_the_ID(), '_wt_agency_email', true );
+    $agency_telephone = get_post_meta( get_the_ID(), '_wt_agency_telephone', true );
+    $agency_gplus = get_post_meta( get_the_ID(), '_wt_agency_youtube', true );
+    $agency_facebook = get_post_meta( get_the_ID(), '_wt_agency_facebook', true );
+    $agency_twitter = get_post_meta( get_the_ID(), '_wt_agency_twitter', true );
+    $agency_youtube = get_post_meta( get_the_ID(), '_wt_agency_youtube', true );
 ?>
 <div class="agency-detail clearfix">
     <div id="agency_map" class="map col-md-6"></div>

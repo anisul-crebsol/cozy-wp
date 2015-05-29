@@ -38,7 +38,14 @@ if ( 0 == $count%3 ) { echo '<div class="clearfix"></div>'; }
         <a href="<?php the_permalink(); ?>">
             <span class="btn btn-default"><i class="fa fa-file-o"></i> <?php _e('Details', 'cozy'); ?></span>
         </a>
-        <?php echo wt_cozy_thumbnail('760x670'); ?>
+        <?php
+        if ( has_post_thumbnail() ) {
+            the_post_thumbnail('properties-list', array('class' => 'img-responsive'));
+        }
+        else {
+            echo '<img src="http://placehold.it/760x670" alt="placeholder" />';
+        }
+        ?>
     </div>
     <div class="price">
         <i class="fa fa-home"></i>

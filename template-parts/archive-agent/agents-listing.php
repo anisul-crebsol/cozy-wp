@@ -32,7 +32,7 @@ while (have_posts()) : the_post();
             the_post_thumbnail('agent', array('class' => 'img-responsive'));
         }
         else {
-            echo '<img src="http://placehold.it/307x307" />';
+            echo '<img src="http://placehold.it/307x307" alt="placeholder" />';
         }
         ?>
     </div>

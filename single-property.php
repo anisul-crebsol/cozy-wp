@@ -23,7 +23,11 @@ get_header(); ?>
 
             <!-- BEGIN MAIN CONTENT -->
             <div class="main col-sm-8">
-            <?php while ( have_posts() ) : the_post(); ?>
+                <?php
+                while ( have_posts() ) : the_post();
+
+                $property_description = do_shortcode(wpautop(get_post_meta( get_the_ID(), '_wt_property_description', true )));
+                ?>
 
 
                 <?php get_template_part ('/template-parts/single-property/topinfo'); ?>
@@ -45,8 +49,7 @@ get_header(); ?>
                 <!-- END PROPERTY DETAIL SLIDERS WRAPPER -->
 
                 <!-- BEGIN PROPERTY DESCRIPTION -->
-                <?php
-                $property_description = do_shortcode(wpautop(get_post_meta( get_the_ID(), '_wt_property_description', true ))); echo $property_description; ?>
+                <?php echo $property_description; ?>
                 <!-- END PROPERTY DESCRIPTION -->
 
                 <!-- BEGIN PROPERTY AMENITIES LIST -->

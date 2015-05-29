@@ -91,11 +91,6 @@ function wt_cozy_register_metabox() {
         'show_names'    => true, // Show field names on the left
     ) );
     $wt_cozy->add_field( array(
-                'name' => __('Testimonial image ','cozy'),
-                'id' => $prefix . 'test_image',
-                'type' => 'file'
-    ) );
-    $wt_cozy->add_field( array(
                 'name' => __('Name of the Person ','cozy'),
                 'id' => $prefix . 'test_name',
                 'type' => 'text_medium'

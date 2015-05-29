@@ -49,12 +49,15 @@ function cozy_setup() {
         'default-image' => '',
     ) ) );
 
+    // Crop featured images to many size
     add_image_size( 'properties-list', 760, 670, true );
     add_image_size( 'property-details', 764, 423, true );
     add_image_size( 'blog-listing', 766, 515, true );
     add_image_size( 'blog-listing-wide', 750, 256, true );
     add_image_size( 'blog-detail', 765, 362, true );
     add_image_size( 'agent', 307, 307, true );
+    add_image_size( 'property-slider', 270, 238, true );
+    add_image_size( 'property-gallery', 246, 217, true );
     add_image_size( 'sidebar-thumb', 100, 100, true );
     add_image_size( 'footer-thumb', 50, 50, true );
 }

@@ -31,7 +31,7 @@
 
 
                 <div class="center">
-                    <a href="<?php echo $archive_url; ?>" class="btn btn-default-color" data-animation-direction="from-bottom" data-animation-delay="1050">Register Now!</a>
+                    <a href="<?php echo $archive_url; ?>" class="btn btn-default-color" data-animation-direction="from-bottom" data-animation-delay="1050"><?php _e('Register Now!','') ?></a>
                 </div>
                 <?php wp_reset_postdata(); ?>
             </div>

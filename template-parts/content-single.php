@@ -16,7 +16,7 @@ global $wt_cozy; ?>
             the_post_thumbnail('blog-detail', array('class' => 'img-responsive'));
         }
         else {
-            echo '<img src="http://placehold.it/764x423" />';
+            echo '<img src="http://placehold.it/764x423" alt="placeholder"/>';
         }
         ?>
         <div class="tag"><i class="fa fa-file-text"></i></div>

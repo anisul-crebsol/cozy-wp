@@ -14,14 +14,20 @@
         $agent_query = new WP_Query( $args );?>
     <?php while($agent_query->have_posts()): $agent_query->the_post();
 
-        $agent_image = get_post_meta( get_the_ID(), '_wt_agent_img', true );
         $agent_address = get_post_meta( get_the_ID(), '_wt_agent_address', true );
         $agent_description = do_shortcode(wpautop(get_post_meta( get_the_ID(), '_wt_agent_description', true )));
-        if ( 0 == $count%2 ) { echo '<div class="clearfix"></div>'; }
+        if ($count != 0 && $count%2 == 0) { echo '<li class="content-none"><span class="clearfix"></span></li>'; }
     ?>
         <li class="col-lg-6" data-animation-direction="from-left" data-animation-delay="250">
             <a href="<?php the_permalink(); ?>">
-            <img src="<?php echo $agent_image; ?>" alt=""></a>
+                <?php
+                if ( has_post_thumbnail() ) {
+                    the_post_thumbnail('agent', array('class' => 'img-responsive'));
+                }
+                else {
+                    echo '<img src="http://placehold.it/307x307" alt="placeholder" />';
+                }
+                ?></a>
             <div class="info">
                 <?php the_title( sprintf( '<a href="%s"><h3>', esc_url( get_permalink() ) ), '</h3></a>' ); ?>
                 <span class="location"><?php echo $agent_address; ?></span>

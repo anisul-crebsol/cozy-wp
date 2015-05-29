@@ -6,9 +6,9 @@ $count = 0;
 $display_posts = $wt_cozy['section_grid_number'];
 $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 $property_args = array(
-    'post_type' => 'agent',
-    'posts_per_page' => $display_posts,
-    'paged' => $paged
+    'post_type'         => 'agent',
+    'posts_per_page'    => $display_posts,
+    'paged'             => $paged
 );
 query_posts($property_args);
 if (have_posts()) : while (have_posts()) : the_post();
@@ -29,11 +29,11 @@ if (have_posts()) : while (have_posts()) : the_post();
         <div class="image">
             <a href="<?php the_permalink(); ?>"><span class="btn btn-default"><i class="fa fa-comment-o"></i> <?php _e('Contact', 'cozy'); ?></span></a>
             <?php
-            if ($agent_image) {
-                echo '<img alt="" src="'. $agent_image .' " />';
+            if ( has_post_thumbnail() ) {
+                the_post_thumbnail('agent', array('class' => 'img-responsive'));
             }
             else {
-                echo '<img alt="" src="http://placehold.it/307x307" />';
+                echo '<img src="http://placehold.it/307x307" />';
             }
             ?>
         </div>

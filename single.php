@@ -22,7 +22,7 @@ get_header(); ?>
         <div class="row">
 
             <!-- BEGIN MAIN CONTENT -->
-            <?php get_template_part( 'content', 'single' ); ?>
+            <?php get_template_part( 'template-parts/content', 'single' ); ?>
             <!-- END MAIN CONTENT -->
 
 

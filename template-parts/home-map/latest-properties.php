@@ -25,7 +25,14 @@
     <div class="item">
         <div class="image">
             <a href="<?php the_permalink(); ?>">
-                <?php echo wt_cozy_thumbnail('760x670'); ?>
+                <?php
+                if ( has_post_thumbnail() ) {
+                    the_post_thumbnail('properties-list', array('class' => 'img-responsive'));
+                }
+                else {
+                    echo '<img src="http://placehold.it/760x670" alt="placeholder" />';
+                }
+                ?>
             </a>
         </div>
         <div class="price">

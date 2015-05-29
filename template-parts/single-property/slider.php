@@ -8,7 +8,7 @@
             the_post_thumbnail('property-details', array('class' => 'img-responsive'));
         }
         else {
-            echo '<img src="http://placehold.it/764x423" />';
+            echo '<img src="http://placehold.it/764x423" alt="placeholder" />';
         }
     }
 ?>

@@ -51,13 +51,12 @@ class WT_Cozy_Widget_Listings extends WP_Widget {
                     <li>
                         <div class="image">
                             <a href="<?php the_permalink(); ?>">
-                                <a href="<?php the_permalink(); ?>"></a>
                                 <?php
                                 if ( has_post_thumbnail() ) {
                                     the_post_thumbnail('footer-thumb', array('class' => 'img-responsive'));
                                 }
                                 else {
-                                    echo '<img src="http://placehold.it/50x50" />';
+                                    echo '<img src="http://placehold.it/50x50" alt="placeholder" />';
                                 }
                                 ?>
                             </a>

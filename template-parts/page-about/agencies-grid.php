@@ -5,9 +5,9 @@
         $count = 1;
         $display_posts = $wt_cozy['section_grid_number'];
         $args = array(
-            'post_type' => 'agency',
-            'posts_per_page' => 4,
-            'paged' => $paged
+            'post_type'         => 'agency',
+            'posts_per_page'    => 4,
+            'paged'             => $paged
         );
     $agency_query = new WP_Query( $args );
     while($agency_query->have_posts()): $agency_query->the_post();

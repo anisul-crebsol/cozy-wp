@@ -19,7 +19,7 @@
     <div class="feature col-sm-3" data-animation-direction="from-bottom" data-animation-delay="250">
         <i class="fa <?php echo $service_icon_text; ?>"></i>
         <h3><?php the_title() ?></h3>
-        <p><?php echo $feature_description; ?></p>
+        <?php echo $feature_description; ?>
         <a href="<?php the_permalink(); ?>" class="btn btn-default-color"><?php _e( 'Read More', 'cozy' );?></a>
     </div>
     <?php endwhile; ?>

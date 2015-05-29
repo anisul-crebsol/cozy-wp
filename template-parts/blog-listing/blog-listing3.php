@@ -20,7 +20,7 @@
                 the_post_thumbnail('blog-listing-wide', array('class' => 'img-responsive'));
             }
             else {
-                echo '<img src="http://placehold.it/750x256" />';
+                echo '<img src="http://placehold.it/750x256" alt="placeholder"/>';
             }
             ?>
         </div>
