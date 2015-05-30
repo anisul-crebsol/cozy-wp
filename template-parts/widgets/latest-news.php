@@ -66,7 +66,7 @@ class WT_Cozy_Widget_Latest_News extends WP_Widget {
                 the_post_thumbnail('sidebar-thumb', array('class' => 'img-responsive'));
             }
             else {
-                echo '<img src="http://placehold.it/100x100" />';
+                echo '<img src="http://placehold.it/100x100" alt="placeholder" />';
             }
             ?>
         </div>

@@ -23,7 +23,7 @@ if (have_posts()) : while (have_posts()) : the_post();
     $agent_twitter_link = get_post_meta( get_the_ID(), '_wt_agent_twitter_link', true );
     $agent_youtube_link = get_post_meta( get_the_ID(), '_wt_agent_youtube_link', true );
 
-    if ( 1 == $count%4 ) { echo '<div class="clearfix"></div>'; }
+    if ($count != 0 && $count%5 == 0) { echo '<li class="content-none"><span class="clearfix"></span></li>'; }
 ?>
     <li class="col-sm-3" data-animation-direction="from-bottom" data-animation-delay="250">
         <div class="image">
@@ -33,13 +33,12 @@ if (have_posts()) : while (have_posts()) : the_post();
                 the_post_thumbnail('agent', array('class' => 'img-responsive'));
             }
             else {
-                echo '<img src="http://placehold.it/307x307" />';
+                echo '<img src="http://placehold.it/307x307" alt="placeholder" />';
             }
             ?>
         </div>
         <div class="info">
             <h2><?php the_title(); ?> <small><?php echo $agent_address; ?></small></h2>
-            <p>
             <?php
                 $description_limit = 80;
                 if(strlen($agent_description) <= $description_limit) {
@@ -48,7 +47,6 @@ if (have_posts()) : while (have_posts()) : the_post();
                     echo substr($agent_description, 0, $description_limit);
                 }
             ?>
-            </p>
 
             <ul class="social-networks">
             <li><a href="<?php echo $agent_linkedin_link ?>"><i class="fa fa-linkedin"></i></a></li>

@@ -56,9 +56,9 @@
                         $title_limit = 35;
                         $dots = " ...";
                         if(strlen($property_title) <= $title_limit) {
-                            echo "<h3>" . $property_title . "</h3>";
+                            echo $property_title;
                         } else {
-                            echo "<h3>" . substr($property_title, 0, $title_limit) . $dots . "</h3>";
+                            echo substr($property_title, 0, $title_limit) . $dots;
                         }
                     ?>
                 </a></h3>

@@ -18,7 +18,7 @@
         $agent_address = get_post_meta( get_the_ID(), '_wt_agent_address', true );
         $agent_description = do_shortcode(wpautop(get_post_meta( get_the_ID(), '_wt_agent_description', true )));
 
-        if ( 0 == $count%2 ) { echo '<div class="clearfix"></div>'; }
+            if ($count != 0 && $count%3 == 0) { echo '<li class="content-none"><span class="clearfix"></span></li>'; }
     ?>
     <li class="col-lg-6">
         <a href="<?php the_permalink(); ?>"><?php
@@ -33,7 +33,7 @@
             <?php the_title( sprintf( '<a href="%s"><h3>', esc_url( get_permalink() ) ), '</h3></a>' ); ?>
             <span class="location"><?php echo $agent_address; ?></span>
             <?php
-                $description_limit = 120;
+                $description_limit = 80;
                 if(strlen($agent_description) <= $description_limit) {
                     echo $agent_description;
                 } else {

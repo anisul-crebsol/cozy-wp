@@ -24,7 +24,7 @@
                     ?>
                     <li class="col-md-3" data-animation-direction="from-bottom" data-animation-delay="250">
                         <h3><i class="fa <?php echo $service_icon_text; ?>"></i> <?php the_title() ?></h3>
-                        <p><?php echo $service_description; ?> <a href="<?php the_permalink(); ?>"><?php _e( 'Learn more', 'cozy' );?></a></p>
+                        <?php echo $service_description; ?> <a href="<?php the_permalink(); ?>"><?php _e( 'Learn more', 'cozy' );?></a>
                     </li>
                     <?php endwhile; ?>
                 </ul>

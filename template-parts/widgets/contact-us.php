@@ -43,7 +43,7 @@ class WT_Cozy_Widget_Contact_Us extends WP_Widget {
         if ( ! empty( $title ) ) {
             echo '<h2 class="section-title" data-animation-direction="from-bottom" data-animation-delay="50">' . $title . '</h2>';
         }
-           echo '<p class="center" data-animation-direction="from-bottom" data-animation-delay="200">'; echo !empty( $instance['filter'] ) ? wpautop( $text ) : $text; echo '</p>';
+        echo !empty( $instance['filter'] ) ? wpautop( $text ) : $text;
 
     }
 

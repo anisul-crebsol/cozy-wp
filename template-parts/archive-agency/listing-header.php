@@ -18,7 +18,7 @@ $url = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
         <select id="sort_by_agency" name="sort_by_agency" data-placeholder="<?php _e('Choose', 'cozy'); ?>">
             <option value=""></option>
             <?php foreach(get_agency_city_state() as $state_city){ ?>
-            <option value="<?php if (addURLParameter($url, 'sorted_by','city')) : echo addURLParameter($url, 'sorted_by','city'); else: echo addURLParameter($url, 'sorted_by','state'); endif;  ?>&<?php echo addURLParameter($url, 'sorted_by', $sort_by_agency); echo $state_city; ?>"><?php echo $state_city; ?></option>
+            <option value="<?php if (addURLParameter($url, 'sorted_by','city')) : echo addURLParameter($url, 'sorted_by','city'); else: echo addURLParameter($url, 'sorted_by','state'); endif;  ?>&amp;<?php echo addURLParameter($url, 'sorted_by', $sort_by_agency); echo $state_city; ?>"><?php echo $state_city; ?></option>
         <?php }  wp_reset_query(); ?>
         </select>
     </div>

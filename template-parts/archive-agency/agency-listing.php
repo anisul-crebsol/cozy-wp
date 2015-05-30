@@ -35,14 +35,13 @@ if($sort_by_agency == "$sort_by_agency") { $order = $agency_args2; }
     $agency_state = get_post_meta( get_the_ID(), '_wt_agency_state', true );
     $agency_email = get_post_meta( get_the_ID(), '_wt_agency_email', true );
 
-    if ( 0 == $count%3 ) { echo '<div class="clearfix"></div>'; }
+        if ($count != 0 && $count%3 == 0) { echo '<li class="content-none"><span class="clearfix"></span></li>'; }
 ?>
     <li class="col-md-6"><!-- Set width to 6 columns for grid view mode only -->
         <div id="agency_map<?php echo $count; ?>" class="map"></div>
         <div class="info">
             <h2><?php the_title(); ?> <small><?php echo $agency_state ?></small></h2>
 
-            <p>
             <?php
                 $description_limit = 190;
                 if(strlen($agency_description) <= $description_limit) {
@@ -51,7 +50,7 @@ if($sort_by_agency == "$sort_by_agency") { $order = $agency_args2; }
                     echo substr($agency_description, 0, $description_limit);
                 }
             ?>
-            </p>
+
 
             <ul class="contact-us">
                 <li><a href="<?php _e('mailto', 'cozy'); ?>:<?php echo $agency_email ?>"><i class="fa fa-envelope"></i> <?php echo $agency_email ?></a></li>
@@ -61,9 +60,9 @@ if($sort_by_agency == "$sort_by_agency") { $order = $agency_args2; }
         </div>
     </li>
 <?php $count++; endwhile; ?>
+</ul>
 <?php
   if ( function_exists('wt_cozy_pagination') )
     wt_cozy_pagination();
 ?>
 <?php wp_reset_query(); ?>
-</ul>

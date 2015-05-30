@@ -18,12 +18,12 @@
 
                             ?></h1>
                     <?php } ?>
-                    <ul class="breadcrumb">
+                    <div class="breadcrumb">
                         <?php if (function_exists('wt_cozy_breadcrumb')){
                             wt_cozy_breadcrumb();
                         }
                         ?>
-                    </ul>
+                    </div>
                 </div>
             </div>
         </div>

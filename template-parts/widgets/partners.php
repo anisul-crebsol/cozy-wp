@@ -35,8 +35,9 @@ class WT_Cozy_Widget_Partners extends WP_Widget {
                     $partners_image = $entry['partner_image'];
                     if($partners_image) : $partners_image = $partners_image; else : $partners_image = 'http://placehold.it/194x45'; endif;
                  ?>
-                <div class="item" data-animation-direction="from-bottom" data-animation-delay="250">
-                <a href="<?php echo $entry['partner_link']; ?>"><img src="<?php echo $partners_image; ?>" alt='' <?php if($mouse_over_img): echo $mouse_over_img = "onmouseover=\"this.src='$mouse_over_img';\"  onmouseout=\"this.src='$partners_image';\""; endif; ?> ></img></a>
+                <div class="item" data-animation-direction="from-bott
+                om" data-animation-delay="250">
+                <a href="<?php echo $entry['partner_link']; ?>"><img src="<?php echo $partners_image; ?>" alt='' <?php if($mouse_over_img): echo $mouse_over_img = "onmouseover=\"this.src='$mouse_over_img';\"  onmouseout=\"this.src='$partners_image';\""; endif; ?> ></a>
                 </div>
             <?php }	?>
         </div>

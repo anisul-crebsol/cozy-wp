@@ -11,7 +11,7 @@ $terms = get_terms( 'wt-property-types' );
         if($count<$limit):
 $icon = get_option("category_$term->term_id");
         ?>
-    <li id="residential" data-animation-direction="from-bottom" data-animation-delay="250">
+    <li id="<?php echo $term->name; ?>" data-animation-direction="from-bottom" data-animation-delay="250">
         <i class="fa <?php echo $icon['img']; ?>"></i><br>
         <h4><?php echo $term->name; ?></h4>
         <a href="<?php echo esc_url( home_url( '/wt-property-types/'.$term->slug ) ); ?>" class="btn btn-default"><?php _e( 'View All', 'cozy' );?></a>
