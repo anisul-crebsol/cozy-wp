@@ -321,6 +321,6 @@ require get_template_directory() . '/inc/cozy-functions.php';
 require get_template_directory() . '/inc/cozy-shortcodes.php';
 
 /**
- * Register Custom Navigation Walker
+ * Map Field for Custom Meta Box
  */
 require get_template_directory() . '/libs/google-map/cmb-field-map.php';

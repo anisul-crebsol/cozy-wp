@@ -42,9 +42,8 @@ class WT_Cozy_Widget_Agencies extends WP_Widget {
                 <div id="map_agency" class="gmap"></div>
             </div>
             <select id="agency" name="agency" data-placeholder="Choose an agency">
-                <option value=""> </option>
-                <!-- The list of agencies will be automatically created.
-                    Set the list of agencies in the file js/agencies.js -->
+                <option value="">Select one</option>
+                <!-- The list of agencies will be automatically created. -->
             </select>
         </div>
         <!-- END AGENCIES -->

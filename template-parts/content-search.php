@@ -7,17 +7,17 @@
 ?>
 
 <?php 
-$property_status = get_the_terms($post->ID, 'property-status', true);
-$property_description = get_post_meta( $post->ID, '_wt_property_description', true );
-$property_price = get_post_meta( $post->ID, '_wt_property_price', true);
+$property_status = get_the_terms(get_the_ID(), 'property-status', true);
+$property_description = get_post_meta( get_the_ID(), '_wt_property_description', true );
+$property_price = get_post_meta( get_the_ID(), '_wt_property_price', true);
 if ($property_price) : $property_price = $property_price; else : $property_price = 0; endif;
 $property_price_eng = number_format($property_price);
-$property_price_symble = get_post_meta( $post->ID, '_wt_property_price_symble', true);
-$property_address = get_post_meta( $post->ID, '_wt_property_address', true);
-$property_area = get_post_meta( $post->ID, '_wt_property_area', true );
+$property_price_symble = get_post_meta( get_the_ID(), '_wt_property_price_symble', true);
+$property_address = get_post_meta( get_the_ID(), '_wt_property_address', true);
+$property_area = get_post_meta( get_the_ID(), '_wt_property_area', true );
 $property_area_measurement = get_post_meta( $post->ID, '_wt_property_area_measurement', true );
-$property_bedrooms = get_post_meta( $post->ID, '_wt_property_bedrooms', true );
-$property_bathrooms = get_post_meta( $post->ID, '_wt_property_bathrooms', true );
+$property_bedrooms = get_post_meta( get_the_ID(), '_wt_property_bedrooms', true );
+$property_bathrooms = get_post_meta( get_the_ID(), '_wt_property_bathrooms', true );
 ?>
 <div class="item col-sm-4"><!-- Set width to 4 columns for grid view mode only -->
     <div class="image">

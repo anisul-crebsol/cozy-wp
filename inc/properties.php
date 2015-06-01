@@ -1,7 +1,7 @@
 <?php
 $properties_args = array(
     'post_type' => 'property',
-    'posts_per_page' => 20,
+    'posts_per_page' => -1,
 );
 ?>
 <script type="text/javascript">

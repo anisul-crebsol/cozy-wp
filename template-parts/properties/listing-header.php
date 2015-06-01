@@ -8,7 +8,7 @@ $url = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 <div id="listing-header" class="clearfix">
     <div class="form-control-small">
         <select id="sort_by" onchange="this.form.submit()" name="sort_by" data-placeholder="<?php _e( 'Sort', 'cozy' ); ?>">
-            <option value="<?php echo addURLParameter($url, 'sort_by',''); ?>"> </option>
+            <option value="<?php echo addURLParameter($url, 'sort_by',''); ?>">Select one</option>
             <option <?php if ($sort_by == 'date'){ echo $selected = 'selected'; } ?> value="<?php echo addURLParameter($url, 'sort_by','date'); ?>"><?php _e( 'Sort by Date', 'cozy' ); ?></option>
             <option <?php if ($sort_by == 'area'){ echo $selected = 'selected'; } ?> value="<?php echo addURLParameter($url, 'sort_by','area'); ?>"><?php _e( 'Sort by Area', 'cozy' ); ?></option>
         </select>

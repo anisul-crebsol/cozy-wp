@@ -52,14 +52,14 @@ class WT_Cozy_Widget_Property_Search extends WP_Widget {
             <input type="text" class="form-control" name="location" placeholder="City, State, Country, etc...">
 
             <select class="col-sm-12" id="search_prop_type" name="search_prop_type" data-placeholder="Type of Property">
-                <option value=""> </option>
+                <option value="">Select one</option>
                 <option value="residential">Residential</option>
                 <option value="commercial">Commercial</option>
                 <option value="land">Land</option>
             </select>
 
             <select id="search_status" name="search_status" data-placeholder="Status">
-                <option value=""> </option>
+                <option value="">Select one</option>
                 <option value="for-sale">For Sale</option>
                 <option value="for-rent">For Rent</option>
             </select>
@@ -67,7 +67,7 @@ class WT_Cozy_Widget_Property_Search extends WP_Widget {
 
         <div class="col-md-6">
             <select id="search_minarea" name="search_minarea" data-placeholder="Min. Area">
-                <option value=""> </option>
+                <option value="">Select one</option>
                 <option value="50">50m2</option>
                 <option value="100">100m2</option>
                 <option value="150">150m2</option>
@@ -82,7 +82,7 @@ class WT_Cozy_Widget_Property_Search extends WP_Widget {
 
         <div class="col-md-6">
             <select id="search_maxarea" name="search_maxarea" data-placeholder="Max. Area">
-                <option value=""> </option>
+                <option value="">Select one</option>
                 <option value="50">50m2</option>
                 <option value="100">100m2</option>
                 <option value="150">150m2</option>
@@ -96,7 +96,7 @@ class WT_Cozy_Widget_Property_Search extends WP_Widget {
 
         <div class="col-sm-12">
             <select id="search_bedrooms" name="search_bedrooms" data-placeholder="Bedrooms">
-                <option value=""> </option>
+                <option value="">Select one</option>
                 <option value="0">0</option>
                 <option value="1">1</option>
                 <option value="2">2</option>
@@ -107,7 +107,7 @@ class WT_Cozy_Widget_Property_Search extends WP_Widget {
             </select>
 
             <select id="search_bathrooms" name="search_bathrooms" data-placeholder="Bathrooms">
-                <option value=""> </option>
+                <option value="">Select one</option>
                 <option value="0">0</option>
                 <option value="1">1</option>
                 <option value="2">2</option>
@@ -119,7 +119,7 @@ class WT_Cozy_Widget_Property_Search extends WP_Widget {
 
         <div class="col-md-6">
             <select id="search_minprice" name="search_minprice" data-placeholder="Min. Price">
-                <option value=""> </option>
+                <option value="">Select one</option>
                 <option value="0">$0</option>
                 <option value="25000">$25000</option>
                 <option value="50000">$50000</option>
@@ -136,7 +136,7 @@ class WT_Cozy_Widget_Property_Search extends WP_Widget {
 
         <div class="col-md-6">
             <select id="search_maxprice" name="search_maxprice" data-placeholder="Max. Price">
-                <option value=""> </option>
+                <option value="">Select one</option>
                 <option value="25000">$25000</option>
                 <option value="50000">$50000</option>
                 <option value="75000">$75000</option>

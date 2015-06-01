@@ -28,7 +28,8 @@ jQuery('#agents_country').change(function () {
             var coo = data.length + 1;
             var value_dum = '';
             jQuery('#agents_state').html('');
-            //  jQuery('#agents_state_chzn ul.chzn-results').html('');
+            //jQuery('#agents_state_chzn ul.chzn-results').html(value_dum);
+			value_dum = jQuery('#agents_state').attr('data-placeholder');			
             jQuery('#agents_state').append('<option value="' + value_dum + '"> </option>');
 
             for (var i = 0; i < data.length; i++) {
@@ -37,12 +38,12 @@ jQuery('#agents_country').change(function () {
                 jQuery('#agents_state_chzn ul.chzn-results').append('<li id="agents_state_chzn_o_' + coo + '" class="active-result" style="">' + data[i] + '</li>');
                 coo++;
             }
-
-            jQuery('#agents_state_chzn a.chzn-single').append('<abbr class="search-choice-close">::before</abbr>');
+			jQuery('#agents_state_chzn span').html(value_dum);
+            //jQuery('#agents_state_chzn a.chzn-single').append('<abbr class="search-choice-close">::before</abbr>');
 
             jQuery("#agents_state").trigger("liszt:updated");
-
-            //console.log(data); //should print out the name since you sent it along
+			jQuery('#agents_state_chzn_o_0').remove();
+			jQuery('#agents_state_chzn span').html(value_dum);
 
         }
     });
@@ -60,7 +61,7 @@ jQuery('#agents_state').change(function () {
             var coo = data.length + 1;
             var value_dum = '';
             jQuery('#agents_city').html('');
-
+			value_dum = jQuery('#agents_city').attr('data-placeholder');
             jQuery('#agents_city').append('<option value="' + value_dum + '"> </option>');
 
             for (var i = 0; i < data.length; i++) {
@@ -68,9 +69,11 @@ jQuery('#agents_state').change(function () {
                 jQuery('#agents_city_chzn ul.chzn-results').append('<li id="agents_city_chzn_o_' + coo + '" class="active-result" style="">' + data[i] + '</li>');
                 coo++;
             }
-            jQuery('#agents_city_chzn a.chzn-single').append('<abbr class="search-choice-close">::before</abbr>');
+            //jQuery('#agents_city_chzn a.chzn-single').append('<abbr class="search-choice-close">::before</abbr>');
             jQuery("#agents_city").trigger("liszt:updated");
-            console.log(data); //should print out the name since you sent it along
+			
+			jQuery('#agents_city_chzn_o_0').remove();
+			jQuery('#agents_city_chzn span').html(value_dum);
         }
     });
 });

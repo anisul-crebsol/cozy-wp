@@ -1,6 +1,6 @@
 <?php global $wt_cozy; ?>
 <?php
-    $agent_contact_form = do_shortcode(wpautop(get_post_meta( get_the_ID(), '_wt_agent_contact_form', true )));
+    $agent_contact_form = do_shortcode(get_post_meta( get_the_ID(), '_wt_agent_contact_form', true ));
     if ($agent_contact_form) {
         echo "<h1 class='section-title' id='contact-agent'>";
         _e( 'Contact Agent', 'cozy' );

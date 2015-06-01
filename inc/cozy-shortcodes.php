@@ -225,15 +225,7 @@ if ($price_table_data2->have_posts()) :
         $package_time = get_post_meta(get_the_id(), '_wt_package_time', true);
         ?>
 
-        <style>
-            #pricing-standard<?php echo $price_feature_count; ?>{
-                background-image: url("<?php echo $image; ?>");
-            }
-            #pricing-free<?php echo $price_feature_count; ?> {
-                background-image: url("<?php echo $image; ?>");
-            }
-        </style>
-        <div class="pricing style4" id="<?php
+        <div class="pricing style4" style="background-image: url('<?php echo $image; ?>')" id="<?php
         if (($price_feature_count % 2) == 1) {
             echo 'pricing-free' . $price_feature_count;
         } else {

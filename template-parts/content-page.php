@@ -7,9 +7,6 @@
 global $wt_cozy; ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-    <header class="entry-header">
-        <?php the_title( '<h1 class="section-title animate-from-bottom animation-from-bottom" data-animation-direction="from-bottom" data-animation-delay="50">', '</h1>' ); ?>
-    </header><!-- .entry-header -->
 
     <?php if ( is_page_template('page-our-partners.php')) {
         the_content();

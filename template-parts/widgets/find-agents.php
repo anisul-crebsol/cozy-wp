@@ -44,9 +44,8 @@ class WT_Cozy_Widget_Find_Agents extends WP_Widget {
 
         <img src="<?php echo $image ?>" alt="" id="agents-img"/>
         <select id="agents_country" name="s" data-placeholder="Choose a country">
-            <option value=""> </option>
+            <option value="">Select one</option>
             <?php
-            // position is a meta key and ourteam is a custom post type for my project
             $count = get_countries();
             if($count){
                 foreach( $count as $country){ ?>
@@ -58,11 +57,11 @@ class WT_Cozy_Widget_Find_Agents extends WP_Widget {
         </select>
 
         <select id="agents_state" name="agents_state" data-placeholder="Choose your state/region">
-            <option value=""> </option>
+            <option value="">Select one</option>
         </select>
 
         <select id="agents_city" name="agents_city" data-placeholder="Choose your city">
-            <option value=""> </option>
+            <option value="">Select one</option>
         </select>
         <input type="hidden" name="agent_search" value="agent_search" />
         <div class="form-actions">
