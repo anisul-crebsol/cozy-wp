@@ -19,7 +19,7 @@ global $wt_cozy; ?>
             echo '<img src="http://placehold.it/764x423" alt="placeholder"/>';
         }
         ?>
-        <div class="tag"><i class="fa fa-file-text"></i></div>
+        <div class="tag"><i class="fa <?php if (has_post_format( 'video' )) { echo 'fa-film'; } else {echo 'fa-file-text';} ?>"></i></div>
     </div>
 
     <div class="blog-bottom-info">
@@ -43,7 +43,7 @@ global $wt_cozy; ?>
             </li>
         </ul>
 
-        <div id="post-author"><i class="fa fa-pencil"></i> By <?php echo $author = get_the_author(); ?></div>
+        <div id="post-author"><i class="fa fa-pencil"></i> <?php _e('By','cozy'); ?> <?php echo $author = get_the_author(); ?></div>
     </div>
 
     <div class="post-content">
@@ -51,13 +51,13 @@ global $wt_cozy; ?>
     </div>
 
     <div class="share-wraper col-sm-12 clearfix">
-        <h5>Share this Post:</h5>
+        <h5><?php _e('Share this Post','cozy'); ?>:</h5>
         <ul class="social-networks">
-            <li><a target="_blank" href="http://www.facebook.com/sharer.php?s=#"><i class="fa fa-facebook"></i></a></li>
-            <li><a target="_blank" href="https://twitter.com/intent/tweet?url=#"><i class="fa fa-twitter"></i></a></li>
-            <li><a target="_blank" href="https://plus.google.com/share?url=#"><i class="fa fa-google"></i></a></li>
-            <li><a target="_blank" href="http://pinterest.com/pin/create/button/?url=#"><i class="fa fa-pinterest"></i></a></li>
-            <li><a href="mailto:?subject=#&amp;body=#"><i class="fa fa-envelope"></i></a></li>
+            <li><a target="_blank" href="http://www.facebook.com/sharer.php?s=<?php echo get_the_permalink(); ?>"><i class="fa fa-facebook"></i></a></li>
+            <li><a target="_blank" href="https://twitter.com/intent/tweet?url=<?php echo get_the_permalink(); ?>"><i class="fa fa-twitter"></i></a></li>
+            <li><a target="_blank" href="https://plus.google.com/share?url=#<?php echo get_the_permalink(); ?>"><i class="fa fa-google"></i></a></li>
+            <li><a target="_blank" href="http://pinterest.com/pin/create/button/?url=<?php echo get_the_post_thumbnail(); ?>"><i class="fa fa-pinterest"></i></a></li>
+            <li><a href="mailto:<?php echo $user_email = get_the_author_meta( 'user_email' ); ?>"><i class="fa fa-envelope"></i></a></li>
         </ul>
 
         <a class="print-button" href="javascript:window.print();">

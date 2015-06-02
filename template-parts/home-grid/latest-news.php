@@ -38,7 +38,7 @@
                             }
                             ?>
                         </div>
-                        <div class="tag"><i class="fa fa-file-text"></i></div>
+                        <div class="tag"><i class="fa <?php if (has_post_format( 'video' )) { echo 'fa-film'; } else {echo 'fa-file-text';} ?>"></i></div>
                         <div class="info-blog">
                             <ul class="top-info">
                                 <li><i class="fa fa-calendar"></i> <?php echo $date = mysql2date('F j, Y', $post->post_date);?></li>

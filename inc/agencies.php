@@ -1,7 +1,6 @@
 <?php
 $agencies_args = array(
     'post_type'         => 'agency',
-    'posts_per_page'    => -1
 );
 ?>
 <script type="text/javascript">
@@ -41,6 +40,6 @@ $agencies_args = array(
             "link":"<?php the_permalink(); ?>",
             "map_marker_icon":"<?php echo $agency_map_maker_icon; ?>"
         },
-    <?php $count++; endwhile; endif;  ?>
+    <?php $count++; endwhile; endif;  wp_reset_query(); ?>
     ];
 </script>

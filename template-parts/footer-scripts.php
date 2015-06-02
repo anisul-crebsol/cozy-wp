@@ -2,9 +2,13 @@
 global $wt_cozy;
 require get_template_directory() . '/inc/variables.php';
 require get_template_directory() . '/inc/agencies.php';
-require get_template_directory() . '/inc/agency.php';
-require get_template_directory() . '/inc/property.php';
 require get_template_directory() . '/inc/properties.php';
+if ( is_singular( 'agency' ) ) {
+    require get_template_directory() . '/inc/agency.php';
+}
+if ( is_singular( 'property' ) ) {
+    require get_template_directory() . '/inc/property.php';
+}
 ?>
 <script type="text/javascript">
 var templeteUrl = '<?php echo get_stylesheet_directory_uri(); ?>';
@@ -91,7 +95,7 @@ var adminUrl = '<?php echo admin_url(); ?>';
                 Cozy.propertiesMap(properties, 'properties_map');
             }
             if (document.getElementById("map_agency")) {
-                Cozy.agencyMap(agency, "map_agency");
+                Cozy.agencyMap(agencies, "map_agency");
             }
             if (document.getElementById("agency_map")) {
                 Cozy.agencyMap(agency, 'agency_map', 0);

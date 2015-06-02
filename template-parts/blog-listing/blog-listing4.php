@@ -5,7 +5,7 @@
     $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
     $args = array(
         'post_status'   => 'publish',
-        'paged' 		=> $paged,
+        'paged'         => $paged,
     );
     $wp_query = new WP_Query( $args );
     while($wp_query->have_posts()): $wp_query->the_post(); $count++;
@@ -27,7 +27,7 @@
             }
             ?>
         </div>
-        <div class="tag"><i class="fa fa-file-text"></i></div>
+        <div class="tag"><i class="fa <?php if (has_post_format( 'video' )) { echo 'fa-film'; } else {echo 'fa-file-text';} ?>"></i></div>
         <div class="info-blog">
             <ul class="top-info">
                 <li><i class="fa fa-calendar"></i> <?php echo $date = mysql2date('F j, Y', $post->post_date);?></li>

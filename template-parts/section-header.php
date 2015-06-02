@@ -22,7 +22,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-sm-12">
-                        <a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="nav-logo"><img src="<?php echo $wt_cozy['cozy_logo']['url']?>" alt="Cozy Logo" /></a>
+                        <a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="nav-logo"><img src="<?php echo $wt_cozy['cozy_logo']['url']?>" alt="Logo" /></a>
 
                         <!-- BEGIN SEARCH -->
                         <div id="sb-search" class="sb-search">

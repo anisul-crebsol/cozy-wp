@@ -1,7 +1,6 @@
 <?php
 $properties_args = array(
     'post_type' => 'property',
-    'posts_per_page' => -1,
 );
 ?>
 <script type="text/javascript">
@@ -38,6 +37,6 @@ $properties_args = array(
             "link":"<?php the_permalink(); ?>",
             "map_marker_icon":"<?php echo $property_map_maker_icon; ?>"
         },
-    <?php $count++; endwhile; endif;  ?>
+    <?php $count++; endwhile; endif; wp_reset_query(); ?>
     ];
 </script>
