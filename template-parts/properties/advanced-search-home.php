@@ -5,12 +5,12 @@
                 <form method="get" action="<?php echo home_url('/'); ?>">
                     <div class="form-group">
                         <div class="form-control-large">
-                            <input type="text" class="form-control" name="s" placeholder="City, State, Country, etc...">
+                            <input type="text" class="form-control" name="s" placeholder="<?php _e('City, State, Country, etc...','cozy'); ?>">
                         </div>
 
                         <div class="form-control-large">
                             <select id="search_prop_type" name="search_prop_type" data-placeholder="Type of Property">
-                                <option value="">Select one</option>
+                                <option value=""><?php _e('Select one','cozy'); ?></option>
                                 <option value="residential">Residential</option>
                                 <option value="commercial">Commercial</option>
                                 <option value="land">Land</option>
@@ -19,7 +19,7 @@
 
                         <div class="form-control-small">
                             <select id="search_status" name="search_status" data-placeholder="Status">
-                                <option value="">Select one</option>
+                                <option value=""><?php _e('Select one','cozy'); ?></option>
                                 <option value="sale">For Sale</option>
                                 <option value="rent">For Rent</option>
                             </select>
@@ -27,7 +27,7 @@
 
                         <div class="form-control-small">
                             <select id="search_bedrooms" name="search_bedrooms" data-placeholder="Bedrooms">
-                                <option value="">Select one</option>
+                                <option value=""><?php _e('Select one','cozy'); ?></option>
                                 <option value="0">0</option>
                                 <option value="1">1</option>
                                 <option value="2">2</option>
@@ -40,7 +40,7 @@
 
                         <div class="form-control-small">
                             <select id="search_bathrooms" name="search_bathrooms" data-placeholder="Bathrooms">
-                                <option value="">Select one</option>
+                                <option value=""><?php _e('Select one','cozy'); ?></option>
                                 <option value="0">0</option>
                                 <option value="1">1</option>
                                 <option value="2">2</option>
@@ -52,7 +52,7 @@
 
                         <div class="form-control-small">
                             <select id="search_minprice" name="search_minprice" data-placeholder="Min. Price">
-                                <option value="">Select one</option>
+                                <option value=""><?php _e('Select one','cozy'); ?></option>
                                 <option value="0">$0</option>
                                 <option value="25000">$25000</option>
                                 <option value="50000">$50000</option>
@@ -69,7 +69,7 @@
 
                         <div class="form-control-small">
                             <select id="search_maxprice" name="search_maxprice" data-placeholder="Max. Price">
-                                <option value="">Select one</option>
+                                <option value=""><?php _e('Select one','cozy'); ?></option>
                                 <option value="25000">$25000</option>
                                 <option value="50000">$50000</option>
                                 <option value="75000">$75000</option>

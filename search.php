@@ -10,11 +10,12 @@ get_header(); ?>
 <?php get_template_part ('/template-parts/section-header'); ?>
 <!-- END HEADER -->
 
-
-<!-- BEGIN HOME ADVANCED SEARCH (class="gray" for a gray background) -->
-<?php get_template_part ('/template-parts/properties/advanced-search-home'); ?>
-<!-- END HOME ADVANCED SEARCH -->
-
+<?php
+if(isset($_GET['search_prop_type']) || $_GET['location'] || $_GET['post_type'] == 'property') {
+    // BEGIN HOME ADVANCED SEARCH (class="gray" for a gray background)
+    get_template_part ('/template-parts/properties/advanced-search-home');
+    // END HOME ADVANCED SEARCH
+}?>
 
 <!-- BEGIN CONTENT WRAPPER -->
 <div class="content">
@@ -29,11 +30,7 @@ get_header(); ?>
                 <div id="property-listing" class="grid-style1 clearfix">
                     <div class="row">
 
-                        <?php while ( have_posts() ) : the_post(); ?>
-
                         <?php get_template_part( 'template-parts/content', 'search' ); ?>
-
-                        <?php endwhile; // end of the loop. ?>
 
                     </div>
                 </div>
