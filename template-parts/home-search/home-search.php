@@ -10,8 +10,8 @@
 
             <form role="search" method="get" class="search-form" id="search-form-home" action="<?php echo home_url( '/' ); ?>">
                 <div id="home-search-buttons" class="col-sm-6 col-sm-offset-3" data-animation-direction="from-bottom" data-animation-delay="250" >
-                    <input type="button" class="btn btn-default active" id="for-sale" name="for-sale" value="<?php _e( 'for sale', 'cozy' );?>" />
-                    <input type="button" class="btn btn-default" id="for-rent" name="for-rent" value="<?php _e( 'for rent', 'cozy' );?>" />
+                    <input type="button" class="btn btn-default active" id="for-sale" name="for-sale" value="<?php _e( 'for-sale', 'cozy' );?>" />
+                    <input type="button" class="btn btn-default" id="for-rent" name="for-rent" value="<?php _e( 'for-rent', 'cozy' );?>" />
 
                     <div class="input-group">
                         <input type="hidden" value="" id="s" name="s">

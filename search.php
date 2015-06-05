@@ -11,7 +11,7 @@ get_header(); ?>
 <!-- END HEADER -->
 
 <?php
-if(isset($_GET['search_prop_type']) || $_GET['location'] || $_GET['post_type'] == 'property') {
+if(isset($_GET['property_type']) || $_GET['location'] || $_GET['post_type'] == 'property') {
     // BEGIN HOME ADVANCED SEARCH (class="gray" for a gray background)
     get_template_part ('/template-parts/properties/advanced-search-home');
     // END HOME ADVANCED SEARCH
@@ -36,10 +36,6 @@ if(isset($_GET['search_prop_type']) || $_GET['location'] || $_GET['post_type'] =
                 </div>
                 <!-- END PROPERTY LISTING -->
 
-
-                <!-- BEGIN PAGINATION -->
-                <?php get_template_part ('/template-parts/pagination'); ?>
-                <!-- END PAGINATION -->
 
             </div>
             <!-- END MAIN CONTENT -->
