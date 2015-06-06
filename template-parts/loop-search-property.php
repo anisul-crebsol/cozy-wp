@@ -69,7 +69,6 @@ if (isset($_GET['submit_property']) && ($_GET['submit_property'] == 'Search')) {
                     'value' => $city,$state,$country,
                     'compare' => 'LIKE'
                 ),
-
             ),
         );
 
@@ -84,7 +83,8 @@ if (isset($_GET['submit_property']) && ($_GET['submit_property'] == 'Search')) {
 
 }
 
-
+query_posts($property_args);
+while (have_posts()) : the_post();
 
     $property_status = get_the_terms(get_the_ID(), 'property-status', true);
     $property_description = get_post_meta( get_the_ID(), '_wt_property_description', true );
@@ -135,7 +135,9 @@ if (isset($_GET['submit_property']) && ($_GET['submit_property'] == 'Search')) {
             <?php if($property_bathrooms) { ?><li><i class="icon-bathrooms"></i> <?php echo $property_bathrooms; ?></li><?php } ?>
         </ul>
     </div>
-<?php
 
+<?php
+endwhile;
   if ( function_exists('wt_cozy_pagination') )
       wt_cozy_pagination();
+wp_reset_query();
