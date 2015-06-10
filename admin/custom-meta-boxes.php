@@ -379,7 +379,7 @@ function wt_cozy_register_metabox() {
                 'type' => 'wysiwyg',
                 'options' => array(
                     'wpautop' => true, // use wpautop?
-                    'media_buttons' => false, // show insert/upload button(s)
+                    'media_buttons' => true, // show insert/upload button(s)
                     'textarea_rows' => get_option('default_post_edit_rows', 10), // rows="..."
                     'tabindex' => '',
                     'editor_css' => '', // intended for extra styles for both visual and HTML editors buttons, needs to include the `<style>` tags, can use "scoped".

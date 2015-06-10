@@ -18,7 +18,7 @@ get_header(); ?>
 
 
 <!-- BEGIN HOME ADVANCED SEARCH (class="gray" for a gray background) -->
-<?php get_template_part ('/template-parts/properties/advanced-search-home'); ?>
+<?php get_template_part ('/template-parts/advanced-search'); ?>
 <!-- END HOME ADVANCED SEARCH -->
 
 

@@ -1,18 +1,20 @@
 <?php
 $count = 0;
 $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
-//$property_args = array(
-//    'post_type' => 'property',
-//    'paged' => $paged
-//);
-/*$property_args2 = array(
+$location = $_GET['location'];
+$term_slug = $_GET['term_slug'];
+$property_args = array(
+    'post_type' => 'property',
+    'paged' => $paged
+);
+$property_args2 = array(
     'post_type' => 'property',
     'paged' => $paged,
     'tax_query' => array(
         array(
             'taxonomy' => 'property-status',
             'field'    => 'slug',
-            'terms'    => 'for-sale',
+            'terms'    => $term_slug,
         ),
     ),
 );
@@ -23,65 +25,49 @@ $property_args3 = array(
         array(
             'taxonomy' => 'property-status',
             'field'    => 'slug',
-            'terms'    => 'for-rent',
+            'terms'    => $term_slug,
+        ),
+    ),
+    'meta_query' => array(
+        'relation' => 'OR',
+        array(
+            'key'       => '_wt_property_city',
+            'value'     => $location,
+            'compare'   => 'IN'
+        ),
+        array(
+            'key'       => '_wt_property_city',
+            'value'     => $location,
+            'compare'   => '='
+        ),
+        array(
+            'key'       => '_wt_property_state',
+            'value'     => $location,
+            'compare'   => 'IN'
+        ),
+        array(
+            'key'       => '_wt_property_state',
+            'value'     => $location,
+            'compare'   => '='
+        ),
+        array(
+            'key'       => '_wt_property_country',
+            'value'     => $location,
+            'compare'   => 'IN'
+        ),
+        array(
+            'key'       => '_wt_property_country',
+            'value'     => $location,
+            'compare'   => '='
         ),
     ),
 );
 
-if($_GET['term_slug'] == 'for-sale') { $property_args = $property_args2; }
-if($_GET['term_slug'] == 'for-rent') { $property_args = $property_args3; }*/
 
-if (isset($_GET['submit_property']) && ($_GET['submit_property'] == 'Search')) {
-    $country_city_location = $_GET['location'];
-    $country_city_locationExp = explode(',', $country_city_location);
+if($_GET['location'] == '' || $_GET['post_type'] == 'property' ) { $property_args = $property_args; }
+if($_GET['location'] == '' && $_GET['term_slug'] != '' && $_GET['term_slug'] == $term_slug) { $property_args = $property_args2; }
+if($_GET['location'] != '' && $_GET['location'] == $location && $_GET['term_slug'] == $term_slug) { $property_args = $property_args3; }
 
-    if($country_city_locationExp[0]) :
-        $city = $country_city_locationExp[0];
-    else :
-        $city = '';
-    endif;
-    if($country_city_locationExp[1]) :
-        $state = $country_city_locationExp[1];
-    else :
-        $state = '';
-    endif;
-    if($country_city_locationExp[2]) :
-        $country = $country_city_locationExp[2];
-    else :
-        $country = '';
-    endif;
-
-    if( $_GET['location'] != '' ) {
-
-        $property_args = array(
-            'post_type' => 'property',
-            'tax_query' => array(
-                array(
-                    'taxonomy' => 'property-status',
-                    'terms' => $_GET['term_slug'],
-                    'field' => 'slug',
-                )
-            ),
-            'meta_query' => array(
-                'relation' => 'AND',
-                array(
-                    'key' => '_wt_property_city','_wt_property_state','_wt_property_country',
-                    'value' => $city,$state,$country,
-                    'compare' => 'LIKE'
-                ),
-            ),
-        );
-
-    } else {
-
-            $property_args = array(
-                'post_type' => 'property',
-                'paged' => $paged
-            );
-
-    }
-
-}
 
 query_posts($property_args);
 while (have_posts()) : the_post();

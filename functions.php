@@ -321,6 +321,11 @@ require get_template_directory() . '/inc/cozy-functions.php';
 require get_template_directory() . '/inc/cozy-shortcodes.php';
 
 /**
+ * Install Shortcodes for Visual Composer
+ */
+require get_template_directory() . '/inc/vc-map.php';
+
+/**
  * Map Field for Custom Meta Box
  */
 require get_template_directory() . '/libs/google-map/cmb-field-map.php';

@@ -19,7 +19,6 @@
                         <input type="hidden" name="post_type" id="post_type" value="property" />
                         <input type="hidden" name="term_slug" id="term_slug" value="for-sale" />
                         <span class="input-group-btn">
-                            <input type="hidden" name="submit_property" value="Search">
                             <button type="submit" class="btn btn-default"><i class="fa fa-search"></i><?php _e( 'Search', 'cozy' );?></button>
                         </span>
                     </div>
