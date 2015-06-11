@@ -3,6 +3,54 @@ $count = 0;
 $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 $location = $_GET['location'];
 $term_slug = $_GET['term_slug'];
+$search_prop_type = $_GET['search_prop_type'];
+$search_status = $_GET['search_status'];
+$search_bedrooms = $_GET['search_bedrooms'];
+$search_bathrooms = $_GET['search_bathrooms'];
+$search_minprice = intval($_GET['search_minprice']);
+$search_maxprice = intval($_GET['search_maxprice']);
+$search_minarea = intval($_GET['search_minarea']);
+$search_maxarea = intval($_GET['search_maxarea']);
+
+$city_state_country = array();
+$city_state_country['0'] = array(
+            'key'       => '_wt_property_address',
+            'value'     => $location,
+            'compare'   => 'LIKE'
+        );
+$city_state_country['1'] = array(
+            'key'       => '_wt_property_city',
+            'value'     => $location,
+            'compare'   => 'IN'
+        );
+$city_state_country['2'] = array(
+            'key'       => '_wt_property_city',
+            'value'     => $location,
+            'compare'   => 'LIKE'
+        );
+$city_state_country['3'] = array(
+            'key'       => '_wt_property_state',
+            'value'     => $location,
+            'compare'   => 'IN'
+        );
+$city_state_country['4'] = array(
+            'key'       => '_wt_property_state',
+            'value'     => $location,
+            'compare'   => 'LIKE'
+        );
+$city_state_country['5'] = array(
+            'key'       => '_wt_property_country',
+            'value'     => $location,
+            'compare'   => 'IN'
+        );
+$meta_query = array(
+    array(
+        'taxonomy' => 'property-status',
+        'field'    => 'slug',
+        'terms'    => $term_slug,
+    ),
+);
+
 $property_args = array(
     'post_type' => 'property',
     'paged' => $paged
@@ -10,63 +58,40 @@ $property_args = array(
 $property_args2 = array(
     'post_type' => 'property',
     'paged' => $paged,
-    'tax_query' => array(
-        array(
-            'taxonomy' => 'property-status',
-            'field'    => 'slug',
-            'terms'    => $term_slug,
-        ),
-    ),
+    'tax_query' => $meta_query
 );
 $property_args3 = array(
     'post_type' => 'property',
     'paged' => $paged,
-    'tax_query' => array(
-        array(
-            'taxonomy' => 'property-status',
-            'field'    => 'slug',
-            'terms'    => $term_slug,
-        ),
-    ),
+    'tax_query' => $meta_query,
     'meta_query' => array(
         'relation' => 'OR',
-        array(
-            'key'       => '_wt_property_city',
-            'value'     => $location,
-            'compare'   => 'IN'
-        ),
-        array(
-            'key'       => '_wt_property_city',
-            'value'     => $location,
-            'compare'   => '='
-        ),
-        array(
-            'key'       => '_wt_property_state',
-            'value'     => $location,
-            'compare'   => 'IN'
-        ),
-        array(
-            'key'       => '_wt_property_state',
-            'value'     => $location,
-            'compare'   => '='
-        ),
-        array(
-            'key'       => '_wt_property_country',
-            'value'     => $location,
-            'compare'   => 'IN'
-        ),
-        array(
-            'key'       => '_wt_property_country',
-            'value'     => $location,
-            'compare'   => '='
-        ),
+        $city_state_country['0'],
+        $city_state_country['1'],
+        $city_state_country['2'],
+        $city_state_country['3'],
+        $city_state_country['4'],
+        $city_state_country['5'],
+    ),
+);
+$property_args4 = array(
+    'post_type' => 'property',
+    'paged' => $paged,
+    'meta_query' => array(
+        'relation' => 'OR',
+        $city_state_country['0'],
+        $city_state_country['1'],
+        $city_state_country['2'],
+        $city_state_country['3'],
+        $city_state_country['4'],
+        $city_state_country['5'],
     ),
 );
 
-
 if($_GET['location'] == '' || $_GET['post_type'] == 'property' ) { $property_args = $property_args; }
 if($_GET['location'] == '' && $_GET['term_slug'] != '' && $_GET['term_slug'] == $term_slug) { $property_args = $property_args2; }
-if($_GET['location'] != '' && $_GET['location'] == $location && $_GET['term_slug'] == $term_slug) { $property_args = $property_args3; }
+if($_GET['location'] != '' && $_GET['location'] == $location && $_GET['term_slug'] != '' && $_GET['term_slug'] == $term_slug) { $property_args = $property_args3; }
+if($_GET['location'] != '' && $_GET['location'] == $location && $_GET['term_slug'] == '') { $property_args = $property_args4; }
 
 
 query_posts($property_args);

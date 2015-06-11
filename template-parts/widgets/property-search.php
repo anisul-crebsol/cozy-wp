@@ -42,7 +42,7 @@ class WT_Cozy_Widget_Property_Search extends WP_Widget {
 ?>
 <!-- BEGIN ADVANCED SEARCH -->
 <div class="clearfix">
-<h2 class="section-title"><?php e_('Search Property','cozy') ?></h2>
+<h2 class="section-title"><?php _e('Search Property','cozy'); ?></h2>
 <form role="search" method="get" class="search-form" action="<?php echo home_url( '/' ); ?>">
     <div class="form-group">
 
@@ -52,14 +52,14 @@ class WT_Cozy_Widget_Property_Search extends WP_Widget {
             <input type="text" class="form-control" name="location" placeholder="City, State, Country, etc...">
 
             <select class="col-sm-12" id="search_prop_type" name="search_prop_type" data-placeholder="Type of Property">
-                <option value=""><?php e_('Select one','cozy') ?></option>
+                <option value=""><?php _e('Select one','cozy') ?></option>
                 <option value="residential">Residential</option>
                 <option value="commercial">Commercial</option>
                 <option value="land">Land</option>
             </select>
 
             <select id="search_status" name="search_status" data-placeholder="Status">
-                <option value=""><?php e_('Select one','cozy') ?></option>
+                <option value=""><?php _e('Select one','cozy') ?></option>
                 <option value="for-sale">For Sale</option>
                 <option value="for-rent">For Rent</option>
             </select>
@@ -67,7 +67,7 @@ class WT_Cozy_Widget_Property_Search extends WP_Widget {
 
         <div class="col-md-6">
             <select id="search_minarea" name="search_minarea" data-placeholder="Min. Area">
-                <option value=""><?php e_('Select one','cozy') ?></option>
+                <option value=""><?php _e('Select one','cozy') ?></option>
                 <option value="50">50m2</option>
                 <option value="100">100m2</option>
                 <option value="150">150m2</option>
@@ -82,7 +82,7 @@ class WT_Cozy_Widget_Property_Search extends WP_Widget {
 
         <div class="col-md-6">
             <select id="search_maxarea" name="search_maxarea" data-placeholder="Max. Area">
-                <option value=""><?php e_('Select one','cozy') ?></option>
+                <option value=""><?php _e('Select one','cozy') ?></option>
                 <option value="50">50m2</option>
                 <option value="100">100m2</option>
                 <option value="150">150m2</option>
@@ -96,7 +96,7 @@ class WT_Cozy_Widget_Property_Search extends WP_Widget {
 
         <div class="col-sm-12">
             <select id="search_bedrooms" name="search_bedrooms" data-placeholder="Bedrooms">
-                <option value=""><?php e_('Select one','cozy') ?></option>
+                <option value=""><?php _e('Select one','cozy') ?></option>
                 <option value="0">0</option>
                 <option value="1">1</option>
                 <option value="2">2</option>
@@ -107,7 +107,7 @@ class WT_Cozy_Widget_Property_Search extends WP_Widget {
             </select>
 
             <select id="search_bathrooms" name="search_bathrooms" data-placeholder="Bathrooms">
-                <option value=""><?php e_('Select one','cozy') ?></option>
+                <option value=""><?php _e('Select one','cozy') ?></option>
                 <option value="0">0</option>
                 <option value="1">1</option>
                 <option value="2">2</option>
@@ -119,7 +119,7 @@ class WT_Cozy_Widget_Property_Search extends WP_Widget {
 
         <div class="col-md-6">
             <select id="search_minprice" name="search_minprice" data-placeholder="Min. Price">
-                <option value=""><?php e_('Select one','cozy') ?></option>
+                <option value=""><?php _e('Select one','cozy') ?></option>
                 <option value="0">$0</option>
                 <option value="25000">$25000</option>
                 <option value="50000">$50000</option>
@@ -136,7 +136,7 @@ class WT_Cozy_Widget_Property_Search extends WP_Widget {
 
         <div class="col-md-6">
             <select id="search_maxprice" name="search_maxprice" data-placeholder="Max. Price">
-                <option value=""><?php e_('Select one','cozy') ?></option>
+                <option value=""><?php _e('Select one','cozy') ?></option>
                 <option value="25000">$25000</option>
                 <option value="50000">$50000</option>
                 <option value="75000">$75000</option>
@@ -153,7 +153,7 @@ class WT_Cozy_Widget_Property_Search extends WP_Widget {
 
         <p>&nbsp;</p>
         <p class="center">
-            <button type="submit" class="btn btn-default-color"><?php e_('Search','cozy') ?></button>
+            <button type="submit" class="btn btn-default-color"><?php _e('Search','cozy') ?></button>
         </p>
     </div>
 </form>
