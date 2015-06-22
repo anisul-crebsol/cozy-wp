@@ -11,7 +11,7 @@ get_header(); ?>
 <!-- END HEADER -->
 
 <?php
-if(isset($_GET['property_type']) || $_GET['location'] || $_GET['advancedSearch'] == 'advancedSearch' || $_GET['post_type'] == 'property') {
+if(isset($_GET['property_type']) || isset($_GET['location']) || isset($_GET['advancedSearch']) == 'advancedSearch' || isset($_GET['post_type']) == 'property') {
     // BEGIN HOME ADVANCED SEARCH (class="gray" for a gray background)
     get_template_part ('/template-parts/advanced-search');
     // END HOME ADVANCED SEARCH

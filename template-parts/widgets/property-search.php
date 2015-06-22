@@ -58,7 +58,7 @@ class WT_Cozy_Widget_Property_Search extends WP_Widget {
                 <option value="land">Land</option>
             </select>
 
-            <select id="search_status" name="search_status" data-placeholder="Status">
+            <select id="term_slug" name="term_slug" data-placeholder="Status">
                 <option value=""><?php _e('Select one','cozy') ?></option>
                 <option value="for-sale">For Sale</option>
                 <option value="for-rent">For Rent</option>

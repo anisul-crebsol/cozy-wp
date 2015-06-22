@@ -3,11 +3,15 @@
         <?php
         $count = 0;
         $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
-        $agent_args = array(
+        $agent_search_args = array(
             'post_type' => 'agent',
-            'paged' => $paged
+            'paged' => $paged,
         );
-        query_posts($agent_args);
+
+        // Apply Search Filter
+        $agent_search_args = apply_filters('cozy_agent_search_parameters',$agent_search_args);
+
+        query_posts($agent_search_args);
         while (have_posts()) : the_post();
 
             $count++;

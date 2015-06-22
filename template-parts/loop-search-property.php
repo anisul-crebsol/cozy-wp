@@ -1,16 +1,9 @@
 <?php
 $count = 0;
 $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
-$location = $_GET['location'];
-$term_slug = $_GET['term_slug'];
-$search_prop_type = $_GET['search_prop_type'];
-$search_status = $_GET['search_status'];
-$search_bedrooms = $_GET['search_bedrooms'];
-$search_bathrooms = $_GET['search_bathrooms'];
-$search_minprice = intval($_GET['search_minprice']);
-$search_maxprice = intval($_GET['search_maxprice']);
-$search_minarea = intval($_GET['search_minarea']);
-$search_maxarea = intval($_GET['search_maxarea']);
+$location = isset($_GET['location']);
+$term_slug = isset($_GET['term_slug']);
+
 
 $city_state_country = array();
 $city_state_country['0'] = array(
@@ -88,11 +81,14 @@ $property_args4 = array(
     ),
 );
 
-if($_GET['location'] == '' || $_GET['post_type'] == 'property' ) { $property_args = $property_args; }
-if($_GET['location'] == '' && $_GET['term_slug'] != '' && $_GET['term_slug'] == $term_slug) { $property_args = $property_args2; }
-if($_GET['location'] != '' && $_GET['location'] == $location && $_GET['term_slug'] != '' && $_GET['term_slug'] == $term_slug) { $property_args = $property_args3; }
-if($_GET['location'] != '' && $_GET['location'] == $location && $_GET['term_slug'] == '') { $property_args = $property_args4; }
+if(isset($_GET['location']) == '' || isset($_GET['post_type']) == 'property' ) { $property_args = $property_args; }
+if(isset($_GET['location']) == '' && isset($_GET['term_slug']) != '' && isset($_GET['term_slug']) == $term_slug) { $property_args = $property_args2; }
+if(isset($_GET['location']) != '' && $_GET['location'] == $location && $_GET['term_slug'] != '' && $_GET['term_slug'] == $term_slug) { $property_args = $property_args3; }
+if(isset($_GET['location']) != '' && $_GET['location'] == $location && $_GET['term_slug'] == '') { $property_args = $property_args4; }
 
+
+// Apply Search Filter
+$property_args = apply_filters('cozy_property_search_parameters',$property_args);
 
 query_posts($property_args);
 while (have_posts()) : the_post();

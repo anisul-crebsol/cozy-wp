@@ -43,7 +43,8 @@ class WT_Cozy_Widget_Find_Agents extends WP_Widget {
         ?>
 
         <img src="<?php echo $image ?>" alt="" id="agents-img"/>
-        <select id="agents_country" name="s" data-placeholder="Choose a country">
+        <input type="hidden" value="" id="s" name="s">
+        <select id="agents_country" name="agents_country" data-placeholder="Choose a country">
             <option value="">Select one</option>
             <?php
             $count = get_countries();
